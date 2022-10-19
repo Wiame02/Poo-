@@ -1,10 +1,11 @@
 # Projet POO 2022
 
-DOUSSIN Nathan
-TAII Wiame
-RIMBERT Monique
-HIGNARD Katel
+DOUSSIN Nathan <br/>
+TAII Wiame <br/>
+RIMBERT Monique <br/> 
+HIGNARD Katel <br/>
 
+Chargé de TD & TP : GRANVILLIERS Laurent
 
 ## Comptes-rendus
 
