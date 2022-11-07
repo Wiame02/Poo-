@@ -26,9 +26,9 @@ public class Area {
     /**
      * GETTERS
      */
-    public String get_name() {return this.name;}
-    public Entity get_entity_at(int i) {return this.entities.get(i);}
-    public String get_action_at(int i) {return this.actions.get(i);}
+    public String get_name()            {return this.name;}
+    public Entity get_entity_at(int i)  {return this.entities.get(i);}
+    public String get_action_at(int i)  {return this.actions.get(i);}
 
     /**
      * SETTERS
@@ -40,7 +40,7 @@ public class Area {
      * @param ent Entite
      */
     public void add_entity(Entity ent) {
-        // TODO
+        this.entities.add(ent);
     }
 
     /**
@@ -48,7 +48,7 @@ public class Area {
      * @param act Chaine de caractere
      */
     public void add_action(String act) {
-        // TODO
+        this.actions.add(act);
     }
 
 }
