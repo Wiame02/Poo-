@@ -1,4 +1,5 @@
 package Localization;
+import java.util.ArrayList;
 
 /**
  * Board.java
@@ -7,5 +8,12 @@ package Localization;
  */
 
 public class Board {
-    
+    private ArrayList<World> worlds;
+
+    /**
+     * Constructeur de Board
+     */
+    public Board() {
+        this.worlds = new ArrayList<World>();
+    }
 }

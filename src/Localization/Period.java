@@ -6,6 +6,6 @@ package Localization;
  * @author Monique RIMBERT
  */
 
-public class Period {
-    
+public enum Period {
+    PAST, PRESENT, FUTURE;
 }
