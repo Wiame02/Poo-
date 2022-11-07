@@ -50,28 +50,49 @@ public class Player{
     }
 
 /* Méthodes */
-        /* GUETTERS */
-    public String get_username(){return this.username;}
-    public int get_lvl(){return this.lvl;}
-    public int get_hp (){return this.hp;}
-    public Order get_category(){return this.category;}
-    public Armor get_helmet(){return this.armor[0];}
-    public Armor get_chestplate(){return this.armor[1];}
-    public Armor get_legging(){return this.armor[2];}
-    public Armor get_boot(){return this.armor[3];}
-    public Weapon get_weapon(){return this.weapon;}
-    public Quest get_current_quest(){return this.current_quest;}
-    public Area get_current_area(){return this.current_area;}
+        /* GETTERS */
+    public String   get_username()      {return this.username;}
+    public int      get_lvl()           {return this.lvl;}
+    public int      get_hp ()           {return this.hp;}
+    public Order    get_category()      {return this.category;}
+    public Armor    get_helmet()        {return this.armor[0];}
+    public Armor    get_chestplate()    {return this.armor[1];}
+    public Armor    get_legging()       {return this.armor[2];}
+    public Armor    get_boot()          {return this.armor[3];}
+    public Weapon   get_weapon()        {return this.weapon;}
+    public Quest    get_current_quest() {return this.current_quest;}
+    public Area     get_current_area()  {return this.current_area;}
         
         /* SETTERS */
-    public void set_lvl(int lvl){this.lvl=lvl;}
-    public void set_hp(int hp){this.hp=hp;}
-    public void set_category(Order category){this.category=category;}
-    public void set_helmet(Armor casque){this.armor[0]=casque;}
-    public void set_chestplaste(Armor chestplate){this.chestplate=chestplate;}
-    public void set_legging(Armor legging){this.legging=legging;}
-    public void set_boot(Armor boot){this.boot=boot;}
-    public void set_current_quest(Quest quest){this.current_quest=quest;}
-    public void set_current_area(Area area){this.current_area=area;}
+    public void     set_lvl(int lvl)                    {this.lvl=lvl;}
+    public void     set_hp(int hp)                      {this.hp=hp;}
+    public void     set_category(Order category)        {this.category=category;}
+    public void     set_helmet(Armor casque)            {this.armor[0]=casque;}
+    public void     set_chestplaste(Armor chestplate)   {this.chestplate=chestplate;}
+    public void     set_legging(Armor legging)          {this.legging=legging;}
+    public void     set_boot(Armor boot)                {this.boot=boot;}
+    public void     set_current_quest(Quest quest)      {this.current_quest=quest;}
+    public void     set_current_area(Area area)         {this.current_area=area;}
+
+    /*  Augmente les points de vies
+     * @param n
+     */
+    void increase_hp(int n){
+        this.hp+=n;
+    }
+
+    /*  Diminue les points de vies
+     * @param n
+     */
+    void decrease_hp(int n){
+        this.hp-=n;
+    }
+
+    /* Retourne true si le personnage est vivant sinon false
+     * @return bool
+     */
+    boolean is_alive(){
+        return (this.hp!=0);
+    }
 
 }
