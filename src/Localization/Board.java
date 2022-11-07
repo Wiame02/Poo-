@@ -27,6 +27,6 @@ public class Board {
      * @param w
      */
     public void add_world(World w) {
-        // TODO
+        this.worlds.add(w);
     }
 }
