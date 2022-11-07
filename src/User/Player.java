@@ -20,9 +20,33 @@ public class Player{
     private Quest current_quest;
     private Area current_area;
 
-/* Constructeurs */
-    public Player(){
-        //TODO
+/* Constructeur
+ * @param username
+ * @param category
+ * @param first_area
+*/
+    public Player(String username, Order category, Area first_area){
+        this.username = username;
+        this.lvl = 0;
+        this.hp = 100;
+        this.category = category;
+        
+        Armor basic_helmet;
+        Armor basic_chestplate;
+        Armor basic_legging;
+        Armor basic_boot;
+        //TODO : Créer les pieces d'armures de debut de jeu
+
+        Weapon basic_weapon;
+        //TODO : Créer l'arme de debut de jeu
+
+        this.armor[0] = basic_helmet;
+        this.armor[1] = basic_chestplate;
+        this.armor[2] = basic_legging;
+        this.armor[3] = basic_boot;
+        this.weapon = basic_weapon;
+        this.current_quest = null;
+        this.current_area = first_area;
     }
 
 /* Méthodes */
