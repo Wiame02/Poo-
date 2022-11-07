@@ -6,6 +6,6 @@ package Quest;
  * @author Monique RIMBERT
  */
 
-public class Quest {
-    
+public abstract class Quest {
+    //TODO
 }
