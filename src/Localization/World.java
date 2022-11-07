@@ -48,6 +48,6 @@ public class World {
      * @param area
      */
     public void add_area(Area area) {
-        // TODO
+        this.areas.add(area);
     }
 }
