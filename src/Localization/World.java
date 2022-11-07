@@ -28,4 +28,26 @@ public class World {
         this.boss = boss;
     }
 
+    /**
+     * GETTERS
+     */
+    public String   get_name()          {return this.name;}
+    public Area     get_area_at(int i)  {return this.areas.get(i);}
+    public Period   get_era()           {return this.era;}
+    public Monster  get_boss()          {return this.boss;}
+
+    /**
+     * SETTERS
+     */
+    public void set_name(String name)   {this.name = name;}
+    public void set_era(Period era)     {this.era = era;}
+    public void set_boss(Monster boss)  {this.boss = boss;}
+
+    /**
+     * Ajouter une zone
+     * @param area
+     */
+    public void add_area(Area area) {
+        this.areas.add(area);
+    }
 }
