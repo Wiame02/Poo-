@@ -102,28 +102,40 @@ public class Player{
         //TODO
     }
 
-    /* Change l'equipement du personnage
+    /* Change l'equipement du personnage par le nouveau selon sa categorie
      * @param new_helmet
      */
-    void equip_armor(Armor armor) throws Exception{ 
+    void equip_armor(Armor new_armor) throws Exception{ 
         /*
         if(armor.){
-            this.armor[0]=armor;
+            this.armor[0]=new_armor;
         }else if(armor.){
-            this.armor[1]=armor;
+            this.armor[1]=new_armor;
         }else if(armor.){
-            this.armor[2]=armor;
+            this.armor[2]=new_armor;
         }else if(armor.){
-            this.armor[3]=armor;
+            this.armor[3]=new_armor;
         }else{
             throw new Exception("Armor without type");
         }
         */
     }
 
+    /* Change l'arme du personnage par la nouvelle
+     * @param new_weapon
+     */
+    void equip_weapon(Weapon new_weapon){
+        this.weapon=new_weapon;
+    }
+
     /* Parle à un villageois
      * @param villager
      */
-}   void talk(Villager villager){
-    //TODO
-}
+    void talk(Villager villager){
+        //TODO
+    }
+
+    /* 
+     * 
+     */
+}   
