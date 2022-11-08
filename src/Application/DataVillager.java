@@ -1,5 +1,5 @@
 package Application;
-import Entity;
+import Entity.Villager;
 
 /**
  * Dénombre tous les personnages qui exitent dans le jeu
