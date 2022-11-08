@@ -1,3 +1,11 @@
+package Entity
+
+/*
+ * Cette classe s'intitule Entity,
+ * elle regroupe les differentes entites
+ * present au sein de notre projet
+ */
+ 
 public class Entity{
 	
 	private String name;
@@ -8,12 +16,18 @@ public class Entity{
 		this.hp = 0;
 	}
 	
-	// --------------Getter---------------
+	// --------------METHODES---------------
+	
+	/*
+	 * GETTERS
+	 */
 	
 	public String getName(){return this.name;}
 	public double getHp(){return this.hp;}
 	
-	// --------------Setter---------------
+	/*
+	 * SETTERS
+	 */
 	
 	public void setName(String name){this.name=name;}
 	public void setHp(int hp){
@@ -23,8 +37,6 @@ public class Entity{
 			this.hp = hp;
 		}
 	}
-	
-	//----------Methode--------------
 	
 	public boolean isAlive(){
 		if( hp >= 0){

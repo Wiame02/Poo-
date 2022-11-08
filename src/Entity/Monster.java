@@ -1,3 +1,4 @@
+package Entity
 
 /*
  * Cette classe s'intitule Monster,
@@ -38,3 +39,4 @@ public class Monster extends Entity{
 			this.attack = attack;
 		}
 	}
+}
