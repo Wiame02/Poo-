@@ -9,6 +9,7 @@ package User;
 public enum Order {
 /* Constantes*/
     COMPUTER_SCIENTIST(){
+        
         @Override
         public void useSpecialAbility(){
             //TODO
@@ -19,5 +20,9 @@ public enum Order {
 /* Constructeurs */
 
 /* Méthodes */
+
+    /**
+     * Permet d'utiliser l'abilité spécifique à une classe (Order)
+     */
     public abstract void useSpecialAbility();
 }
