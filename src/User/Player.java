@@ -95,4 +95,29 @@ public class Player{
         return (this.hp!=0);
     }
 
+    /* Attaque une entité et lui fait perdre des points de vies
+     * @param entity
+     */
+    void attack(Entity e){
+        //TODO
+    }
+
+    /* Change l'equipement du personnage
+     * @param new_helmet
+     */
+    void equip_armor(Armor armor) throws Exception{ 
+        /*
+        if(armor.){
+            this.armor[0]=armor;
+        }else if(armor.){
+            this.armor[1]=armor;
+        }else if(armor.){
+            this.armor[2]=armor;
+        }else if(armor.){
+            this.armor[3]=armor;
+        }else{
+            throw new Exception("Armor without type");
+        }
+        */
+    }
 }
