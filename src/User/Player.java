@@ -120,4 +120,10 @@ public class Player{
         }
         */
     }
+
+    /* Parle à un villageois
+     * @param villager
+     */
+}   void talk(Villager villager){
+    //TODO
 }
