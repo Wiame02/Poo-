@@ -1,4 +1,4 @@
-package Entity
+package Entity;
 
 /*
  * Cette classe s'intitule Monster,
