@@ -1,6 +1,6 @@
 package Localization;
 import java.util.ArrayList;
-import Entity;
+import Entity.*;
 
 /**
  * Area.java
