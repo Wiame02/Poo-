@@ -5,8 +5,8 @@ Narrateur : "Bienvenue à L'Univers-Cité ! Mais... Tu n'es pas encore inscrit m
 -- Questions pour la création du personnage  
 * Comment t'appelles-tu ?  
 * Dans quel département veux-tu t'inscrire ? --> Affichage des différents départements  
--- Création du personnage
-Narrateur : "Bien bien... Maintenant que tu es inscrit... J'aurais un petit, tout petit service à te demander."
+-- Création du personnage  
+Narrateur : "Bien bien... Maintenant que tu es inscrit... J'aurais un petit, tout petit service à te demander."  
 
 <hr>
 
