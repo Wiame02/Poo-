@@ -1,8 +1,45 @@
 # Histoire
+
+Le joueur commence dans l'Univers-Cité :  
+Narrateur : "Bienvenue à L'Univers-Cité ! Mais... Tu n'es pas encore inscrit ma foi."  
+-- Questions pour la création du personnage  
+* Comment t'appelles-tu ?  
+* Dans quel département veux-tu t'inscrire ? --> Affichage des différents départements  
+-- Création du personnage
+Narrateur : "Bien bien... Maintenant que tu es inscrit... J'aurais un petit, tout petit service à te demander."
+
+<hr>
+
+## Espèces de Monstres
+### (Présent)
+* 
+### (Passé)
+* Mammouth
+### (Futur)
+* 
+
+## Quêtes 
+### (Présent)
+> | Titre | Objectif | Récompense |
+> |---|---|---|
+>
+
+### (Passé)
+> | Titre | Objectif | Récompense |
+> |---|---|---|
+>
+
+### (Futur)
+> | Titre | Objectif | Récompense |
+> |---|---|---|
+> | Herbe des rêves | Récolter l'herbe des rêves | Potion de la vie |
+> | Molkur sauvage | Abattre un molkur | Arme ruklom|
+
+
 ## Jeu de test : Déplacement
 > | Nom | Temporalité | Boss | Zones |
 > | --- | --- | --- | --- |
-> | "Université" | `null` | `null` | \<Centre> |
+> | "Univers-Cité" | `null` | `null` | \<Centre> |
 > | "Valkiem" | `PASSÉ` | Bill | \<Premier, Deuxieme, Troisieme> |
 ### ※ <u>Localisation : Zones</u>
 > | Nom | Monde | Entités |
@@ -18,13 +55,13 @@
 ### ※ <u>Localisation : Mondes</u>
 > | Nom | Temporalité | Boss | Zones |
 > | --- | --- | --- | --- |
-> | "Université" | `null` | `null` | \<Centre> |
+> | "Univers-Cité" | `null` | `null` | \<Centre> |
 > | "Valkiem" | `PASSÉ` | Bill | \<Premier, Deuxieme, Troisieme, Quatrieme> |
 
 ### ※ <u>Localisation : Zones</u>
 > | Nom | Monde | Entités |
 > | --- | --- | --- |
-> | "Centre" | Université | `null` |
+> | "Centre" | Univers-Cité | `null` |
 > | "Premier" | Valkiem | *random* |
 > | "Deuxieme" | Valkiem | *random* |
 > | "Troisieme" | Valkiem | *random* |
