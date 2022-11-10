@@ -20,4 +20,5 @@ Chargé de TD & TP : GRANVILLIERS Laurent
 [Livrable 2 : Proposition de sujet](https://gitlab.univ-nantes.fr/E205260J/projet-poo-2022/-/blob/main/Livrables/Proposition_de_Sujet.pdf)
 
 ## Annexes
-[Brouillon de l'univers du jeu](https://gitlab.univ-nantes.fr/E205260J/projet-poo-2022/-/blob/main/Annexes/Histoire.md)
+[Brouillon de l'univers du jeu](https://gitlab.univ-nantes.fr/E205260J/projet-poo-2022/-/blob/main/Annexes/Histoire.md)<br/>
+[Diagramme de Classes](https://gitlab.univ-nantes.fr/E205260J/projet-poo-2022/-/blob/main/Annexes/Histoire.md)
