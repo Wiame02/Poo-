@@ -10,6 +10,15 @@
 <hr/>
 
 ## Java
+### Commentaire interne
+| Commentaire | Signification |
+| ----------- | ------------- |
+| `//XXX`     | Mauvais code mais qui fonctionne    |
+| `//FIXME`   | Mauvais code qui ne fonctionne pas  |
+| `//TODO`    | À faire                             |
+| `//HACK`    | Code réservé aux spécialistes       |
+
+
 ### Importation
 ```java
 import otherPackage.*;          //Importer toutes les classes de otherPackage
