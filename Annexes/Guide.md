@@ -7,6 +7,11 @@
 |(3)| `git pull`| Récupère toutes les mises à jour envoyés sur le serveur public et les fusionnes avec le contenu de notre serveur local |
 |4| `git push` | Publie les changements locaux vers le serveur local |
 
+### Autres commandes intéressantes
+| Commande | Description |
+| -------- | ------------|
+| `git status` | Informe sur le dépot commun et sur les fichiers modifiés, mis sur la scène |
+
 <hr/>
 
 ## Java
