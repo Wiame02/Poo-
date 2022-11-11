@@ -1,6 +1,9 @@
 package User;
 import java.util.ArrayList;
 import Localization.*;
+import Entity.*;
+import Quest.*;
+import Item.*;
 
 /**
  * Player.java
@@ -20,7 +23,8 @@ public class Player{
     private Quest current_quest;
     private Area current_area;
 
-/* Constructeur
+/**
+ *  Constructeur
  * @param username
  * @param category
  * @param first_area
@@ -49,8 +53,9 @@ public class Player{
         this.current_area = first_area;
     }
 
-/* Méthodes */
-        /* GETTERS */
+/**
+ * GETTERS 
+*/
     public String   get_username()      {return this.username;}
     public int      get_lvl()           {return this.lvl;}
     public int      get_hp ()           {return this.hp;}
@@ -63,7 +68,9 @@ public class Player{
     public Quest    get_current_quest() {return this.current_quest;}
     public Area     get_current_area()  {return this.current_area;}
         
-        /* SETTERS */
+/**
+ * SETTERS
+*/
     public void     set_lvl(int lvl)                    {this.lvl=lvl;}
     public void     set_hp(int hp)                      {this.hp=hp;}
     public void     set_category(Order category)        {this.category=category;}
@@ -74,36 +81,61 @@ public class Player{
     public void     set_current_quest(Quest quest)      {this.current_quest=quest;}
     public void     set_current_area(Area area)         {this.current_area=area;}
 
-    /*  Augmente les points de vies
+/**
+ * Affichages
+ */ 
+    /**
+     * Affiche l'inventaire
+     */
+    void display_inventory(){
+        for(Item i : this.inventory){
+            //TODO
+        }
+    }
+
+    /**
+     * Affiche l'armure portée
+     */
+    void display_armor(){
+        for(Armor a : this.armor){
+            //TODO
+        }
+    }
+
+    /**
+     * Affiche l'arme portée
+     */
+    void display_weapon(){
+        //TODO
+    }
+
+    /**
+     * Augmente les points de vies d'un entier n
      * @param n
      */
     void increase_hp(int n){
         this.hp+=n;
     }
 
-    /*  Diminue les points de vies
+    /**
+     * Diminue les points de vies d'un entier n
      * @param n
      */
     void decrease_hp(int n){
         this.hp-=n;
     }
 
-    /* Retourne true si le personnage est vivant sinon false
+    /**
+     * Retourne true si le personnage est vivant sinon false
      * @return bool
      */
     boolean is_alive(){
         return (this.hp!=0);
     }
 
-    /* Attaque une entité et lui fait perdre des points de vies
-     * @param entity
-     */
-    void attack(Entity e){
-        //TODO
-    }
-
-    /* Change l'equipement du personnage par le nouveau selon sa categorie
-     * @param new_helmet
+    /**
+     * Change l'equipement du personnage par le nouveau selon sa categorie
+     * @param new_armor
      */
     void equip_armor(Armor new_armor) throws Exception{ 
         /*
@@ -121,21 +153,27 @@ public class Player{
         */
     }
 
-    /* Change l'arme du personnage par la nouvelle
+    /**
+     * Change l'arme du personnage par la nouvelle
      * @param new_weapon
      */
     void equip_weapon(Weapon new_weapon){
         this.weapon=new_weapon;
     }
 
-    /* Parle à un villageois
-     * @param villager
+    /**
+     * Le personnage interagit avec une entité
+     * @param e
      */
-    void talk(Villager villager){
+    void interact(Entity e){
         //TODO
     }
 
-    /* 
-     * 
+        /**
+     *  Attaque une entité et lui fait perdre des points de vies
+     * @param entity
      */
-}   
+    void attack(Entity e){
+        //TODO
+    }
+}    

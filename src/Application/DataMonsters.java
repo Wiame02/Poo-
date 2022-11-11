@@ -1,5 +1,5 @@
 package Application;
-import Entity;
+import Entity.Monster;
 
 /**
  * Dénombre tous les monstres qui exitent dans le jeu

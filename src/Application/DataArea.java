@@ -1,5 +1,5 @@
 package Application;
-import Entity;
+import Entity.*;
 
 /**
  * Décrit les zones présentes sur la carte
