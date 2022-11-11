@@ -9,33 +9,66 @@ Narrateur : "Bienvenue à L'Univers-Cité ! Mais... Tu n'es pas encore inscrit m
 -- Création du personnage  
 Narrateur : "Bien bien... Maintenant que tu es inscrit... J'aurais un petit, tout petit service à te demander."  
 
-<hr>
+<hr/>
 
-## Espèces de Monstres
-### (Présent)
+## Les Mondes 
+<hr/>
+
+## <u>Univers-Cité</u>
+### Zones
+* Bibliothèque
+* Cafétéria
+Graphe des zones :  
+
+### Quêtes
+> | Titre | Objectif | Récompense |
+> |---|---|---|
+>
+
+<hr/>
+
+## <u>???</u> (Présent)
+### Zones
 * 
-### (Passé)
+Graphe des zones :  
+
+### Espèces de Monstres
+* Mort-vivant
+### Quêtes
+> | Titre | Objectif | Récompense |
+> |---|---|---|
+>
+
+<hr/>
+
+## <u>Valkiem</u> (Passé)
+### Zones
+* 
+Graphe des zones :  
+
+### Espèces de Monstres
 * Mammouth
-### (Futur)
+### Quêtes
+> | Titre | Objectif | Récompense |
+> |---|---|---|
+>
+
+<hr/>
+
+## <u>???</u> (Futur)
+### Zones
 * 
+Graphe des zones :  
 
-## Quêtes 
-### (Présent)
-> | Titre | Objectif | Récompense |
-> |---|---|---|
->
-
-### (Passé)
-> | Titre | Objectif | Récompense |
-> |---|---|---|
->
-
-### (Futur)
-> | Titre | Objectif | Récompense |
-> |---|---|---|
-> | Herbe des rêves | Récolter l'herbe des rêves | Potion de la vie |
-> | Molkur sauvage | Abattre un molkur | Arme ruklom|
-
+### Espèces de Monstres
+### Quêtes
+> | Villageois |Titre | Objectif | Récompense |
+> |---|---|---|---|
+> | Sorcière Alma |Herbe des rêves | Récolter l'herbe des rêves | Potion de la vie |
+> | Chasseur |Molkur sauvage | Abattre un molkur | Arme ruklom|
+  
+  
+<hr/>
 
 ## Jeu de test : Déplacement
 > | Nom | Temporalité | Boss | Zones |
@@ -50,7 +83,7 @@ Narrateur : "Bien bien... Maintenant que tu es inscrit... J'aurais un petit, tou
 > | "Deuxieme" | Valkiem | `null` |
 > | "Troisieme" | Valkiem | `null` |
 
-<hr>
+<hr/>
 
 ## Jeu de test : Cas général
 ### ※ <u>Localisation : Mondes</u>
@@ -85,4 +118,5 @@ Narrateur : "Bien bien... Maintenant que tu es inscrit... J'aurais un petit, tou
 > | --- | --- | --- | --- |
 > | "Herbe des rêves" | `false` | *tbd* | Herbe des reves : Item |
 > | "Molkur" | `false` | *tbd* | Molkur : Monstre |
-<hr>
+
+<hr/>
