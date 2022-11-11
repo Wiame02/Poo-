@@ -1,17 +1,18 @@
 package Entity;
 
-/*
+/**
  * Cette classe s'intitule Villager,
  * elle regroupe les differentes villageois
  * que le joueur aura l'occasion de rencontrer 
- * via differentes quetes
+ * via differentes quetes.
+ * @author Nathan Doussin
  */
  
 public class Villager extends Entity{
 	private Arrey<String> dialogues;
 	private Quest quest;
 
-	Monster(Arrey<String> dialogues, Quest quest){
+	public Villager(Arrey<String> dialogues, Quest quest){
 		super(name, hp);
 		this.dialogues = dialogues;
 		this.quest = quest;
@@ -19,25 +20,56 @@ public class Villager extends Entity{
 	
 	//--------------METHODES-------------
 	
-	/*
+	/**
 	 * GETTERS
 	 */
 	
 	public String get_dialogues(){return this.dialogues;}
 	public double get_quest(){return this.quest;}
 	
-	/*
+	/**
 	 * SETTERS
 	 */
 	
 	public void set_dialogues(Array<String> dialogues){this.dialogues=dialogues;}
 	public void set_quest(Quest quest){this.quest=quest;}
 	
-	
-	public void Talk(){
-		Quest quest_end;
-		Quest quest_current
+	/**
+	 * Cette methode sera utiliser lors d'une 
+	 * rencontre avec un villageois.
+	 * on saura alors la reponse du villageois
+	 * en fonction de notre actuelle
+	 * @param quest, cette atribut correspond a quete que la villageois nous donne lors de son interaction avec le personnage
+	 */
+	public void talk_villager(Quest quest){
+		
+		Quest quest_current_end;
+		boolean b = false;
+		
+		if(quest_current_end == b){ // est-ce que notre quete actuelle est finie ?
+			
+			if(quest_current_end == quest){ // est-ce que notre quete actuelle coorespond a celle que la villageois nous donne ? 
+				
+				System.out.println("Veuillez finir votre quete actuelle");
+			
+			} else {
+				
+				// on appelle la quete du villageois
+			}	
+		
+		} else { // notre quete actuelle est finie
+			
+			if(quest_current_end == quest){ // est-ce que notre quete actuelle coorespond a celle que la villageois nous donne ? 
+				
+				// rendre la quete au villageois et récuperer les recompenses
+			
+			} else {
+				
+				System.out.println("");
+			}
+		}
 		
 	}
+	
 	
 }

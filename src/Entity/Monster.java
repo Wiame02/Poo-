@@ -1,9 +1,10 @@
 package Entity;
 
-/*
- * Cette classe s'intitule Monster,
- * elle regroupe les differents monstres
- * present au sein de notre projet
+/**
+ * Cette sous-classe s'intitule Monster,
+ * elle regroupe les differents especes de monstres
+ * presentes au sein de notre projet.
+ * @author Nathan Doussin
  */
 
 
@@ -12,7 +13,7 @@ public class Monster extends Entity{
 	private Species species;
 	private int attack;
 
-	Monster(Species species, int attack){
+	public Monster(Species species, int attack){
 		super(name, hp);
 		this.species = species;
 		this.attack = 0;
@@ -20,14 +21,14 @@ public class Monster extends Entity{
 	
 	//--------------METHODES-------------
 	
-	/*
+	/**
 	 * GETTERS
 	 */
 	
 	public String get_species(){return this.species;}
 	public double get_attack(){return this.attack;}
 	
-	/*
+	/**
 	 * SETTERS
 	 */
 	
