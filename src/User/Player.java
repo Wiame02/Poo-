@@ -18,8 +18,8 @@ public class Player{
     private int hp;
     private Order category;
     private ArrayList<Item> inventory;
-    private Armor[] armor;
-    private Weapon weapon;
+    //private Armor[] armor;
+    //private Weapon weapon;
     private Quest current_quest;
     private Area current_area;
 
@@ -35,6 +35,7 @@ public class Player{
         this.hp = 100;
         this.category = category;
         
+        /*
         Armor basic_helmet;
         Armor basic_chestplate;
         Armor basic_legging;
@@ -49,6 +50,7 @@ public class Player{
         this.armor[2] = basic_legging;
         this.armor[3] = basic_boot;
         this.weapon = basic_weapon;
+        */
         this.current_quest = null;
         this.current_area = first_area;
     }
@@ -60,11 +62,11 @@ public class Player{
     public int      get_lvl()           {return this.lvl;}
     public int      get_hp ()           {return this.hp;}
     public Order    get_category()      {return this.category;}
-    public Armor    get_helmet()        {return this.armor[0];}
-    public Armor    get_chestplate()    {return this.armor[1];}
-    public Armor    get_legging()       {return this.armor[2];}
-    public Armor    get_boot()          {return this.armor[3];}
-    public Weapon   get_weapon()        {return this.weapon;}
+    //public Armor    get_helmet()        {return this.armor[0];}
+    //public Armor    get_chestplate()    {return this.armor[1];}
+    //public Armor    get_legging()       {return this.armor[2];}
+    //public Armor    get_boot()          {return this.armor[3];}
+    //public Weapon   get_weapon()        {return this.weapon;}
     public Quest    get_current_quest() {return this.current_quest;}
     public Area     get_current_area()  {return this.current_area;}
         
@@ -74,10 +76,10 @@ public class Player{
     public void     set_lvl(int lvl)                    {this.lvl=lvl;}
     public void     set_hp(int hp)                      {this.hp=hp;}
     public void     set_category(Order category)        {this.category=category;}
-    public void     set_helmet(Armor casque)            {this.armor[0]=casque;}
-    public void     set_chestplaste(Armor chestplate)   {this.chestplate=chestplate;}
-    public void     set_legging(Armor legging)          {this.legging=legging;}
-    public void     set_boot(Armor boot)                {this.boot=boot;}
+    //public void     set_helmet(Armor casque)            {this.armor[0]=casque;}
+    //public void     set_chestplaste(Armor chestplate)   {this.chestplate=chestplate;}
+    //public void     set_legging(Armor legging)          {this.legging=legging;}
+    //public void     set_boot(Armor boot)                {this.boot=boot;}
     public void     set_current_quest(Quest quest)      {this.current_quest=quest;}
     public void     set_current_area(Area area)         {this.current_area=area;}
 
@@ -87,33 +89,49 @@ public class Player{
     /**
      * Affiche l'inventaire
      */
+    /*
     void display_inventory(){
         for(Item i : this.inventory){
             //TODO
         }
     }
+    */
 
     /**
      * Affiche l'armure portée
      */
+    /*
     void display_armor(){
         for(Armor a : this.armor){
             //TODO
         }
     }
+    */
 
     /**
      * Affiche l'arme portée
      */
+     /*
     void display_weapon(){
         //TODO
     }
+    */
+
+    /**
+     * Le joueur se déplace dans une zone   
+     */
+    public void move_to(Area destination){
+        this.current_area = destination;
+    }
+
+
 
     /**
      * Augmente les points de vies d'un entier n
      * @param n
      */
     void increase_hp(int n){
+
         this.hp+=n;
     }
 
@@ -122,7 +140,11 @@ public class Player{
      * @param n
      */
     void decrease_hp(int n){
-        this.hp-=n;
+        if(this.hp<=n){
+            this.hp=0;
+        }else{
+            this.hp-=n;
+        }
     }
 
     /**
@@ -137,8 +159,8 @@ public class Player{
      * Change l'equipement du personnage par le nouveau selon sa categorie
      * @param new_armor
      */
+     /*
     void equip_armor(Armor new_armor) throws Exception{ 
-        /*
         if(armor.){
             this.armor[0]=new_armor;
         }else if(armor.){
@@ -150,16 +172,18 @@ public class Player{
         }else{
             throw new Exception("Armor without type");
         }
-        */
     }
+    /*
 
     /**
      * Change l'arme du personnage par la nouvelle
      * @param new_weapon
      */
+    /*
     void equip_weapon(Weapon new_weapon){
         this.weapon=new_weapon;
     }
+    */
 
     /**
      * Le personnage interagit avec une entité
@@ -169,7 +193,7 @@ public class Player{
         //TODO
     }
 
-        /**
+    /**
      *  Attaque une entité et lui fait perdre des points de vies
      * @param entity
      */
