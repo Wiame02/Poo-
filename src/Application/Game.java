@@ -44,6 +44,30 @@ public class Game {
     }
 
     /**
+     * Execute la fontion qui a été entrée
+     * @param func La fonction entrée avec son parametre sous forme de tableau
+     * @throws GameException La fonction entrée soit n'est pas valide soit son paramètre ne l'est pas
+     */
+    public static void execute_function_input(String[2])
+
+    /**
+     * Permet l'execution d'une entree du joueur
+     * @param area La zone dans lequel se trouve le joueur
+     * @param player Le joueur
+     */
+    public static void player_do_action(Area area, Player player) {
+        try {
+            ArrayList<String> input = new read_action();
+            execute_function_input(input);
+        }
+        catch (GameExceptions e) {
+	        System.out.println("Error in player_do_action() : " + e);
+	        e.printStackTrace();
+            player_do_action(Area area, Player player);
+        }
+    }
+
+    /**
      * Déroulement du jeu
      */
     public static void play_game() {
@@ -54,7 +78,7 @@ public class Game {
         boolean is_player_alive     = true;
 
         while (!are_all_boss_dead && is_player_alive) {
-            //TODO show_available_actions(...);
+            //TODO show_available_actions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
             //TODO player_do_action(...);
 
             //TODO are_all_boss_alive = are_all_boss_dead();
