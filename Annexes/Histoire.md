@@ -41,7 +41,7 @@ Graphe des zones :
 
 <hr/>
 
-## <u>Valkiem</u> (Passé)
+## <u>Valkïem</u> (Passé)
 ### Zones
 * 
 Graphe des zones :  
@@ -74,14 +74,14 @@ Graphe des zones :
 > | Nom | Temporalité | Boss | Zones |
 > | --- | --- | --- | --- |
 > | "Univers-Cité" | `null` | `null` | \<Centre> |
-> | "Valkiem" | `PASSÉ` | Bill | \<Premier, Deuxieme, Troisieme> |
+> | "Valkïem" | `PASSÉ` | Bill | \<Premier, Deuxieme, Troisieme> |
 ### ※ <u>Localisation : Zones</u>
 > | Nom | Monde | Entités |
 > | --- | --- | --- |
 > | "Centre" | Université | `null` |
-> | "Premier" | Valkiem | `null` |
-> | "Deuxieme" | Valkiem | `null` |
-> | "Troisieme" | Valkiem | `null` |
+> | "Premier" | Valkïem | `null` |
+> | "Deuxieme" | Valkïem | `null` |
+> | "Troisieme" | Valkïem | `null` |
 
 <hr/>
 
@@ -90,27 +90,27 @@ Graphe des zones :
 > | Nom | Temporalité | Boss | Zones |
 > | --- | --- | --- | --- |
 > | "Univers-Cité" | `null` | `null` | \<Centre> |
-> | "Valkiem" | `PASSÉ` | Bill | \<Premier, Deuxieme, Troisieme, Quatrieme> |
+> | "Valkïem" | `PASSÉ` | Bill | \<Premier, Deuxieme, Troisieme, Quatrieme> |
 
 ### ※ <u>Localisation : Zones</u>
 > | Nom | Monde | Entités |
 > | --- | --- | --- |
 > | "Centre" | Univers-Cité | `null` |
-> | "Premier" | Valkiem | *random* |
-> | "Deuxieme" | Valkiem | *random* |
-> | "Troisieme" | Valkiem | *random* |
-> | "Quatrieme" | Valkiem | *random* |
+> | "Premier" | Valkïem | *random* |
+> | "Deuxieme" | Valkïem | *random* |
+> | "Troisieme" | Valkïem | *random* |
+> | "Quatrieme" | Valkïem | *random* |
 
 ### ※ <u>Entités</u>
 #### **Villageois**
 > | Nom | Boss | Monde | Quête | Dialogues |
 > | --- | --- | --- | --- | --- |
-> | Bill | `true` | Valkiem | *tbd* | *tbd* |
-> | Patrick | `false` | Valkiem | *tbd* | *tbd* |
+> | Bill | `true` | Valkïem | *tbd* | *tbd* |
+> | Patrick | `false` | Valkïem | *tbd* | *tbd* |
 #### **Monstres**
 > | Nom | Type | Boss | Monde |
 > | --- | --- | --- | --- |
-> | Molkur | `GOBLIN` | `false` | Valkiem |
+> | Molkur | `GOBLIN` | `false` | Valkïem |
 
 
 ### ※ <u>Quêtes</u>
