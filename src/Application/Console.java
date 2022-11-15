@@ -1,5 +1,6 @@
 package Application;
 import java.util.Scanner;
+import java.util.String;
 
 
 
@@ -15,9 +16,21 @@ public class Console {
      *  Lit et decrypte l'entrée d'un utilisateur
      * @return la fonction et son parametre d'entree sous forme de tableau
      */
-    public static ArrayList<String> read_action() throws Exception {
-        System.out.print(">>");
-        String str_input = System.in.read();
-        //TODO
+    public static ArrayList<String> read_action() throws ApplicationException {
+        ArrayList<String> result_function;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print(">> ");
+        String str = sc.nextLine();
+
+        if (!str.endsWith(";")){
+            throw new ApplicationException("Line missing ';'");
+        } else {
+            //TODO
+        }
+
     }
+    }
+
+
 }
