@@ -3,11 +3,11 @@ package Stuff;
 // Item les objets utiliser par le personnage 
 // @author Taii wiame 
 
-public class Weapons extends Item {
+public class Weapon extends Item {
     private int attack_point ;
 
 //--------------------constructeur ---------------------------
-public Weapons(String name , int durability , int attack_point){
+public Weapon(String name , int durability , int attack_point){
   super (name , durability ) ;
   this.attack_point = attack_point;
 } 
