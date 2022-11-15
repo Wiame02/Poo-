@@ -37,6 +37,7 @@ public class Player{
         
         this.inventory = new Inventory();
 
+        this.armor = new Armor[4];
         this.armor[0] = new Armor("Chapeau de cuir",50,10);
         this.armor[1] = new Armor("Tunique en Lin",50,10);
         this.armor[2] = new Armor("Pantalon en Lin",50,10);
@@ -132,20 +133,31 @@ public class Player{
      * Augmente les points de vies d'un entier n
      * @param n
      */
-    void increase_hp(int n){
-
-        this.hp+=n;
+    void increase_hp(int n) throws Exception {
+        if(n>0){
+            this.hp+=n;
+        }else{
+            throw new Exception("Ne peut pas ajouter une valeur nulle ou négative");
+        }
     }
 
     /**
      * Diminue les points de vies d'un entier n
      * @param n
      */
-    void decrease_hp(int n){
-        if(this.hp<=n){
-            this.hp=0;
-        }else{
-            this.hp-=n;
+    void decrease_hp(int n) throws Exception{
+        if(is_alive()){
+            if(n>0){
+                if(this.hp<=n){
+                    this.hp=0;
+                }else{
+                    this.hp-=n;
+                }
+            }else{
+                throw new Exception("Ne peut pas soustraire une valeur nulle ou négative");
+            }
+        }else{ 
+            throw new Exception("Ne peut pas soustraire : La vie du joueur est déjà à 0");
         }
     }
 
