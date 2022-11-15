@@ -3,15 +3,15 @@ Package Item
 // Item les objets utiliser par le personnage 
 // @author Taii wiame 
 
-public class Weapons extends Item {
-    int attack_point
+public class Armor extends Item {
+    private int defense_point ;
 
 //--------------------constructeur ---------------------------
-public Item (String name , int durability){
+public Armor(String name , int durability , int defense_point){
   super (name , durability ) ;
-  this.attack_point = attack_point;
+  this.defense_point =defense_point;
 } 
 
 //---------------------methode--------------------------------
-pulic int getattack_point()    {return this.attack_point} 
+public int getdefense_point()    {return this.defense_point} 
 }
