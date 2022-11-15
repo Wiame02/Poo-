@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import Localization.*;
 import Entity.*;
 import Quest.*;
-import Item.*;
+import Stuff.*;
 
 /**
  * Player.java
@@ -34,22 +34,16 @@ public class Player{
         this.lvl = 0;
         this.hp = 100;
         this.category = category;
+        
         this.inventory = new Inventory();
 
-        Armor basic_helmet;
-        Armor basic_chestplate;
-        Armor basic_legging;
-        Armor basic_boot;
-        //TODO : Créer les pieces d'armures de debut de jeu
+        this.armor[0] = new Armor("Chapeau de cuir",50,10);
+        this.armor[1] = new Armor("Tunique en Lin",50,10);
+        this.armor[2] = new Armor("Pantalon en Lin",50,10);
+        this.armor[3] = new Armor("Chaussure de cuir",50,10);
 
-        Weapon basic_weapon;
-        //TODO : Créer l'arme de debut de jeu
-
-        this.armor[0] = basic_helmet;
-        this.armor[1] = basic_chestplate;
-        this.armor[2] = basic_legging;
-        this.armor[3] = basic_boot;
-        this.weapon = basic_weapon;
+        this.weapon = new Weapon("Brindille",20,5);
+        
         this.current_quest = null;
         this.current_area = first_area;
     }
@@ -76,9 +70,9 @@ public class Player{
     public void     set_hp(int hp)                      {this.hp=hp;}
     public void     set_category(Order category)        {this.category=category;}
     public void     set_helmet(Armor casque)            {this.armor[0]=casque;}
-    public void     set_chestplaste(Armor chestplate)   {this.chestplate=chestplate;}
-    public void     set_legging(Armor legging)          {this.legging=legging;}
-    public void     set_boot(Armor boot)                {this.boot=boot;}
+    public void     set_chestplaste(Armor chestplate)   {this.armor[1]=chestplate;}
+    public void     set_legging(Armor legging)          {this.armor[2]=legging;}
+    public void     set_boot(Armor boot)                {this.armor[3]=boot;}
     public void     set_current_quest(Quest quest)      {this.current_quest=quest;}
     public void     set_current_area(Area area)         {this.current_area=area;}
 
@@ -89,7 +83,7 @@ public class Player{
      * Affiche l'inventaire
      */
     void display_inventory(){
-        for(Item i : this.inventory){
+        for(Item i : this.inventory.get_items()){
             //TODO : Affichage des noms des items et de leurs quantités
         }
     }
@@ -171,17 +165,19 @@ public class Player{
      * @param new_armor
      */
     void equip_armor(Armor new_armor) throws Exception{ 
-        if(armor.){
+        /*
+        if(new_armor.){
             this.armor[0]=new_armor;
-        }else if(armor.){
+        }else if(new_armor.){
             this.armor[1]=new_armor;
-        }else if(armor.){
+        }else if(new_armor.){
             this.armor[2]=new_armor;
-        }else if(armor.){
+        }else if(new_armor.){
             this.armor[3]=new_armor;
         }else{
             throw new Exception("Armor without type");
         }
+        */
     }
 
 

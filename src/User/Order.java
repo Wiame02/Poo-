@@ -1,5 +1,6 @@
 package User;
 import Localization.*;
+import Entity.*;
 
 /**
  * Order.java

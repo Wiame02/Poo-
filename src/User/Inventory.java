@@ -1,6 +1,5 @@
 package User;
-import Item.*;
-import java.lang.reflect.Array;
+import Stuff.*;
 import java.util.ArrayList;
 
 public class Inventory {
@@ -11,6 +10,14 @@ public class Inventory {
      */
     Inventory(){
         this.items = new ArrayList<Item>();
+    }
+
+    /**
+     * 
+     * @param e
+     */
+    public ArrayList<Item> get_items(){
+        return this.items;
     }
 
     /**
