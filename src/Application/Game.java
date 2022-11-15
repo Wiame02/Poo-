@@ -48,7 +48,12 @@ public class Game {
      * @param func La fonction entrée avec son parametre sous forme de tableau
      * @throws GameException La fonction entrée soit n'est pas valide soit son paramètre ne l'est pas
      */
-    public static void execute_function_input(String[2])
+    public static void execute_function_input(ArrayList<String> func) {
+        ArrayList<String> doable_actions = get_available_actions();
+        if (func[0]=="kill") {
+            //TODO verif param
+        }
+    }
 
     /**
      * Permet l'execution d'une entree du joueur

@@ -2,34 +2,34 @@ package Entity;
 
 /**
  * Cette sous-classe s'intitule Species,
- * elle regroupe les differents monstres
- * present au sein de notre projet
+ * elle regroupe les differents noms des especes
+ * presentes au sein de notre projet.
  * @author Nathan Doussin
  */
  
- public class Species{
+ public enum Species{
 	 
-	 //[...]
-	 
-	 public Species(){
-		 //TODO	
-	 }
-	 
-	 
-	 //-----------METHODES--------------
-	 
-	 /**
-	  * GETTERS
-	  */
-	  
-	  
-	  
-	  
-	  
-	  /**
-	   * SETTERS
-	   */
-	 
-	 
+	 SUCCUBUS, // Succube
+	 GRIFFIN, // Griffon
+	 SPHINX,
+	 MAMMOTH,
+	 MASTIFF, // Molosse
+	 DJIN, 
+	 ICE_ELEMENTAL,
+	 EARTH_ELEMENTAL,
+	 FIRE_ELEMENTAL,
+	 WIND_ELEMENTAL,
+	 LIGHT_ELEMENTAL,
+	 WYVERN,
+	 DRAGON,
+	 ANCESTRAL DRAGON,
+	 DEMONIC DRAGON,
+	 GHOUL,
+	 ALGOULE,
+	 ZOMBIE,
+	 UNDEAD, //mort-vivant
+	 DEMON,
+	 ELVES DEMON, // elfes demons
+	 SAINT; // fusion des demons et elfes demons
 }
 
