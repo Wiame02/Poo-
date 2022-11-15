@@ -13,8 +13,8 @@ public class Inventory {
     }
 
     /**
-     * 
-     * @param e
+     * Retourne la liste d'items soit l'inventaire
+     * @return la liste d'items
      */
     public ArrayList<Item> get_items(){
         return this.items;
