@@ -2,13 +2,20 @@ package User;
 
 public class Player_test{
 
-    public static void main (String[] args){
-        Area first_area = new Area("first_one");
-        Area last_area = new Area("last_one");
-        Player p = new Player("Kateul",PHYSICIST,first_area);
+    /**
+     * Test la fonction d'augmentation et dimininution des points de vies
+     */
+    public static void test_decrease_increase_hp(){
+        Player p = new Player("Kateul",null,null);
 
-        p.category.useSpecialAbility(p,last_area);
-        System.out.println(p.get_current_area.name);
+        // Tests - 5 donne 105; -5 renvoie une exception
+        p.increase_hp(5);
+        System.out.print("Niveau de vie doit etre 105"+p.get_hp());
+    }
+
+
+    public static void main (String[] args){
+        test_decrease_increase_hp();
     }
 
 }
