@@ -16,7 +16,7 @@
 
 ## Java
 ### Java Reflection
-[Lien](https://www.oracle.com/technical-resources/articles/java/javareflection.html)
+[Détails technique Oracle : Reflection](https://www.oracle.com/technical-resources/articles/java/javareflection.html)
 ### Commentaire interne
 | Commentaire | Signification |
 | ----------- | ------------- |
