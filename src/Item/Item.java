@@ -18,8 +18,8 @@ public Item (String name , int durability) {
 
 // methode 
 
- void use_damage () {return(this.durability -= 1);}  
- abstract void use_damage_n () {return(this.durability -= n );} 
+ private void use_damage (int nb_damage) {this.durability -= nb_damage;}  
+ public void use_damage_n (int nb_damage) {this.use_damage (1) ;} 
 
 
 
