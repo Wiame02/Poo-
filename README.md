@@ -22,4 +22,5 @@ Chargé de TD & TP : GRANVILLIERS Laurent
 
 ## Annexes
 [Brouillon de l'univers du jeu](Annexes/Histoire.md)<br/>
-[Diagramme de Classes](Annexes/Histoire.md)
+[Diagramme de Classes](Annexes/Histoire.md)<br/>
+[Guide GIT, Java et Javadoc](Annexes/Guide.md)
