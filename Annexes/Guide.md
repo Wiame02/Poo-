@@ -2,10 +2,10 @@
 ## GIT
 | Ordre | Commande | Description |
 | ------| -------- | ------------|
-|1| `git add @file `| Ajoute des fichiers modifiés sur la scène |
+|1| `git add @file ` <br/> `git add src/Item/*`| Ajoute des fichiers modifiés sur la scène <br/> Ajoute tous les fichiers modifiés de ce répertoire |
 |2| `git commit -m "message"`| Valide les changements mis sur la scène |
 |(3)| `git pull`| Récupère toutes les mises à jour envoyés sur le serveur public et les fusionnes avec le contenu de notre serveur local |
-|4| `git push` | Publie les changements locaux vers le serveur local |
+|4| `git push` | Publie les changements locaux vers le serveur public |
 
 ### Autres commandes intéressantes
 | Commande | Description |
