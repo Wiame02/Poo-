@@ -12,7 +12,6 @@ import Stuff.*;
  */
 
 public class Player{
-/* Attribus */
     private String username;
     private int lvl;
     private int hp;
@@ -24,7 +23,7 @@ public class Player{
     private Area current_area;
 
 /**
- *  Constructeur
+ * Constructeur
  * @param username
  * @param category
  * @param first_area
@@ -89,7 +88,6 @@ public class Player{
         }
     }
 
-
     /**
      * Affiche l'armure portée
      */
@@ -98,7 +96,6 @@ public class Player{
             //TODO : Afficher le nom d'un morceau d'armure
         }
     }
-
 
     /**
      * Affiche l'arme portée
@@ -117,14 +114,12 @@ public class Player{
     public void move_to(Area destination){
         this.current_area = destination;
     }
-/*
- * Gestion de l'inventaire
- */
-    /**
-     * 
-     * @param n
-     */
 
+    public void move_linked_area(Area destination){
+        // Vérifier si la destination est possible
+            // this.move_to(destination);
+        // Sinon lancer exception
+    }
 
 /*
  * Gestion des points de vie
