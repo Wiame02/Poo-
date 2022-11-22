@@ -1,14 +1,14 @@
 package Stuff;
-//item.java 
-// Item les objets utiliser par le personnage 
-// @author Taii wiame
+/**
+ * Type.java
+ * Enumeration des types d'armures
+ * @author Taii wiame
+ */
 
 public enum Type {
 
- HELMET , 
- CHESTPLATE , 
- LEGGING ,
- BOOT ,
-
-
+ HELMET, 
+ CHESTPLATE, 
+ LEGGING,
+ BOOT;
 } 

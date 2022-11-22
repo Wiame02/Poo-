@@ -13,7 +13,7 @@ public Armor(String name , int durability , int defense_point){
 } 
 
 //---------------------methode--------------------------------
-public int getdefense_point()    {return this.defense_point} 
+public int getdefense_point()    {return this.defense_point;} 
 @Override  
 public void use_damage_n (int nb_damage) {this.use_damage (nb_damage) ;} 
 }

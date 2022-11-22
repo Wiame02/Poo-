@@ -26,15 +26,13 @@ public Item (String name , int durability) {
      * SETTERS
      */
     public void set_name (String name) {this.name = name;} 
-    public void set_durability (int durability ) {this.durabilty = durability;} 
+    public void set_durability (int durability ) {this.durability = durability;} 
 
 
 // Methode
 
  public void use_damage (int nb_damage) {this.durability -= nb_damage;}  
  public void use_damage_n (int nb_damage) {this.use_damage (1) ;} 
-
-
 
 }
  
