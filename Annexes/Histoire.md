@@ -1,4 +1,4 @@
-# Histoire
+ # Histoire
 
 Le joueur commence dans l'Univers-Cité :  
 Narrateur : "Bienvenue à L'Univers-Cité ! Mais... Tu n'es pas encore inscrit ma foi."  
@@ -29,43 +29,63 @@ Graphe des zones :
 
 ## <u>???</u> (Présent)
 ### Zones
-* 
+* Tour des péchés (salle de la rédemption, 7 étages pour les 7 péchés capitaux : luxure, gourmandise, envie, avarice, )
+*
 Graphe des zones :  
 
 ### Espèces de Monstres
 * Mort-vivant
+* Goule
+* Algoule
+* Molosse
+* Griffon
+* Succube
 ### Quêtes
-> | Titre | Objectif | Récompense |
-> |---|---|---|
->
+> | Villageois | Titre | Objectif | Récompense |
+> |---|---|---|---|
+> | Survivant Hugo | Epidémie | Abattre tout les zombies | Plastron de métal |
+> | Bergère Aldine | Moutons en danger | Abbater un molosse | Laine de mouton |
+> | Grand père Rodrigo | Tricot en périle | Lui rapporter de la laine | Bonnet douillet |
 
 <hr/>
 
 ## <u>Valkïem</u> (Passé)
 ### Zones
-* 
+* Pyramide (tombeau, )
+* Forêt des éléments (lac, )
 Graphe des zones :  
 
 ### Espèces de Monstres
 * Mammouth
+* Sphinx
+* Djin
+* Elementaire (feu,glace,terre,vent,lumière)
+* Dragon
 ### Quêtes
-> | Titre | Objectif | Récompense |
-> |---|---|---|
->
+> | Villageois | Titre | Objectif | Récompense |
+> |---|---|---|---|
+> | Vieillard Luc | Mammouth nourrissant | Rapporter de la viande de mammouth | Lance de l'ancien guerrier |
 
 <hr/>
 
 ## <u>???</u> (Futur)
 ### Zones
+* Manoir abandonné (salle à manger, salon, chambre 1, chambre 2, )
 * 
 Graphe des zones :  
 
 ### Espèces de Monstres
+* Demon
+* Elfes
+* Saint
+* Mecas
+* Molkur
+
 ### Quêtes
 > | Villageois |Titre | Objectif | Récompense |
 > |---|---|---|---|
 > | Sorcière Alma |Herbe des rêves | Récolter l'herbe des rêves | Potion de la vie |
-> | Chasseur |Molkur sauvage | Abattre un molkur | Arme ruklom|
+> | Chasseur Robert |Molkur sauvage | Abattre un molkur | Arme ruklom|
   
   
 <hr/>
