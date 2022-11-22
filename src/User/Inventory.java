@@ -50,11 +50,11 @@ public class Inventory {
     }
 
     /**
-     * Affiche l'inventaire entier
+     * Affiche l'inventaire
      */
-    public void display_inventory(){
-        for(Item item : this.items){
-            // Afficher nom de l'item
+    void display_inventory(){
+        for(Item i : this.items){
+            //TODO : Affichage des noms des items et de leurs quantités
         }
     }
 }
