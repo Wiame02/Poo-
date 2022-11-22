@@ -1,5 +1,5 @@
 package Quest;
-import Item.*;
+import Stuff.*;
 /**
  * Quest.java
  * Quest décrit une quête que ce soit tuer un monstre ou recolter un item
