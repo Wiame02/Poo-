@@ -16,8 +16,11 @@ public enum Order {
          * L'informaticien peut changer l'entité qui se trouve dans la même zone que lui aléatoirement
          * @param e
         */
-        public void useSpecialAbility(Entity e, Area curren_area){
-            //TODO
+        public void useSpecialAbility(World world, Area area){
+            int id_change = (int)(Math.random() *((world.get_areas().size() + 1)));
+            Entity tmp = world.get_area_at(id_change).get_entity();
+            world.get_area_at(id_change).set_entity(area.get_entity());
+            area.set_entity(tmp);
         }
     },
     MATHEMATICIAN(){
