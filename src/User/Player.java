@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import Localization.*;
 import Entity.*;
 import Quest.*;
-import Item.*;
+import Stuff.*;
 
 /**
  * Player.java
@@ -12,19 +12,18 @@ import Item.*;
  */
 
 public class Player{
-/* Attribus */
     private String username;
     private int lvl;
     private int hp;
     private Order category;
-    private ArrayList<Item> inventory;
-    //private Armor[] armor;
-    //private Weapon weapon;
+    private Inventory inventory;
+    private Armor[] armor;
+    private Weapon weapon;
     private Quest current_quest;
     private Area current_area;
 
 /**
- *  Constructeur
+ * Constructeur
  * @param username
  * @param category
  * @param first_area
@@ -35,22 +34,16 @@ public class Player{
         this.hp = 100;
         this.category = category;
         
-        /*
-        Armor basic_helmet;
-        Armor basic_chestplate;
-        Armor basic_legging;
-        Armor basic_boot;
-        //TODO : Créer les pieces d'armures de debut de jeu
+        this.inventory = new Inventory();
 
-        Weapon basic_weapon;
-        //TODO : Créer l'arme de debut de jeu
+        this.armor = new Armor[4];
+        this.armor[0] = new Armor("Chapeau de cuir",50,10);
+        this.armor[1] = new Armor("Tunique en Lin",50,10);
+        this.armor[2] = new Armor("Pantalon en Lin",50,10);
+        this.armor[3] = new Armor("Chaussure de cuir",50,10);
 
-        this.armor[0] = basic_helmet;
-        this.armor[1] = basic_chestplate;
-        this.armor[2] = basic_legging;
-        this.armor[3] = basic_boot;
-        this.weapon = basic_weapon;
-        */
+        this.weapon = new Weapon("Brindille",20,5);
+        
         this.current_quest = null;
         this.current_area = first_area;
     }
@@ -62,11 +55,11 @@ public class Player{
     public int      get_lvl()           {return this.lvl;}
     public int      get_hp ()           {return this.hp;}
     public Order    get_category()      {return this.category;}
-    //public Armor    get_helmet()        {return this.armor[0];}
-    //public Armor    get_chestplate()    {return this.armor[1];}
-    //public Armor    get_legging()       {return this.armor[2];}
-    //public Armor    get_boot()          {return this.armor[3];}
-    //public Weapon   get_weapon()        {return this.weapon;}
+    public Armor    get_helmet()        {return this.armor[0];}
+    public Armor    get_chestplate()    {return this.armor[1];}
+    public Armor    get_legging()       {return this.armor[2];}
+    public Armor    get_boot()          {return this.armor[3];}
+    public Weapon   get_weapon()        {return this.weapon;}
     public Quest    get_current_quest() {return this.current_quest;}
     public Area     get_current_area()  {return this.current_area;}
         
@@ -76,74 +69,95 @@ public class Player{
     public void     set_lvl(int lvl)                    {this.lvl=lvl;}
     public void     set_hp(int hp)                      {this.hp=hp;}
     public void     set_category(Order category)        {this.category=category;}
-    //public void     set_helmet(Armor casque)            {this.armor[0]=casque;}
-    //public void     set_chestplaste(Armor chestplate)   {this.chestplate=chestplate;}
-    //public void     set_legging(Armor legging)          {this.legging=legging;}
-    //public void     set_boot(Armor boot)                {this.boot=boot;}
+    public void     set_helmet(Armor casque)            {this.armor[0]=casque;}
+    public void     set_chestplaste(Armor chestplate)   {this.armor[1]=chestplate;}
+    public void     set_legging(Armor legging)          {this.armor[2]=legging;}
+    public void     set_boot(Armor boot)                {this.armor[3]=boot;}
     public void     set_current_quest(Quest quest)      {this.current_quest=quest;}
     public void     set_current_area(Area area)         {this.current_area=area;}
+
+/**
+ * Fonctions des convertion d'une donnée en chaîne de caractère
+ */
 
 /**
  * Affichages
  */ 
     /**
-     * Affiche l'inventaire
-     */
-    /*
-    void display_inventory(){
-        for(Item i : this.inventory){
-            //TODO
-        }
-    }
-    */
-
-    /**
      * Affiche l'armure portée
      */
-    /*
     void display_armor(){
         for(Armor a : this.armor){
-            //TODO
+            //TODO : Afficher le nom d'un morceau d'armure
         }
     }
-    */
 
     /**
      * Affiche l'arme portée
      */
-     /*
     void display_weapon(){
-        //TODO
+        //TODO : Afficher le nom de l'arme
     }
-    */
 
     /**
-     * Le joueur se déplace dans une zone   
+     * Affiche les informations sur le joueur tel que les points de vies et son niveau d'experience
+     */
+    void display_player_data(){
+        System.out.println("Informations de "+this.username+" ---");
+        System.out.println("Niveau de vie : "+this.hp);
+        System.out.println("Niveau d'experience : "+this.lvl);
+    }
+
+/*
+ * Déplacements
+ */
+    /**
+     * Le joueur se déplace dans une zone
+     * @param destination la destination d'arrivée
      */
     public void move_to(Area destination){
         this.current_area = destination;
     }
 
+    public void move_linked_area(Area destination){
 
+        // Vérifier si la destination est possible
+            // this.move_to(destination);
+        // Sinon lancer exception
+    }
 
+/*
+ * Gestion des points de vie
+ */
     /**
      * Augmente les points de vies d'un entier n
      * @param n
      */
-    void increase_hp(int n){
-
-        this.hp+=n;
+    void increase_hp(int n) throws Exception {
+        if(n>0){
+            this.hp+=n;
+        }else{
+            throw new Exception("Ne peut pas ajouter une valeur nulle ou négative");
+        }
     }
 
     /**
      * Diminue les points de vies d'un entier n
      * @param n
      */
-    void decrease_hp(int n){
-        if(this.hp<=n){
-            this.hp=0;
-        }else{
-            this.hp-=n;
+    void decrease_hp(int n) throws Exception{
+        if(is_alive()){
+            if(n>0){
+                if(this.hp<=n){
+                    this.hp=0;
+                }else{
+                    this.hp-=n;
+                }
+            }else{
+                throw new Exception("Ne peut pas soustraire une valeur nulle ou négative");
+            }
+        }else{ 
+            throw new Exception("Ne peut pas soustraire : La vie du joueur est déjà à 0");
         }
     }
 
@@ -155,36 +169,41 @@ public class Player{
         return (this.hp!=0);
     }
 
+/*
+ * Modification de l'equipement
+ */
     /**
      * Change l'equipement du personnage par le nouveau selon sa categorie
      * @param new_armor
      */
-     /*
     void equip_armor(Armor new_armor) throws Exception{ 
-        if(armor.){
+        /*
+        if(new_armor.){
             this.armor[0]=new_armor;
-        }else if(armor.){
+        }else if(new_armor.){
             this.armor[1]=new_armor;
-        }else if(armor.){
+        }else if(new_armor.){
             this.armor[2]=new_armor;
-        }else if(armor.){
+        }else if(new_armor.){
             this.armor[3]=new_armor;
         }else{
             throw new Exception("Armor without type");
         }
+        */
     }
-    /*
+
 
     /**
      * Change l'arme du personnage par la nouvelle
      * @param new_weapon
      */
-    /*
     void equip_weapon(Weapon new_weapon){
         this.weapon=new_weapon;
     }
-    */
 
+/*
+ * Actions d'un joueur
+ */
     /**
      * Le personnage interagit avec une entité
      * @param e

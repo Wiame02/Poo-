@@ -1,4 +1,4 @@
-Package Item
+package Stuff;
 //item.java 
 // Item les objets utiliser par le personnage 
 // @author Taii wiame 

@@ -1,4 +1,6 @@
 package User;
+import Localization.*;
+import Entity.*;
 
 /**
  * Order.java
@@ -20,17 +22,15 @@ public enum Order {
     },
     MATHEMATICIAN(){
 
-        @Override
         /**
          * Le mathematicien peut 
          */
         public void useSpecialAbility(){
-            
+            //TODO
         }
     },
     PHYSICIST(){
 
-        @Override
         /**
          * Le physicien peut se déplacer dans unz zone sans contraintes
          */
@@ -40,7 +40,6 @@ public enum Order {
     },
     CHEMIST(){
 
-        @Override
         /**
          * Le chimiste peut
          */
@@ -50,11 +49,10 @@ public enum Order {
     },
     BIOLOGIST(){
 
-        @Override
         /**
          * Le biologist peut
          */
-        public void useSpecialAbility({
+        public void useSpecialAbility(){
             //TODO
         }
     };
