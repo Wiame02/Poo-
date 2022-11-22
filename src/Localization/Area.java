@@ -2,7 +2,7 @@ package Localization;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-import Entity.Entity;
+import Entity.*;
 
 /**
  * Area.java
@@ -107,10 +107,10 @@ public class Area {
     }
     public static void main(String[] args) {
         World w = new World("koko", Period.PAST, null);
-        Entity e = new Entity("Cardigan", 6);
+        Entity m = new Monster("Cardigan", 6,Species.ALGOULE,50);
         
 
-        Area testA = new Area("New World", e, w);
+        Area testA = new Area("New World", m, w);
         System.out.println("DEFAULT : " + testA.toString());
         System.out.println("OTHER : " + testA.to_string());
     }

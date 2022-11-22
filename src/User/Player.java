@@ -62,6 +62,7 @@ public class Player{
     public Weapon   get_weapon()        {return this.weapon;}
     public Quest    get_current_quest() {return this.current_quest;}
     public Area     get_current_area()  {return this.current_area;}
+    public Inventory get_Inventory()    {return this.inventory;}
         
 /**
  * SETTERS

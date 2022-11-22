@@ -21,6 +21,13 @@ public class Inventory {
     }
 
     /**
+     * 
+     * @param i
+     * @return
+     */
+    public Item     get_item_at(int i)  {return this.items.get(i);}
+
+    /**
      * Ajoute une item à l'inventaire
      * @param e un item
      */

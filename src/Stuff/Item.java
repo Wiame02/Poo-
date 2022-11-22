@@ -31,9 +31,13 @@ public Item (String name , int durability) {
 
 // Methode
 
- public void use_damage (int nb_damage) {this.durability -= nb_damage;}  
- public void use_damage_n (int nb_damage) {this.use_damage (1) ;} 
+public void use_damage (int nb_damage) {this.durability -= nb_damage;}  
+public void use_damage_n (int nb_damage) {this.use_damage (1) ;} 
 
+public boolean is_equal(Item i){
+    //TODO test si les deux item sont egaux
+    return false;
+}
 }
  
  
