@@ -1,5 +1,8 @@
 package Quest;
 import Stuff.*;
+import Localization.*;
+import User.*;
+
 /**
  * Quest.java
  * Quest décrit une quête que ce soit tuer un monstre ou recolter un item
@@ -7,10 +10,10 @@ import Stuff.*;
  */
 
 public abstract class Quest {
-    private String title;
-    private boolean is_accomplished;
-    private Item reward;
-    private int bonus_exp;
+    protected String title;
+    protected boolean is_accomplished;
+    protected Item reward;
+    protected int bonus_exp;
 
     public Quest(String title, Item reward, int bonus_exp) {
         this.title = title;
@@ -22,5 +25,5 @@ public abstract class Quest {
     /**
      * Marque une quete comme accomplie
      */
-    public abstract void submit();
+    public abstract void submit(Player p);
 }
