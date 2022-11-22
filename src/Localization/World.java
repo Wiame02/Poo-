@@ -50,4 +50,12 @@ public class World {
     public void add_area(Area area) {
         this.areas.add(area);
     }
+
+    public String to_string() {
+        return "";
+    }
+
+    public boolean is_equal(World w) {
+        return (this.name.equals(w.name) && this.era==w.era && this.boss.is_equal(w.boss));
+    }
 }
