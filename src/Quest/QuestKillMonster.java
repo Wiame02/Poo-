@@ -8,5 +8,5 @@ package Quest;
  */
 
 public class QuestKillMonster {
-    
+    private Monstre monstre ;
 }
