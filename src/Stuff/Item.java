@@ -15,10 +15,23 @@ public Item (String name , int durability) {
     this.name = name;
     this.durability = durability;
 }  
+    /**
+     * GETTERS
+     */
 
-// methode 
+    public String get_name()  {return this.name;} 
+    public  int get_durability()  {return this.durability;}  
 
- private void use_damage (int nb_damage) {this.durability -= nb_damage;}  
+     /**
+     * SETTERS
+     */
+    public void set_name (String name) {this.name = name;} 
+    public void set_durability (int durability ) {this.durabilty = durability;} 
+
+
+// Methode
+
+ public void use_damage (int nb_damage) {this.durability -= nb_damage;}  
  public void use_damage_n (int nb_damage) {this.use_damage (1) ;} 
 
 
