@@ -44,6 +44,17 @@ public class Monster extends Entity{
 		}
 	}
 
+	//----------------------AFFICHAGE-----------------
+
+	void print_name(Species species){
+		System.out.println("l'espèce de l'entité est : " + this.species + "\n");
+	}
+
+	void print_name(int attack){
+		System.out.println("son attaque inflige : " + this.attack + "\n");
+	}
+
+	//--------------------------------------------------
 
 	/**
 	* cette methode sert a diminuer
