@@ -1,5 +1,7 @@
 package Localization;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import Entity.Entity;
 
 /**
@@ -13,6 +15,7 @@ public class Area {
     private ArrayList<Entity> entities;
     private ArrayList<String> actions;
     private World world;
+    private Set<Area> accessible_areas;
 
     /**
      * Constructeur de Area
@@ -23,6 +26,7 @@ public class Area {
         this.entities = new ArrayList<Entity>();
         this.actions = new ArrayList<String>();
         this.world = world;
+        this.accessible_areas = new HashSet<Area>();
     }
 
     /**
@@ -32,6 +36,22 @@ public class Area {
     public Entity get_entity_at(int i)  {return this.entities.get(i);}
     public String get_action_at(int i)  {return this.actions.get(i);}
     public World  get_world()           {return this.world;}
+    public Set<Area> get_access_areas()  {return this.accessible_areas;}
+
+    /**
+     * Recherche la zone par le nom donnée
+     * @param name
+     * @return null S'il n'y a pas de zone qui porte le meme nom
+     * @return L'area qui porte le même nom qui a été entré
+     */
+    public Area get_access_area(String name) {
+        for (Area a : this.accessible_areas){
+            if (name.equals(a.get_name())){
+                return a;
+            }
+        }
+        return null;
+    }
 
     /**
      * SETTERS
@@ -56,6 +76,14 @@ public class Area {
     }
 
     /**
+     * Ajoute une zone accessible à partir de celle-ci 
+     * @param area
+     */
+    public void add_accesible_area(Area area) {
+        this.accessible_areas.add(area);
+    }
+
+    /**
      * Procedure d'affichage de la classe Area
      */
     public String to_string() {
@@ -68,9 +96,9 @@ public class Area {
             res+=e.toString();
         }
 
-        res+= "actions: " + this.actions.get(0);
-        for (int i=1; i<this.actions.size(); i++) {
-            res+= ';' + this.actions.get(i);
+        res+= "\nactions: ";
+        for (int i=0; i<this.actions.size(); i++) {
+            res+= this.actions.get(i) + ' ';
         }
 
         res+= "\nworld: " + world.to_string();
@@ -86,6 +114,6 @@ public class Area {
         Area testA = new Area("New World", w);
         testA.add_entity(e);
         System.out.println("DEFAULT : " + testA.toString());
-        System.out.println("OTHER : " + testA.toString());
+        System.out.println("OTHER : " + testA.to_string());
     }
 }
