@@ -7,14 +7,14 @@ package Entity;
  * @author Nathan Doussin
  */
  
-public class Entity{
+public abstract class Entity{
 	
-	private String name;
-	private int hp;
+	protected String name;
+	protected int hp;
 
 	public Entity(String name, int hp){
 		this.name = name;
-		this.hp = 0;
+		this.hp = hp;
 	}
 	
 	// --------------METHODES---------------
@@ -32,36 +32,45 @@ public class Entity{
 	 */
 	
 	public void setName(String name){this.name=name;}
-
-	public void setHp(int hp){
-		return (this.hp != 0)
-		}
+	public void setHp(int hp){this.hp=hp;}
 
 
 	// ----------AFFICHAGE-------
 
-	void print_name(String name){
+	// Kateul : tu avais des paramètres d'entrées inutiles (un nom) hors tu utilises this.name donc pas besoin d'entrée
+	void print_name(){
 		System.out.println("le nom de l'entité est : " + this.name + "\n");
 	}
 
-	void print_hp(int hp){
+	void print_hp(){
 		System.out.println("le nombre de point(s) de vie de l'entité est : " + this.hp + "\n");
 	}
 	// ---------------------------------
 	
 	/**
-	 * Cette methode permet de savoir 
-	 * si une entite est vivante ou morte
-	 * (par rapport a son nombre d'hp)
+	 * Cette methode permet de savoir si une entite est vivante ou morte (par rapport a son nombre d'hp)
 	 * @return true si l'entite est vivante
 	 * @return false si l'entite est morte (hp = 0)
 	 */
-	
 	public boolean isAlive(){
+		// FIXME : retourner juste la condition (hp>0) (ca va automatiquement retourner vrai ou faux) pas besoin de faire un si...sinon
 		if( hp > 0){
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	/**
+	 * 
+	 * @param e
+	 * @return
+	 */
+	public boolean is_equal(Entity e){
+		return (this.name==e.name);
+	}
+
+	public String to_string(){
+		return this.name;
 	}
 }		

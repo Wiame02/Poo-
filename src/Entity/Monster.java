@@ -1,6 +1,6 @@
 package Entity;
-package Localization*;
-package User*;
+import Localization.*;
+import User.*;
 
 /**
  * Cette sous-classe s'intitule Monster,
@@ -14,7 +14,7 @@ public class Monster extends Entity{
 	private Species species;
 	private int attack;
 
-	public Monster(Species species, int attack){
+	public Monster(String name, int hp, Species species, int attack){
 		super(name, hp);
 		this.species = species;
 		this.attack = 0;
@@ -62,10 +62,12 @@ public class Monster extends Entity{
 	* @param x un entier
 	*/
 	void decrease_hp(int x){
+		//FIXME : pense à verifier de le monstre n'est pas mort avant 
+
         if(this.hp <= x){
             this.hp = 0;
         } else {
-            this.hp = this.hp - n;
+            this.hp = this.hp - x;
         }
     }
 	/**
@@ -77,7 +79,8 @@ public class Monster extends Entity{
 	 * @return false si ce n'est pas le boss de ce monde
 	 */
 	public boolean isBoss(World world){
-		if(this.Monster == wordl.boss){   // return this.Monster isEqual(wordl.boss) ?
+		// FIXME : retourner juste la condition (ca va automatiquement retourner vrai ou faux) pas besoin de faire un si...sinon
+		if(this == world.get_boss()){   // return this.Monster isEqual(wordl.boss) ?
 			return true;
 		} else {
 			return false;
@@ -87,12 +90,11 @@ public class Monster extends Entity{
 	/**
 	 * Cette methode permet de savoir 
 	 * si une entite est un boss ou non
-	 * @param boolean x
+	 * @param world le monde ou est le monstre
 	 */
-	public void interact(boolean x){
-		World wordl;
-		x = isBoss(wordl);
-		if(x == true){
+	public void interact(World world){
+
+		if(isBoss(world)){
 			System.out.println("Ce monstre semble avoir une aura particuliere demoniaque  \n");
 			System.out.println("Ce monstre est le BOSS de ce monde ! \n");
 		}
@@ -106,4 +108,5 @@ public class Monster extends Entity{
 	void attack_monster(Player p){
 		this.decrease_hp (attack);
 	}
+
 }

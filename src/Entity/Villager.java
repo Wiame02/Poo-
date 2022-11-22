@@ -1,4 +1,5 @@
 package Entity;
+import Quest.*;
 import java.util.ArrayList;
 
 /**
@@ -10,12 +11,12 @@ import java.util.ArrayList;
  */
  
 public class Villager extends Entity{
-	private Arrey<String> dialogues;
+	private ArrayList<String> dialogues;
 	private Quest quest;
 
-	public Villager(Arrey<String> dialogues, Quest quest){
+	public Villager(String name, int hp,ArrayList<String> dialogues, Quest quest){
 		super(name, hp);
-		this.dialogues = new arrayList<String>();
+		this.dialogues = new ArrayList<String>();
 		this.quest = quest;
 	}
 	
