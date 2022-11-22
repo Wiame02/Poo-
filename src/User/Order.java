@@ -1,5 +1,6 @@
 package User;
 import Localization.*;
+import Stuff.Armor;
 import Entity.*;
 
 /**
@@ -26,10 +27,12 @@ public enum Order {
     MATHEMATICIAN(){
 
         /**
-         * Le mathematicien peut 
+         * Le mathematicien peut transformer son armure de telle sorte qu'il encaisse tout les dégats et renvoie une partie des degats au monstre
+         * En contrepartie, l'armure aura sa durabilité drastiquement réduite.
          */
-        public void useSpecialAbility(){
-            //TODO
+        public void useSpecialAbility(Armor armor){
+            armor.set_durability(3);
+            //TO DO : armor.set_defense_point(150);
         }
     },
     PHYSICIST(){
@@ -44,19 +47,19 @@ public enum Order {
     CHEMIST(){
 
         /**
-         * Le chimiste peut
+         * Le chimiste peut se soigner 
          */
-        public void useSpecialAbility(){
-            //TODO
+        public void useSpecialAbility(Player p){
+            p.set_hp((int)(p.get_hp()*1.75));
         }
     },
     BIOLOGIST(){
 
         /**
-         * Le biologist peut
+         * Le biologiste peut reduire l'attaque d'un monstre 
          */
-        public void useSpecialAbility(){
-            //TODO
+        public void useSpecialAbility(Monster e){
+            e.set_attack((int)(e.get_attack()*0.6));
         }
     };
 }
