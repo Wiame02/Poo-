@@ -36,6 +36,18 @@ public class Entity{
 	public void setHp(int hp){
 		return (this.hp != 0)
 		}
+
+
+	// ----------AFFICHAGE-------
+
+	void print_name(String name){
+		System.out.println("le nom de l'entité est : " + this.name + "\n");
+	}
+
+	void print_hp(int hp){
+		System.out.println("le nombre de point(s) de vie de l'entité est : " + this.hp + "\n");
+	}
+	// ---------------------------------
 	
 	/**
 	 * Cette methode permet de savoir 

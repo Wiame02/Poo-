@@ -34,6 +34,20 @@ public class Villager extends Entity{
 
 	public void set_quest(Quest quest) {this.quest=quest;}
 	
+
+	//--------------AFFICHE------------
+
+	void print_name(Quest quest){
+		System.out.println("le nom de l'entité est : " + this.quest + "\n");
+	}
+
+
+
+
+
+
+	//----------------------------
+
 	/**
 	 * Cette methode sera utiliser lors d'une 
 	 * rencontre avec un villageois.
