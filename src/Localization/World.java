@@ -33,6 +33,7 @@ public class World {
      */
     public String   get_name()          {return this.name;}
     public Area     get_area_at(int i)  {return this.areas.get(i);}
+    public ArrayList<Area> get_areas()  {return this.areas;}
     public Period   get_era()           {return this.era;}
     public Monster  get_boss()          {return this.boss;}
 
