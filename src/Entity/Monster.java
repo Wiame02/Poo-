@@ -1,4 +1,6 @@
 package Entity;
+package Localization*;
+package User*;
 
 /**
  * Cette sous-classe s'intitule Monster,
@@ -9,7 +11,6 @@ package Entity;
 
 
 public class Monster extends Entity{
-	
 	private Species species;
 	private int attack;
 
@@ -25,19 +26,73 @@ public class Monster extends Entity{
 	 * GETTERS
 	 */
 	
-	public String get_species(){return this.species;}
-	public double get_attack(){return this.attack;}
+	public Species get_species(){return this.species;}
+
+	public int get_attack(){return this.attack;}
 	
 	/**
 	 * SETTERS
 	 */
 	
 	public void set_species(Species species){this.species=species;}
+
 	public void set_attack(int attack){
 		if(attack <= 0){
 			 this.attack = 0;
 		} else {
 			this.attack = attack;
 		}
+	}
+
+
+	/**
+	* cette methode sert a diminuer
+	* les points de vie en fonction d'un entier n
+	* @param x un entier
+	*/
+	void decrease_hp(int x){
+        if(this.hp <= x){
+            this.hp = 0;
+        } else {
+            this.hp = this.hp - n;
+        }
+    }
+	/**
+	 * Cette methode permet de savoir 
+	 * si un monstre correspond au boss de ce monde ou non
+	 * @see package Localization afin de recuperer le boss du monde en question
+	 * @param world de type World
+	 * @return true si c'est le boss de ce monde
+	 * @return false si ce n'est pas le boss de ce monde
+	 */
+	public boolean isBoss(World world){
+		if(this.Monster == wordl.boss){   // return this.Monster isEqual(wordl.boss) ?
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Cette methode permet de savoir 
+	 * si une entite est un boss ou non
+	 * @param boolean x
+	 */
+	public void interact(boolean x){
+		World wordl;
+		x = isBoss(wordl);
+		if(x == true){
+			System.out.println("Ce monstre semble avoir une aura particuliere demoniaque  \n");
+			System.out.println("Ce monstre est le BOSS de ce monde ! \n");
+		}
+		/*
+		while(Player.hp != 0 || Monster.hp != 0){
+			Combat
+		}
+		*/
+	}
+
+	void attack_monster(Player p){
+		this.decrease_hp (attack);
 	}
 }
