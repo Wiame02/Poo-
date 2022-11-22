@@ -1,5 +1,7 @@
 package User;
 
+import java.util.concurrent.ThreadPoolExecutor.DiscardPolicy;
+
 public class Player_test{
 
     /**
@@ -41,9 +43,10 @@ public class Player_test{
         
     }
 
-
     public static void main (String[] args){
         test_decrease_increase_hp();
+        Player p = new Player("Kateul",Order.COMPUTER_SCIENTIST,null);
+        p.display_player_data();
     }
 
 }

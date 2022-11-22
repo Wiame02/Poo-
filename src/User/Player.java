@@ -77,17 +77,12 @@ public class Player{
     public void     set_current_area(Area area)         {this.current_area=area;}
 
 /**
+ * Fonctions des convertion d'une donnée en chaîne de caractère
+ */
+
+/**
  * Affichages
  */ 
-    /**
-     * Affiche l'inventaire
-     */
-    void display_inventory(){
-        for(Item i : this.inventory.get_items()){
-            //TODO : Affichage des noms des items et de leurs quantités
-        }
-    }
-
     /**
      * Affiche l'armure portée
      */
@@ -104,6 +99,15 @@ public class Player{
         //TODO : Afficher le nom de l'arme
     }
 
+    /**
+     * Affiche les informations sur le joueur tel que les points de vies et son niveau d'experience
+     */
+    void display_player_data(){
+        System.out.println("Informations de "+this.username+" ---");
+        System.out.println("Niveau de vie : "+this.hp);
+        System.out.println("Niveau d'experience : "+this.lvl);
+    }
+
 /*
  * Déplacements
  */
@@ -116,6 +120,7 @@ public class Player{
     }
 
     public void move_linked_area(Area destination){
+
         // Vérifier si la destination est possible
             // this.move_to(destination);
         // Sinon lancer exception
