@@ -34,8 +34,12 @@ public Item (String name , int durability) {
 public void use_damage (int nb_damage) {this.durability -= nb_damage;}  
 public void use_damage_n (int nb_damage) {this.use_damage (1) ;} 
 
+public String to_string(){
+    return this.name+ "("+this.durability+")";
+}
+
 public boolean is_equal(Item i){
-    //TODO test si les deux item sont egaux
+    //TODO test si les deux item sont egaux (par les noms)
     return false;
 }
 }
