@@ -11,6 +11,12 @@ public Armor(String name , int durability , int defense_point){
   super (name , durability ) ;
   this.defense_point =defense_point;
 } 
+/**
+     * SETTERS
+     */
+     public void set_defense_point(int defense_point) {this.defense_point = defense_point;} 
+    
+
 
 //---------------------methode--------------------------------
 public int getdefense_point()    {return this.defense_point;} 
