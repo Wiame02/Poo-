@@ -21,9 +21,9 @@ public class Inventory {
     }
 
     /**
-     * 
-     * @param i
-     * @return
+     * Retourne l'item à l'indice i
+     * @param i un indice
+     * @return un item
      */
     public Item     get_item_at(int i)  {return this.items.get(i);}
 
@@ -84,6 +84,8 @@ public class Inventory {
     /**
      * Supprime l'item selon son indice
      * @param id l'indice du l'item a supprimer
+     * @return  true si le suppression a été effectuée
+     *          false si l'objet n'est pas dans la liste
      */
     public boolean delete_item(String name){
         int id_item = find_id_item_with_name(name);
@@ -93,19 +95,23 @@ public class Inventory {
         }else{
             return false;
         }
-        // Trouver l'item dans l'inventaire (WHILE)
-        // Supprimer l'item (en ignorant le nb exemplaire)
     }
 
     /**
      * Utilise un exemplaire d'un item donné par son nom
      * @param name nom de l'item à utiliser
      */
-    public void use_item(String name){
-
-        // id = Trouver l'item (WHILE)
-        // enlever 1 exemplaire
-        // VERIF : Si 0 exemplaire -> delete_item(id)
+    public boolean use_item(String name){
+        int id_item = find_id_item_with_name(name);
+        if(id_item>=0){
+            /*this.get_item_at(id_item).use();
+            if(this.get_item_at(id_item).get_quantity()==0){
+                this.items.remove(id_item);
+            }*/
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**
