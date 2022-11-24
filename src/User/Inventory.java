@@ -27,6 +27,27 @@ public class Inventory {
      */
     public Item     get_item_at(int i)  {return this.items.get(i);}
 
+
+    /**
+     * Cherche l'item d'entrée dans l'inventaire
+     * @param e un item à trouver
+     * @return l'indice dans la liste si l'item est trouvé ou -1
+     */
+    private int find_id_item_with_name(String name){
+        int id=0;
+        int list_length = this.items.size();
+        boolean is_finded = this.get_item_at(id).get_name()==name;
+        while(id<=list_length && !is_finded){
+            id++;
+            is_finded = this.get_item_at(id).get_name()==name;
+        }
+        if(id>list_length){
+            return -1;
+        }else{
+            return id;
+        }
+    }
+
     /**
      * Cherche l'item d'entrée dans l'inventaire
      * @param e un item à trouver
@@ -52,16 +73,26 @@ public class Inventory {
      * @param e un item
      */
     public void add_item(Item e){
-        // Determiner si l'item existe deja dans l'inventaire (WHILE)
-            // Si oui ajouter e.dur au nombre d'exemplaire
-            // Si non ajouter l'item et mettre le nb exemplaire à 1
+        int id_item = find_id_item(e);
+        if(id_item>=0){
+            //this.get_item_at(id_item).quantity += e.quantity 
+        }else{
+            this.items.add(e);
+        }
     }
 
     /**
      * Supprime l'item selon son indice
      * @param id l'indice du l'item a supprimer
      */
-    public void delete_item(int id){
+    public boolean delete_item(String name){
+        int id_item = find_id_item_with_name(name);
+        if(id_item>=0){
+            this.items.remove(id_item);
+            return true;
+        }else{
+            return false;
+        }
         // Trouver l'item dans l'inventaire (WHILE)
         // Supprimer l'item (en ignorant le nb exemplaire)
     }
