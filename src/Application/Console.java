@@ -1,6 +1,10 @@
 package Application;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.String;
+import User.Player;
+import java.lang.Thread;  
+import java.io.*; 
 
 
 
@@ -10,7 +14,27 @@ import java.util.String;
  */
 
 public class Console {
-    //TODO
+    public static show_available_actions() {
+        //TODO
+    }
+
+    /** Affichage du dialogue de fin du jeu gagné
+     * @param p Le joueur
+     */
+    public static game_success_ending(Player p) {
+        console.out.println("Bravo " + p.get_name()) + " !");
+        Thread.sleep(1000);
+        console.out.println("Vous avez gagné !");
+    }
+
+    /** Affichage du dialogue de fin du jeu avec le joueur mort
+     * @param p Le joueur
+     */
+    public static game_over_ending(Player p) {
+        console.out.println("Ah, que c'est dommage " + p.get_name()) + " !");
+        Thread.sleep(1000);
+        console.out.println("Vous êtes mort !");
+    }
 
     /** 
      *  Lit et decrypte l'entrée d'un utilisateur
@@ -30,7 +54,8 @@ public class Console {
         }
 
     }
-    }
+    
+    
 
 
 }
