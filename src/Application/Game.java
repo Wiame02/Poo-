@@ -2,6 +2,7 @@ package Application;
 import Localization.Board;
 import Localization.World;
 import User.Player;
+import Entity.*;
 
 /**
  * Classe qui permet le déroulement et la création du jeu
@@ -21,8 +22,17 @@ public class Game {
      * Génère aléatoirement les entitées dans les zones du monde
      * @param world Le monde entré en modification
      */
-    public static void generate_area(World world){
-        //TODO
+    public static void generate_areas(World world, Set<Entity> entities){
+        
+        for (Entity e : entities) {
+            int i = (int) (Math.random()*(world.area.size()-1));
+
+            while (world.areas.get(i)==null) {
+                i = (int) (Math.random()*(world.area.size()-1));
+            }
+
+            world.areas[i].set_entity(e);
+        }
     }
 
     /**
@@ -96,6 +106,7 @@ public class Game {
             //TODO game_over_ending();
         }
     }
+
     public static void main(String[] args) {
         play_game();
     }
