@@ -41,7 +41,14 @@ public class Game {
      * @return le plateau construit
      */
     public static Board generate_board(){
-        //TODO
+        Board b = new Board();
+
+        b.add_all_world(data_worlds());
+
+        for (int i=0; i<b.get_worlds().size(); i++) {
+            //generate_areas(b.get_world_at(i), .get(i));
+            //choose_boss(b.get_world_at(i), .get(i));
+        }
         return new Board();
     }
 
