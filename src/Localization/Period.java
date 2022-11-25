@@ -7,5 +7,5 @@ package Localization;
  */
 
 public enum Period {
-    PAST, PRESENT, FUTURE;
+    PAST, PRESENT, FUTURE, NULL;
 }

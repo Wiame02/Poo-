@@ -14,8 +14,9 @@ public class Game {
      * Choisi aléatoirement un boss final parmi les entitées présentes dans ce monde
      * @param world Le monde entré en modification
      */
-    public static void choose_boss(World world){
-        //TODO
+    public static void choose_boss(World world, ArrayList<Monster>monsters){
+            int i = (int) (Math.random()*(monsters.size()-1));
+            world.set_boss(monsters.get(i);)
     }
 
     /**
@@ -25,13 +26,13 @@ public class Game {
     public static void generate_areas(World world, Set<Entity> entities){
         
         for (Entity e : entities) {
-            int i = (int) (Math.random()*(world.area.size()-1));
+            int i = (int) (Math.random()*(world.get_areas().size()-1));
 
-            while (world.areas.get(i)==null) {
-                i = (int) (Math.random()*(world.area.size()-1));
+            while (world.get_area_at().get(i)==null) {
+                i = (int) (Math.random()*(world.get_areas().size()-1));
             }
 
-            world.areas[i].set_entity(e);
+            world.get_area_at(i).set_entity(e);
         }
     }
 
