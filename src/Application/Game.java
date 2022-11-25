@@ -45,9 +45,9 @@ public class Game {
 
         b.add_all_world(data_worlds());
 
-        for (int i=0; i<b.get_worlds().size(); i++) {
-            //generate_areas(b.get_world_at(i), .get(i));
-            //choose_boss(b.get_world_at(i), .get(i));
+        for (int i=1; i<b.get_worlds().size(); i++) {
+            //generate_areas(b.get_world_at(i), .get(i-1));
+            //choose_boss(b.get_world_at(i), .get(i-1));
         }
         return new Board();
     }
