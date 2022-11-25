@@ -27,6 +27,12 @@ public class World {
         this.era = era;
         this.boss = boss;
     }
+    public World(String name, Period era){
+        this.name = name;
+        this.areas = new ArrayList<Area>();
+        this.era = era;
+        this.boss = null;
+    }
 
     /**
      * GETTERS
