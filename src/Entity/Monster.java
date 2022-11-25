@@ -61,7 +61,7 @@ public class Monster extends Entity{
 	* les points de vie en fonction d'un entier n
 	* @param x un entier
 	*/
-	void decrease_hp(int x){
+	public void decrease_hp(int x){
 		//FIXME : pense à verifier de le monstre n'est pas mort avant 
 
         if(this.hp <= x){
@@ -105,8 +105,10 @@ public class Monster extends Entity{
 		*/
 	}
 
-	void attack_monster(Player p){
-		this.decrease_hp (attack);
+	void attack(Player p){
+		try{p.decrease_hp (this.attack);}
+		catch(Exception e){
+			System.out.println(p.get_username()+" a esquivé l'attaque ");
+		}
 	}
-
 }

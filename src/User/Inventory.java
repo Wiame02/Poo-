@@ -12,6 +12,9 @@ public class Inventory {
         this.items = new ArrayList<Item>();
     }
 
+/*
+ * Getters 
+ */
     /**
      * Retourne la liste d'items soit l'inventaire
      * @return la liste d'items
@@ -27,6 +30,16 @@ public class Inventory {
      */
     public Item     get_item_at(int i)  {return this.items.get(i);}
 
+
+
+    /**
+     * Affiche l'inventaire
+     */
+    void display_inventory(){
+        for(Item i : this.items){
+            i.to_string();
+        }
+    }
 
     /**
      * Cherche l'item d'entrée dans l'inventaire
@@ -111,15 +124,6 @@ public class Inventory {
             return true;
         }else{
             return false;
-        }
-    }
-
-    /**
-     * Affiche l'inventaire
-     */
-    void display_inventory(){
-        for(Item i : this.items){
-            i.to_string();
         }
     }
 }

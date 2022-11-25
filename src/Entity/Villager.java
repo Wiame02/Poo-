@@ -57,8 +57,8 @@ public class Villager extends Entity{
 	 * @param quest cette atribut correspond a quete que la villageois nous donne lors de son interaction avec le personnage
 	 */
 
-	/*public void talk_villager(Quest quest){
-		
+	public void talk(Quest quest){
+		/*
 		Quest quest_current_end;
 		boolean b = false;
 		
@@ -84,9 +84,9 @@ public class Villager extends Entity{
 				System.out.println("");
 			}
 		}
-		
+	 	*/	
 	}
-	*/
+	
 	
 	
 }
