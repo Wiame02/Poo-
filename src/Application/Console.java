@@ -14,14 +14,14 @@ import java.io.*;
  */
 
 public class Console {
-    public static show_available_actions() {
+    public static void show_available_actions() {
         //TODO
     }
 
     /** Affichage du dialogue de fin du jeu gagné
      * @param p Le joueur
      */
-    public static game_success_ending(Player p) {
+    public static void game_success_ending(Player p) {
         console.out.println("Bravo " + p.get_name()) + " !");
         Thread.sleep(1000);
         console.out.println("Vous avez gagné !");
@@ -30,7 +30,7 @@ public class Console {
     /** Affichage du dialogue de fin du jeu avec le joueur mort
      * @param p Le joueur
      */
-    public static game_over_ending(Player p) {
+    public static void game_over_ending(Player p) {
         console.out.println("Ah, que c'est dommage " + p.get_name()) + " !");
         Thread.sleep(1000);
         console.out.println("Vous êtes mort !");

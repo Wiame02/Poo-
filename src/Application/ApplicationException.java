@@ -1,8 +1,9 @@
+package Application;
+
 /**
  * Classe qui gère les exceptions spécifiques au package Application
  * @author Monique RIMBERT
  */
-
 
 class ApplicationException extends Exception {
     
