@@ -28,6 +28,8 @@ public class DataWorlds {
         univers_cite.add_area(new Area("Hall piscine",univers_cite));
         univers_cite.add_area(new Area("Salle i044",univers_cite));
 
+        // TODO : Faire les liaisons (graphe)
+
         return univers_cite;
     }
 
@@ -41,6 +43,9 @@ public class DataWorlds {
         valkiem.add_area(new Area("Entrée de la Mine",valkiem));
         valkiem.add_area(new Area("Lac souterrain",valkiem));
         valkiem.add_area(new Area("",valkiem));
+        //TODO : Faire les zones
+
+        // TODO : Faire les liaisons (graphe)
 
         return valkiem;
     }
@@ -53,6 +58,9 @@ public class DataWorlds {
         World cimebel = new World("Cimebel", Period.PRESENT);
         
         cimebel.add_area(new Area("", cimebel));
+        //TODO : Faire les zones
+
+        // TODO : Faire les liaisons (graphe)
 
         return cimebel;
     }
@@ -65,6 +73,9 @@ public class DataWorlds {
         World codix = new World("Codix", Period.FUTURE);
 
         codix.add_area(new Area("", codix));
+        //TODO : Faire les zones
+
+        // TODO : Faire les liaisons (graphe)
 
         return codix;
     }
