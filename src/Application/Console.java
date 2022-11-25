@@ -22,18 +22,18 @@ public class Console {
      * @param p Le joueur
      */
     public static void game_success_ending(Player p) {
-        console.out.println("Bravo " + p.get_name()) + " !");
+        System.out.println("Bravo " + p.get_name()) + " !");
         Thread.sleep(1000);
-        console.out.println("Vous avez gagné !");
+        System.out.println("Vous avez gagné !");
     }
 
     /** Affichage du dialogue de fin du jeu avec le joueur mort
      * @param p Le joueur
      */
     public static void game_over_ending(Player p) {
-        console.out.println("Ah, que c'est dommage " + p.get_name()) + " !");
+        System.out.println("Ah, que c'est dommage " + p.get_name()) + " !");
         Thread.sleep(1000);
-        console.out.println("Vous êtes mort !");
+        System.out.println("Vous êtes mort !");
     }
 
     /** 
@@ -41,7 +41,7 @@ public class Console {
      * @return la fonction et son parametre d'entree sous forme de tableau
      */
     public static ArrayList<String> read_action() throws ApplicationException {
-        ArrayList<String> result_function;
+        ArrayList<String> result_function = new ArrayList<String>();
         Scanner sc = new Scanner(System.in);
 
         System.out.print(">> ");
@@ -50,7 +50,7 @@ public class Console {
         if (!str.endsWith(";")){
             throw new ApplicationException("Line missing ';'");
         } else {
-            //TODO
+            return result_function;
         }
 
     }
