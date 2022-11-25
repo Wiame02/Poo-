@@ -22,7 +22,7 @@ public class Console {
      * @param p Le joueur
      */
     public static void game_success_ending(Player p) {
-        System.out.println("Bravo " + p.get_name() + " !");
+        System.out.println("Bravo " + p.get_username() + " !");
         Thread.sleep(1000);
         System.out.println("Vous avez gagné !");
     }
@@ -31,7 +31,7 @@ public class Console {
      * @param p Le joueur
      */
     public static void game_over_ending(Player p) {
-        System.out.println("Ah, que c'est dommage " + p.get_name() + " !");
+        System.out.println("Ah, que c'est dommage " + p.get_username() + " !");
         Thread.sleep(1000);
         System.out.println("Vous êtes mort !");
     }
