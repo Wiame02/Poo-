@@ -99,6 +99,8 @@ public class Game {
 
         boolean are_all_boss_dead  = true;
         boolean is_player_alive     = true;
+        
+        //TODO show_available_actions(...);
 
         while (!are_all_boss_dead && is_player_alive) {
             //TODO show_available_actions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
@@ -109,9 +111,9 @@ public class Game {
         }
 
         if (is_player_alive) {
-            //TODO game_success_ending();
+            game_success_ending();
         } else {
-            //TODO game_over_ending();
+            game_over_ending();
         }
     }
 
