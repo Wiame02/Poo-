@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class DataMonsters {
     
-    public ArrayList<Monster> create_monsters_valkiem(){
+    public static ArrayList<Monster> create_monsters_valkiem(){
         ArrayList<Monster> monsters = new ArrayList<Monster>();
         
         //TODO : Ajouter les monstres
@@ -17,7 +17,7 @@ public class DataMonsters {
         return monsters;
     }
 
-    public ArrayList<Monster> create_monsters_cimebel(){
+    public static ArrayList<Monster> create_monsters_cimebel(){
         ArrayList<Monster> monsters = new ArrayList<Monster>();
 
         //TODO : Ajouter les monstres
@@ -25,7 +25,7 @@ public class DataMonsters {
         return monsters;
     }
 
-    public ArrayList<Monster> create_monsters_codix(){
+    public static ArrayList<Monster> create_monsters_codix(){
         ArrayList<Monster> monsters = new ArrayList<Monster>();
 
         //TODO : Ajouter les monstres
@@ -33,7 +33,7 @@ public class DataMonsters {
         return monsters;
     }
 
-    public ArrayList<ArrayList<Monster>> data_monsters(){
+    public static ArrayList<ArrayList<Monster>> data_monsters(){
         ArrayList<ArrayList<Monster>> monsters = new ArrayList<ArrayList<Monster>>();
 
         monsters.add(create_monsters_valkiem());

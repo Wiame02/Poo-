@@ -14,7 +14,7 @@ public class DataWorlds {
      * Crée le monde de l'univers-cité avec ses zones
      * @return le monde Univers-cité
      */
-    public World create_univers_cite(){
+    public static World create_univers_cite(){
         World univers_cite = new World("Univers-Cité", Period.PRESENT);
 
         univers_cite.add_area(new Area("Bibliotheque Universitaire",univers_cite));
@@ -35,7 +35,7 @@ public class DataWorlds {
      * Crée le monde de Valkiem avec ses zones
      * @return le monde Valkiem
      */
-    public World create_valkiem(){
+    public static World create_valkiem(){
         World valkiem = new World("Valkïem", Period.PAST);
 
         valkiem.add_area(new Area("Entrée de la Mine",valkiem));
@@ -49,7 +49,7 @@ public class DataWorlds {
      * Crée le monde de Cimebel avec ses zones
      * @return le monde cimebel
      */
-    public World create_cimebel(){
+    public static World create_cimebel(){
         World cimebel = new World("Cimebel", Period.PRESENT);
         
         cimebel.add_area(new Area("", cimebel));
@@ -61,7 +61,7 @@ public class DataWorlds {
      * Crée le monde de Codix avec ses zones
      * @return le monde Codix
      */
-    public World create_codix(){
+    public static World create_codix(){
         World codix = new World("Codix", Period.FUTURE);
 
         codix.add_area(new Area("", codix));
@@ -73,7 +73,7 @@ public class DataWorlds {
      * Retourne la liste des données des mondes
      * @return la liste des mondes crées
      */
-    public ArrayList<World> data_worlds(){
+    public static ArrayList<World> data_worlds(){
         ArrayList<World> worlds = new ArrayList<World>();
         worlds.add(create_univers_cite());
         worlds.add(create_valkiem());
