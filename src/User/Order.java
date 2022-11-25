@@ -10,7 +10,9 @@ import Entity.*;
  */
 
 public enum Order {
-/* Constantes*/
+/*
+ * Constantes
+ */
     COMPUTER_SCIENTIST(){
         
         /**
