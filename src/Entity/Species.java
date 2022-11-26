@@ -38,23 +38,23 @@ package Entity;
 	 */
 
 	 private String name;
-
+    /*
 	 Species(String name){
      	    this(name);
      	 }
-
+    */
 	 Species(String name){
 	    this.name = name;
 	 }
-	 public String getNom(){ return this.nom; }
+	 public String get_name(){ return this.name; }
 
 	 /*
 	 class Test
      {
          public static void main(String[] args)
          {
-             Animal animal = Animal.TIGRE;  // exemple d'appel d'une espece parmi la liste d'enumération
-             System.out.print("L'animal est un " + animal.getName());
+             Species species = Species.GRIFFIN;  // exemple d'appel d'une espece parmi la liste d'enumération
+             System.out.print("L'espece est un(e) " + species.getName());
      }
     */
 }
