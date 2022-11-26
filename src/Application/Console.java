@@ -1,6 +1,6 @@
 package Application;
+import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.String;
 
 
 
@@ -30,7 +30,6 @@ public class Console {
         }
 
     }
-    }
-
-
 }
+
+
