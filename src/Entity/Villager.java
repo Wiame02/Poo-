@@ -1,5 +1,6 @@
 package Entity;
 import Quest.*;
+import User.*;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +15,7 @@ public class Villager extends Entity{
 	private ArrayList<String> dialogues;
 	private Quest quest;
 
-	public Villager(String name, int hp,ArrayList<String> dialogues, Quest quest){
+	public Villager(String name, int hp, ArrayList<String> dialogues, Quest quest){
 		super(name, hp);
 		this.dialogues = new ArrayList<String>();
 		this.quest = quest;
@@ -38,55 +39,51 @@ public class Villager extends Entity{
 
 	//--------------AFFICHE------------
 
-	void print_name(Quest quest){
-		System.out.println("le nom de l'entité est : " + this.quest + "\n");
+	void print_quest(Quest quest){
+		System.out.println("le titre de la quête est : " + this.quest + "\n");
 	}
 
 
-
-
-
-
 	//----------------------------
+
+	 public boolean is_equal(Player p){
+    		return (this.quest == p.current_quest);
+    	}
 
 	/**
 	 * Cette methode sera utiliser lors d'une 
 	 * rencontre avec un villageois.
 	 * on saura alors la reponse du villageois
-	 * en fonction de notre actuelle
-	 * @param quest cette atribut correspond a quete que la villageois nous donne lors de son interaction avec le personnage
+	 * en fonction de notre quete actuelle
+	 * @param quest cette attribut correspond à la quete que la villageois nous donne lors de son interaction avec le personnage
+	 * @param p cette atribut correspond a un joueur de type Player
 	 */
 
-	public void talk(Quest quest){
-		/*
-		Quest quest_current_end;
-		boolean b = false;
+
+	public void talk(Quest quest, Player p){ // quete que va proposer le villageois
 		
-		if(quest_current_end == b){ // est-ce que notre quete actuelle est finie ?
-			
-			if(quest_current_end == quest){ // est-ce que notre quete actuelle coorespond a celle que la villageois nous donne ? 
+		if(p.is_finished){ // est-ce que notre quete actuelle est achevée ? faudrait pouvoir savoir si la current_quest de joueur est fini ou pas
+			//non la quete n'est pas achevée
+			if(is_equal(p) == true){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
 				
-				System.out.println("Veuillez finir votre quete actuelle");
-			
-			} else {
-				
-				// on appelle la quete du villageois
-			}	
+				System.out.println("Veuillez finir votre quete actuelle pour recevoir la recompense");
 		
-		} else { // notre quete actuelle est finie
-			
-			if(quest_current_end == quest){ // est-ce que notre quete actuelle coorespond a celle que la villageois nous donne ? 
-				
-				// rendre la quete au villageois et récuperer les recompenses
-			
+		} else { // notre quete actuelle est finie, is_finished == true
+			//la quete actuelle est achevée
+			if(is_equal(p) == true){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
+		        p.inventory.add_item(quest.reward); // on reçoit la recompense et on la stock dans l'inventaire du joueur
+		        p.lvl += quest.bonus_exp // le joueur reçoit une bonus d'exp pour avoir achevée la quete
+			    System.out.println("Bravo pour avoir accomplie cette quete, à notre prochaine rencontre");
+			    quest.submit(p); // procedure dans Quete qui dit si la quete du villageois est accomplie
+
 			} else {
-				
-				System.out.println("");
+
+				p.current_quest = quest // current_quete du joueur devient la quete du villageois
+				System.out.println("le titre de la quete est : " + quest.title);
+				System.out.println("l'intitulé de la quete est : "); // faudrait print l'intitulé de la quete mais je crois que ce n'est pas encore implementé
 			}
 		}
-	 	*/	
+
 	}
-	
-	
-	
+
 }

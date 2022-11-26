@@ -35,9 +35,8 @@ public abstract class Entity{
 	public void setHp(int hp){this.hp=hp;}
 
 
-	// ----------AFFICHAGE-------
+	// ----------AFFICHAGE-------------
 
-	// Kateul : tu avais des paramètres d'entrées inutiles (un nom) hors tu utilises this.name donc pas besoin d'entrée
 	void print_name(){
 		System.out.println("le nom de l'entité est : " + this.name + "\n");
 	}
@@ -45,7 +44,7 @@ public abstract class Entity{
 	void print_hp(){
 		System.out.println("le nombre de point(s) de vie de l'entité est : " + this.hp + "\n");
 	}
-	// ---------------------------------
+	// ---------------------------------------------------------
 	
 	/**
 	 * Cette methode permet de savoir si une entite est vivante ou morte (par rapport a son nombre d'hp)
@@ -53,12 +52,7 @@ public abstract class Entity{
 	 * @return false si l'entite est morte (hp = 0)
 	 */
 	public boolean isAlive(){
-		// FIXME : retourner juste la condition (hp>0) (ca va automatiquement retourner vrai ou faux) pas besoin de faire un si...sinon
-		if( hp > 0){
-			return true;
-		} else {
-			return false;
-		}
+		return (hp > 0);
 	}
 
 	/**
@@ -67,7 +61,7 @@ public abstract class Entity{
 	 * @return
 	 */
 	public boolean is_equal(Entity e){
-		return (this.name==e.name);
+		return (this.name == e.name);
 	}
 
 	public String to_string(){
