@@ -1,8 +1,9 @@
 package Application;
-import Localization.Board;
-import Localization.World;
-import User.Player;
+import Localization.*;
+import User.*;
 import Entity.*;
+import java.util.ArrayList;
+import java.util.Set;
 
 /**
  * Classe qui permet le déroulement et la création du jeu
@@ -14,9 +15,9 @@ public class Game {
      * Choisi aléatoirement un boss final parmi les entitées présentes dans ce monde
      * @param world Le monde entré en modification
      */
-    public static void choose_boss(World world, ArrayList<Monster>monsters){
+    public static void choose_boss(World world, ArrayList<Monster> monsters){
             int i = (int) (Math.random()*(monsters.size()-1));
-            world.set_boss(monsters.get(i);)
+            world.set_boss(monsters.get(i));
     }
 
     /**
@@ -28,7 +29,7 @@ public class Game {
         for (Entity e : entities) {
             int i = (int) (Math.random()*(world.get_areas().size()-1));
 
-            while (world.get_area_at().get(i)==null) {
+            while (world.get_area_at(i).get_entity()==null) {
                 i = (int) (Math.random()*(world.get_areas().size()-1));
             }
 
@@ -43,7 +44,7 @@ public class Game {
     public static Board generate_board(){
         Board b = new Board();
 
-        b.add_all_world(data_worlds());
+        b.add_all_worlds(DataWorlds.data_worlds());
 
         for (int i=1; i<b.get_worlds().size(); i++) {
             //generate_areas(b.get_world_at(i), .get(i-1));
@@ -67,8 +68,8 @@ public class Game {
      * @throws GameException La fonction entrée soit n'est pas valide soit son paramètre ne l'est pas
      */
     public static void execute_function_input(ArrayList<String> func) {
-        ArrayList<String> doable_actions = get_available_actions();
-        if (func[0]=="kill") {
+        ArrayList<String> doable_actions = Console.get_available_actions();
+        if (func.get(0)=="kill") {
             //TODO verif param
         }
     }
@@ -80,13 +81,13 @@ public class Game {
      */
     public static void player_do_action(Area area, Player player) {
         try {
-            ArrayList<String> input = new read_action();
+            ArrayList<String> input = Console.read_action();
             execute_function_input(input);
         }
-        catch (GameExceptions e) {
+        catch (ApplicationException e) {
 	        System.out.println("Error in player_do_action() : " + e);
 	        e.printStackTrace();
-            player_do_action(Area area, Player player);
+            player_do_action(area, player);
         }
     }
 
@@ -111,9 +112,9 @@ public class Game {
         }
 
         if (is_player_alive) {
-            game_success_ending();
+            Console.game_success_ending(player);
         } else {
-            game_over_ending();
+            Console.game_over_ending(player);
         }
     }
 

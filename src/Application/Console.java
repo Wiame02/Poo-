@@ -1,12 +1,8 @@
 package Application;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.String;
 import User.Player;
 import java.lang.Thread;  
-import java.io.*; 
-
-
 
 /**
  * Classe qui controle les entrees des utilisateurs et sorties sur console
@@ -23,7 +19,10 @@ public class Console {
      */
     public static void game_success_ending(Player p) {
         System.out.println("Bravo " + p.get_username() + " !");
-        Thread.sleep(1000);
+        try{Thread.sleep(1000);}
+        catch(InterruptedException i){
+            //TODO : la fonction sleep  renvoie une exception 
+        }
         System.out.println("Vous avez gagné !");
     }
 
@@ -32,7 +31,10 @@ public class Console {
      */
     public static void game_over_ending(Player p) {
         System.out.println("Ah, que c'est dommage " + p.get_username() + " !");
-        Thread.sleep(1000);
+        try{Thread.sleep(1000);}
+        catch(InterruptedException i){
+            //TODO
+        }
         System.out.println("Vous êtes mort !");
     }
 
@@ -55,7 +57,11 @@ public class Console {
 
     }
     
-    
+    public static ArrayList<String> get_available_actions(){
+        ArrayList<String> doable_actions = null;
+        //TODO
+        return doable_actions;
+    }
 
 
 }
