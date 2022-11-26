@@ -35,7 +35,8 @@ public class Villager extends Entity{
 	 */
 
 	public void set_quest(Quest quest) {this.quest=quest;}
-	
+	public void add_dialogue(String dialogue){//TODO
+	}
 
 	//--------------AFFICHE------------
 
