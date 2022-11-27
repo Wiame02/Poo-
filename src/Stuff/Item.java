@@ -39,8 +39,7 @@ public String to_string(){
 }
 
 public boolean is_equal(Item i){
-    //TODO test si les deux item sont egaux (par les noms)
-    return false;
+    return (i.get_name()==this.name);
 }
 }
  
