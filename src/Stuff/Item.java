@@ -10,11 +10,14 @@ public class Item {
     
 
 
- // constructeur
-public Item (String name , int durability) {
-    this.name = name;
-    this.durability = durability;
-}  
+    /**
+     * Constructeur de Board
+     */
+    public Item (String name , int durability) {
+        this.name = name;
+        this.durability = durability;
+    }  
+
     /**
      * GETTERS
      */
@@ -29,18 +32,33 @@ public Item (String name , int durability) {
     public void set_durability (int durability ) {this.durability = durability;} 
 
 
-// Methode
+    
+    /**
+     * diminution de la durabilite
+     * @param nb_damage
+     */
+    public void use_damage (int nb_damage) {this.durability -= nb_damage;}  
 
-public void use_damage (int nb_damage) {this.durability -= nb_damage;}  
-public void use_damage_n (int nb_damage) {this.use_damage (1) ;} 
+    /**
+     * diminution de la durabilite de 1
+     * @param w
+     */
+    public void use_damage_n (int nb_damage) {this.use_damage (1) ;} 
 
-public String to_string(){
-    return this.name+ "("+this.durability+")";
-}
+    /**
+     * affichage de l'item
+     */
+    public String to_string(){
+        return this.name+ "("+this.durability+")";
+    }
 
-public boolean is_equal(Item i){
-    return (i.get_name()==this.name);
-}
+    /**
+     * verification si un item est egale à cette item la 
+     * @param i
+     */
+    public boolean is_equal(Item i){
+        return (i.get_name()==this.name);
+    }
 }
  
  
