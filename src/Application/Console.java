@@ -78,6 +78,7 @@ public class Console {
 
         System.out.print(">> ");
         String input = sc.nextLine();
+        sc.close();
 
         if (!input.endsWith(";")){
             throw new ApplicationException("La ligne de code n'est pas terminee par un ';'");
