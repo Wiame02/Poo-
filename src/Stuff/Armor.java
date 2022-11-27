@@ -8,7 +8,9 @@ public class Armor extends Item {
     private Type type;
     private int durability;
 
-    //--------------------constructeur ---------------------------
+     /**
+     * Constructeur de Armor
+     */
     public Armor(String name , int durability , int defense_point, Type type){
         super (name) ;
         this.durability = durability;
@@ -25,7 +27,9 @@ public class Armor extends Item {
     public void set_durability(int durability){ this.durability = durability; }    
 
 
-    //---------------------methode--------------------------------
+    /**
+    * METHODE
+    */
     public int getdefense_point()    {return this.defense_point;} 
   
     public void use_damage_n (int nb_damage) {this.use_damage (nb_damage) ;} 
