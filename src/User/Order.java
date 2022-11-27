@@ -40,7 +40,7 @@ public enum Order {
     PHYSICIST(){
 
         /**
-         * Le physicien peut se déplacer dans unz zone sans contraintes
+         * Le physicien peut se déplacer dans une zone sans contraintes
          */
         public void useSpecialAbility(Player p,Area destination){
             p.move_to(destination);

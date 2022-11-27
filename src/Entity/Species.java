@@ -27,9 +27,11 @@ public enum Species{
 	GHOUL("Goule"),
 	ALGOULE("Algoule"), // type de goule
 	ZOMBIE("Zombie"),
-	UNDEADV("Mort-vivant"),
+	UNDEAD("Mort-vivant"),
 	DEMON("Demon"),
 	ELVES_DEMON("Elfes demon"),
+	DRONE("Drone"),
+	CYBORG("Cyborg"),
 	SAINT("Saint"); // fusion des demons et elfes demons
 
 	private String name;

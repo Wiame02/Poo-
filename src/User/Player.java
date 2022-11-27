@@ -31,7 +31,7 @@ public class Player{
     public Player(String username, Order category, Area first_area){
         this.username = username;
         this.lvl = 0;
-        this.hp = 100;
+        this.hp = 750;
         this.category = category;
         
         this.inventory = new Inventory();
