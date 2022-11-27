@@ -37,6 +37,7 @@ public abstract class Entity{
 
 	// ----------AFFICHAGE-------------
 
+	/* Fonctions non utiles
 	void print_name(){
 		System.out.println("le nom de l'entité est : " + this.name + "\n");
 	}
@@ -44,6 +45,7 @@ public abstract class Entity{
 	void print_hp(){
 		System.out.println("le nombre de point(s) de vie de l'entité est : " + this.hp + "\n");
 	}
+	*/
 	// ---------------------------------------------------------
 	
 	/**
@@ -51,8 +53,8 @@ public abstract class Entity{
 	 * @return true si l'entite est vivante
 	 * @return false si l'entite est morte (hp = 0)
 	 */
-	public boolean isAlive(){
-		return (hp > 0);
+	public boolean is_alive(){
+		return (this.hp > 0);
 	}
 
 	/**
@@ -64,8 +66,10 @@ public abstract class Entity{
 		return (this.name == e.name);
 	}
 
+
+	/* Une fonction to_string() doit faire en sorte de retourner toutes les informations d'une entité donc name et hp
 	public String to_string(){
 		return this.name;
-	}
+	}*/
 
 }		
