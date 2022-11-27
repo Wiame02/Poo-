@@ -13,7 +13,7 @@ public class ApplicationReflection {
 
     /**
      * Cherche si une classe existe en utilisant l'exception ClassNotFoundException à partir de l'adresse de la Classe
-     * @see https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html#forName(java.lang.String)
+     * @see https://docs.oracle.com/javase/10/docs/api/java/lang/Class.html#forName(java.lang.String)
      * @param class_name
      * @return true Si la classe a été trouvée
      */
@@ -29,7 +29,7 @@ public class ApplicationReflection {
 
     /**
      * Donne tous les noms des méthodes public de la classe entree
-     * @see https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html#getMethods()
+     * @see https://docs.oracle.com/javase/10/docs/api/java/lang/Class.html#getMethods()
      * @param class_adress Adresse de la Classe sous la forme package.class
      * @return  Une ArrayList de tous les noms
      * @throws ClassNotFoundException La classe n'existe pas ou n'a pas été trouvée
@@ -52,4 +52,10 @@ public class ApplicationReflection {
 
         return list_of_methods_names;
     }
+
+    public static Object execute_function (String class_adress, String method_name, Object[] arguments) {
+        // TODO
+        return new Object();
+    }
+
 }
