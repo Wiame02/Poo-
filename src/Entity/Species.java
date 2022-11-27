@@ -20,7 +20,7 @@ public enum Species{
 	FIRE_ELEMENTAL("Elementaire de feu"),
 	WIND_ELEMENTAL("Elementaire de vent"),
 	LIGHT_ELEMENTAL("Elementaire de lumiere"),
-	WYVERN("Wyvern"), // espece lien parentée avec les dragons
+	WYVERN("Wyvern"), // espece avce un lien de parentée avec les dragons
 	DRAGON("Dragon"),
 	ANCESTRAL_DRAGON("Dragon ancestral"),
 	DEMONIC_DRAGON("Dragon demoniaque"),
@@ -36,11 +36,6 @@ public enum Species{
 
 	private String name;
 
-    /* Contructeur non utile à enlever
-	 Species(String name){
-     	    this(name);
-     	 }
-    */
 	Species(String name){
 	   this.name = name;
 	}

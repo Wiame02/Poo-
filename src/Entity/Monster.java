@@ -46,7 +46,7 @@ public class Monster extends Entity{
 
 	/**
 	* cette methode sert a diminuer
-	* les points de vie en fonction d'un entier n
+	* les points de vie en fonction d'un entier x
 	* @param x un entier
 	*/
 	public void decrease_hp(int x) throws Exception{
@@ -90,11 +90,14 @@ public class Monster extends Entity{
     	}
     }
 
-	@Override
 
-	/*
-	* renvoie toutes les informations sur un monstre
-	*/
 
-	to_string()
+	/**
+	 * renvoie toutes les informations sur un monstre
+	 */
+    @Override
+	public String to_string(){
+
+	    return "Nom du monstre : " + this.name + ", points de vie " + this.hp + ", nom d'espèce " + this.species + ", dégats de son attaque " + this.attack;
+	}
 }
