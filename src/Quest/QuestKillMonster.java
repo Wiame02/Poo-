@@ -14,9 +14,9 @@ import Localization.*;
 public class QuestKillMonster extends Quest{
     private Monster monster ;
 
-    QuestKillMonster(String title, int bonus_exp){
+    public QuestKillMonster(String title, int bonus_exp,Monster m){
         super(title, bonus_exp);
-        this.monster=null;
+        this.monster=m;
     }
 
     /*
