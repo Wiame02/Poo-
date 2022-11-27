@@ -7,14 +7,18 @@ public class Weapon extends Item {
     private int attack_point ;
     private int durability;
 
-    //--------------------constructeur ---------------------------
+    /**
+     * Constructeur de Weapon
+     */
     public Weapon(String name , int durability , int attack_point){
         super (name) ;
         this.attack_point = attack_point;
         this.durability = durability;
     } 
 
-    //---------------------methode--------------------------------
+    /**
+     * GETTEUR
+     */
     public int get_attack_point()    {return this.attack_point;} 
     public int get_durability() { return this.durability; }
 
