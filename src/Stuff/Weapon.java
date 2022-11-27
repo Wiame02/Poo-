@@ -14,10 +14,16 @@ public Weapon(String name , int durability , int attack_point){
 
 //---------------------methode--------------------------------
 public int get_attack_point()    {return this.attack_point;} 
+
 @Override  
 public void use_damage_n (int nb_damage) {this.use_damage (nb_damage) ;} 
 
-//TODO :Overrive de la fonction d'affichage 
+
+@Override
+public String to_string(){
+  return super.to_string()+"("+this.attack_point+")";
+}
+
 }
  
  
