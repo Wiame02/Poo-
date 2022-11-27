@@ -45,15 +45,5 @@ public enum Species{
 	   this.name = name;
 	}
 	public String get_name(){ return this.name; }
-
-	/* inutile : A enlever, soit tu fais un fichier a part pour tester soit tu mets directement le main (on evite les classes dans es classe)
-	class Test
-    {
-        public static void main(String[] args)
-        {
-            Species species = Species.GRIFFIN;  // exemple d'appel d'une espece parmi la liste d'enumération
-            System.out.print("L'espece est un(e) " + species.getName());
-    }
-    */
 }
 
