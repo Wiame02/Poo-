@@ -79,9 +79,17 @@ public class Area {
      * Ajoute une zone accessible à partir de celle-ci 
      * @param area
      */
-    public void add_accesible_area(Area area) {
+    public void add_accessible_area(Area area) {
         this.accessible_areas.add(area);
     }
+    
+    /**
+    * Ajoute une zone accessible à partir de celle-ci 
+    * @param area
+    */
+   public void add_all_accessible_area(ArrayList<Area> areas) {
+       this.accessible_areas.addAll(areas);
+   }
 
     /**
      * Vérifie si une zone entree est accessible a partir de notre zone
