@@ -26,7 +26,6 @@ public abstract class Quest {
      * GETTERS
      */
     public String get_title(){return this.title;}
-    public boolean is_accomplished(){return this.is_accomplished;}
     public Item get_reward(){return this.reward;}
     public int get_bonus_exp(){return this.bonus_exp;}
 
@@ -41,4 +40,9 @@ public abstract class Quest {
      * Si la quête est accomplie, change l'attribus is_accomplished en true sinon le laisse a false
      */
     public abstract void submit(Player p);
+    
+    public boolean is_accomplished(Player p){
+        this.submit(p);
+        return this.is_accomplished;
+    }
 }

@@ -12,10 +12,20 @@ import User.*;
 public class QuestRecoltItem extends Quest{
     protected Item item;
 
-    QuestRecoltItem(String title, Item reward, int bonus_exp, Item item){
-        super(title, reward, bonus_exp);
-        this.item = item;
+    QuestRecoltItem(String title, Item reward, int bonus_exp){
+        super(title,bonus_exp);
+        this.item = null;
     }
+
+    /*
+     * GETTERS
+     */
+    public Item get_item(){return this.item;}
+
+    /*
+     * SETTERS
+     */
+    public void set_item(Item i){this.item=i;}
 
     @Override
     public void submit(Player p){

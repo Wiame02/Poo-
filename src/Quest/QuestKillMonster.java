@@ -14,10 +14,20 @@ import Localization.*;
 public class QuestKillMonster extends Quest{
     private Monster monster ;
 
-    QuestKillMonster(String title, Item reward, int bonus_exp, Monster monster){
-        super(title, reward, bonus_exp);
-        this.monster = monster;
+    QuestKillMonster(String title, int bonus_exp){
+        super(title, bonus_exp);
+        this.monster=null;
     }
+
+    /*
+     * GETTERS
+     */
+    public Monster get_monster(){return this.monster;}
+
+    /*
+     * SETTERS
+     */
+    public void set_monster(Monster m){this.monster=m;}
 
     @Override
     public void submit(Player p){
@@ -26,7 +36,7 @@ public class QuestKillMonster extends Quest{
         while(i<=world.get_areas().size() || !world.get_area_at(i).get_entity().is_equal(this.monster)){
             i++;
         }
-        if(!world.get_area_at(i).get_entity().isAlive()){
+        if(!world.get_area_at(i).get_entity().is_alive()){
             this.is_accomplished=true;
         }
     };
