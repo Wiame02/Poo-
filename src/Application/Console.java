@@ -117,7 +117,7 @@ public class Console {
                     if (input.charAt(i)==' ') {
                         if (!valid_space_placement(input, i)) { throw new ApplicationException("Un espace coupe un argument en deux !"); }
                     }
-                    word += (input.charAt(i)!=' ')?input.charAt(i):'\0';    //On se facilite la lecture et ignorons les espaces i.e : "to to" équivaut à "toto" 
+                    word += (input.charAt(i)!=' ')?input.charAt(i):'\0';
                 }
                 i++;    //Incrémentation !
             }
