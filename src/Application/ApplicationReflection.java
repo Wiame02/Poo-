@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * Seulement elle peut manipuler les classes, fonctions, méthodes etc... à partir de la librairie
  * @author Monique RIMBERT
  * @see https://www.oracle.com/technical-resources/articles/java/javareflection.html
+ * @see https://www.baeldung.com/java-method-reflection#1-instance-methods
  */
 public class ApplicationReflection {
 
