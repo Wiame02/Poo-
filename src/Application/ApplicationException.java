@@ -8,7 +8,7 @@ package Application;
 class ApplicationException extends Exception {
     
     /**
-     * Creation d'une exception de type GameException
+     * Creation d'une exception de type ApplicationException
      * @param message Message de l'erreur
      */
     public ApplicationException(String message) {
