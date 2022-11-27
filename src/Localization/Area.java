@@ -107,15 +107,15 @@ public class Area {
 
         res = "name: " + this.name + '\n';
 
-        res+= "entities: " + this.entity.to_string();
+        res+= "entities: ";
+        res+= (this.entity!=null)?this.entity.to_string():"null";
 
         res+= "\nactions: ";
         for (int i=0; i<this.actions.size(); i++) {
             res+= this.actions.get(i) + ' ';
         }
 
-        res+= "\nworld: " + world.to_string();
-
+        res+= "\nworld: " + world.get_name();
         return res;
     }
 
