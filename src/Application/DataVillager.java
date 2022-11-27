@@ -59,7 +59,13 @@ public class DataVillager {
         ArrayList<Villager> villagers = new ArrayList<Villager>();
 
         // Création des villageois
-
+        villagers.add(new Villager("Maire Robert", 100));
+        villagers.add(new Villager("Ophélie", 100));
+        villagers.add(new Villager("Maxime", 100));
+        villagers.add(new Villager("Sylvia", 100));
+        villagers.add(new Villager("Jules", 100));
+        villagers.add(new Villager("Juliette", 100));
+        villagers.add(new Villager("Gaspard", 100));
         
         // Création des quêtes et liaison aux villageois
 
@@ -72,6 +78,13 @@ public class DataVillager {
         ArrayList<Villager> villagers = new ArrayList<Villager>();
 
         // Création des villageois
+        villagers.add(new Villager("Chef de Brigade Marianne", 100));
+        villagers.add(new Villager("Agent 007", 100));
+        villagers.add(new Villager("Agent 117", 100));
+        villagers.add(new Villager("Chercheur-cultivateur Olivier", 100));
+        villagers.add(new Villager("Etudiant Sophian", 100));
+        villagers.add(new Villager("Enseignant Didier", 100));
+        villagers.add(new Villager("Droide C3PO", 100));
 
         
         // Création des quêtes et liaison aux villageois

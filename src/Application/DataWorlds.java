@@ -29,7 +29,40 @@ public class DataWorlds {
         univers_cite.add_area(new Area("Amphi D",univers_cite));
         univers_cite.add_area(new Area("Amphi E",univers_cite));
 
-        // TODO : Faire les liaisons (graphe)
+        // Ajouts des zones accessibles
+            // Zone 0
+        univers_cite.get_area_at(0).add_accessible_area(univers_cite.get_area_at(1));
+            // Zone 1
+        univers_cite.get_area_at(1).add_accessible_area(univers_cite.get_area_at(0));
+        univers_cite.get_area_at(1).add_accessible_area(univers_cite.get_area_at(2));
+        univers_cite.get_area_at(1).add_accessible_area(univers_cite.get_area_at(3));
+        univers_cite.get_area_at(1).add_accessible_area(univers_cite.get_area_at(4));
+        univers_cite.get_area_at(1).add_accessible_area(univers_cite.get_area_at(5));
+        univers_cite.get_area_at(1).add_accessible_area(univers_cite.get_area_at(6));
+        univers_cite.get_area_at(1).add_accessible_area(univers_cite.get_area_at(7));
+        univers_cite.get_area_at(1).add_accessible_area(univers_cite.get_area_at(8));
+            // Zone 2
+        univers_cite.get_area_at(2).add_accessible_area(univers_cite.get_area_at(1));
+            // Zone 3
+        univers_cite.get_area_at(3).add_accessible_area(univers_cite.get_area_at(1));
+            // Zone 4
+        univers_cite.get_area_at(4).add_accessible_area(univers_cite.get_area_at(1));
+            // Zone 5
+        univers_cite.get_area_at(5).add_accessible_area(univers_cite.get_area_at(1));
+        univers_cite.get_area_at(5).add_accessible_area(univers_cite.get_area_at(6));
+            // Zone 6
+        univers_cite.get_area_at(6).add_accessible_area(univers_cite.get_area_at(1));
+        univers_cite.get_area_at(6).add_accessible_area(univers_cite.get_area_at(5));
+        univers_cite.get_area_at(6).add_accessible_area(univers_cite.get_area_at(9));
+        univers_cite.get_area_at(6).add_accessible_area(univers_cite.get_area_at(10));
+            // Zone 7
+        univers_cite.get_area_at(7).add_accessible_area(univers_cite.get_area_at(1));
+            // Zone 8
+        univers_cite.get_area_at(8).add_accessible_area(univers_cite.get_area_at(1));
+            // Zone 9
+        univers_cite.get_area_at(9).add_accessible_area(univers_cite.get_area_at(6));
+            // Zone 10
+        univers_cite.get_area_at(10).add_accessible_area(univers_cite.get_area_at(6));
 
         return univers_cite;
     }
@@ -57,7 +90,54 @@ public class DataWorlds {
         valkiem.add_area(new Area("Arbre ancien",valkiem));
         valkiem.add_area(new Area("Tente abandonée",valkiem));
 
-        // TODO : Faire les liaisons (graphe)
+        // Ajouts des zones accessibles
+            // Zone 0
+        valkiem.get_area_at(0).add_accessible_area(valkiem.get_area_at(1));
+        valkiem.get_area_at(0).add_accessible_area(valkiem.get_area_at(2));
+        valkiem.get_area_at(0).add_accessible_area(valkiem.get_area_at(3));
+        valkiem.get_area_at(0).add_accessible_area(valkiem.get_area_at(4));
+        valkiem.get_area_at(0).add_accessible_area(valkiem.get_area_at(5));
+        valkiem.get_area_at(0).add_accessible_area(valkiem.get_area_at(6));
+            // Zone 1
+        valkiem.get_area_at(1).add_accessible_area(valkiem.get_area_at(0));
+            // Zone 2
+        valkiem.get_area_at(2).add_accessible_area(valkiem.get_area_at(0));
+            // Zone 3
+        valkiem.get_area_at(3).add_accessible_area(valkiem.get_area_at(0));
+        valkiem.get_area_at(3).add_accessible_area(valkiem.get_area_at(4));
+        valkiem.get_area_at(3).add_accessible_area(valkiem.get_area_at(11));
+            // Zone 4
+        valkiem.get_area_at(4).add_accessible_area(valkiem.get_area_at(0));
+        valkiem.get_area_at(4).add_accessible_area(valkiem.get_area_at(3));
+            // Zone 5
+        valkiem.get_area_at(5).add_accessible_area(valkiem.get_area_at(0));
+            // Zone 6
+        valkiem.get_area_at(6).add_accessible_area(valkiem.get_area_at(0));
+        valkiem.get_area_at(6).add_accessible_area(valkiem.get_area_at(7));
+        valkiem.get_area_at(6).add_accessible_area(valkiem.get_area_at(12));
+            // Zone 7
+        valkiem.get_area_at(7).add_accessible_area(valkiem.get_area_at(6));
+        valkiem.get_area_at(7).add_accessible_area(valkiem.get_area_at(8));
+            // Zone 8
+        valkiem.get_area_at(8).add_accessible_area(valkiem.get_area_at(7));
+        valkiem.get_area_at(8).add_accessible_area(valkiem.get_area_at(9));
+        valkiem.get_area_at(8).add_accessible_area(valkiem.get_area_at(10));
+            // Zone 9
+        valkiem.get_area_at(9).add_accessible_area(valkiem.get_area_at(8));
+            // Zone 10
+        valkiem.get_area_at(10).add_accessible_area(valkiem.get_area_at(8));
+            // Zone 11
+        valkiem.get_area_at(11).add_accessible_area(valkiem.get_area_at(3));
+        valkiem.get_area_at(11).add_accessible_area(valkiem.get_area_at(12));
+        valkiem.get_area_at(11).add_accessible_area(valkiem.get_area_at(13));
+        valkiem.get_area_at(11).add_accessible_area(valkiem.get_area_at(14));
+            // Zone 12
+        valkiem.get_area_at(12).add_accessible_area(valkiem.get_area_at(11));
+        valkiem.get_area_at(12).add_accessible_area(valkiem.get_area_at(6));
+            // Zone 13
+        valkiem.get_area_at(13).add_accessible_area(valkiem.get_area_at(11));
+            // Zone 14
+        valkiem.get_area_at(14).add_accessible_area(valkiem.get_area_at(11));
 
         return valkiem;
     }
@@ -83,8 +163,51 @@ public class DataWorlds {
         cimebel.add_area(new Area("Parc", cimebel));
         cimebel.add_area(new Area("Pharmacie", cimebel));
 
-        // TODO : Faire les liaisons (graphe)
-
+        // Ajouts des zones accessibles
+            // Zone 0
+        cimebel.get_area_at(0).add_accessible_area(cimebel.get_area_at(1));
+        cimebel.get_area_at(0).add_accessible_area(cimebel.get_area_at(2));
+            // Zone 1
+        cimebel.get_area_at(1).add_accessible_area(cimebel.get_area_at(0));
+        cimebel.get_area_at(1).add_accessible_area(cimebel.get_area_at(3));
+        cimebel.get_area_at(1).add_accessible_area(cimebel.get_area_at(9));
+        cimebel.get_area_at(1).add_accessible_area(cimebel.get_area_at(10));
+        cimebel.get_area_at(1).add_accessible_area(cimebel.get_area_at(11));
+        cimebel.get_area_at(1).add_accessible_area(cimebel.get_area_at(12));
+            // Zone 2
+        cimebel.get_area_at(2).add_accessible_area(cimebel.get_area_at(0));
+        cimebel.get_area_at(2).add_accessible_area(cimebel.get_area_at(3));
+        cimebel.get_area_at(2).add_accessible_area(cimebel.get_area_at(4));
+        cimebel.get_area_at(2).add_accessible_area(cimebel.get_area_at(5));
+        cimebel.get_area_at(2).add_accessible_area(cimebel.get_area_at(6));
+        cimebel.get_area_at(2).add_accessible_area(cimebel.get_area_at(7));
+            // Zone 3
+        cimebel.get_area_at(3).add_accessible_area(cimebel.get_area_at(1));
+        cimebel.get_area_at(3).add_accessible_area(cimebel.get_area_at(2));
+            // Zone 4
+        cimebel.get_area_at(4).add_accessible_area(cimebel.get_area_at(2));
+            // Zone 5
+        cimebel.get_area_at(5).add_accessible_area(cimebel.get_area_at(2));
+            // Zone 6
+        cimebel.get_area_at(6).add_accessible_area(cimebel.get_area_at(2));
+            // Zone 7
+        cimebel.get_area_at(7).add_accessible_area(cimebel.get_area_at(4));
+        cimebel.get_area_at(7).add_accessible_area(cimebel.get_area_at(8));
+        cimebel.get_area_at(7).add_accessible_area(cimebel.get_area_at(9));
+            // Zone 8
+        cimebel.get_area_at(8).add_accessible_area(cimebel.get_area_at(7));
+            // Zone 9
+        cimebel.get_area_at(9).add_accessible_area(cimebel.get_area_at(7));
+        cimebel.get_area_at(9).add_accessible_area(cimebel.get_area_at(1));
+            // Zone 10
+        cimebel.get_area_at(10).add_accessible_area(cimebel.get_area_at(1));
+            // Zone 11
+        cimebel.get_area_at(11).add_accessible_area(cimebel.get_area_at(1));
+        cimebel.get_area_at(11).add_accessible_area(cimebel.get_area_at(12));
+            // Zone 12
+        cimebel.get_area_at(12).add_accessible_area(cimebel.get_area_at(1));
+        cimebel.get_area_at(12).add_accessible_area(cimebel.get_area_at(11));
+        
         return cimebel;
     }
 
@@ -95,6 +218,7 @@ public class DataWorlds {
     public static World create_codix(){
         World codix = new World("Codix", Period.FUTURE);
 
+        // Création des zones
         codix.add_area(new Area("Douane (Unité Centrale)", codix));
         codix.add_area(new Area("unité Centrale", codix));
         codix.add_area(new Area("Tour des affaires", codix));
@@ -109,9 +233,50 @@ public class DataWorlds {
         codix.add_area(new Area("Pied du mont Luchi", codix));
         codix.add_area(new Area("Gorges du diable", codix));
         codix.add_area(new Area("Pic du mint Luchi", codix));
-        
 
-        // TODO : Faire les liaisons (graphe)
+        // Ajouts des zones accessibles
+            // Zone 0
+        codix.get_area_at(0).add_accessible_area(codix.get_area_at(1));
+        codix.get_area_at(0).add_accessible_area(codix.get_area_at(6));
+            // Zone 1
+        codix.get_area_at(1).add_accessible_area(codix.get_area_at(0));
+        codix.get_area_at(1).add_accessible_area(codix.get_area_at(2));
+        codix.get_area_at(1).add_accessible_area(codix.get_area_at(3));
+        codix.get_area_at(1).add_accessible_area(codix.get_area_at(4));
+        codix.get_area_at(1).add_accessible_area(codix.get_area_at(5));
+            // Zone 2
+        codix.get_area_at(2).add_accessible_area(codix.get_area_at(1));
+            // Zone 3
+        codix.get_area_at(3).add_accessible_area(codix.get_area_at(1));
+        codix.get_area_at(3).add_accessible_area(codix.get_area_at(5));
+            // Zone 4
+        codix.get_area_at(4).add_accessible_area(codix.get_area_at(1));
+            // Zone 5
+        codix.get_area_at(5).add_accessible_area(codix.get_area_at(1));
+        codix.get_area_at(5).add_accessible_area(codix.get_area_at(3));
+            // Zone 6
+        codix.get_area_at(6).add_accessible_area(codix.get_area_at(0));
+        codix.get_area_at(6).add_accessible_area(codix.get_area_at(7));
+            // Zone 7
+        codix.get_area_at(7).add_accessible_area(codix.get_area_at(6));
+        codix.get_area_at(7).add_accessible_area(codix.get_area_at(8));
+            // Zone 8
+        codix.get_area_at(8).add_accessible_area(codix.get_area_at(7));
+        codix.get_area_at(8).add_accessible_area(codix.get_area_at(9));
+            // Zone 9
+        codix.get_area_at(9).add_accessible_area(codix.get_area_at(8));
+        codix.get_area_at(9).add_accessible_area(codix.get_area_at(10));
+        codix.get_area_at(9).add_accessible_area(codix.get_area_at(11));
+            // Zone 10
+        codix.get_area_at(10).add_accessible_area(codix.get_area_at(9));
+            // Zone 11
+        codix.get_area_at(11).add_accessible_area(codix.get_area_at(9));
+        codix.get_area_at(11).add_accessible_area(codix.get_area_at(12));
+            // Zone 12
+        codix.get_area_at(12).add_accessible_area(codix.get_area_at(11));
+        codix.get_area_at(12).add_accessible_area(codix.get_area_at(13));
+            // Zone 13
+        codix.get_area_at(12).add_accessible_area(codix.get_area_at(12));
 
         return codix;
     }
