@@ -58,11 +58,33 @@ public class World {
         this.areas.add(area);
     }
 
+    /**
+     * Formattage de l'affichage d'un Monde
+     */
     public String to_string() {
-        return "";
+        String txt = "name: " + this.name;
+        txt += "\nperiod: " + era.toString();
+        txt += "\nboss: ";
+        txt += (this.boss!=null)?boss.to_string():"null";  
+        txt += "\nareas: {";
+        for (Area a : this.areas) {
+            txt +=a.get_name();
+        }
+        txt +='}';
+        return txt;
     }
 
+    /**
+     * @return Deux mondes son identiques
+     */
     public boolean is_equal(World w) {
         return (this.name.equals(w.name) && this.era==w.era && this.boss.is_equal(w.boss));
+    }
+
+    public static void main(String[] args) {
+        World w = new World("TestWorld", Period.FUTURE);
+        Area a = new Area ("TestArea", w);
+        w.add_area(a);
+        System.out.println(w.to_string());
     }
 }
