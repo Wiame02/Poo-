@@ -213,7 +213,7 @@ public class Player{
      * @param e
      */
     public void interact(Villager v){
-        v.talk(this.current_quest);
+        v.talk(this.current_quest,this);
     }
 
     /**
@@ -221,7 +221,12 @@ public class Player{
      * @param entity
      */
     public void attack(Monster m){
-        m.decrease_hp(this.weapon.getattack_point());
+        try{
+            m.decrease_hp(this.weapon.get_attack_point());
+        }
+        catch(Exception e){
+            System.out.println(m.getName()+" a esquivé votre attaque");
+        }
     }
 
 }    

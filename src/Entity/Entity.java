@@ -67,9 +67,9 @@ public abstract class Entity{
 	}
 
 
-	/* Une fonction to_string() doit faire en sorte de retourner toutes les informations d'une entité donc name et hp
+	//TODO:Une fonction to_string() doit faire en sorte de retourner toutes les informations d'une entité donc name et hp
 	public String to_string(){
 		return this.name;
-	}*/
+	}
 
 }		

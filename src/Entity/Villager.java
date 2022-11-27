@@ -66,10 +66,10 @@ public class Villager extends Entity{
 	 * @param p cette attribut correspond a un joueur de type Player
 	 */
 
-	/* TODO : Enlever les commentaires non utiles (ca pollue la lisibilité du code) + corriger les erreurs, certaines choses ne sont pas logiques
-	 * Redéfinir la foncition, elle fait un peu trop de chose (a voir avec mo et kateul)
+	
 	public void talk(Quest quest, Player p){ // quete  proposer par le villageois
-		
+		/* TODO : Enlever les commentaires non utiles (ca pollue la lisibilité du code) + corriger les erreurs, certaines choses ne sont pas logiques
+	 	 * Redéfinir la foncition, elle fait un peu trop de chose (a voir avec mo et kateul)
 		if(submit(p) == false){ // est-ce que notre quete actuelle est achevée ? faudrait pouvoir savoir si la current_quest de joueur est fini ou pas
 			//non la quete n'est pas achevée
 			if(is_equal(p)){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
@@ -90,9 +90,7 @@ public class Villager extends Entity{
 				System.out.println("l'intitulé de la quete est : "); // faudrait print l'intitulé de la quete mais je crois que ce n'est pas encore implementé
 			}
 		}
-
-	}
 	*/
-
+	}
 	//TODO : Override de to_string() qui renvoie toutes les informations sur un villageois
 }
