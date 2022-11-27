@@ -12,9 +12,9 @@ import User.*;
 public class QuestRecoltItem extends Quest{
     protected Item item;
 
-    QuestRecoltItem(String title, Item reward, int bonus_exp){
+    public QuestRecoltItem(String title, int bonus_exp, Item i){
         super(title,bonus_exp);
-        this.item = null;
+        this.item = i;
     }
 
     /*
