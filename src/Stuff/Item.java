@@ -5,43 +5,43 @@ package Stuff;
 
 
 public class Item {
-    private String name;
-    private int durability;
-    
+    private String name;    
 
 
- // constructeur
-public Item (String name , int durability) {
-    this.name = name;
-    this.durability = durability;
-}  
+    /**
+     * Constructeur de Board
+     */
+    public Item (String name) {
+        this.name = name;
+    }  
+
     /**
      * GETTERS
      */
 
     public String get_name()  {return this.name;} 
-    public  int get_durability()  {return this.durability;}  
 
      /**
      * SETTERS
      */
     public void set_name (String name) {this.name = name;} 
-    public void set_durability (int durability ) {this.durability = durability;} 
 
+    
 
-// Methode
+    /**
+     * affichage de l'item
+     */
+    public String to_string(){
+        return this.name;
+    }
 
-public void use_damage (int nb_damage) {this.durability -= nb_damage;}  
-public void use_damage_n (int nb_damage) {this.use_damage (1) ;} 
-
-public String to_string(){
-    return this.name+ "("+this.durability+")";
-}
-
-public boolean is_equal(Item i){
-    //TODO test si les deux item sont egaux (par les noms)
-    return false;
-}
+    /**
+     * verification si un item est egale à cette item la 
+     * @param i
+     */
+    public boolean is_equal(Item i){
+        return (i.get_name()==this.name);
+    }
 }
  
  
