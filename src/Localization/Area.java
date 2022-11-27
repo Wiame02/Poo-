@@ -84,7 +84,7 @@ public class Area {
     }
     
     /**
-    * Ajoute une zone accessible à partir de celle-ci 
+    * Ajoute des zones accessibles à partir de celle-ci 
     * @param area
     */
    public void add_all_accessible_area(ArrayList<Area> areas) {
