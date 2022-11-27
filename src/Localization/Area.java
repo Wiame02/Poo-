@@ -1,7 +1,5 @@
 package Localization;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 import Entity.*;
 
 /**
@@ -83,6 +81,14 @@ public class Area {
      */
     public void add_accesible_area(Area area) {
         this.accessible_areas.add(area);
+    }
+
+    /**
+     * Vérifie si une zone entree est accessible a partir de notre zone
+     * @return true Si elle l'est
+     */
+    public boolean is_area_accessible(Area area) {
+        return this.accessible_areas.contains(area);
     }
 
     /**
