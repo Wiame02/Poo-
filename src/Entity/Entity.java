@@ -12,6 +12,11 @@ public abstract class Entity{
 	protected String name;
 	protected int hp;
 
+    /**
+     * Constructeur
+     * @param name
+     * @param hp
+    */
 	public Entity(String name, int hp){
 		this.name = name;
 		this.hp = hp;
@@ -47,19 +52,15 @@ public abstract class Entity{
 	// ---------------------------------------------------------
 	
 	/**
-	 * Cette methode permet de savoir si une entite est vivante ou morte (par rapport a son nombre d'hp)
+	 * Cette methode permet de savoir si une entite est vivante ou morte (par rapport a son nombre de points de vie)
 	 * @return true si l'entite est vivante
 	 * @return false si l'entite est morte (hp = 0)
 	 */
-	public boolean isAlive(){
+	public boolean is_alive(){
 		return (hp > 0);
 	}
 
-	/**
-	 * 
-	 * @param e
-	 * @return
-	 */
+
 	public boolean is_equal(Entity e){
 		return (this.name == e.name);
 	}

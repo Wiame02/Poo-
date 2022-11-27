@@ -14,6 +14,14 @@ public class Monster extends Entity{
 	private Species species;
 	private int attack;
 
+
+    /**
+     * Constructeur
+     * @param name
+     * @param hp
+     * @param species
+     * @param attack
+    */
 	public Monster(String name, int hp, Species species, int attack){
 		super(name, hp);
 		this.species = species;
@@ -43,6 +51,10 @@ public class Monster extends Entity{
 	}
 
 
+    public void print_attack(){
+
+        System.out.println(this.name + " à infligé " + this.attack + "de dégats");
+    }
 
 	/**
 	* cette methode sert a diminuer
@@ -51,14 +63,14 @@ public class Monster extends Entity{
 	*/
 	public void decrease_hp(int x) throws Exception{
 
-        if((is_alive) == true){  // le monstre est-il deja mort ?
+        if((is_alive)){  // le monstre est-il deja mort ?
             if(x >= 0){
                 if(this.hp <= x){
                     this.hp = 0;
                 } else {
                     this.hp -= x;
                 }
-            } throw new Exception("La valeur d'enlevement de points de vie ne peut pas être négative");
+            } throw new Exception("La valeur de retrait de points de vie ne peut pas être négative");
 
         } throw new Exception("Le monstre est déjà mort");
 
@@ -85,7 +97,7 @@ public class Monster extends Entity{
 
     	    } else {
 
-    	        this.print_attack(this.attack);
+    	        print_attack();
     	    }
     	}
     }

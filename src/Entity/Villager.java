@@ -16,6 +16,11 @@ public class Villager extends Entity{
 	private Quest quest;
 
 
+    /**
+     * Constructeur
+     * @param name
+     * @param hp
+     */
 	public Villager(String name, int hp){
 		super(name,hp);
 		this.dialogues = new ArrayList<String>();
@@ -46,6 +51,7 @@ public class Villager extends Entity{
 	//----------------------------
 
 	 public boolean is_equal(Player p){
+
     		return (this.quest == p.get_current_quest());
     	}
 
