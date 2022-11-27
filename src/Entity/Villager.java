@@ -15,10 +15,17 @@ public class Villager extends Entity{
 	private ArrayList<String> dialogues;
 	private Quest quest;
 
+
+	/* TODO : Constructeur non utile à remplacer par celui d'apres
 	public Villager(String name, int hp, ArrayList<String> dialogues, Quest quest){
 		super(name, hp);
-		this.dialogues = new ArrayList<String>();
+		this.dialogues = new ArrayList<String>(); 
 		this.quest = quest;
+	}*/
+
+	// TODO : Quete à null et créer une nouvelle liste pour dialogue
+	public Villager(String name, int hp){
+		super(name,hp);
 	}
 	
 	//--------------METHODES-------------
@@ -28,6 +35,7 @@ public class Villager extends Entity{
 	 */
 	
 	public String get_dialogues_at(int i) {return this.dialogues.get(i);}
+	public ArrayList<String> get_dialogues(){return this.dialogues;}
 	public Quest get_quest() {return this.quest;}
 	
 	/**
@@ -39,10 +47,11 @@ public class Villager extends Entity{
 	}
 
 	//--------------AFFICHE------------
-
+	/* TODO :Fonction non utile
 	void print_quest(Quest quest){
 		System.out.println("le titre de la quête est : " + this.quest + "\n");
 	}
+	*/
 
 
 	//----------------------------
@@ -51,25 +60,14 @@ public class Villager extends Entity{
     		return (this.quest == p.get_current_quest());
     	}
 
-    	@override
-    	/**
-        * Marque une quete comme accomplie
-        * @param p un joueur de type Player
-        */
-    	public abstract void submit(Player p){
-    	    p.get_current_quest().is_finished();
-    	}
-
 	/**
-	 * Cette methode sera utiliser lors d'une 
-	 * rencontre avec un villageois.
-	 * on saura alors la reponse du villageois
-	 * en fonction de notre quete actuelle
+	 * Cette methode sera utiliser lors d'une rencontre avec un villageois.on saura alors la reponse du villageoisen fonction de notre quete actuelle
 	 * @param quest cette attribut correspond à la quete que la villageois nous donne lors de son interaction avec le personnage
 	 * @param p cette attribut correspond a un joueur de type Player
 	 */
 
-
+	/* TODO : Enlever les commentaires non utiles (ca pollue la lisibilité du code) + corriger les erreurs, certaines choses ne sont pas logiques
+	 * Redéfinir la foncition, elle fait un peu trop de chose (a voir avec mo et kateul)
 	public void talk(Quest quest, Player p){ // quete  proposer par le villageois
 		
 		if(submit(p) == false){ // est-ce que notre quete actuelle est achevée ? faudrait pouvoir savoir si la current_quest de joueur est fini ou pas
@@ -94,5 +92,7 @@ public class Villager extends Entity{
 		}
 
 	}
+	*/
 
+	//TODO : Override de to_string() qui renvoie toutes les informations sur un villageois
 }

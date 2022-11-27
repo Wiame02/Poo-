@@ -27,7 +27,6 @@ public class Monster extends Entity{
 	 */
 	
 	public Species get_species(){return this.species;}
-
 	public int get_attack(){return this.attack;}
 	
 	/**
@@ -35,7 +34,6 @@ public class Monster extends Entity{
 	 */
 	
 	public void set_species(Species species){this.species=species;}
-
 	public void set_attack(int attack){
 		if(attack <= 0){
 			 this.attack = 0;
@@ -46,6 +44,7 @@ public class Monster extends Entity{
 
 	//----------------------AFFICHAGE-----------------
 
+	/* TODO : fonctions inutiles
 	void print_name(Species species){
 		System.out.println("l'espèce de l'entité est : " + this.species + "\n");
 	}
@@ -53,6 +52,7 @@ public class Monster extends Entity{
 	void print_name(int attack){
 		System.out.println("son attaque inflige : " + this.attack + "\n");
 	}
+	*/
 
 	//--------------------------------------------------
 
@@ -62,7 +62,7 @@ public class Monster extends Entity{
 	* @param x un entier
 	*/
 	public void decrease_hp(int x) throws Exception{
-
+		/*TODO : corriger les erreurs (voir discord)
         if((is_alive) == true){  // le monstre est-il deja mort ?
             if(x >= 0){
                 if(hp <= this.x){
@@ -73,19 +73,19 @@ public class Monster extends Entity{
             } throw new Exception("La valeur de décroissement ne peut pas être négative");
 
         } throw new Exception("Le monstre est déjà mort");
-    }
+		*/
+	}
 
 	/**
 	 * Cette methode permet de savoir 
 	 * si un monstre correspond au boss de ce monde ou non
-	 * @see package Localization afin de recuperer le boss du monde en question
+	 * @see Localization.World#get_boss() afin de recuperer le boss du monde en question
 	 * @param world de type World
 	 * @return true si c'est le boss de ce monde
 	 * @return false si ce n'est pas le boss de ce monde
 	 */
-	public boolean isBoss(World world){
-
-		return (this == world.get_boss());  // return this.Monster isEqual(wordl.boss) ?
+	public boolean is_boss(World world){
+		return (this == world.get_boss());
 	}
 
 	/**
@@ -93,6 +93,7 @@ public class Monster extends Entity{
     * si une entite est un boss ou non
     * @param world le monde ou se trouve le monstre
 	*/
+	/*TODO : fonction inutile -> passage dans Game.java. A RETIRER
 	public void interact(World world){
 
 		if(isBoss(world)){
@@ -103,8 +104,8 @@ public class Monster extends Entity{
 		while(Player.hp != 0 || Monster.hp != 0){
 			Combat
 		}
-		*/
 	}
+	*/
 
 
 	void attack(Player p){
@@ -115,4 +116,6 @@ public class Monster extends Entity{
 			System.out.println(p.get_username()+" a esquivé l'attaque ");
 		}
 	}
+
+	//TODO : Override de to_string() qui renvoie toutes les informations sur un monstre
 }
