@@ -16,6 +16,8 @@ public Weapon(String name , int durability , int attack_point){
 public int getattack_point()    {return this.attack_point;} 
 @Override  
 public void use_damage_n (int nb_damage) {this.use_damage (nb_damage) ;} 
+
+//TODO :Overrive de la fonction d'affichage 
 }
  
  

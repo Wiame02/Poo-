@@ -15,7 +15,7 @@ public class Area {
     private Entity entity;
     private ArrayList<String> actions;
     private World world;
-    private Set<Area> accessible_areas;
+    private ArrayList<Area> accessible_areas;
 
     /**
      * Constructeur de Area
@@ -26,8 +26,17 @@ public class Area {
         this.entity = entity;
         this.actions = new ArrayList<String>();
         this.world = world;
-        this.accessible_areas = new HashSet<Area>();
+        this.accessible_areas = new ArrayList<Area>();
     }
+
+    public Area(String name, World world) {
+        this.name = name;
+        this.entity = null;
+        this.actions = new ArrayList<String>();
+        this.world = world;
+        this.accessible_areas = new ArrayList<Area>();        
+    }
+
 
     /**
      * GETTERS
@@ -36,7 +45,7 @@ public class Area {
     public Entity get_entity()          {return this.entity;}
     public String get_action_at(int i)  {return this.actions.get(i);}
     public World  get_world()           {return this.world;}
-    public Set<Area> get_access_areas() {return this.accessible_areas;}
+    public ArrayList<Area> get_access_areas() {return this.accessible_areas;}
 
     /**
      * Recherche la zone par le nom donnée

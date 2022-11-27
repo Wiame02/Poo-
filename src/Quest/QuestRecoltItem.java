@@ -1,7 +1,6 @@
 package Quest;
 import Stuff.*;
 import User.*;
-import Localization.*;
 
 /**
  * QuestRecoltItem.java

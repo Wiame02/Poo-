@@ -87,23 +87,23 @@ public class Player{
     /**
      * Affiche l'armure portée
      */
-    void display_armor(){
+    public void display_armor(){
         for(Armor a : this.armor){
-            //TODO : Afficher le nom d'un morceau d'armure
+            a.to_string();
         }
     }
 
     /**
      * Affiche l'arme portée
      */
-    void display_weapon(){
-        //TODO : Afficher le nom de l'arme
+    public void display_weapon(){
+        this.weapon.to_string();
     }
 
     /**
      * Affiche les informations sur le joueur tel que les points de vies et son niveau d'experience
      */
-    void display_player_data(){
+    public void display_player_data(){
         System.out.println("Informations de "+this.username+" ---");
         System.out.println("Niveau de vie : "+this.hp);
         System.out.println("Niveau d'experience : "+this.lvl);
@@ -120,11 +120,14 @@ public class Player{
         this.current_area = destination;
     }
 
-    public void move_linked_area(Area destination){
+    public void move_linked_area(Area destination) throws Exception{
 
-        // Vérifier si la destination est possible
-            // this.move_to(destination);
-        // Sinon lancer exception
+        
+        if(this.current_area.get_access_area(destination.get_name())==null){
+            throw new Exception("La zone n'est pas accessible");
+        }else{
+            this.move_to(destination);
+        }
     }
 
 /*
@@ -134,7 +137,7 @@ public class Player{
      * Augmente les points de vies d'un entier n
      * @param n
      */
-    void increase_hp(int n) throws Exception {
+    public void increase_hp(int n) throws Exception {
         if(n>0){
             this.hp+=n;
         }else{
@@ -146,7 +149,7 @@ public class Player{
      * Diminue les points de vies d'un entier n
      * @param n
      */
-    void decrease_hp(int n) throws Exception{
+    public void decrease_hp(int n) throws Exception{
         if(is_alive()){
             if(n>0){
                 if(this.hp<=n){
@@ -166,7 +169,7 @@ public class Player{
      * Retourne true si le personnage est vivant sinon false
      * @return bool
      */
-    boolean is_alive(){
+    public boolean is_alive(){
         return (this.hp!=0);
     }
 
@@ -177,15 +180,15 @@ public class Player{
      * Change l'equipement du personnage par le nouveau selon sa categorie
      * @param new_armor
      */
-    void equip_armor(Armor new_armor) throws Exception{ 
+    public void equip_armor(Armor new_armor) throws Exception{ 
         /*
-        if(new_armor.){
+        if(new_armor. == Type.HELMET){
             this.armor[0]=new_armor;
-        }else if(new_armor.){
+        }else if(new_armor. == Type.CHESTPLATE){
             this.armor[1]=new_armor;
-        }else if(new_armor.){
+        }else if(new_armor. == Type.LEGGINGS){
             this.armor[2]=new_armor;
-        }else if(new_armor.){
+        }else if(new_armor. == Type.BOOTS){
             this.armor[3]=new_armor;
         }else{
             throw new Exception("Armor without type");
@@ -198,7 +201,7 @@ public class Player{
      * Change l'arme du personnage par la nouvelle
      * @param new_weapon
      */
-    void equip_weapon(Weapon new_weapon){
+    public void equip_weapon(Weapon new_weapon){
         this.weapon=new_weapon;
     }
 
@@ -209,15 +212,16 @@ public class Player{
      * Le personnage interagit avec une entité
      * @param e
      */
-    void interact(Entity e){
-        //TODO
+    public void interact(Villager v){
+        v.talk(this.current_quest);
     }
 
     /**
      *  Attaque une entité et lui fait perdre des points de vies
      * @param entity
      */
-    void attack(Entity e){
-        //TODO
+    public void attack(Monster m){
+        m.decrease_hp(this.weapon.getattack_point());
     }
+
 }    

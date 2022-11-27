@@ -61,15 +61,20 @@ public class Monster extends Entity{
 	* les points de vie en fonction d'un entier n
 	* @param x un entier
 	*/
-	void decrease_hp(int x){
-		//FIXME : pense à verifier de le monstre n'est pas mort avant 
+	public void decrease_hp(int x) throws Exception{
 
-        if(this.hp <= x){
-            this.hp = 0;
-        } else {
-            this.hp = this.hp - x;
-        }
+        if((is_alive) == true){  // le monstre est-il deja mort ?
+            if(x >= 0){
+                if(hp <= this.x){
+                    hp = 0;
+                } else {
+                    hp = hp - this.x;
+                }
+            } throw new Exception("La valeur de décroissement ne peut pas être négative");
+
+        } throw new Exception("Le monstre est déjà mort");
     }
+
 	/**
 	 * Cette methode permet de savoir 
 	 * si un monstre correspond au boss de ce monde ou non
@@ -79,19 +84,15 @@ public class Monster extends Entity{
 	 * @return false si ce n'est pas le boss de ce monde
 	 */
 	public boolean isBoss(World world){
-		// FIXME : retourner juste la condition (ca va automatiquement retourner vrai ou faux) pas besoin de faire un si...sinon
-		if(this == world.get_boss()){   // return this.Monster isEqual(wordl.boss) ?
-			return true;
-		} else {
-			return false;
-		}
+
+		return (this == world.get_boss());  // return this.Monster isEqual(wordl.boss) ?
 	}
 
 	/**
-	 * Cette methode permet de savoir 
-	 * si une entite est un boss ou non
-	 * @param world le monde ou est le monstre
-	 */
+	*Cette methode permet de savoir
+    * si une entite est un boss ou non
+    * @param world le monde ou se trouve le monstre
+	*/
 	public void interact(World world){
 
 		if(isBoss(world)){
@@ -105,8 +106,13 @@ public class Monster extends Entity{
 		*/
 	}
 
-	void attack_monster(Player p){
-		this.decrease_hp (attack);
-	}
 
+	void attack(Player p){
+		try{
+		p.decrease_hp (this.attack);
+		}
+		catch(Exception e){
+			System.out.println(p.get_username()+" a esquivé l'attaque ");
+		}
+	}
 }
