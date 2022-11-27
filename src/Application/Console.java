@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 import Entity.Entity;
 import Entity.Villager;
+import Localization.Area;
+import Localization.Period;
+import Localization.World;
 
 import java.util.ArrayList;
 import User.*;
@@ -22,7 +25,7 @@ public class Console {
         System.out.println("show_available_actions()");
         System.out.println("get_hp()");
 
-        if (true) { //XXX
+        if (false) { //XXX
             System.out.println("interact("+  p.get_current_area().get_entity().get_name() +")");
         } else {
             System.out.println("attack("+ p.get_current_area().get_entity().get_name() +")");
@@ -78,7 +81,14 @@ public class Console {
         return doable_actions;
     }
 
+    public static void main(String[] args) {
+        World w = new World("TestWorld", Period.FUTURE);
+        Entity e = new Villager("TestEntity", 5);
+        Area a = new Area("TestArea", e, w);
+        Player p = new Player("TestPlayer", Order.CHEMIST, a);
 
+        show_available_actions(p);
+    }
 }
 
 
