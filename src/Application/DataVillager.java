@@ -68,6 +68,27 @@ public class DataVillager {
         villagers.add(new Villager("Gaspard", 100));
         
         // Création des quêtes et liaison aux villageois
+            // 0 : Maire Robert
+        villagers.get(0).set_quest(new QuestKillMonster("Pierre du Djin",1,monsters.get(6)));
+        villagers.get(0).get_quest().set_reward(new Item("Pierre Ecarlate"));
+            // 1 : Ophélie
+        villagers.get(1).set_quest(new QuestKillMonster("Invasion",1,monsters.get(0)));
+        villagers.get(1).get_quest().set_reward(new Item("Trousse de secours"));
+            // 2 : Maxime
+        villagers.get(2).set_quest(new QuestKillMonster("Ville en destruction",1,monsters.get(4)));
+        villagers.get(2).get_quest().set_reward(new Armor("Gilet pareballe",150,85,Type.CHESTPLATE));
+            // 3 : Sylvia
+        villagers.get(3).set_quest(new QuestRecoltItem("Matériel à améliorer",1,villagers.get(0).get_quest().get_reward()));
+        villagers.get(3).get_quest().set_reward(new Weapon("Fusil magique",85,70));
+            // 4 : Jules
+        villagers.get(3).set_quest(new QuestRecoltItem("Bléssés en détresse",1,villagers.get(0).get_quest().get_reward()));
+        villagers.get(3).get_quest().set_reward(new Item("Bon de ravitaillement"));
+            // 5 : Juliette
+        villagers.get(4).set_quest(new QuestKillMonster("Abréger les soufrances",1,monsters.get(2)));
+        villagers.get(4).get_quest().set_reward(new Armor("Casque de chantier",20,30,Type.HELMET));
+            // 6 : Gaspard
+        villagers.get(5).set_quest(new QuestRecoltItem("Besoin en matériel",1,villagers.get(3).get_quest().get_reward()));
+        villagers.get(5).get_quest().set_reward(new Armor("Chaussures renforcées",60,60,Type.BOOT));
 
         // Création des dialogues et liaison aux villageois
 
@@ -108,25 +129,13 @@ public class DataVillager {
      * Templates
      */
 
-    /* Création et ajout d'une QuestKillMonster
-        villagers.get().set_quest(
-            new QuestKillMonster(
-                "",
-                new Item("",,),
-                1,
-                monsters_valkiem.get()
-            )
-        );*/
+    /* QuestKillMonster
+    villagers.get().set_quest(new QuestKillMonster("",,monsters.get()));
+    villagers.get().get_quest().set_reward(new Item(""));
+    */
 
-    /* Création et ajout d'une QuestRecoltItem
-    
-        villagers.get().set_quest(
-            new QuestRecoltItem(
-                "",
-                new Item("",,),
-                1,
-                // localisation de l'item
-            )
-        );
-     */
+    /* QuestRecoltItem
+    villagers.get().set_quest(new QuestRecoltItem("",1,villagers.get().get_quest().get_reward()));
+    villagers.get().get_quest().set_reward(new );
+    */
 }
