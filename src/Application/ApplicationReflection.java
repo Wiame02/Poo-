@@ -54,9 +54,37 @@ public class ApplicationReflection {
         return list_of_methods_names;
     }
 
-    public static Object execute_function (String class_adress, String method_name, Object[] arguments) {
-        // TODO
-        return new Object();
+    public static Class[] get_argument_classes (Object[] argument) {
+        return Class[];
+    }
+
+
+
+
+
+    public static Object execute_function (Object obj, String method_name, Object[] arguments) throws Exception {
+        try {
+            Class c = obj.getClass();
+            System.out.println("Classe : " + c);
+
+            ArrayList< > args_classes = new ArrayList<Class>();
+
+            for (Object o : arguments) {
+                if (o==null) {throw new Exception("NULLL POINYER EXCEPTION");} 
+                args_classes.add(o.getClass());
+                System.out.println("args_classes[] : " + o);
+            }
+
+            Method m = c.getMethod(method_name, args_classes.toArray(new Class[0]));
+            System.out.println("Methode : " + m);
+            System.out.println("Argument : " + arguments.toString());
+            Object res = m.invoke(obj, arguments);
+            return res;
+        }
+        catch (Exception e) {
+            System.out.println("Dans execute_function : " + e);
+            throw e;
+        }
     }
 
 }
