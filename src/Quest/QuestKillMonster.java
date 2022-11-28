@@ -29,6 +29,20 @@ public class QuestKillMonster extends Quest{
      */
     public void set_monster(Monster m){this.monster=m;}
 
+    /**
+     * Fonction qui retourne les données d'une QuestKillMonster sous forme de chaine de caractere
+     * @return
+     */
+    @Override
+    public String to_string(){
+        return super.to_string()+"\n Monstre a abattre : "+this.monster.get_name();
+    }
+
+    /**
+     * Vérifie si la quete est réalisée et retourne si elle l'est ou non
+     * @param p
+     * @return true si la quete est accomplie, false sinon
+     */
     @Override
     public void submit(Player p){
         int i = 0 ;

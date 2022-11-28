@@ -1,5 +1,4 @@
 package User;
-import java.util.ArrayList;
 import Localization.*;
 import Entity.*;
 import Quest.*;
@@ -24,9 +23,9 @@ public class Player{
 
 /**
  * Constructeur
- * @param username
- * @param category
- * @param first_area
+ * @param username pseudo du joueur
+ * @param category category choisie par le joueur
+ * @param first_area zone du spawn du joueur
 */
     public Player(String username, Order category, Area first_area){
         this.username = username;
@@ -36,6 +35,7 @@ public class Player{
         
         this.inventory = new Inventory();
 
+        // Création de l'armure et arme de départ d'un joueur
         this.armor = new Armor[4];
         this.armor[0] = new Armor("Chapeau de cuir",50,10,Type.HELMET);
         this.armor[1] = new Armor("Tunique en Lin",50,10,Type.CHESTPLATE);
@@ -78,10 +78,6 @@ public class Player{
     public void     set_current_area(Area area)         {this.current_area=area;}
 
 /**
- * Fonctions des convertion d'une donnée en chaîne de caractère
- */
-
-/**
  * Affichages
  */ 
     /**
@@ -97,7 +93,7 @@ public class Player{
      * Affiche l'arme portée
      */
     public void display_weapon(){
-        this.weapon.to_string();
+        System.out.print(this.weapon.to_string());
     }
 
     /**
@@ -107,6 +103,13 @@ public class Player{
         System.out.println("Informations de "+this.username+" ---");
         System.out.println("Niveau de vie : "+this.hp);
         System.out.println("Niveau d'experience : "+this.lvl);
+    }
+
+    /**
+     * Affiche la quete actuelle
+     */
+    public void display_current_quest(){
+        System.out.println(this.current_quest.to_string());
     }
 
 /*
@@ -120,9 +123,12 @@ public class Player{
         this.current_area = destination;
     }
 
+    /**
+     * Déplace le joueur dans la zone d'entrée si elle est accessible à partir de la zone ou il se situe
+     * @param destination une zone
+     * @throws Exception si la zone n'est pas accessible
+     */
     public void move_linked_area(Area destination) throws Exception{
-
-        
         if(this.current_area.get_access_area(destination.get_name())==null){
             throw new Exception("La zone n'est pas accessible");
         }else{
@@ -167,7 +173,7 @@ public class Player{
 
     /**
      * Retourne true si le personnage est vivant sinon false
-     * @return bool
+     * @return true ou false
      */
     public boolean is_alive(){
         return (this.hp!=0);
@@ -179,21 +185,20 @@ public class Player{
     /**
      * Change l'equipement du personnage par le nouveau selon sa categorie
      * @param new_armor
+     * @throws Exception si l'armure n'est pas typée
      */
     public void equip_armor(Armor new_armor) throws Exception{ 
-        /*
-        if(new_armor. == Type.HELMET){
+        if(new_armor.get_type() == Type.HELMET){
             this.armor[0]=new_armor;
-        }else if(new_armor. == Type.CHESTPLATE){
+        }else if(new_armor.get_type() == Type.CHESTPLATE){
             this.armor[1]=new_armor;
-        }else if(new_armor. == Type.LEGGINGS){
+        }else if(new_armor.get_type() == Type.LEGGING){
             this.armor[2]=new_armor;
-        }else if(new_armor. == Type.BOOTS){
+        }else if(new_armor.get_type() == Type.BOOT){
             this.armor[3]=new_armor;
         }else{
             throw new Exception("Armor without type");
         }
-        */
     }
 
 

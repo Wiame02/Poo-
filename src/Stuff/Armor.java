@@ -19,6 +19,7 @@ public class Armor extends Item {
     } 
 
     public int get_durability() { return this.durability; }
+    public Type get_type(){ return this.type;}
 
     /**
     * SETTERS
