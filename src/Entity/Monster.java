@@ -110,6 +110,6 @@ public class Monster extends Entity{
     @Override
 	public String to_string(){
 
-	    return "Nom du monstre : " + this.name + ", points de vie " + this.hp + ", nom d'espèce " + this.species + ", dégats de son attaque " + this.attack;
+	    return "Nom du monstre : " + this.name + ", points de vie " + this.hp + ", nom d'espèce " + this.species.get_name() + ", dégats de son attaque " + this.attack;
 	}
 }
