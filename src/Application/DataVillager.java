@@ -91,6 +91,21 @@ public class DataVillager {
         villagers.get(5).get_quest().set_reward(new Armor("Chaussures renforcées",60,60,Type.BOOT));
 
         // Création des dialogues et liaison aux villageois
+        // Création des dialogues et liaison aux villageois
+            // 0
+        villagers.get(0).add_dialogue("");
+            // 1
+        villagers.get(1).add_dialogue("");
+            // 2
+        villagers.get(2).add_dialogue("");
+            // 3
+        villagers.get(3).add_dialogue("");
+            // 4
+        villagers.get(4).add_dialogue("");
+            // 5
+        villagers.get(4).add_dialogue("");
+            // 6
+        villagers.get(4).add_dialogue("");
 
         return villagers;
     }
@@ -106,12 +121,45 @@ public class DataVillager {
         villagers.add(new Villager("Etudiant Sophian", 100));
         villagers.add(new Villager("Enseignant Didier", 100));
         villagers.add(new Villager("Droide C3PO", 100));
-
         
         // Création des quêtes et liaison aux villageois
+            // 0 : Chef de Brigade Marianne
+        villagers.get(0).set_quest(new QuestKillMonster("A bat le demon",5,monsters.get(4)));
+        villagers.get(0).get_quest().set_reward(new Weapon("Lance de Luchi",1000,300));
+            // 1 : Agent 007
+        villagers.get(1).set_quest(new QuestKillMonster("Bug de drone",1,monsters.get(1)));
+        villagers.get(1).get_quest().set_reward(new Item("Puce mémoire"));
+            // 2 :  Agent 117
+        villagers.get(2).set_quest(new QuestRecoltItem("Analyse des bugs",1,villagers.get(1).get_quest().get_reward()));
+        villagers.get(2).get_quest().set_reward(new Armor("Casque d'agent",50,35,Type.HELMET));
+            // 6 : Droide C3PO
+        villagers.get(6).set_quest(new QuestKillMonster("Cyborg en mission",1,monsters.get(2)));
+        villagers.get(6).get_quest().set_reward(new Item("Herbes glaciales"));
+            // 3 : Chercheur-cultivateur Olivier
+        villagers.get(3).set_quest(new QuestRecoltItem("Analyse des bugs",1,villagers.get(6).get_quest().get_reward()));
+        villagers.get(3).get_quest().set_reward(new Armor("Tunique en lin OGM",120,72,Type.CHESTPLATE));
+            // 4 : Etudiant Sophian
+        villagers.get(4).set_quest(new QuestKillMonster("cyborg disparu",1,monsters.get(3)));
+        villagers.get(4).get_quest().set_reward(new Armor("Bottes volées",15,60,Type.BOOT));  
+            // 5 : Enseignant Didier
+        villagers.get(5).set_quest(new QuestKillMonster("Peau du Dragon",2,monsters.get(5)));
+        villagers.get(5).get_quest().set_reward(new Armor("Pantalon innovant",120,95,Type.LEGGING));
 
         // Création des dialogues et liaison aux villageois
-
+            // 0
+        villagers.get(0).add_dialogue("");
+            // 1
+        villagers.get(1).add_dialogue("");
+            // 2
+        villagers.get(2).add_dialogue("");
+            // 3
+        villagers.get(3).add_dialogue("");
+            // 4
+        villagers.get(4).add_dialogue("");
+            // 5
+        villagers.get(4).add_dialogue("");
+            // 6
+        villagers.get(4).add_dialogue("");
         return villagers;
     }
 
