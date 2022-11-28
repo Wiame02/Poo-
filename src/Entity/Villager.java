@@ -44,8 +44,7 @@ public class Villager extends Entity{
 	public void set_quest(Quest quest) {this.quest=quest;}
 
 	public void add_dialogue(String dialogue){
-
-	    return dialogues.add(dialogue);
+		dialogues.add(dialogue);
 	}
 
 	//----------------------------
@@ -70,14 +69,22 @@ public class Villager extends Entity{
 			if(is_equal(p)){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
 				
 				System.out.println("Veuillez finir votre quete actuelle pour recevoir la recompense");
-		
-			} else { // notre quete actuelle est finie, is_finished == true
+			}else {
+
+				p.get_current_quest() = quest; // current_quete du joueur devient la quete du villageois
+
+				System.out.println("le titre de la quete est : " + quest.get_title());
+
+				System.out.println("l'intitulé de la quete est : "); // faudrait print l'intitulé de la quete mais je crois que ce n'est pas encore implementé
+			}
+
+		} else { // notre quete actuelle est finie, is_finished == true
 
 				if(is_equal(p)){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
 
-		       		p.get_Inventory().add_item(quest.reward);
+		       		p.get_Inventory().add_item(quest.get_reward());
 
-		        	p.get_lvl() += quest.bonus_exp ;
+		        	p.set_lvl(p.get_lvl() + quest.get_bonus_exp()) ;
 
 			    	System.out.println("Bravo pour avoir accomplie cette quete, à notre prochaine rencontre");
 
