@@ -90,7 +90,7 @@ public class Monster extends Entity{
 
 
 	void attack(Player p) throws Exception{
-
+		//TODO : bloc try et catch
     	    if(p.decrease_hp(this.attack)){
 
     	        throw new Exception(p.get_username() + "a esquivé l'attaque");

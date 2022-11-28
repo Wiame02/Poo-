@@ -63,6 +63,10 @@ public class Villager extends Entity{
 	
 	public void talk(Quest quest, Player p){ // quete  proposer par le villageois
 
+		//TODO : Commencer par verifier si la quete est celle du joueur
+			// Si oui verif si elle est finie
+			// Sinon proposer la quete du villageois que le joueur PEUX REFUSER
+
 	 	 // Redéfinir la foncition, elle fait un peu trop de chose (a voir avec mo et kateul)
 		if(!quest.is_accomplished(p)){ // est-ce que notre quete actuelle est achevée ? faudrait pouvoir savoir si la current_quest de joueur est fini ou pas
 
