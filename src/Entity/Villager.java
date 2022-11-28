@@ -85,7 +85,7 @@ public class Villager extends Entity{
 
 					p.get_current_quest() = quest; // current_quete du joueur devient la quete du villageois
 
-					System.out.println("le titre de la quete est : " + quest.title);
+					System.out.println("le titre de la quete est : " + quest.get_title());
 
 					System.out.println("l'intitulé de la quete est : "); // faudrait print l'intitulé de la quete mais je crois que ce n'est pas encore implementé
 				}

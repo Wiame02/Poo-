@@ -63,7 +63,7 @@ public class Monster extends Entity{
 	*/
 	public void decrease_hp(int x) throws Exception{
 
-        if((is_alive)){  // le monstre est-il deja mort ?
+        if((this.is_alive())){  // le monstre est-il deja mort ?
             if(x >= 0){
                 if(this.hp <= x){
                     this.hp = 0;
@@ -91,7 +91,7 @@ public class Monster extends Entity{
 
 	void attack(Player p) throws Exception{
 
-    	    if(p.decrease_hp(this.attack) == 0){
+    	    if(p.decrease_hp(this.attack)){
 
     	        throw new Exception(p.get_username() + "a esquivé l'attaque");
 
@@ -100,9 +100,6 @@ public class Monster extends Entity{
     	        print_attack();
     	    }
     	}
-    }
-
-
 
 	/**
 	 * renvoie toutes les informations sur un monstre
