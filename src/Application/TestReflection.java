@@ -45,19 +45,23 @@ public class TestReflection {
         }
     }
 
-    public static void test_execute_function () {
+    public static void test_execute_instance_method () {
         try {
             Villager test_Villager = new Villager("nameForTestVillager", 8);
-            Area a1 = new Area("Area1", null);
-            Area a2 = new Area("Area2", null);
-            Player test_player = new Player("TestPlayer", Order.CHEMIST, a1);
             Object[] args = {};
+            System.out.println("execute_instance_method(test_Villager,\"get_name\", {}) >> " + ApplicationReflection.execute_instance_method(test_Villager,"get_name", args)+ "\n\n");        
+
+            World w = new World("TestWorld", Period.FUTURE);
+            Area a1 = new Area("Area1", w);
+            Area a2 = new Area("Area2", w);
+            Player test_player = new Player("TestPlayer", Order.CHEMIST, a1);
             Object[] args_v2 = {a2};
-            System.out.println("execute_function(test_Villager,\"get_name\", {}) >> " + ApplicationReflection.execute_function(test_Villager,"get_name", args));
-            System.out.println("execute_function(test_player,\"move_to\", {a2}) >> " + ApplicationReflection.execute_function(test_player,"move_to", args_v2));
+            System.out.println("Current area before : " + test_player.get_current_area().to_string());
+            System.out.println("execute_instance_method(test_player,\"move_to\", {a2}) >> " + ApplicationReflection.execute_instance_method(test_player,"move_to", args_v2) + "\n\n");
+            System.out.println("Current area after : " + test_player.get_current_area().to_string());
         }
         catch (Exception e) {
-            System.out.println( "Dans test_execute_function : " + e);
+            System.out.println( "Dans test_execute_instance_method : " + e);
         }
     } 
 
@@ -65,6 +69,6 @@ public class TestReflection {
     public static void main(String[] args) {
         //test_does_class_exist();
         //test_get_public_methods();
-        test_execute_function();
+        test_execute_instance_method();
     }
 }
