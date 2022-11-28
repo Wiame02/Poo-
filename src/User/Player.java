@@ -37,10 +37,10 @@ public class Player{
         this.inventory = new Inventory();
 
         this.armor = new Armor[4];
-        this.armor[0] = new Armor("Chapeau de cuir",50,10);
-        this.armor[1] = new Armor("Tunique en Lin",50,10);
-        this.armor[2] = new Armor("Pantalon en Lin",50,10);
-        this.armor[3] = new Armor("Chaussure de cuir",50,10);
+        this.armor[0] = new Armor("Chapeau de cuir",50,10,Type.HELMET);
+        this.armor[1] = new Armor("Tunique en Lin",50,10,Type.CHESTPLATE);
+        this.armor[2] = new Armor("Pantalon en Lin",50,10,Type.LEGGING);
+        this.armor[3] = new Armor("Chaussure de cuir",50,10,Type.BOOT);
 
         this.weapon = new Weapon("Brindille",20,5);
         
@@ -225,7 +225,7 @@ public class Player{
             m.decrease_hp(this.weapon.get_attack_point());
         }
         catch(Exception e){
-            System.out.println(m.getName()+" a esquivé votre attaque");
+            System.out.println(m.get_name()+" a esquivé votre attaque");
         }
     }
 
