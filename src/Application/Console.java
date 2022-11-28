@@ -69,8 +69,8 @@ public class Console {
     }
     
     /** 
-     *  Lit et decrypte l'entrée d'un utilisateur
-     * @return la fonction et son parametre d'entree sous forme de tableau
+     *  Lit et decrypte l'entrée d'un utilisateur : elle r
+     * @return la fonction et des parametres d'entree sous forme de tableau [nom_fonction, arg1, ..., argn]
      */
     public static ArrayList<String> read_action() throws ApplicationException {
         ArrayList<String> res_input = new ArrayList<String>();

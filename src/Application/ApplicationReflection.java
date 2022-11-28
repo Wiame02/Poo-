@@ -54,9 +54,40 @@ public class ApplicationReflection {
         return list_of_methods_names;
     }
 
-    public static Object execute_function (String class_adress, String method_name, Object[] arguments) {
-        // TODO
-        return new Object();
+    /**
+     * Récupère dans l'ordre la classe de chaque objet présents dans le tableau entrée
+     * @param args_object Un tableau de plusieurs objets (peuvent être de sous-classe d'java.lang.Object différents)
+     * @return Class[] Un tableau regroupant les classes de chaques objets
+     */
+    public static Class[] get_argument_classes (Object[] args_object) {
+        ArrayList<Class> args_classes = new ArrayList<Class>();
+
+        for (Object obj : args_object) {
+            args_classes.add(obj.getClass());
+        }
+        return args_classes.toArray(new Class[0]);  //On transforme la liste en un tableau
+    }
+
+/**
+ * Cette fonction execute une méthode d'instance d'objet à partir de son nom
+ * @param obj   L'objet qui sur lequel on appelle la méthode
+ * @param method_name Le nom de la méthode
+ * @param args_object Les parametres d'entrées de la méthode appelée
+ * @return La valeur de retour de méthode appellée
+ * @throws Exception La méthode n'a pas été trouvée.
+ */
+    public static Object execute_instance_method (Object obj, String method_name, Object[] args_object) throws Exception {
+        try {
+            Class class_obj = obj.getClass();
+            Class[] args_classes = get_argument_classes(args_object);
+            Method method_obj = class_obj.getMethod(method_name, args_classes);
+            Object res = method_obj.invoke(obj, args_object);
+
+            return res;
+        }
+        catch (Exception e) {
+            throw new Exception("Application.ApplicationReflection.execute_instance_method(...): " + e.getMessage());
+        }
     }
 
 }
