@@ -15,6 +15,11 @@ public abstract class Quest {
     protected Item reward;
     protected int bonus_exp;
 
+    /**
+     * Constructeur
+     * @param title
+     * @param bonus_exp
+     */
     public Quest(String title, int bonus_exp) {
         this.title = title;
         this.is_accomplished = false;
@@ -40,7 +45,26 @@ public abstract class Quest {
      * Si la quête est accomplie, change l'attribus is_accomplished en true sinon le laisse a false
      */
     public abstract void submit(Player p);
-    
+
+    /**
+     * Fonction qui retourne les données d'une Quest sous forme de chaine de caractere
+     * @return
+     */
+    public String to_string(){
+        String res = "Titre : "+this.title+"\n Récompense : "+this.reward+"\n Bonus d'exp : "+this.bonus_exp+"\n Quête ";
+        if(this.is_accomplished){
+            res+="finie \n";
+        }else{
+            res+="en cours \n";
+        }
+        return res;
+    }
+
+    /**
+     * Vérifie si la quete est réalisée et retourne si elle l'est ou non
+     * @param p
+     * @return true si la quete est accomplie, false sinon
+     */
     public boolean is_accomplished(Player p){
         this.submit(p);
         return this.is_accomplished;

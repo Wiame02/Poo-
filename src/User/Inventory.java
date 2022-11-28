@@ -117,7 +117,8 @@ public class Inventory {
     public boolean use_item(String name){
         int id_item = find_id_item_with_name(name);
         if(id_item>=0){
-            /*this.get_item_at(id_item).use();
+            /* TODO
+            this.get_item_at(id_item).use();
             if(this.get_item_at(id_item).get_quantity()==0){
                 this.items.remove(id_item);
             }*/
