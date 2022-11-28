@@ -14,7 +14,7 @@ public class Item {
      */
     public Item (String name) {
         this.name = name;
-        this.quantity = quantity;
+        this.quantity = 1;
     }  
 
     /**
@@ -28,7 +28,7 @@ public class Item {
      * SETTERS
      */
     public void set_name (String name) {this.name = name;} 
-    public void set_quantity (int quatity) {this.quatity = quatity;}
+    public void set_quantity (int quantity) {this.quantity = 1;}
 
     
 
@@ -51,8 +51,8 @@ public class Item {
      * vérifie la diminution la quantité d'un  Item de 1
      * @param i
      */
-    public void use (Item i) { 
-        return (i.get_quantity -= 1)
+    public int use (Item i) { 
+        return (i.get_quantity()-= 1);
     }
 }
  

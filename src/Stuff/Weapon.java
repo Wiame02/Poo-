@@ -19,8 +19,8 @@ public class Weapon extends Item {
     /**
      * GETTEUR
      */
-    public int get_attack_point()    {return this.attack_point;} 
-    public int get_durability() { return this.durability; }
+    public int get_attack_point()  {return this.attack_point;} 
+    public int get_durability()   {return this.durability; }
 
     public void set_durability(int durability){ this.durability = durability; }
 
