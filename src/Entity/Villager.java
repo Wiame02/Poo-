@@ -65,40 +65,44 @@ public class Villager extends Entity{
 	public void talk(Quest quest, Player p){ // quete  proposer par le villageois
 
 	 	 // Redéfinir la foncition, elle fait un peu trop de chose (a voir avec mo et kateul)
-		if(submit(p) == false){ // est-ce que notre quete actuelle est achevée ? faudrait pouvoir savoir si la current_quest de joueur est fini ou pas
+		if(!quest.is_accomplished(p)){ // est-ce que notre quete actuelle est achevée ? faudrait pouvoir savoir si la current_quest de joueur est fini ou pas
 
 			if(is_equal(p)){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
 				
 				System.out.println("Veuillez finir votre quete actuelle pour recevoir la recompense");
 		
-		} else { // notre quete actuelle est finie, is_finished == true
+			} else { // notre quete actuelle est finie, is_finished == true
 
-			if(is_equal(p)){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
+				if(is_equal(p)){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
 
-		        p.get_Inventory().add_item(quest.reward);
+		       		p.get_Inventory().add_item(quest.reward);
 
-		        p.get_lvl() += quest.bonus_exp ;
+		        	p.get_lvl() += quest.bonus_exp ;
 
-			    System.out.println("Bravo pour avoir accomplie cette quete, à notre prochaine rencontre");
+			    	System.out.println("Bravo pour avoir accomplie cette quete, à notre prochaine rencontre");
 
-			} else {
+				} else {
 
-				p.get_current_quest() = quest // current_quete du joueur devient la quete du villageois
+					p.get_current_quest() = quest; // current_quete du joueur devient la quete du villageois
 
-				System.out.println("le titre de la quete est : " + quest.title);
+					System.out.println("le titre de la quete est : " + quest.title);
 
-				System.out.println("l'intitulé de la quete est : "); // faudrait print l'intitulé de la quete mais je crois que ce n'est pas encore implementé
+					System.out.println("l'intitulé de la quete est : "); // faudrait print l'intitulé de la quete mais je crois que ce n'est pas encore implementé
+				}
 			}
 		}
 
 	}
 
-
+	
+	
 	 /**
 	 * renvoie toutes les informations sur un villageois
 	 */
     @Override
-	 public String to_string(){
-	    return "Nom du villageois : " + this.name + ", points de vie " + this.hp + ", quete proposée " + this.quest;
-	 }
+	public String to_string(){
+
+	    return super.to_string() + ", quete proposée " + this.quest.get_title();
+	}
+	
 }
