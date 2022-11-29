@@ -18,16 +18,16 @@ public class Player{
     private Inventory inventory;
     private Armor[] armor;
     private Weapon weapon;
-    private Quest current_quest;
-    private Area current_area;
+    private Quest currentQuest;
+    private Area currentArea;
 
 /**
  * Constructeur
  * @param username pseudo du joueur
  * @param category category choisie par le joueur
- * @param first_area zone du spawn du joueur
+ * @param firstArea zone du spawn du joueur
 */
-    public Player(String username, Order category, Area first_area){
+    public Player(String username, Order category, Area firstArea){
         this.username = username;
         this.lvl = 0;
         this.hp = 750;
@@ -44,15 +44,15 @@ public class Player{
 
         this.weapon = new Weapon("Brindille",20,5);
         
-        this.current_quest = null;
-        this.current_area = first_area;
+        this.currentQuest = null;
+        this.currentArea = firstArea;
     }
 
 /**
  * GETTERS 
 */
-    public String   get_username()      {return this.username;}
-    public int      get_lvl()           {return this.lvl;}
+    public String   getUsername()      {return this.username;}
+    public int      getLvl()           {return this.lvl;}
     public int      get_hp ()           {return this.hp;}
     public Order    get_category()      {return this.category;}
     public Armor    get_helmet()        {return this.armor[0];}
@@ -60,8 +60,8 @@ public class Player{
     public Armor    get_legging()       {return this.armor[2];}
     public Armor    get_boot()          {return this.armor[3];}
     public Weapon   get_weapon()        {return this.weapon;}
-    public Quest    get_current_quest() {return this.current_quest;}
-    public Area     get_current_area()  {return this.current_area;}
+    public Quest    get_current_quest() {return this.currentQuest;}
+    public Area     get_current_area()  {return this.currentArea;}
     public Inventory get_Inventory()    {return this.inventory;}
         
 /**
@@ -74,8 +74,8 @@ public class Player{
     public void     set_chestplaste(Armor chestplate)   {this.armor[1]=chestplate;}
     public void     set_legging(Armor legging)          {this.armor[2]=legging;}
     public void     set_boot(Armor boot)                {this.armor[3]=boot;}
-    public void     set_current_quest(Quest quest)      {this.current_quest=quest;}
-    public void     set_current_area(Area area)         {this.current_area=area;}
+    public void     set_current_quest(Quest quest)      {this.currentQuest=quest;}
+    public void     set_current_area(Area area)         {this.currentArea=area;}
 
 /**
  * Affichages
@@ -109,7 +109,7 @@ public class Player{
      * Affiche la quete actuelle
      */
     public void display_current_quest(){
-        System.out.println(this.current_quest.to_string());
+        System.out.println(this.currentQuest.to_string());
     }
 
 /*
@@ -120,7 +120,7 @@ public class Player{
      * @param destination la destination d'arrivée
      */
     public void move_to(Area destination){
-        this.current_area = destination;
+        this.currentArea = destination;
     }
 
     /**
@@ -129,7 +129,7 @@ public class Player{
      * @throws Exception si la zone n'est pas accessible
      */
     public void move_linked_area(Area destination) throws Exception{
-        if(this.current_area.get_access_area(destination.get_name())==null){
+        if(this.currentArea.get_access_area(destination.get_name())==null){
             throw new Exception("La zone n'est pas accessible");
         }else{
             this.move_to(destination);
@@ -204,10 +204,10 @@ public class Player{
 
     /**
      * Change l'arme du personnage par la nouvelle
-     * @param new_weapon
+     * @param newWeapon
      */
-    public void equip_weapon(Weapon new_weapon){
-        this.weapon=new_weapon;
+    public void equip_weapon(Weapon newWeapon){
+        this.weapon=newWeapon;
     }
 
 /*
@@ -218,7 +218,7 @@ public class Player{
      * @param e
      */
     public void interact(Villager v){
-        v.talk(this.current_quest,this);
+        v.talk(this.currentQuest,this);
     }
 
     /**

@@ -95,7 +95,7 @@ public class Monster extends Entity{
             p.decrease_hp(this.attack);
         }
         catch(Exception e){
-            System.out.println(p.get_username()+" a esquivé l'attaque");
+            System.out.println(p.getUsername()+" a esquivé l'attaque");
         }
     }
 

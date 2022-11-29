@@ -34,7 +34,7 @@ public class Console {
      * @param p Le joueur
      */
     public static void game_success_ending(Player p) {
-        System.out.println("Bravo " + p.get_username() + " !");
+        System.out.println("Bravo " + p.getUsername() + " !");
         try{Thread.sleep(1000);}
         catch(InterruptedException i){
             //TODO : la fonction sleep  renvoie une exception 
@@ -46,7 +46,7 @@ public class Console {
      * @param p Le joueur
      */
     public static void game_over_ending(Player p) {
-        System.out.println("Ah, que c'est dommage " + p.get_username() + " !");
+        System.out.println("Ah, que c'est dommage " + p.getUsername() + " !");
         try{Thread.sleep(1000);}
         catch(InterruptedException i){
             //TODO

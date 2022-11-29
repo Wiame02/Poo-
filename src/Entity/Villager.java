@@ -88,7 +88,7 @@ public class Villager extends Entity{
 
 		       		p.get_Inventory().addItem(quest.get_reward());
 
-		        	p.set_lvl(p.get_lvl() + quest.get_bonus_exp()) ;
+		        	p.set_lvl(p.getLvl() + quest.get_bonus_exp()) ;
 
 			    	System.out.println("Bravo pour avoir accomplie cette quete, à notre prochaine rencontre");
 
@@ -115,7 +115,7 @@ public class Villager extends Entity{
 			else {
 				p.get_Inventory().addItem(quest.get_reward());
 
-		        p.set_lvl(p.get_lvl() + quest.get_bonus_exp());
+		        p.set_lvl(p.getLvl() + quest.get_bonus_exp());
 
 				quest.is_accomplished(p);
 
