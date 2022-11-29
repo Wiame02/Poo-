@@ -18,7 +18,7 @@ import java.lang.Thread;
 public class Console {
     public static void show_available_actions(Player p) {
         System.out.println("get_current_area()");
-        System.out.println("display_inventory()");
+        System.out.println("displayInventory()");
         System.out.println("move_linked_area()");
         System.out.println("show_available_actions()");
         System.out.println("get_hp()");

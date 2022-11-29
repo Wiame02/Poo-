@@ -86,7 +86,7 @@ public class Villager extends Entity{
 
 				if(is_equal(p)){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
 
-		       		p.get_Inventory().add_item(quest.get_reward());
+		       		p.get_Inventory().addItem(quest.get_reward());
 
 		        	p.set_lvl(p.get_lvl() + quest.get_bonus_exp()) ;
 
@@ -113,7 +113,7 @@ public class Villager extends Entity{
 				System.out.println(this.dialogues.get(4));
 			}
 			else {
-				p.get_Inventory().add_item(quest.get_reward());
+				p.get_Inventory().addItem(quest.get_reward());
 
 		        p.set_lvl(p.get_lvl() + quest.get_bonus_exp());
 
