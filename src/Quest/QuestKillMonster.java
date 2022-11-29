@@ -46,11 +46,11 @@ public class QuestKillMonster extends Quest{
     @Override
     public void submit(Player p){
         int i = 0 ;
-        World world = p.get_current_area().get_world();
-        while(i<=world.get_areas().size() || !world.get_area_at(i).get_entity().is_equal(this.monster)){
+        World world = p.get_current_area().getWorld();
+        while(i<=world.getAreas().size() || !world.getAreaAt(i).getEntity().is_equal(this.monster)){
             i++;
         }
-        if(!world.get_area_at(i).get_entity().is_alive()){
+        if(!world.getAreaAt(i).getEntity().is_alive()){
             this.is_accomplished=true;
         }
     };

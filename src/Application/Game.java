@@ -17,7 +17,7 @@ public class Game {
      */
     public static void choose_boss(World world, ArrayList<Monster> monsters){
             int i = (int) (Math.random()*(monsters.size()-1));
-            world.set_boss(monsters.get(i));
+            world.setBoss(monsters.get(i));
     }
 
     /**
@@ -27,13 +27,13 @@ public class Game {
     public static void generate_areas(World world, Set<Entity> entities){
         
         for (Entity e : entities) {
-            int i = (int) (Math.random()*(world.get_areas().size()-1));
+            int i = (int) (Math.random()*(world.getAreas().size()-1));
 
-            while (world.get_area_at(i).get_entity()==null) {
-                i = (int) (Math.random()*(world.get_areas().size()-1));
+            while (world.getAreaAt(i).getEntity()==null) {
+                i = (int) (Math.random()*(world.getAreas().size()-1));
             }
 
-            world.get_area_at(i).set_entity(e);
+            world.getAreaAt(i).setEntity(e);
         }
     }
 
@@ -44,11 +44,11 @@ public class Game {
     public static Board generate_board(){
         Board b = new Board();
 
-        b.add_all_worlds(DataWorlds.data_worlds());
+        b.addAllWorlds(DataWorlds.data_worlds());
 
-        for (int i=1; i<b.get_worlds().size(); i++) {
-            //generate_areas(b.get_world_at(i), .get(i-1));
-            //choose_boss(b.get_world_at(i), .get(i-1));
+        for (int i=1; i<b.getWorlds().size(); i++) {
+            //generate_areas(b.getWorldAt(i), .get(i-1));
+            //choose_boss(b.getWorldAt(i), .get(i-1));
         }
         return new Board();
     }

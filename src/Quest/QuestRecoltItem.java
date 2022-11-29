@@ -45,7 +45,7 @@ public class QuestRecoltItem extends Quest{
     public void submit(Player p){
         int i = 0;
         Inventory inventory = p.get_Inventory();
-        while(i<=inventory.get_items().size() ||inventory.get_item_at(i).is_equal(this.item)){
+        while(i<=inventory.getItems().size() ||inventory.getItemAt(i).is_equal(this.item)){
             i++;
         }
     };

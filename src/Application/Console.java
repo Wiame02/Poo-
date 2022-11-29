@@ -18,15 +18,15 @@ import java.lang.Thread;
 public class Console {
     public static void show_available_actions(Player p) {
         System.out.println("get_current_area()");
-        System.out.println("display_inventory()");
+        System.out.println("displayInventory()");
         System.out.println("move_linked_area()");
         System.out.println("show_available_actions()");
         System.out.println("get_hp()");
 
         if (true) { //XXX
-            System.out.println("interact("+  p.get_current_area().get_entity().get_name() +")");
+            System.out.println("interact("+  p.get_current_area().getEntity().get_name() +")");
         } else {
-            System.out.println("attack("+ p.get_current_area().get_entity().get_name() +")");
+            System.out.println("attack("+ p.get_current_area().getEntity().get_name() +")");
         }
     }
 
@@ -34,7 +34,7 @@ public class Console {
      * @param p Le joueur
      */
     public static void game_success_ending(Player p) {
-        System.out.println("Bravo " + p.get_username() + " !");
+        System.out.println("Bravo " + p.getUsername() + " !");
         try{Thread.sleep(1000);}
         catch(InterruptedException i){
             //TODO : la fonction sleep  renvoie une exception 
@@ -46,7 +46,7 @@ public class Console {
      * @param p Le joueur
      */
     public static void game_over_ending(Player p) {
-        System.out.println("Ah, que c'est dommage " + p.get_username() + " !");
+        System.out.println("Ah, que c'est dommage " + p.getUsername() + " !");
         try{Thread.sleep(1000);}
         catch(InterruptedException i){
             //TODO
