@@ -21,9 +21,9 @@ public enum Order {
          * @param area
         */
         public void useSpecialAbility(World world, Area area){
-            int id_change = (int)(Math.random() *((world.get_areas().size() + 1)));
-            Entity tmp = world.get_area_at(id_change).get_entity();
-            world.get_area_at(id_change).set_entity(area.get_entity());
+            int idChange = (int)(Math.random() *((world.get_areas().size() + 1)));
+            Entity tmp = world.get_area_at(idChange).get_entity();
+            world.get_area_at(idChange).set_entity(area.get_entity());
             area.set_entity(tmp);
         }
     },
