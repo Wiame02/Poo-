@@ -17,7 +17,7 @@ public class Game {
      */
     public static void choose_boss(World world, ArrayList<Monster> monsters){
             int i = (int) (Math.random()*(monsters.size()-1));
-            world.set_boss(monsters.get(i));
+            world.setBoss(monsters.get(i));
     }
 
     /**
@@ -27,13 +27,13 @@ public class Game {
     public static void generate_areas(World world, Set<Entity> entities){
         
         for (Entity e : entities) {
-            int i = (int) (Math.random()*(world.get_areas().size()-1));
+            int i = (int) (Math.random()*(world.getAreas().size()-1));
 
-            while (world.get_area_at(i).getEntity()==null) {
-                i = (int) (Math.random()*(world.get_areas().size()-1));
+            while (world.getAreaAt(i).getEntity()==null) {
+                i = (int) (Math.random()*(world.getAreas().size()-1));
             }
 
-            world.get_area_at(i).setEntity(e);
+            world.getAreaAt(i).setEntity(e);
         }
     }
 

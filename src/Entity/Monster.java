@@ -79,13 +79,13 @@ public class Monster extends Entity{
 	/**
 	 * Cette methode permet de savoir 
 	 * si un monstre correspond au boss de ce monde ou non
-	 * @see Localization.World#get_boss() afin de recuperer le boss du monde en question
+	 * @see Localization.World#getBoss() afin de recuperer le boss du monde en question
 	 * @param world de type World
 	 * @return true si c'est le boss de ce monde
 	 * @return false si ce n'est pas le boss de ce monde
 	 */
 	public boolean is_boss(World world){
-		return (this == world.get_boss());
+		return (this == world.getBoss());
 	}
 
 

@@ -116,7 +116,7 @@ public class Area {
             res+= this.actions.get(i) + ' ';
         }
 
-        res+= "\nworld: " + world.get_name();
+        res+= "\nworld: " + world.getName();
         return res;
     }
 
@@ -124,7 +124,7 @@ public class Area {
         boolean areSame = true;
 
         areSame = areSame && this.name.equals(area.name);
-        areSame = areSame && this.world.is_equal(area.world);
+        areSame = areSame && this.world.isEqual(area.world);
         areSame = areSame && this.entity.is_equal(area.entity);
         
         return areSame;

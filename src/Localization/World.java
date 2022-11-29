@@ -37,31 +37,32 @@ public class World {
     /**
      * GETTERS
      */
-    public String   get_name()          {return this.name;}
-    public Area     get_area_at(int i)  {return this.areas.get(i);}
-    public ArrayList<Area> get_areas()  {return this.areas;}
-    public Period   get_era()           {return this.era;}
-    public Monster  get_boss()          {return this.boss;}
+    public String   getName()          {return this.name;}
+    public Area     getAreaAt(int i)  {return this.areas.get(i);}
+    public ArrayList<Area> getAreas()  {return this.areas;}
+    public Period   getEra()           {return this.era;}
+    public Monster  getBoss()          {return this.boss;}
 
     /**
      * SETTERS
      */
-    public void set_name(String name)   {this.name = name;}
-    public void set_era(Period era)     {this.era = era;}
-    public void set_boss(Monster boss)  {this.boss = boss;}
+    public void setName(String name)   {this.name = name;}
+    public void setEra(Period era)     {this.era = era;}
+    public void setBoss(Monster boss)  {this.boss = boss;}
 
     /**
      * Ajouter une zone
      * @param area
      */
-    public void add_area(Area area) {
+    public void addArea(Area area) {
         this.areas.add(area);
     }
 
     /**
      * Formattage de l'affichage d'un Monde
      */
-    public String to_string() {
+    @Override
+    public String toString() {
         String txt = "name: " + this.name;
         txt += "\nperiod: " + era.toString();
         txt += "\nboss: ";
@@ -77,14 +78,14 @@ public class World {
     /**
      * @return Deux mondes son identiques
      */
-    public boolean is_equal(World w) {
+    public boolean isEqual(World w) {
         return (this.name.equals(w.name) && this.era==w.era && this.boss.is_equal(w.boss));
     }
 
     public static void main(String[] args) {
         World w = new World("TestWorld", Period.FUTURE);
         Area a = new Area ("TestArea", w);
-        w.add_area(a);
-        System.out.println(w.to_string());
+        w.addArea(a);
+        System.out.println(w.toString());
     }
 }
