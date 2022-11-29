@@ -37,7 +37,7 @@ public class Inventory {
      */
     void displayInventory(){
         for(Item i : this.items){
-            i.to_string();
+            i.toString();
         }
     }
 
@@ -48,13 +48,13 @@ public class Inventory {
      */
     private int findIdItemWithName(String name){
         int id=0;
-        int list_length = this.items.size();
-        boolean is_finded = this.getItemAt(id).get_name()==name;
-        while(id<=list_length && !is_finded){
+        int listLength = this.items.size();
+        boolean isFound = this.getItemAt(id).get_name()==name;
+        while(id<=listLength && !isFound){
             id++;
-            is_finded = this.getItemAt(id).get_name()==name;
+            isFound = this.getItemAt(id).get_name()==name;
         }
-        if(id>list_length){
+        if(id>listLength){
             return -1;
         }else{
             return id;
@@ -68,13 +68,13 @@ public class Inventory {
      */
     private int findIdItem(Item e){
         int id=0;
-        int list_length = this.items.size();
-        boolean is_finded = this.getItemAt(id).is_equal(e);
-        while(id<=list_length && !is_finded){
+        int listLength = this.items.size();
+        boolean isFound = this.getItemAt(id).is_equal(e);
+        while(id<=listLength && !isFound){
             id++;
-            is_finded = this.getItemAt(id).is_equal(e);
+            isFound = this.getItemAt(id).is_equal(e);
         }
-        if(id>list_length){
+        if(id>listLength){
             return -1;
         }else{
             return id;
@@ -86,8 +86,8 @@ public class Inventory {
      * @param e un item
      */
     public void addItem(Item e){
-        int id_item = findIdItem(e);
-        if(id_item>=0){
+        int idItem = findIdItem(e);
+        if(idItem>=0){
             //this.getItemAt(id_item).quantity += e.quantity 
         }else{
             this.items.add(e);
@@ -101,9 +101,9 @@ public class Inventory {
      *          false si l'objet n'est pas dans la liste
      */
     public boolean deleteItem(String name){
-        int id_item = findIdItemWithName(name);
-        if(id_item>=0){
-            this.items.remove(id_item);
+        int idItem = findIdItemWithName(name);
+        if(idItem>=0){
+            this.items.remove(idItem);
             return true;
         }else{
             return false;
@@ -115,8 +115,8 @@ public class Inventory {
      * @param name nom de l'item à utiliser
      */
     public boolean useItem(String name){
-        int id_item = findIdItemWithName(name);
-        if(id_item>=0){
+        int idItem = findIdItemWithName(name);
+        if(idItem>=0){
             /* TODO
             this.getItemAt(id_item).use();
             if(this.getItemAt(id_item).get_quantity()==0){
