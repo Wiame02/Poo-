@@ -3,6 +3,7 @@ import Localization.*;
 import Entity.*;
 import Quest.*;
 import Stuff.*;
+import Application.Reflection.*;
 
 /**
  * Player.java
@@ -10,7 +11,7 @@ import Stuff.*;
  * @author Katel HIGNARD
  */
 
-public class Player{
+public class Player implements ClassInformation{
     private String username;
     private int lvl;
     private int hp;
@@ -67,13 +68,22 @@ public class Player{
 /**
  * SETTERS
 */
+    private void    set_username(String name)           {this.username=name;}
     public void     set_lvl(int lvl)                    {this.lvl=lvl;}
     public void     set_hp(int hp)                      {this.hp=hp;}
     public void     set_category(Order category)        {this.category=category;}
+    private void    setInventory(Inventory i)           {this.inventory=i;}
+    private void    setArmor(Armor[] armor)             {
+        this.armor[0] = armor[0];
+        this.armor[1] = armor[1];
+        this.armor[2] = armor[2];
+        this.armor[3] = armor[3];
+    }
     public void     set_helmet(Armor casque)            {this.armor[0]=casque;}
     public void     set_chestplaste(Armor chestplate)   {this.armor[1]=chestplate;}
     public void     set_legging(Armor legging)          {this.armor[2]=legging;}
     public void     set_boot(Armor boot)                {this.armor[3]=boot;}
+    public void     setWeapon(Weapon weapon)           {this.weapon=weapon;}
     public void     set_current_quest(Quest quest)      {this.currentQuest=quest;}
     public void     set_current_area(Area area)         {this.currentArea=area;}
 
@@ -234,4 +244,86 @@ public class Player{
         }
     }
 
+/*
+ * Implementation des procedure de ClassInformation
+ */
+    /**
+     * Retourne tous les objets aux champs d'une Classe, qu'elle soit privée ou public.
+     * @return Un tableau d'{@link java.lang.Object} qui représente les champs d'une {@link java.lang.Class}.
+     */
+    public Object[] getFields(){
+        Object[] objects = new Object[9];
+
+        objects[0] = this.username;
+        objects[1] = this.lvl;
+        objects[2] = this.hp;
+        objects[3] = this.category;
+        objects[4] = this.inventory;
+        objects[5] = this.armor;
+        objects[6] = this.weapon;
+        objects[7] = this.currentQuest;
+        objects[8] = this.currentArea;
+
+        return objects;
+    }
+
+    /**
+     * Retourne l'objet au champ de la Classe selon le nom du champ.
+     * @param fieldName Correspond au nom du champs que l'on appelle.
+     * @return {@link java.lang.Object} correspondant à l'object enregistré à ce champ.
+     * @throws NoSuchFieldException Si le nom du champ donné ne correspond à aucun des champs que la classe contient.
+     */
+    public Object getField (String fieldName) throws NoSuchFieldException{
+        if(fieldName=="username"){
+            return this.username;
+        }else if(fieldName == "lvl"){
+            return this.lvl;
+        }else if(fieldName == "hp"){
+            return this.hp;
+        }else if(fieldName == "category"){
+            return this.category;
+        }else if(fieldName == "inventory"){
+            return this.inventory;
+        }else if(fieldName == "armor"){
+            return this.armor;
+        }else if(fieldName == "weapon"){
+            return this.weapon;
+        }else if(fieldName == "currentQuest"){
+            return this.currentQuest;
+        }else if(fieldName == "currentArea"){
+            return this.currentArea;
+        }else{
+            throw new NoSuchFieldException();
+        }
+    }
+
+    /**
+     * Modifie le champs représenté avec son nom en la valeur donnée.
+     * @param fieldName Le nom du champs de la classe qui doit être modifiée.
+     * @param setValue  La valeur qui remplacement l'ancienne.
+     * @throws NoSuchFieldException Si le nom du champ donné ne correspond à aucun des champs que la classe contient.
+     */
+    public void setField (String fieldName, Object setValue) throws Exception{
+        if(fieldName=="username"){
+            this.set_username((String)setValue);
+        }else if(fieldName == "lvl"){
+            this.set_lvl((int)setValue);
+        }else if(fieldName == "hp"){
+            this.set_hp((int)setValue);
+        }else if(fieldName == "category"){
+            this.set_category((Order)setValue);
+        }else if(fieldName == "inventory"){
+            this.setInventory((Inventory)setValue);
+        }else if(fieldName == "armor"){
+            this.setArmor((Armor[])setValue);
+        }else if(fieldName == "weapon"){
+            this.setWeapon((Weapon)setValue);
+        }else if(fieldName == "currentQuest"){
+            this.set_current_quest((Quest)setValue);
+        }else if(fieldName == "currentArea"){
+            this.set_current_area((Area)setValue);
+        }else{
+            throw new NoSuchFieldException();
+        }
+    }
 }    
