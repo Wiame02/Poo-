@@ -44,7 +44,7 @@ public class Game {
     public static Board generateBoard(){
         Board b = new Board();
 
-        b.addAllWorlds(DataWorlds.data_worlds());
+        b.addAllWorlds(DataWorlds.dataWorlds());
 
         for (int i=1; i<b.getWorlds().size(); i++) {
             //generateAreas(b.getWorldAt(i), .get(i-1));

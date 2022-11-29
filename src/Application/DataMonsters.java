@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class DataMonsters {
     
-    public static ArrayList<Monster> create_monsters_valkiem(){
+    public static ArrayList<Monster> createMonstersValkiem(){
         ArrayList<Monster> monsters = new ArrayList<Monster>();
         
         monsters.add(new Monster("Mammouth Agé",150,Species.MAMMOTH,22));
@@ -21,7 +21,7 @@ public class DataMonsters {
         return monsters;
     }
 
-    public static ArrayList<Monster> create_monsters_cimebel(){
+    public static ArrayList<Monster> createMonstersCimebel(){
         ArrayList<Monster> monsters = new ArrayList<Monster>();
 
         monsters.add(new Monster("Zombie décomposé",25,Species.ZOMBIE,12));
@@ -35,7 +35,7 @@ public class DataMonsters {
         return monsters;
     }
 
-    public static ArrayList<Monster> create_monsters_codix(){
+    public static ArrayList<Monster> createMonstersCodix(){
         ArrayList<Monster> monsters = new ArrayList<Monster>();
 
         monsters.add(new Monster("Drone Défaillant",15, Species.DRONE, 30));
@@ -51,9 +51,9 @@ public class DataMonsters {
     public static ArrayList<ArrayList<Monster>> data_monsters(){
         ArrayList<ArrayList<Monster>> monsters = new ArrayList<ArrayList<Monster>>();
 
-        monsters.add(create_monsters_valkiem());
-        monsters.add(create_monsters_cimebel());
-        monsters.add(create_monsters_codix());
+        monsters.add(createMonstersValkiem());
+        monsters.add(createMonstersCimebel());
+        monsters.add(createMonstersCodix());
 
         return monsters;
     }
