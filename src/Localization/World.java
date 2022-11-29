@@ -68,7 +68,7 @@ public class World {
         txt += (this.boss!=null)?boss.to_string():"null";  
         txt += "\nareas: {";
         for (Area a : this.areas) {
-            txt +=a.get_name();
+            txt +=a.getName();
         }
         txt +='}';
         return txt;

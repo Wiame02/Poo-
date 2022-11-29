@@ -24,9 +24,9 @@ public class Console {
         System.out.println("get_hp()");
 
         if (true) { //XXX
-            System.out.println("interact("+  p.get_current_area().get_entity().get_name() +")");
+            System.out.println("interact("+  p.get_current_area().getEntity().get_name() +")");
         } else {
-            System.out.println("attack("+ p.get_current_area().get_entity().get_name() +")");
+            System.out.println("attack("+ p.get_current_area().getEntity().get_name() +")");
         }
     }
 

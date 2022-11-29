@@ -129,7 +129,7 @@ public class Player{
      * @throws Exception si la zone n'est pas accessible
      */
     public void move_linked_area(Area destination) throws Exception{
-        if(this.currentArea.get_access_area(destination.get_name())==null){
+        if(this.currentArea.getAccessArea(destination.getName())==null){
             throw new Exception("La zone n'est pas accessible");
         }else{
             this.move_to(destination);

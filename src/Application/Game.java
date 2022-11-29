@@ -29,11 +29,11 @@ public class Game {
         for (Entity e : entities) {
             int i = (int) (Math.random()*(world.get_areas().size()-1));
 
-            while (world.get_area_at(i).get_entity()==null) {
+            while (world.get_area_at(i).getEntity()==null) {
                 i = (int) (Math.random()*(world.get_areas().size()-1));
             }
 
-            world.get_area_at(i).set_entity(e);
+            world.get_area_at(i).setEntity(e);
         }
     }
 
