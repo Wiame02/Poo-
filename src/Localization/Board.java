@@ -20,22 +20,22 @@ public class Board {
     /**
      * GETTERS
      */
-    public World get_world_at(int i) {return this.worlds.get(i);};
-    public ArrayList<World> get_worlds() {return this.worlds;};
+    public World getWorldAt(int i) {return this.worlds.get(i);};
+    public ArrayList<World> getWorlds() {return this.worlds;};
 
     /**
      * Ajout d'un nouveau monde sur notre plateau
-     * @param w
+     * @param world
      */
-    public void add_world(World w) {
-        this.worlds.add(w);
+    public void addWorld(World world) {
+        this.worlds.add(world);
     }
     
     /**
      * Ajout de plusieurs nouveaux mondes sur notre plateau
-     * @param l_w
+     * @param listWorld
      */
-    public void add_all_worlds(ArrayList<World> l_w) {
-        this.worlds.addAll(l_w);
+    public void addAllWorlds(ArrayList<World> listWorld) {
+        this.worlds.addAll(listWorld);
     }
 }

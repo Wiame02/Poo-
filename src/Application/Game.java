@@ -44,11 +44,11 @@ public class Game {
     public static Board generate_board(){
         Board b = new Board();
 
-        b.add_all_worlds(DataWorlds.data_worlds());
+        b.addAllWorlds(DataWorlds.data_worlds());
 
-        for (int i=1; i<b.get_worlds().size(); i++) {
-            //generate_areas(b.get_world_at(i), .get(i-1));
-            //choose_boss(b.get_world_at(i), .get(i-1));
+        for (int i=1; i<b.getWorlds().size(); i++) {
+            //generate_areas(b.getWorldAt(i), .get(i-1));
+            //choose_boss(b.getWorldAt(i), .get(i-1));
         }
         return new Board();
     }
