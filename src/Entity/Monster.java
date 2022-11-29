@@ -91,15 +91,13 @@ public class Monster extends Entity{
 
 	void attack(Player p) throws Exception{
 
-    	    if(p.decrease_hp(this.attack)){
-
-    	        throw new Exception(p.get_username() + "a esquivé l'attaque");
-
-    	    } else {
-
-    	        print_attack();
-    	    }
-    	}
+    	try{
+            p.decrease_hp(this.attack);
+        }
+        catch(Exception e){
+            System.out.println(p.get_username()+" a esquivé l'attaque");
+        }
+    }
 
 	/**
 	 * renvoie toutes les informations sur un monstre
