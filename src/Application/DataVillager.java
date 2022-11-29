@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class DataVillager {
 
-    public static ArrayList<Villager> create_villagers_valkiem(ArrayList<Monster> monsters){
+    public static ArrayList<Villager> createVillagersValkiem(ArrayList<Monster> monsters){
         ArrayList<Villager> villagers = new ArrayList<Villager>();
         
         // Création des villageois
@@ -55,7 +55,7 @@ public class DataVillager {
         return villagers;
     }
 
-    public static ArrayList<Villager> create_villagers_cimebel(ArrayList<Monster> monsters){
+    public static ArrayList<Villager> createVillagersCimebel(ArrayList<Monster> monsters){
         ArrayList<Villager> villagers = new ArrayList<Villager>();
 
         // Création des villageois
@@ -110,7 +110,7 @@ public class DataVillager {
         return villagers;
     }
 
-    public static ArrayList<Villager> create_villagers_codix(ArrayList<Monster> monsters){
+    public static ArrayList<Villager> createVillagersCodix(ArrayList<Monster> monsters){
         ArrayList<Villager> villagers = new ArrayList<Villager>();
 
         // Création des villageois
@@ -163,12 +163,12 @@ public class DataVillager {
         return villagers;
     }
 
-    public static ArrayList<ArrayList<Villager>> data_villagers(ArrayList<Monster> monsters_valkiem,ArrayList<Monster>monsters_cimebel,ArrayList<Monster>monsters_codix){
+    public static ArrayList<ArrayList<Villager>> dataVillagers(ArrayList<Monster> monstersValkiem,ArrayList<Monster>monstersCimebel,ArrayList<Monster>monstersCodix){
         ArrayList<ArrayList<Villager>> villagers = new ArrayList<ArrayList<Villager>>();
 
-        villagers.add(create_villagers_valkiem(monsters_valkiem));
-        villagers.add(create_villagers_cimebel(monsters_cimebel));
-        villagers.add(create_villagers_codix(monsters_codix));
+        villagers.add(createVillagersValkiem(monstersValkiem));
+        villagers.add(createVillagersCimebel(monstersCimebel));
+        villagers.add(createVillagersCodix(monstersCodix));
 
         return villagers;
     }

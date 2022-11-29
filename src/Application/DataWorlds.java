@@ -14,64 +14,64 @@ public class DataWorlds {
      * Crée le monde de l'univers-cité avec ses zones
      * @return le monde Univers-cité
      */
-    public static World create_univers_cite(){
-        World univers_cite = new World("Univers-Cité", Period.PRESENT);
+    public static World createUniversCite(){
+        World universCite = new World("Univers-Cité", Period.PRESENT);
 
-        univers_cite.addArea(new Area("Entrée de l'Univer-Cité",univers_cite));
-        univers_cite.addArea(new Area("Hall du Batiment 1",univers_cite));
-        univers_cite.addArea(new Area("Amphi A",univers_cite));
-        univers_cite.addArea(new Area("Amphi B",univers_cite));
-        univers_cite.addArea(new Area("Amphi C",univers_cite));
-        univers_cite.addArea(new Area("Cafétéria Le Patio'",univers_cite));
-        univers_cite.addArea(new Area("Hall piscine",univers_cite));
-        univers_cite.addArea(new Area("Salle i044",univers_cite));
-        univers_cite.addArea(new Area("Bibliotheque Universitaire",univers_cite));
-        univers_cite.addArea(new Area("Amphi D",univers_cite));
-        univers_cite.addArea(new Area("Amphi E",univers_cite));
+        universCite.addArea(new Area("Entrée de l'Univers-Cité",universCite));
+        universCite.addArea(new Area("Hall du Batiment 1",universCite));
+        universCite.addArea(new Area("Amphi A",universCite));
+        universCite.addArea(new Area("Amphi B",universCite));
+        universCite.addArea(new Area("Amphi C",universCite));
+        universCite.addArea(new Area("Cafétéria Le Patio'",universCite));
+        universCite.addArea(new Area("Hall piscine",universCite));
+        universCite.addArea(new Area("Salle i044",universCite));
+        universCite.addArea(new Area("Bibliotheque Universitaire",universCite));
+        universCite.addArea(new Area("Amphi D",universCite));
+        universCite.addArea(new Area("Amphi E",universCite));
 
         // Ajouts des zones accessibles
             // Zone 0
-        univers_cite.getAreaAt(0).addAccessibleArea(univers_cite.getAreaAt(1));
+        universCite.getAreaAt(0).addAccessibleArea(universCite.getAreaAt(1));
             // Zone 1
-        univers_cite.getAreaAt(1).addAccessibleArea(univers_cite.getAreaAt(0));
-        univers_cite.getAreaAt(1).addAccessibleArea(univers_cite.getAreaAt(2));
-        univers_cite.getAreaAt(1).addAccessibleArea(univers_cite.getAreaAt(3));
-        univers_cite.getAreaAt(1).addAccessibleArea(univers_cite.getAreaAt(4));
-        univers_cite.getAreaAt(1).addAccessibleArea(univers_cite.getAreaAt(5));
-        univers_cite.getAreaAt(1).addAccessibleArea(univers_cite.getAreaAt(6));
-        univers_cite.getAreaAt(1).addAccessibleArea(univers_cite.getAreaAt(7));
-        univers_cite.getAreaAt(1).addAccessibleArea(univers_cite.getAreaAt(8));
+        universCite.getAreaAt(1).addAccessibleArea(universCite.getAreaAt(0));
+        universCite.getAreaAt(1).addAccessibleArea(universCite.getAreaAt(2));
+        universCite.getAreaAt(1).addAccessibleArea(universCite.getAreaAt(3));
+        universCite.getAreaAt(1).addAccessibleArea(universCite.getAreaAt(4));
+        universCite.getAreaAt(1).addAccessibleArea(universCite.getAreaAt(5));
+        universCite.getAreaAt(1).addAccessibleArea(universCite.getAreaAt(6));
+        universCite.getAreaAt(1).addAccessibleArea(universCite.getAreaAt(7));
+        universCite.getAreaAt(1).addAccessibleArea(universCite.getAreaAt(8));
             // Zone 2
-        univers_cite.getAreaAt(2).addAccessibleArea(univers_cite.getAreaAt(1));
+        universCite.getAreaAt(2).addAccessibleArea(universCite.getAreaAt(1));
             // Zone 3
-        univers_cite.getAreaAt(3).addAccessibleArea(univers_cite.getAreaAt(1));
+        universCite.getAreaAt(3).addAccessibleArea(universCite.getAreaAt(1));
             // Zone 4
-        univers_cite.getAreaAt(4).addAccessibleArea(univers_cite.getAreaAt(1));
+        universCite.getAreaAt(4).addAccessibleArea(universCite.getAreaAt(1));
             // Zone 5
-        univers_cite.getAreaAt(5).addAccessibleArea(univers_cite.getAreaAt(1));
-        univers_cite.getAreaAt(5).addAccessibleArea(univers_cite.getAreaAt(6));
+        universCite.getAreaAt(5).addAccessibleArea(universCite.getAreaAt(1));
+        universCite.getAreaAt(5).addAccessibleArea(universCite.getAreaAt(6));
             // Zone 6
-        univers_cite.getAreaAt(6).addAccessibleArea(univers_cite.getAreaAt(1));
-        univers_cite.getAreaAt(6).addAccessibleArea(univers_cite.getAreaAt(5));
-        univers_cite.getAreaAt(6).addAccessibleArea(univers_cite.getAreaAt(9));
-        univers_cite.getAreaAt(6).addAccessibleArea(univers_cite.getAreaAt(10));
+        universCite.getAreaAt(6).addAccessibleArea(universCite.getAreaAt(1));
+        universCite.getAreaAt(6).addAccessibleArea(universCite.getAreaAt(5));
+        universCite.getAreaAt(6).addAccessibleArea(universCite.getAreaAt(9));
+        universCite.getAreaAt(6).addAccessibleArea(universCite.getAreaAt(10));
             // Zone 7
-        univers_cite.getAreaAt(7).addAccessibleArea(univers_cite.getAreaAt(1));
+        universCite.getAreaAt(7).addAccessibleArea(universCite.getAreaAt(1));
             // Zone 8
-        univers_cite.getAreaAt(8).addAccessibleArea(univers_cite.getAreaAt(1));
+        universCite.getAreaAt(8).addAccessibleArea(universCite.getAreaAt(1));
             // Zone 9
-        univers_cite.getAreaAt(9).addAccessibleArea(univers_cite.getAreaAt(6));
+        universCite.getAreaAt(9).addAccessibleArea(universCite.getAreaAt(6));
             // Zone 10
-        univers_cite.getAreaAt(10).addAccessibleArea(univers_cite.getAreaAt(6));
+        universCite.getAreaAt(10).addAccessibleArea(universCite.getAreaAt(6));
 
-        return univers_cite;
+        return universCite;
     }
 
     /**
      * Crée le monde de Valkiem avec ses zones
      * @return le monde Valkiem
      */
-    public static World create_valkiem(){
+    public static World createValkiem(){
         World valkiem = new World("Valkïem", Period.PAST);
 
         valkiem.addArea(new Area("Foyer",valkiem));
@@ -146,7 +146,7 @@ public class DataWorlds {
      * Crée le monde de Cimebel avec ses zones
      * @return le monde cimebel
      */
-    public static World create_cimebel(){
+    public static World createCimebel(){
         World cimebel = new World("Cimebel", Period.PRESENT);
         
         cimebel.addArea(new Area("Mairie", cimebel));
@@ -215,7 +215,7 @@ public class DataWorlds {
      * Crée le monde de Codix avec ses zones
      * @return le monde Codix
      */
-    public static World create_codix(){
+    public static World createCodix(){
         World codix = new World("Codix", Period.FUTURE);
 
         // Création des zones
@@ -285,12 +285,12 @@ public class DataWorlds {
      * Retourne la liste des données des mondes
      * @return la liste des mondes crées
      */
-    public static ArrayList<World> data_worlds(){
+    public static ArrayList<World> dataWorlds(){
         ArrayList<World> worlds = new ArrayList<World>();
-        worlds.add(create_univers_cite());
-        worlds.add(create_valkiem());
-        worlds.add(create_cimebel());
-        worlds.add(create_codix());
+        worlds.add(createUniversCite());
+        worlds.add(createValkiem());
+        worlds.add(createCimebel());
+        worlds.add(createCodix());
 
         return worlds;
     }
