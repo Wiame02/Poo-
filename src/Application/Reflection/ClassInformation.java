@@ -30,5 +30,5 @@ public interface ClassInformation {
      * @param setValue  La valeur qui remplacement l'ancienne.
      * @throws NoSuchFieldException Si le nom du champ donné ne correspond à aucun des champs que la classe contient.
      */
-    public void setField (String fieldName, Object setValue) throws Exception;
+    public void setField (String fieldName, Object setValue) throws NoSuchFieldException;
 }
