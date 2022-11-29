@@ -15,12 +15,12 @@ public class ApplicationReflection {
     /**
      * Cherche si une classe existe en utilisant l'exception ClassNotFoundException à partir de l'adresse de la Classe
      * @see https://docs.oracle.com/javase/10/docs/api/java/lang/Class.html#forName(java.lang.String)
-     * @param class_name
+     * @param classAdress
      * @return true Si la classe a été trouvée
      */
-    public static boolean does_class_exist (String class_adress) {
+    public static boolean doesClassExist (String classAdress) {
         try {
-            Class.forName(class_adress);
+            Class.forName(classAdress);
         }
         catch (ClassNotFoundException e) {
             return false;
@@ -31,62 +31,62 @@ public class ApplicationReflection {
     /**
      * Donne tous les noms des méthodes public de la classe entree
      * @see https://docs.oracle.com/javase/10/docs/api/java/lang/Class.html#getMethods()
-     * @param class_adress Adresse de la Classe sous la forme package.class
+     * @param classAdress Adresse de la Classe sous la forme package.class
      * @return  Une ArrayList de tous les noms
      * @throws ClassNotFoundException La classe n'existe pas ou n'a pas été trouvée
      * @throws SecurityException On ne peut pas acceder aux methodes de la classe
      */
-    public static ArrayList<String> get_public_methods_names (String class_adress) throws Exception {
-        Method[] list_of_public_methods = {};
+    public static ArrayList<String> getPublicMethodsNames (String classAdress) throws Exception {
+        Method[] listOfPublicMethods = {};
         try {
-            list_of_public_methods = Class.forName(class_adress).getMethods();
+            listOfPublicMethods = Class.forName(classAdress).getMethods();
         }
         catch (Exception e) {
             throw e;
         }
 
         // On recupere tous les noms
-        ArrayList<String> list_of_methods_names = new ArrayList<String> ();
-        for (Method m : list_of_public_methods) {
-            list_of_methods_names.add(m.getName());
+        ArrayList<String> listOfPublicMethodsNames = new ArrayList<String> ();
+        for (Method m : listOfPublicMethods) {
+            listOfPublicMethodsNames.add(m.getName());
         }
 
-        return list_of_methods_names;
+        return listOfPublicMethodsNames;
     }
 
     /**
      * Récupère dans l'ordre la classe de chaque objet présents dans le tableau entrée
-     * @param args_object Un tableau de plusieurs objets (peuvent être de sous-classe d'java.lang.Object différents)
+     * @param argsObjects Un tableau de plusieurs objets (peuvent être de sous-classe d'java.lang.Object différents)
      * @return Class[] Un tableau regroupant les classes de chaques objets
      */
-    public static Class[] get_argument_classes (Object[] args_object) {
-        ArrayList<Class> args_classes = new ArrayList<Class>();
+    public static Class[] getArgumentClasses (Object[] argsObjects) {
+        ArrayList<Class> argsClasses = new ArrayList<Class>();
 
-        for (Object obj : args_object) {
-            args_classes.add(obj.getClass());
+        for (Object obj : argsObjects) {
+            argsClasses.add(obj.getClass());
         }
-        return args_classes.toArray(new Class[0]);  //On transforme la liste en un tableau
+        return argsClasses.toArray(new Class[0]);  //On transforme la liste en un tableau
     }
 
 /**
  * Cette fonction execute une méthode d'instance d'objet à partir de son nom
  * @param obj   L'objet qui sur lequel on appelle la méthode
- * @param method_name Le nom de la méthode
- * @param args_object Les parametres d'entrées de la méthode appelée
+ * @param methodName Le nom de la méthode
+ * @param argsObjects Les parametres d'entrées de la méthode appelée
  * @return La valeur de retour de méthode appellée
  * @throws Exception La méthode n'a pas été trouvée.
  */
-    public static Object execute_instance_method (Object obj, String method_name, Object[] args_object) throws Exception {
+    public static Object executeInstanceMethod (Object obj, String methodName, Object[] argsObjects) throws Exception {
         try {
-            Class class_obj = obj.getClass();
-            Class[] args_classes = get_argument_classes(args_object);
-            Method method_obj = class_obj.getMethod(method_name, args_classes);
-            Object res = method_obj.invoke(obj, args_object);
+            Class classObj = obj.getClass();
+            Class[] argsClasses = getArgumentClasses(argsObjects);
+            Method methodObj = classObj.getMethod(methodName, argsClasses);
+            Object res = methodObj.invoke(obj, argsObjects);
 
             return res;
         }
         catch (Exception e) {
-            throw new Exception("Application.ApplicationReflection.execute_instance_method(...): " + e.getMessage());
+            throw new Exception("Application.ApplicationReflection.executeInstanceMethod(...): " + e.getMessage());
         }
     }
 
