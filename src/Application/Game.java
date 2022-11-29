@@ -81,7 +81,7 @@ public class Game {
      */
     public static void doAnAction(Area area, Player player) {
         try {
-            ArrayList<String> input = Console.read_action();
+            ArrayList<String> input = Console.readAction();
             executeFunctionInput(input);
         }
         catch (ApplicationException e) {
@@ -101,10 +101,10 @@ public class Game {
         boolean areAllBossesDead  = true;
         boolean isPlayerAlive     = true;
         
-        //TODO show_available_actions(...);
+        //TODO showAvailableActions(...);
 
         while (!areAllBossesDead && isPlayerAlive) {
-            //TODO show_available_actions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
+            //TODO showAvailableActions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
             //TODO player_do_action(...);
 
             //TODO areAllBossesDead = are_all_boss_dead();
@@ -112,9 +112,9 @@ public class Game {
         }
 
         if (isPlayerAlive) {
-            Console.game_success_ending(player);
+            Console.gameSuccessEnding(player);
         } else {
-            Console.game_over_ending(player);
+            Console.gameOverEnding(player);
         }
     }
 
