@@ -13,7 +13,6 @@ import User.*;
 public class Monster extends Entity{
 	private int attack;
 
-
     /**
      * Constructeur
      * @param name
@@ -25,20 +24,17 @@ public class Monster extends Entity{
 		super(name,hp,species);
 		this.setAttack(attack);
 	}
+
 	
-	//--------------METHODES-------------
-	
-	/**
+	/*
 	 * GETTERS
 	 */
 
 	public int get_attack(){return this.attack;}
 	
-	/**
+	/*
 	 * SETTERS
 	 */
-	
-	
 	public void setAttack(int attack){
 		if(attack <= 0){
 			 this.attack = 0;
@@ -62,7 +58,7 @@ public class Monster extends Entity{
 	 * @return true si c'est le boss de ce monde
 	 * @return false si ce n'est pas le boss de ce monde
 	 */
-	public boolean is_boss(World world){
+	public boolean isBoss(World world){
 		return (this == world.getBoss());
 	}
 

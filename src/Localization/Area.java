@@ -125,7 +125,7 @@ public class Area {
 
         areSame = areSame && this.name.equals(area.name);
         areSame = areSame && this.world.isEqual(area.world);
-        areSame = areSame && this.entity.is_equal(area.entity);
+        areSame = areSame && this.entity.isEqual(area.entity);
         
         return areSame;
     }

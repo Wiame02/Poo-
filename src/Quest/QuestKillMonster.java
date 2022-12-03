@@ -52,7 +52,7 @@ public class QuestKillMonster extends Quest{
         int i = 0 ;
         World world = p.getCurrentArea().getWorld();
 
-        while(i<=world.getAreas().size() || !world.getAreaAt(i).getEntity().is_equal(this.monster)){
+        while(i<=world.getAreas().size() || !world.getAreaAt(i).getEntity().isEqual(this.monster)){
             i++;
         }
 

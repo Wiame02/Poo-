@@ -79,7 +79,7 @@ public class World {
      * @return Deux mondes son identiques
      */
     public boolean isEqual(World w) {
-        return (this.name.equals(w.name) && this.era==w.era && this.boss.is_equal(w.boss));
+        return (this.name.equals(w.name) && this.era==w.era && this.boss.isEqual(w.boss));
     }
 
     public static void main(String[] args) {

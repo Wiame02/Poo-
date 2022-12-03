@@ -31,15 +31,15 @@ public class Villager extends Entity{
 /*
  * GETTERS
  */
-	public Quest get_quest() {return this.quest;}
+	public Quest getQuest() {return this.quest;}
 	public String getDialogueAt(int i) {return this.dialogues.get(i);}
-	public ArrayList<String> get_dialogues() {return this.dialogues;}
+	public ArrayList<String> getDialogues() {return this.dialogues;}
 	
 /*
  * SETTERS
  */
-	public void set_quest(Quest quest) {this.quest = quest;}
-	public void add_dialogue(String dialogue){
+	public void setQuest(Quest quest) {this.quest = quest;}
+	public void addDialogue(String dialogue){
 		this.dialogues.add(dialogue);
 	}
 	
@@ -49,7 +49,7 @@ public class Villager extends Entity{
 	 * @param p cette attribut correspond a un joueur de type Player
 	 */
 
-	public void talk(Quest quest, Player p) throws Exception{
+	public void talk(Quest quest, Player p){
 
 		if(this.quest==p.getCurrentQuest()){	// Les deux quêtes seront égales si les deux références la même quête
 			if(!quest.isAccomplished(p)){
@@ -103,11 +103,8 @@ public class Villager extends Entity{
 					//System.out.println(this.dialogues.get(2));
 				}
 				sc.close();
-			} throw new Exception("Le joueur doit choisir d'accepter ou non la quete (ecrire oui ou non !)"); //exception si le joueur ne marque rien autre chose différent de oui ou non
-			  
-
+			}
 		}
-		
 	}
 
 	

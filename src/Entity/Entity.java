@@ -34,7 +34,7 @@ public abstract class Entity{
 /*
  * SETTERS
  */
-	public 	void 	setspecies(Species species)	{this.species=species;}
+	public void setSpecies(Species species)	{this.species=species;}
 	public void setName(String name){this.name=name;}
 	/**
 	 * Modifie les hp de l'entité.
@@ -55,14 +55,14 @@ public abstract class Entity{
 	/**
 	 * Affiche le nom de l'entité
 	 */
-	void print_name(){
+	void printName(){
 		System.out.println("le nom de l'entité est : " + this.name + "\n");
 	}
 
 	/**
 	 * Affiche les points de vies de l'entité
 	 */
-	void print_hp(){
+	void printHp(){
 		System.out.println("le nombre de point(s) de vie de l'entité est : " + this.hp + "\n");
 	}
 	
@@ -102,7 +102,7 @@ public abstract class Entity{
 	 * @return 	true si égaux 
 	 * 			false sinon
 	 */
-	public boolean is_equal(Entity e){
+	public boolean isEqual(Entity e){
 		return (this.name == e.name && this.species==e.species );
 	}
 
