@@ -68,7 +68,7 @@ public class Villager extends Entity{
 	//public void talk(Quest quest, Player p){ // quete  proposer par le villageois
 			/* 
 	 	 // Redéfinir la foncition, elle fait un peu trop de chose (a voir avec mo et kateul)
-		if(!quest.is_accomplished(p)){ // est-ce que notre quete actuelle est achevée ? faudrait pouvoir savoir si la current_quest de joueur est fini ou pas
+		if(!quest.isAccomplished(p)){ // est-ce que notre quete actuelle est achevée ? faudrait pouvoir savoir si la current_quest de joueur est fini ou pas
 
 			if(is_equal(p)){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
 				
@@ -77,7 +77,7 @@ public class Villager extends Entity{
 
 				p.get_current_quest() = quest; // current_quete du joueur devient la quete du villageois
 
-				System.out.println("le titre de la quete est : " + quest.get_title());
+				System.out.println("le titre de la quete est : " + quest.getTitle());
 
 				System.out.println("l'intitulé de la quete est : "); // faudrait print l'intitulé de la quete mais je crois que ce n'est pas encore implementé
 			}
@@ -86,9 +86,9 @@ public class Villager extends Entity{
 
 				if(is_equal(p)){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
 
-		       		p.get_Inventory().addItem(quest.get_reward());
+		       		p.get_Inventory().addItem(quest.getReward());
 
-		        	p.set_lvl(p.getLvl() + quest.get_bonus_exp()) ;
+		        	p.set_lvl(p.getLvl() + quest.getBonusExp()) ;
 
 			    	System.out.println("Bravo pour avoir accomplie cette quete, à notre prochaine rencontre");
 
@@ -96,7 +96,7 @@ public class Villager extends Entity{
 
 					p.get_current_quest() = quest; // current_quete du joueur devient la quete du villageois
 
-					System.out.println("le titre de la quete est : " + quest.get_title());
+					System.out.println("le titre de la quete est : " + quest.getTitle());
 
 					System.out.println("l'intitulé de la quete est : "); // faudrait print l'intitulé de la quete mais je crois que ce n'est pas encore implementé
 				}
@@ -109,15 +109,15 @@ public class Villager extends Entity{
 
 		if(is_equal(p)){
 			
-			if(!quest.is_accomplished(p)){
+			if(!quest.isAccomplished(p)){
 				System.out.println(this.dialogues.get(4));
 			}
 			else {
-				p.get_Inventory().addItem(quest.get_reward());
+				p.get_Inventory().addItem(quest.getReward());
 
-		        p.set_lvl(p.getLvl() + quest.get_bonus_exp());
+		        p.set_lvl(p.getLvl() + quest.getBonusExp());
 
-				quest.is_accomplished(p);
+				quest.isAccomplished(p);
 
 				// quest du joueur devient null?
 
@@ -129,7 +129,7 @@ public class Villager extends Entity{
 		}
 		else {
 
-			if(!quest.is_accomplished(p)){
+			if(!quest.isAccomplished(p)){
 				//System.out.println("Vous possédé déjà une quete, veuillez la finir et revenez me voir");
 				System.out.println(this.dialogues.get(3));
 			}
@@ -137,25 +137,23 @@ public class Villager extends Entity{
 
 				// on demande si le joueur accepte la quete ?
 				Scanner sc = new Scanner(System.in);
-				System.out.println("Voulez vous accepter la quete : " + quest.get_title() + "(oui ou non)");
+				System.out.println("Voulez vous accepter la quete : " + quest.getTitle() + "(oui ou non)");
 				String rep = sc.nextLine(); // lit la réponse de l'utilisateur
 				System.out.println("Vous avez saisi : " + rep);
 
-				
-			
 				if(rep == "oui"){
 
 					System.out.println(this.dialogues.get(1));
 
 					p.set_current_quest(quest); // current_quete du joueur devient la quete du villageois
 
-					System.out.println(this.dialogues.get(0) + quest.get_title());
+					System.out.println(this.dialogues.get(0) + quest.getTitle());
 
 				}
 				else {
 					System.out.println(this.dialogues.get(2));
 				}
-					
+				sc.close();
 			} throw new Exception("Le joueur doit choisir d'accepter ou non la quete (ecrire oui ou non !)"); //exception si le joueur ne marque rien autre chose différent de oui ou non
 			  
 
@@ -170,7 +168,7 @@ public class Villager extends Entity{
     @Override
 	public String to_string(){
 		String res;
-	    res = super.to_string() + ", quete proposée " + this.quest.get_title();
+	    res = super.to_string() + ", quete proposée " + this.quest.getTitle();
 		return res;
 	}
 	

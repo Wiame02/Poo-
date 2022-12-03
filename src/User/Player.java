@@ -95,7 +95,7 @@ public class Player implements ClassInformation{
      */
     public void display_armor(){
         for(Armor a : this.armor){
-            a.to_string();
+            a.toString();
         }
     }
 
@@ -103,7 +103,7 @@ public class Player implements ClassInformation{
      * Affiche l'arme portée
      */
     public void display_weapon(){
-        System.out.print(this.weapon.to_string());
+        System.out.print(this.weapon.toString());
     }
 
     /**
@@ -119,7 +119,7 @@ public class Player implements ClassInformation{
      * Affiche la quete actuelle
      */
     public void display_current_quest(){
-        System.out.println(this.currentQuest.to_string());
+        System.out.println(this.currentQuest.toString());
     }
 
 /*
@@ -198,13 +198,13 @@ public class Player implements ClassInformation{
      * @throws Exception si l'armure n'est pas typée
      */
     public void equip_armor(Armor new_armor) throws Exception{ 
-        if(new_armor.get_type() == Type.HELMET){
+        if(new_armor.getType() == Type.HELMET){
             this.armor[0]=new_armor;
-        }else if(new_armor.get_type() == Type.CHESTPLATE){
+        }else if(new_armor.getType() == Type.CHESTPLATE){
             this.armor[1]=new_armor;
-        }else if(new_armor.get_type() == Type.LEGGING){
+        }else if(new_armor.getType() == Type.LEGGING){
             this.armor[2]=new_armor;
-        }else if(new_armor.get_type() == Type.BOOT){
+        }else if(new_armor.getType() == Type.BOOT){
             this.armor[3]=new_armor;
         }else{
             throw new Exception("Armor without type");
@@ -228,6 +228,7 @@ public class Player implements ClassInformation{
      * @param e
      */
     public void interact(Villager v){
+        //FIXME
         v.talk(this.currentQuest,this);
     }
 
@@ -237,7 +238,7 @@ public class Player implements ClassInformation{
      */
     public void attack(Monster m){
         try{
-            m.decrease_hp(this.weapon.get_attack_point());
+            m.decrease_hp(this.weapon.getAttackPoints());
         }
         catch(Exception e){
             System.out.println(m.get_name()+" a esquivé votre attaque");

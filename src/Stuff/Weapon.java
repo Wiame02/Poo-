@@ -1,45 +1,62 @@
 package Stuff;
-//item.java 
-// Item les objets utiliser par le personnage 
-// @author Taii wiame 
+/**
+ * La classe Weapon représente les armure utilisées par le joueur pour combattre
+ * @author Wiame TAII
+ * @author Monique RIMBERT //Correction : relecture et formatage
+ */
 
 public class Weapon extends Item {
-    private int attack_point ;
+    private int attackPoints;
     private int durability;
-
+    
     /**
-     * Constructeur de Weapon
-     */
-    public Weapon(String name , int durability , int attack_point){
-        super (name) ;
-        this.attack_point = attack_point;
-        this.durability = durability;
+    * Contructeur de la classe Weapon
+    * @param name Le nom de l'item
+    * @param durability La durabilité entre [0,n]
+    * @param attackPoints Les points d'attaque entre [0,n]
+    */
+    public Weapon(String name, int durability, int attackPoints){
+        super(name);
+        this.attackPoints = (attackPoints<0)?0:attackPoints;
+        this.durability = (durability<0)?0:durability;
     } 
 
     /**
-     * GETTEUR
+     * @return Retourne les points d'attaque de l'arme
      */
-    public int get_attack_point()  {return this.attack_point;} 
-    public int get_durability()   {return this.durability; }
-
-    public void set_durability(int durability){ this.durability = durability; }
+    public int getAttackPoints() {
+        return this.attackPoints;
+    } 
 
     /**
-     * diminution de la durabilite
-     * @param nb_damage
+     * @return Retourne la durabilité de l'arme
      */
-    public void use_damage (int nb_damage) {this.durability -= nb_damage;}  
+    public int getDurability() {
+        return this.durability;
+    }
 
     /**
-     * diminution de la durabilite de 1
-     * @param w
+     * Fixe la durabilité de l'arme
+     * @param durability
      */
-    public void use_damage_n (int nb_damage) {this.use_damage (1) ;} 
+    public void setDurability(int durability){
+        this.durability = (durability<0)?0:durability;
+    }
 
+    /**
+     * Diminue la durabilité en fontion du nombre de dégat reçu
+     * @param nbDamage
+     */
+    public void useDamage(int nbDamage) {
+        this.durability -= nbDamage;
+    }    
 
+    /**
+     * @return Formattage de la classe Weapon
+     */
     @Override
-    public String to_string(){
-      return super.to_string()+"("+this.attack_point+", "+this.durability+")";
+    public String toString(){
+        return super.toString() + "\nPoints d'attaque : " + String.valueOf(this.attackPoints) + "\nDurabilité : " + String.valueOf(this.durability);
     }
 
 }
@@ -51,4 +68,4 @@ public class Weapon extends Item {
 
 
 
-    
+        

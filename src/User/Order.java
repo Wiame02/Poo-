@@ -35,8 +35,8 @@ public enum Order {
          * @param armor
          */
         public void useSpecialAbility(Armor armor){
-            armor.set_durability(3);
-            //TO DO : armor.set_defense_point(150);
+            armor.setDurability(3);
+            //TO DO : armor.setDefensePoint(150);
         }
     },
     PHYSICIST(){

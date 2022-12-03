@@ -49,10 +49,10 @@ public class Inventory {
     private int findIdItemWithName(String name){
         int id=0;
         int listLength = this.items.size();
-        boolean isFound = this.getItemAt(id).get_name()==name;
+        boolean isFound = this.getItemAt(id).getName()==name;
         while(id<=listLength && !isFound){
             id++;
-            isFound = this.getItemAt(id).get_name()==name;
+            isFound = this.getItemAt(id).getName()==name;
         }
         if(id>listLength){
             return -1;
@@ -69,10 +69,10 @@ public class Inventory {
     private int findIdItem(Item e){
         int id=0;
         int listLength = this.items.size();
-        boolean isFound = this.getItemAt(id).is_equal(e);
+        boolean isFound = this.getItemAt(id).isEqual(e);
         while(id<=listLength && !isFound){
             id++;
-            isFound = this.getItemAt(id).is_equal(e);
+            isFound = this.getItemAt(id).isEqual(e);
         }
         if(id>listLength){
             return -1;
@@ -119,7 +119,7 @@ public class Inventory {
         if(idItem>=0){
             /* TODO
             this.getItemAt(id_item).use();
-            if(this.getItemAt(id_item).get_quantity()==0){
+            if(this.getItemAt(id_item).getQuantity()==0){
                 this.items.remove(id_item);
             }*/
             return true;
