@@ -29,6 +29,20 @@ public class ApplicationReflection {
     } 
 
     /**
+     * 
+     * @param objA
+     * @param objB
+     * @return
+     */
+    public static boolean areObjectsFromSameClasses (Object objA, Object objB) {
+        Class classObjA = objA.getClass();
+        Class classObjB = objB.getClass();
+        
+        return classObjA.equals(classObjB);
+    } 
+
+
+    /**
      * Donne tous les noms des méthodes public de la classe entree
      * @see https://docs.oracle.com/javase/10/docs/api/java/lang/Class.html#getMethods()
      * @param classAdress Adresse de la Classe sous la forme package.class

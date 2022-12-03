@@ -73,6 +73,25 @@ public class TestReflection {
         }
     } 
 
+    public static void test_are_same_classes() {
+        Villager v1 = new Villager("TestVillager1", 9);
+        Villager v2 = new Villager("TestVillager2", 9);
+        Monster m = new Monster("TestMonster", 100, Species.DJIN, 100);
+
+        if (ApplicationReflection.areObjectsFromSameClasses(v1, m)) {
+            System.out.println(v1.get_name() + " et " + m.get_name() + " sont de la même classe !");
+        } else {
+            System.out.println(v1.get_name() + " et " + m.get_name() + " NE sont PAS de la même classe !");
+        }
+
+        if (ApplicationReflection.areObjectsFromSameClasses(v1, v2)) {
+            System.out.println(v1.get_name() + " et " + v2.get_name() + " sont de la même classe !");
+        } else {
+            System.out.println(v1.get_name() + " et " + v2.get_name() + " NE sont PAS de la même classe !");
+        }
+
+    }
+
 
     public static void test_execute_read_function () {
         try {
@@ -99,7 +118,8 @@ public class TestReflection {
     public static void main(String[] args) {
         //test_does_class_exist();
         //test_get_public_methods();
-        test_execute_instance_method();
+        //test_execute_instance_method();
         //test_execute_read_function();
+        test_are_same_classes();
     }
 }
