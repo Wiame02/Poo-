@@ -198,13 +198,13 @@ public class Player implements ClassInformation{
      * @throws Exception si l'armure n'est pas typée
      */
     public void equip_armor(Armor new_armor) throws Exception{ 
-        if(new_armor.get_type() == Type.HELMET){
+        if(new_armor.getType() == Type.HELMET){
             this.armor[0]=new_armor;
-        }else if(new_armor.get_type() == Type.CHESTPLATE){
+        }else if(new_armor.getType() == Type.CHESTPLATE){
             this.armor[1]=new_armor;
-        }else if(new_armor.get_type() == Type.LEGGING){
+        }else if(new_armor.getType() == Type.LEGGING){
             this.armor[2]=new_armor;
-        }else if(new_armor.get_type() == Type.BOOT){
+        }else if(new_armor.getType() == Type.BOOT){
             this.armor[3]=new_armor;
         }else{
             throw new Exception("Armor without type");

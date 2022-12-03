@@ -1,60 +1,75 @@
 package Stuff;
-//item.java 
 
-// Item les objets utiliser par le personnage 
-// @author Taii wiame 
+/**
+ * La classe Item représente les armures utilisées par le joueur 
+ * @author Wiame TAII
+ * @author Monique RIMBERT //Correction : relecture et formatage
+ */
 
 public class Armor extends Item {
-    private int defense_point;
+    private int defensePoint;
     private Type type;
     private int durability;
 
     /**
-     * Constructeur de Armor
+     * Contructeur d'une armure
+     * @param name Le nom de l'armure
+     * @param durability La durabilité entre [0, n]
+     * @param defensePoint Les points de défense entre [0,100] correpond à un pourcentage
+     * @param type Type de l'armure 
+     * @see Stuff.Type
      */
-    public Armor(String name, int durability, int defense_point, Type type) {
+    public Armor(String name, int durability, int defensePoint, Type type) {
         super(name);
-        this.durability = durability;
-        this.defense_point = defense_point;
+        this.durability = (durability<0)?0:durability;
+        this.defensePoint = (defensePoint<0)?0:(defensePoint>100)?100:defensePoint;
         this.type = type;
     }
 
-    public int get_durability() {
+    /**
+     * @return La durabilité de l'armure
+     */
+    public int getDurability() {
         return this.durability;
     }
 
-    public Type get_type() {
+    /**
+     * @return Le type de l'armure
+     * @see Stuff.Type
+     */
+    public Type getType() {
         return this.type;
     }
 
     /**
-     * SETTERS
+     * @return Les points de défense entre [0,100]
      */
-    public void set_defense_point(int defense_point) {
-        this.defense_point = defense_point;
+    public int getDefensePoint() {
+        return this.defensePoint;
     }
-
-    public void set_durability(int durability) {
-        this.durability = durability;
+    
+    /**
+     * Fixe les points de défense au nombre donné
+     * @param defensePoint Un pourcentage entre 0 et 100
+     */
+    public void setDefensePoint(int defensePoint) {
+        this.defensePoint = (defensePoint<0)?0:(defensePoint>100)?100:defensePoint;
     }
 
     /**
-     * METHODE
+     * Fixe la durabilité au nombre donné
+     * @param defensePoint Doit être positive
      */
-    public int getdefense_point() {
-        return this.defense_point;
-    }
-
-    public void use_damage_n(int nb_damage) {
-        this.use_damage_n(nb_damage);
+    public void setDurability(int durability) {
+        this.durability = (durability<0)?0:durability;
     }
 
     /**
-     * affichage de l'item
+     * Formatage de de la classe Armor
      */
     @Override
-    public String to_string() {
-        return super.to_string() + "(" + this.defense_point + " ," + this.type + ", " + this.durability + " )";
+    public String toString() {
+        return super.to_string() + "(" + this.defensePoint + " ," + this.type + ", " + this.durability + " )";
     }
 
 }
