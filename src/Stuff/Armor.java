@@ -1,11 +1,10 @@
 package Stuff;
 
 /**
- * La classe Item représente les armures utilisées par le joueur 
+ * La classe Armor représente les armures utilisées par le joueur 
  * @author Wiame TAII
  * @author Monique RIMBERT //Correction : relecture et formatage
  */
-
 public class Armor extends Item {
     private int defensePoint;
     private Type type;
