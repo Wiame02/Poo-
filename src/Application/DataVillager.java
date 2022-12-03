@@ -112,7 +112,7 @@ public class DataVillager {
         villagers.get(3).setQuest(new QuestRecoltItem("Matériel à améliorer",1,villagers.get(0).getQuest().getReward()));
         villagers.get(3).getQuest().setReward(new Weapon("Fusil magique",85,70));
             // 4 : Jules
-        villagers.get(4).setQuest(new QuestRecoltItem("Bléssés en détresse",1,villagers.get(0).getQuest().getReward()));
+        villagers.get(4).setQuest(new QuestRecoltItem("Bléssés en détresse",1,villagers.get(1).getQuest().getReward()));
         villagers.get(4).getQuest().setReward(new Item("Bon de ravitaillement"));
             // 5 : Juliette
         villagers.get(5).setQuest(new QuestKillMonster("Abréger les soufrances",1,monsters.get(2)));
@@ -122,21 +122,61 @@ public class DataVillager {
         villagers.get(6).getQuest().setReward(new Armor("Chaussures renforcées",60,60,Type.BOOT));
 
         // Création des dialogues et liaison aux villageois
-        // Création des dialogues et liaison aux villageois
             // 0
-        villagers.get(0).addDialogue("");
+        villagers.get(0).addDialogue("Bonjour aventurier.e ! Si jamais tu trouves un Djin j'aimerais beaucoup que tu me le rapportes, nous avons besoins d'informations sur cette entité.");
+        villagers.get(0).addDialogue("Merci bien !");
+        villagers.get(0).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(0).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(0).addDialogue("Olala ! Merci beaucoup !  Tenez vous pouvez récupérer sa perle, je n'en ai pas besoin.");
+        villagers.get(0).addDialogue("Grâce à vous j'ai obtenus de merveilleuses informations sur les Djins !");
+
             // 1
-        villagers.get(1).addDialogue("");
+        villagers.get(1).addDialogue("Eh, tu vois pas qu'on est débordés! Aide-nous un peu dis donc, va tuer des zombies!");
+        villagers.get(1).addDialogue("Merci ! J'espères te revoir.");
+        villagers.get(1).addDialogue("Ah bah sympa, merci de nous laissez comme ca... Si tu changes d'avis je te récompenserais peut-être.");
+        villagers.get(1).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(1).addDialogue("C'est cool de nous avoir aidé, tiens pour la peine");
+        villagers.get(1).addDialogue("J'en peux plus de ces zombies...");
+
             // 2
         villagers.get(2).addDialogue("");
+        villagers.get(2).addDialogue("");
+        villagers.get(2).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(2).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(2).addDialogue("");
+        villagers.get(2).addDialogue("");
+
             // 3
         villagers.get(3).addDialogue("");
+        villagers.get(3).addDialogue("");
+        villagers.get(3).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(3).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(3).addDialogue("");
+        villagers.get(3).addDialogue("");
+
             // 4
         villagers.get(4).addDialogue("");
+        villagers.get(4).addDialogue("");
+        villagers.get(4).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(4).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(4).addDialogue("");
+        villagers.get(4).addDialogue("");
+
             // 5
-        villagers.get(4).addDialogue("");
+        villagers.get(5).addDialogue("Excusez-moi... J'ai vue le corps de ma femme décédé errer... Pourrier-vous abréger ses souffrances ? Je sais qu'elle est déjà décédé mais cela me peine beaucoup... *snif*");
+        villagers.get(5).addDialogue("Merci beaucoup.");
+        villagers.get(5).addDialogue("Bien, merci tout de même de m'avoir écouté...");
+        villagers.get(5).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(5).addDialogue("");
+        villagers.get(5).addDialogue("");
+
             // 6
-        villagers.get(4).addDialogue("");
+        villagers.get(6).addDialogue("");
+        villagers.get(6).addDialogue("");
+        villagers.get(6).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(6).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(6).addDialogue("");
+        villagers.get(6).addDialogue("");
 
         return villagers;
     }
