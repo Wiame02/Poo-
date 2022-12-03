@@ -36,7 +36,7 @@ public enum Order {
          */
         public void useSpecialAbility(Armor armor){
             armor.setDurability(3);
-            //TO DO : armor.setDefensePoint(150);
+            //TODO : armor.setDefensePoint(150);
         }
     },
     PHYSICIST(){
@@ -47,7 +47,7 @@ public enum Order {
          * @param destination
          */
         public void useSpecialAbility(Player p,Area destination){
-            p.move_to(destination);
+            p.moveTo(destination);
         }
     },
     CHEMIST(){
@@ -57,7 +57,7 @@ public enum Order {
          * @param p
          */
         public void useSpecialAbility(Player p){
-            p.set_hp((int)(p.get_hp()*1.75));
+            p.setHp((int)(p.getHp()*1.75));
         }
     },
     BIOLOGIST(){

@@ -33,7 +33,7 @@ public class DataVillager {
         villagers.get(2).get_quest().setReward(new Armor("Cuissarde", 60, 40, Type.BOOT));
 
         villagers.get(3).set_quest(new QuestKillMonster("Pierre du Golem",5,monsters.get(4)));
-        villagers.get(3).get_quest().set_reward(new Weapon("Massue destructrice", 100, 120));
+        villagers.get(3).get_quest().setReward(new Weapon("Massue destructrice", 100, 120));
 
         villagers.get(4).set_quest(new QuestRecoltItem("Pénurie de nourriture",1,villagers.get(0).get_quest().get_reward()));
         villagers.get(4).get_quest().setReward(new Armor("Tunique en peau de Mammouth",80,30,Type.CHESTPLATE));

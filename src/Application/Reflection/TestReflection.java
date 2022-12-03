@@ -64,9 +64,9 @@ public class TestReflection {
             Object[] args = {};
             System.out.println("executeInstanceMethod(testVillager,\"get_name\", {}) >> " + ApplicationReflection.executeInstanceMethod(testVillager,"get_name", args)+ "\n\n");        
             Object[] argsV2 = {a2};
-            System.out.println("Current area before : " + testPlayer.get_current_area().toString());
+            System.out.println("Current area before : " + testPlayer.getCurrentArea().toString());
             System.out.println("executeInstanceMethod(testPlayer,\"move_to\", {a2}) >> " + ApplicationReflection.executeInstanceMethod(testPlayer,"move_to", argsV2) + "\n\n");
-            System.out.println("Current area after : " + testPlayer.get_current_area().toString());
+            System.out.println("Current area after : " + testPlayer.getCurrentArea().toString());
         }
         catch (Exception e) {
             System.out.println( "Dans testExecuteInstanceMethod : " + e);

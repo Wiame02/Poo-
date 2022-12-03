@@ -50,7 +50,7 @@ public class QuestKillMonster extends Quest{
     @Override
     public void submit(Player p){
         int i = 0 ;
-        World world = p.get_current_area().getWorld();
+        World world = p.getCurrentArea().getWorld();
 
         while(i<=world.getAreas().size() || !world.getAreaAt(i).getEntity().is_equal(this.monster)){
             i++;

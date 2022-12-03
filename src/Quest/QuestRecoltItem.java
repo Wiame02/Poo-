@@ -49,7 +49,7 @@ public class QuestRecoltItem extends Quest{
     @Override
     public void submit(Player p){
         int i = 0;
-        Inventory inventory = p.get_Inventory();
+        Inventory inventory = p.getInventory();
         while(i<=inventory.getItems().size() || !this.isAccomplished){
             this.isAccomplished=inventory.getItemAt(i).isEqual(this.item);
             i++;

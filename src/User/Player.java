@@ -54,24 +54,24 @@ public class Player implements ClassInformation{
 */
     public String   getUsername()      {return this.username;}
     public int      getLvl()           {return this.lvl;}
-    public int      get_hp ()           {return this.hp;}
-    public Order    get_category()      {return this.category;}
-    public Armor    get_helmet()        {return this.armor[0];}
-    public Armor    get_chestplate()    {return this.armor[1];}
-    public Armor    get_legging()       {return this.armor[2];}
-    public Armor    get_boot()          {return this.armor[3];}
-    public Weapon   get_weapon()        {return this.weapon;}
-    public Quest    get_current_quest() {return this.currentQuest;}
-    public Area     get_current_area()  {return this.currentArea;}
-    public Inventory get_Inventory()    {return this.inventory;}
+    public int      getHp ()           {return this.hp;}
+    public Order    getCategory()      {return this.category;}
+    public Armor    getHelmet()        {return this.armor[0];}
+    public Armor    getChestplate()    {return this.armor[1];}
+    public Armor    getLegging()       {return this.armor[2];}
+    public Armor    getBoot()          {return this.armor[3];}
+    public Weapon   getWeapon()        {return this.weapon;}
+    public Quest    getCurrentQuest() {return this.currentQuest;}
+    public Area     getCurrentArea()  {return this.currentArea;}
+    public Inventory getInventory()    {return this.inventory;}
         
 /**
  * SETTERS
 */
-    private void    set_username(String name)           {this.username=name;}
-    public void     set_lvl(int lvl)                    {this.lvl=lvl;}
-    public void     set_hp(int hp)                      {this.hp=hp;}
-    public void     set_category(Order category)        {this.category=category;}
+    private void    setUsername(String name)           {this.username=name;}
+    public void     setLvl(int lvl)                    {this.lvl=lvl;}
+    public void     setHp(int hp)                      {this.hp=hp;}
+    public void     setCategory(Order category)        {this.category=category;}
     private void    setInventory(Inventory i)           {this.inventory=i;}
     private void    setArmor(Armor[] armor)             {
         this.armor[0] = armor[0];
@@ -79,13 +79,13 @@ public class Player implements ClassInformation{
         this.armor[2] = armor[2];
         this.armor[3] = armor[3];
     }
-    public void     set_helmet(Armor casque)            {this.armor[0]=casque;}
-    public void     set_chestplaste(Armor chestplate)   {this.armor[1]=chestplate;}
-    public void     set_legging(Armor legging)          {this.armor[2]=legging;}
-    public void     set_boot(Armor boot)                {this.armor[3]=boot;}
+    public void     setHelmet(Armor casque)            {this.armor[0]=casque;}
+    public void     setChestplaste(Armor chestplate)   {this.armor[1]=chestplate;}
+    public void     setLegging(Armor legging)          {this.armor[2]=legging;}
+    public void     setBoot(Armor boot)                {this.armor[3]=boot;}
     public void     setWeapon(Weapon weapon)           {this.weapon=weapon;}
-    public void     set_current_quest(Quest quest)      {this.currentQuest=quest;}
-    public void     set_current_area(Area area)         {this.currentArea=area;}
+    public void     setCurrentQuest(Quest quest)      {this.currentQuest=quest;}
+    public void     setCurrentArea(Area area)         {this.currentArea=area;}
 
 /**
  * Affichages
@@ -93,7 +93,7 @@ public class Player implements ClassInformation{
     /**
      * Affiche l'armure portée
      */
-    public void display_armor(){
+    public void displayArmor(){
         for(Armor a : this.armor){
             a.toString();
         }
@@ -102,14 +102,14 @@ public class Player implements ClassInformation{
     /**
      * Affiche l'arme portée
      */
-    public void display_weapon(){
+    public void displayWeapon(){
         System.out.print(this.weapon.toString());
     }
 
     /**
      * Affiche les informations sur le joueur tel que les points de vies et son niveau d'experience
      */
-    public void display_player_data(){
+    public void displayPlayerData(){
         System.out.println("Informations de "+this.username+" ---");
         System.out.println("Niveau de vie : "+this.hp);
         System.out.println("Niveau d'experience : "+this.lvl);
@@ -118,7 +118,7 @@ public class Player implements ClassInformation{
     /**
      * Affiche la quete actuelle
      */
-    public void display_current_quest(){
+    public void displayCurrentQuest(){
         System.out.println(this.currentQuest.toString());
     }
 
@@ -129,7 +129,7 @@ public class Player implements ClassInformation{
      * Le joueur se déplace dans une zone
      * @param destination la destination d'arrivée
      */
-    public void move_to(Area destination){
+    public void moveTo(Area destination){
         this.currentArea = destination;
     }
 
@@ -138,11 +138,11 @@ public class Player implements ClassInformation{
      * @param destination une zone
      * @throws Exception si la zone n'est pas accessible
      */
-    public void move_linked_area(Area destination) throws Exception{
+    public void moveToLinkedarea(Area destination) throws Exception{
         if(this.currentArea.getAccessArea(destination.getName())==null){
             throw new Exception("La zone n'est pas accessible");
         }else{
-            this.move_to(destination);
+            this.moveTo(destination);
         }
     }
 
@@ -153,7 +153,7 @@ public class Player implements ClassInformation{
      * Augmente les points de vies d'un entier n
      * @param n
      */
-    public void increase_hp(int n) throws Exception {
+    public void increaseHp(int n) throws Exception {
         if(n>0){
             this.hp+=n;
         }else{
@@ -165,8 +165,8 @@ public class Player implements ClassInformation{
      * Diminue les points de vies d'un entier n
      * @param n
      */
-    public void decrease_hp(int n) throws Exception{
-        if(is_alive()){
+    public void decreaseHp(int n) throws Exception{
+        if(this.isAlive()){
             if(n>0){
                 if(this.hp<=n){
                     this.hp=0;
@@ -185,7 +185,7 @@ public class Player implements ClassInformation{
      * Retourne true si le personnage est vivant sinon false
      * @return true ou false
      */
-    public boolean is_alive(){
+    public boolean isAlive(){
         return (this.hp!=0);
     }
 
@@ -197,7 +197,7 @@ public class Player implements ClassInformation{
      * @param new_armor
      * @throws Exception si l'armure n'est pas typée
      */
-    public void equip_armor(Armor new_armor) throws Exception{ 
+    public void equipArmor(Armor new_armor) throws Exception{ 
         if(new_armor.getType() == Type.HELMET){
             this.armor[0]=new_armor;
         }else if(new_armor.getType() == Type.CHESTPLATE){
@@ -216,7 +216,7 @@ public class Player implements ClassInformation{
      * Change l'arme du personnage par la nouvelle
      * @param newWeapon
      */
-    public void equip_weapon(Weapon newWeapon){
+    public void equipWeapon(Weapon newWeapon){
         this.weapon=newWeapon;
     }
 
@@ -307,25 +307,25 @@ public class Player implements ClassInformation{
     public void setField (String fieldName, Object setValue) throws NoSuchFieldException, Exception{
         if(fieldName=="username"){
             if(ApplicationReflection.areObjectsFromSameClass (this.username, setValue)){
-                this.set_username((String)setValue);
+                this.setUsername((String)setValue);
             }else{
                 throw new Exception("Objet d'entrée de mauvais type");
             }
         }else if(fieldName == "lvl"){
             if(ApplicationReflection.areObjectsFromSameClass (this.lvl, setValue)){
-                this.set_lvl((int)setValue);
+                this.setLvl((int)setValue);
             }else{
                 throw new Exception("Objet d'entrée de mauvais type");
             }
         }else if(fieldName == "hp"){
             if(ApplicationReflection.areObjectsFromSameClass (this.hp, setValue)){
-                this.set_hp((int)setValue);
+                this.setHp((int)setValue);
             }else{
                 throw new Exception("Objet d'entrée de mauvais type");
             }
         }else if(fieldName == "category"){
             if(ApplicationReflection.areObjectsFromSameClass (this.category, setValue)){
-                this.set_category((Order)setValue);
+                this.setCategory((Order)setValue);
             }else{
                 throw new Exception("Objet d'entrée de mauvais type");
             }
@@ -349,13 +349,13 @@ public class Player implements ClassInformation{
             }
         }else if(fieldName == "currentQuest"){
             if(ApplicationReflection.areObjectsFromSameClass (this.currentQuest, setValue)){
-                this.set_current_quest((Quest)setValue);
+                this.setCurrentQuest((Quest)setValue);
             }else{
                 throw new Exception("Objet d'entrée de mauvais type");
             }
         }else if(fieldName == "currentArea"){
             if(ApplicationReflection.areObjectsFromSameClass (this.currentArea, setValue)){
-                this.set_current_area((Area)setValue);
+                this.setCurrentArea((Area)setValue);
             }else{
                 throw new Exception("Objet d'entrée de mauvais type");
             }
