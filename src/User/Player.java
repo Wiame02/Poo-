@@ -237,7 +237,7 @@ public class Player implements ClassInformation{
      */
     public void attack(Monster m){
         try{
-            m.decrease_hp(this.weapon.get_attack_point());
+            m.decrease_hp(this.weapon.getAttackPoints());
         }
         catch(Exception e){
             System.out.println(m.get_name()+" a esquivé votre attaque");

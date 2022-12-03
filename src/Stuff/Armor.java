@@ -64,7 +64,7 @@ public class Armor extends Item {
     }
 
     /**
-     * Formatage de de la classe Armor
+     * @return Formatage de de la classe Armor
      */
     @Override
     public String toString() {

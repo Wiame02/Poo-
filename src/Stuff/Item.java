@@ -48,8 +48,7 @@ public class Item {
     }
 
     /**
-     * Formattage de la classe Item
-     * @return Uniquement 
+     * @return Formattage de la classe Item
      */
     @Override
     public String toString() {
