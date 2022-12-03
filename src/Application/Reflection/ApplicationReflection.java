@@ -34,11 +34,8 @@ public class ApplicationReflection {
      * @param objB
      * @return Si les deux objets sont de la même classe
      */
-    public static boolean areObjectsFromSameClass (Object objA, Object objB) {
-        Class classObjA = objA.getClass();
-        Class classObjB = objB.getClass();
-        
-        return classObjA.equals(classObjB);
+    public static boolean areObjectsFromSameClass (Object objA, Object objB) {        
+        return objA.getClass().equals(objB.getClass());
     } 
 
 
@@ -59,7 +56,7 @@ public class ApplicationReflection {
             throw e;
         }
 
-        // On recupere tous les noms
+        // On recupere tous les noms des méthodes
         ArrayList<String> listOfPublicMethodsNames = new ArrayList<String> ();
         for (Method m : listOfPublicMethods) {
             listOfPublicMethodsNames.add(m.getName());
@@ -92,9 +89,9 @@ public class ApplicationReflection {
  */
     public static Object executeInstanceMethod (Object obj, String methodName, Object[] argsObjects) throws Exception {
         try {
-            Class classObj = obj.getClass();
             Class[] argsClasses = getArgumentClasses(argsObjects);
-            Method methodObj = classObj.getMethod(methodName, argsClasses);
+            Method methodObj = obj.getClass().getMethod(methodName, argsClasses);
+
             Object res = methodObj.invoke(obj, argsObjects);
 
             return res;
