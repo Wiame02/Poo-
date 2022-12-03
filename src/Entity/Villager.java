@@ -50,7 +50,7 @@ public class Villager extends Entity{
 	 */
 
 	public void talk(Quest quest, Player p){
-
+		// FIXME
 		if(this.quest==p.getCurrentQuest()){	// Les deux quêtes seront égales si les deux références la même quête
 			if(!quest.isAccomplished(p)){
 				//System.out.println(this.dialogues.get(4));
