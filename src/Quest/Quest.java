@@ -62,8 +62,8 @@ public abstract class Quest {
     public void setBonusExp(int exp){ this.bonusExp = exp; }
 
     /**
-     * Si la quête est accomplie, change l'attribus isAccomplished en true sinon le laisse a false
-     * @param p Le Joueur qui soummet sa quête 
+     * Vérifie si la quete est réalisée
+     * @param p Le joueur qui soummet sa quête
      */
     public abstract void submit(Player p);
 

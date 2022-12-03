@@ -32,7 +32,7 @@ public class DataVillager {
         villagers.get(2).set_quest(new QuestKillMonster("Molosse dérangeant",1,monsters.get(3)));
         villagers.get(2).get_quest().setReward(new Armor("Cuissarde", 60, 40, Type.BOOT));
 
-        villagers.get(3).set_quest(new QuestKillMonster("",5,monsters.get(4)));
+        villagers.get(3).set_quest(new QuestKillMonster("Pierre du Golem",5,monsters.get(4)));
         villagers.get(3).get_quest().setReward(new Weapon("Massue destructrice", 100, 120));
 
         villagers.get(4).set_quest(new QuestRecoltItem("Pénurie de nourriture",1,villagers.get(0).get_quest().get_reward()));
@@ -42,15 +42,44 @@ public class DataVillager {
 
         // Création des dialogues et liaison aux villageois
             // 0 : Chef Bebar
-        villagers.get(0).add_dialogue("");
+        villagers.get(0).add_dialogue("Bonjour voyageur.se, si vous souhaitez un potage de mammouth, malheureusement je n'en ai plus. \n Mais ! Vous pourriez me rapporter de la viande de celui-ci !");
+        villagers.get(0).add_dialogue("Merci beaucoup voyageur.se, revenez me voir dès que vous aurez réussi à en chasser un. Et un gros s'il vous plait !");
+        villagers.get(0).add_dialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(0).add_dialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(0).add_dialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
+        villagers.get(0).add_dialogue("N'hésitez pas à aider mes compatriotes, ils vous le rendront fortement");
             // 1 : Sally
-        villagers.get(1).add_dialogue("");
+        villagers.get(1).add_dialogue("Eh vous là ! Vous voulez pas aller me chercher un griffon ? J'en ai besoin pour fabriquer des armures. Je vous offres un casque en échange.");
+        villagers.get(1).add_dialogue("Ah bien le merci ! Reviens vite.");
+        villagers.get(1).add_dialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(1).add_dialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(1).add_dialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
+        villagers.get(1).add_dialogue("Quand j'ouvrirais mon armurie j'espère que vous passerez !");
+
             // 2 : Obé
-        villagers.get(2).add_dialogue("");
+        villagers.get(2).add_dialogue("Excusez-moi, vous m'avez l'air fort.e et courageux.se, pourriez-vous éloigner les molosses de mon pré ? Une de mes vaches a déjà été attaquée, je n'ai pas envie d'en perdre plus. *snif*");
+        villagers.get(2).add_dialogue("Vous me soulagez, n'hésitez pas à revenir me voir lorsque vous aurez réussi!");
+        villagers.get(2).add_dialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(2).add_dialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(2).add_dialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
+        villagers.get(2).add_dialogue("Merci encore pour la dernière fois, grâce à vous je n'ai plus aucun problème.");
+        
             // 3 : Oxianne
-        villagers.get(3).add_dialogue("");
+        villagers.get(3).add_dialogue("Salut toi ! C'est quoi cette arme ? J'en fais des meilleures moi ! Tiens je sais ce qu'on va faire. Si tu me ramènes la perle d'un golem, je te fais une arme sur mesure ! Alors, ca te va ?");
+        villagers.get(3).add_dialogue("Ouais ! Enfin quelqu'un qui accepte !");
+        villagers.get(3).add_dialogue("Pouah... T'es pas fun ! Reviens si jamais tu changes d'avis !");
+        villagers.get(3).add_dialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(3).add_dialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
+        villagers.get(3).add_dialogue("Oh salut ! J'ai pas d'autres marché à faire avec toi. Reviens plus tard, peut-être que j'aurais trouver quelque chose.");
+
             // 4 : Liléo
-        villagers.get(4).add_dialogue("");
+        villagers.get(4).add_dialogue("Bonjour, j'aimerais beaucoup que vous me rendiez service. Il manque de la nourriture à l'infirmerie, pourrier-vous nous en rapporter auprè du chef ?");
+        villagers.get(4).add_dialogue("Merci beaucoup, vous êtes d'une grande aide !");
+        villagers.get(4).add_dialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(4).add_dialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(4).add_dialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
+        villagers.get(4).add_dialogue("Tiens vous voilà, je vous remercies pour la dernière fois. Vous avez été d'une grande aide.");
+        
 
         return villagers;
     }

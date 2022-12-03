@@ -43,7 +43,7 @@ public class Villager extends Entity{
 
 	 public boolean is_equal(Player p){
 
-    		return (this.quest == p.get_current_quest());
+    		return (this.quest == p.getCurrentQuest());
     	}
 
 	public String add_dialogue(){
@@ -113,9 +113,9 @@ public class Villager extends Entity{
 >>>>>>> aa87df0e5cbedb064e5d2dc408d109f27f113323
 			}
 			else {
-				p.get_Inventory().addItem(quest.getReward());
+				p.getInventory().addItem(quest.getReward());
 
-		        p.set_lvl(p.getLvl() + quest.getBonusExp());
+		        p.setLvl(p.getLvl() + quest.getBonusExp());
 
 				quest.isAccomplished(p);
 
@@ -146,9 +146,13 @@ public class Villager extends Entity{
 					//System.out.println(this.dialogues.get(1));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 					p.set_current_quest(this.quest); // current_quete du joueur devient la quete du villageois
 =======
 					p.set_current_quest(quest); // current_quete du joueur devient la quete du villageois
+=======
+					p.setCurrentQuest(quest); // current_quete du joueur devient la quete du villageois
+>>>>>>> 7b3e6d9269743d7840f52be34e4dc969f61df254
 
 					System.out.println(this.dialogues.get(0) + quest.getTitle());
 >>>>>>> aa87df0e5cbedb064e5d2dc408d109f27f113323

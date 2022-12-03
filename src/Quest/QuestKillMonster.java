@@ -44,14 +44,13 @@ public class QuestKillMonster extends Quest{
     }
 
     /**
-     * Vérifie si la quete est réalisée et retourne si elle l'est ou non
+     * Vérifie si la quete est réalisée
      * @param p Le joueur qui soummet sa quête
-     * @return true Si la quete est accomplie, false sinon
      */
     @Override
     public void submit(Player p){
         int i = 0 ;
-        World world = p.get_current_area().getWorld();
+        World world = p.getCurrentArea().getWorld();
 
         while(i<=world.getAreas().size() || !world.getAreaAt(i).getEntity().is_equal(this.monster)){
             i++;

@@ -43,16 +43,15 @@ public class QuestRecoltItem extends Quest{
     }
 
     /**
-     * Vérifie si la quete est réalisée et retourne si elle l'est ou non
-     * @param p
-     * @return true si la quete est accomplie, false sinon
+     * Vérifie si la quete est réalisée
+     * @param p Le joueur qui soummet sa quête
      */
     @Override
     public void submit(Player p){
-        //FIXME
         int i = 0;
-        Inventory inventory = p.get_Inventory();
-        while(i<=inventory.getItems().size() ||inventory.getItemAt(i).isEqual(this.item)){
+        Inventory inventory = p.getInventory();
+        while(i<=inventory.getItems().size() || !this.isAccomplished){
+            this.isAccomplished=inventory.getItemAt(i).isEqual(this.item);
             i++;
         }
     };
