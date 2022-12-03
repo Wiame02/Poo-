@@ -15,40 +15,40 @@ public class Game {
      * Choisi aléatoirement un boss final parmi les entitées présentes dans ce monde
      * @param world Le monde entré en modification
      */
-    public static void choose_boss(World world, ArrayList<Monster> monsters){
+    public static void chooseBoss(World world, ArrayList<Monster> monsters){
             int i = (int) (Math.random()*(monsters.size()-1));
-            world.set_boss(monsters.get(i));
+            world.setBoss(monsters.get(i));
     }
 
     /**
      * Génère aléatoirement les entitées dans les zones du monde
      * @param world Le monde entré en modification
      */
-    public static void generate_areas(World world, Set<Entity> entities){
+    public static void generateAreas(World world, Set<Entity> entities){
         
         for (Entity e : entities) {
-            int i = (int) (Math.random()*(world.get_areas().size()-1));
+            int i = (int) (Math.random()*(world.getAreas().size()-1));  //Un entier entre 0 et le nombre de zones dans le monde-1
 
-            while (world.get_area_at(i).get_entity()==null) {
-                i = (int) (Math.random()*(world.get_areas().size()-1));
+            while (world.getAreaAt(i).getEntity()==null) {
+                i = (int) (Math.random()*(world.getAreas().size()-1));
             }
 
-            world.get_area_at(i).set_entity(e);
+            world.getAreaAt(i).setEntity(e);
         }
     }
 
     /**
-     * Génération du plateau du jeu
+     * Génération du plateau du jeu grâce au données obtenues
      * @return le plateau construit
      */
-    public static Board generate_board(){
+    public static Board generateBoard(){
         Board b = new Board();
 
-        b.add_all_worlds(DataWorlds.data_worlds());
+        b.addAllWorlds(DataWorlds.dataWorlds());
 
-        for (int i=1; i<b.get_worlds().size(); i++) {
-            //generate_areas(b.get_world_at(i), .get(i-1));
-            //choose_boss(b.get_world_at(i), .get(i-1));
+        for (int i=1; i<b.getWorlds().size(); i++) {
+            //generateAreas(b.getWorldAt(i), .get(i-1));
+            //chooseBoss(b.getWorldAt(i), .get(i-1));
         }
         return new Board();
     }
@@ -57,7 +57,7 @@ public class Game {
      * Création du personnage du joueur
      * @return le personnage du joueur
      */
-    public static Player create_player(){
+    public static Player createPlayer(){
         //TODO
         return new Player(null, null, null);
     }
@@ -67,7 +67,7 @@ public class Game {
      * @param func La fonction entrée avec son parametre sous forme de tableau
      * @throws GameException La fonction entrée soit n'est pas valide soit son paramètre ne l'est pas
      */
-    public static void execute_function_input(ArrayList<String> func) {
+    public static void executeFunctionInput(ArrayList<String> func) {
         ArrayList<String> doable_actions = Console.get_available_actions();
         if (func.get(0)=="kill") {
             //TODO verif param
@@ -79,46 +79,46 @@ public class Game {
      * @param area La zone dans lequel se trouve le joueur
      * @param player Le joueur
      */
-    public static void player_do_action(Area area, Player player) {
+    public static void doAnAction(Area area, Player player) {
         try {
-            ArrayList<String> input = Console.read_action();
-            execute_function_input(input);
+            ArrayList<String> input = Console.readAction();
+            executeFunctionInput(input);
         }
         catch (ApplicationException e) {
-	        System.out.println("Error in player_do_action() : " + e);
+	        System.out.println("Error in playerDoAction() : " + e);
 	        e.printStackTrace();
-            player_do_action(area, player);
+            doAnAction(area, player);
         }
     }
 
     /**
      * Déroulement du jeu
      */
-    public static void play_game() {
-        Player  player  = create_player(); 
-        Board   board   = generate_board();
+    public static void playGame() {
+        Player  player  = createPlayer(); 
+        Board   board   = generateBoard();
 
-        boolean are_all_boss_dead  = true;
-        boolean is_player_alive     = true;
+        boolean areAllBossesDead  = true;
+        boolean isPlayerAlive     = true;
         
-        //TODO show_available_actions(...);
+        //TODO showAvailableActions(...);
 
-        while (!are_all_boss_dead && is_player_alive) {
-            //TODO show_available_actions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
+        while (!areAllBossesDead && isPlayerAlive) {
+            //TODO showAvailableActions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
             //TODO player_do_action(...);
 
-            //TODO are_all_boss_alive = are_all_boss_dead();
-            is_player_alive = player.get_hp()>0;
+            //TODO areAllBossesDead = are_all_boss_dead();
+            isPlayerAlive = true;
         }
 
-        if (is_player_alive) {
-            Console.game_success_ending(player);
+        if (isPlayerAlive) {
+            Console.gameSuccessEnding(player);
         } else {
-            Console.game_over_ending(player);
+            Console.gameOverEnding(player);
         }
     }
 
     public static void main(String[] args) {
-        play_game();
+        playGame();
     }
 }

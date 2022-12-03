@@ -1,15 +1,17 @@
 package Stuff;
-//item.java 
 
-// Item les objets utiliser par le personnage 
-// @author Taii wiame 
-
+/**
+ * La classe Item représente les objets utilisées par le joueur 
+ * @author Wiame TAII
+ * @author Monique RIMBERT //Correction : relecture et formatage
+ */
 public class Item {
     private String name;
     private int quantity;
 
     /**
-     * Constructeur de Item
+     * Constructeur de la classe Item
+     * @param name Le nom de l'item en question
      */
     public Item(String name) {
         this.name = name;
@@ -17,51 +19,55 @@ public class Item {
     }
 
     /**
-     * GETTERS
+     * @return Le nom de l'item
      */
-
-    public String get_name() {
+    public String getName() {
         return this.name;
     }
 
-    public int get_quantity() {
+    /**
+     * @return La quantité de l'Item
+     */
+    public int getQuantity() {
         return this.quantity;
     }
 
     /**
-     * SETTERS
+     * Fixe le nom de l'Item au nom donné
+     * @param name
      */
-    public void set_name(String name) {
+    public void setName(String name) {
         this.name = name;
     }
-
-    public void set_quantity(int quantity) {
-        this.quantity = 1;
-    }
-
     /**
-     * affichage de l'item
+     * Fixe la quantité de l'Item au nombre donné
+     * @param quantity
      */
-    public String to_string() {
-        return this.name;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     /**
-     * verification si un item est egale à cette item la
-     * 
+     * @return Formattage de la classe Item
+     */
+    @Override
+    public String toString() {
+        return "Nom : " + this.name + "\nQuantité : " + String.valueOf(this.quantity);
+    }
+
+    /**
+     * Verification si d'un objet par rapport au nom
      * @param i
+     * @return true Si les items portent le même nom
      */
-    public boolean is_equal(Item i) {
-        return (i.get_name() == this.name);
+    public boolean isEqual(Item i) {
+        return (this.name.equals(i.getName()));
     }
 
     /**
-     * vérifie la diminution la quantité d'un Item de 1
-     * 
-     * @param i
+     * Diminue la quantité de 1
      */
-    public int use(Item i) {
-        int res = i.get_quantity() - 1;
-        return res;
+    public void use() {
+        this.quantity -= (this.quantity>0)?1:0;
     }
 }

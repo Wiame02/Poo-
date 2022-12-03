@@ -29,6 +29,7 @@ public interface ClassInformation {
      * @param fieldName Le nom du champs de la classe qui doit être modifiée.
      * @param setValue  La valeur qui remplacement l'ancienne.
      * @throws NoSuchFieldException Si le nom du champ donné ne correspond à aucun des champs que la classe contient.
+     * @throws Exception
      */
-    public void setField (String fieldName, Object setValue) throws Exception;
+    public void setField (String fieldName, Object setValue) throws NoSuchFieldException, Exception;
 }

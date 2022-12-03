@@ -12,28 +12,34 @@ import User.*;
 public class QuestRecoltItem extends Quest{
     protected Item item;
 
-    public QuestRecoltItem(String title, int bonus_exp, Item i){
-        super(title,bonus_exp);
+    /**
+     * Constructeur de la classe QuestRecoltItem
+     * @param title Titre de la quête
+     * @param bonusExp Les points d'expérience bonus que l'on peut obtenir
+     * @param i L'item qui est à réccuperer
+     */
+    public QuestRecoltItem(String title, int bonusExp, Item i){
+        super(title, bonusExp);
         this.item = i;
     }
 
-    /*
-     * GETTERS
+    /**
+     * @return L'item qui est à réccuperer
      */
-    public Item get_item(){return this.item;}
-
-    /*
-     * SETTERS
-     */
-    public void set_item(Item i){this.item=i;}
+    public Item getItem() { return this.item; }
 
     /**
-     * Fonction qui retourne les données d'une QuestRecoltItem sous forme de chaine de caractere
-     * @return
+     * Fixe l'item à réccuperer avec l'Item donné
+     * @param i Le nouvel item à réccuperer
+     */
+    public void setItem(Item i) { this.item = i; }
+
+    /**
+     * @return Formattage de la classe QuestRecoltItem
      */
     @Override
-    public String to_string(){
-        return super.to_string()+"\n Item a récolter : "+this.item.get_name();
+    public String toString(){
+        return super.toString()+"\n Item a récolter : "+this.item.getName();
     }
 
     /**
@@ -43,9 +49,10 @@ public class QuestRecoltItem extends Quest{
      */
     @Override
     public void submit(Player p){
+        //FIXME
         int i = 0;
         Inventory inventory = p.get_Inventory();
-        while(i<=inventory.get_items().size() ||inventory.get_item_at(i).is_equal(this.item)){
+        while(i<=inventory.getItems().size() ||inventory.getItemAt(i).isEqual(this.item)){
             i++;
         }
     };

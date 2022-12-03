@@ -13,7 +13,7 @@ public class Area {
     private Entity entity;
     private ArrayList<String> actions;
     private World world;
-    private ArrayList<Area> accessible_areas;
+    private ArrayList<Area> accessibleAreas;
 
     /**
      * Constructeur de Area
@@ -24,7 +24,7 @@ public class Area {
         this.entity = entity;
         this.actions = new ArrayList<String>();
         this.world = world;
-        this.accessible_areas = new ArrayList<Area>();
+        this.accessibleAreas = new ArrayList<Area>();
     }
 
     public Area(String name, World world) {
@@ -32,18 +32,18 @@ public class Area {
         this.entity = null;
         this.actions = new ArrayList<String>();
         this.world = world;
-        this.accessible_areas = new ArrayList<Area>();        
+        this.accessibleAreas = new ArrayList<Area>();        
     }
 
 
     /**
      * GETTERS
      */
-    public String get_name()            {return this.name;}
-    public Entity get_entity()          {return this.entity;}
-    public String get_action_at(int i)  {return this.actions.get(i);}
-    public World  get_world()           {return this.world;}
-    public ArrayList<Area> get_access_areas() {return this.accessible_areas;}
+    public String getName()            {return this.name;}
+    public Entity getEntity()          {return this.entity;}
+    public String getActionAt(int i)   {return this.actions.get(i);}
+    public World  getWorld()           {return this.world;}
+    public ArrayList<Area> getAccessAreas() {return this.accessibleAreas;}
 
     /**
      * Recherche la zone par le nom donnée
@@ -51,9 +51,9 @@ public class Area {
      * @return null S'il n'y a pas de zone qui porte le meme nom
      * @return L'area qui porte le même nom qui a été entré
      */
-    public Area get_access_area(String name) {
-        for (Area a : this.accessible_areas){
-            if (name.equals(a.get_name())){
+    public Area getAccessArea(String name) {
+        for (Area a : this.accessibleAreas){
+            if (name.equals(a.getName())){
                 return a;
             }
         }
@@ -63,15 +63,15 @@ public class Area {
     /**
      * SETTERS
      */
-    public void set_name(String name)   {this.name = name;}
-    public void set_world(World world)  {this.world = world;}
-    public void set_entity(Entity ent)  {this.entity = ent;}
+    public void setName(String name)   {this.name = name;}
+    public void setWorld(World world)  {this.world = world;}
+    public void setEntity(Entity ent)  {this.entity = ent;}
 
     /**
      * Ajoute une action possible dans la zone
      * @param act Chaine de caractere
      */
-    public void add_action(String act) {
+    public void addAction(String act) {
         this.actions.add(act);
     }
 
@@ -79,30 +79,31 @@ public class Area {
      * Ajoute une zone accessible à partir de celle-ci 
      * @param area
      */
-    public void add_accessible_area(Area area) {
-        this.accessible_areas.add(area);
+    public void addAccessibleArea(Area area) {
+        this.accessibleAreas.add(area);
     }
     
     /**
     * Ajoute des zones accessibles à partir de celle-ci 
     * @param area
     */
-   public void add_all_accessible_area(ArrayList<Area> areas) {
-       this.accessible_areas.addAll(areas);
+   public void addAllAccessibleArea(ArrayList<Area> areas) {
+       this.accessibleAreas.addAll(areas);
    }
 
     /**
      * Vérifie si une zone entree est accessible a partir de notre zone
      * @return true Si elle l'est
      */
-    public boolean is_area_accessible(Area area) {
-        return this.accessible_areas.contains(area);
+    public boolean isAreaAccessible(Area area) {
+        return this.accessibleAreas.contains(area);
     }
 
     /**
      * Procedure d'affichage de la classe Area
      */
-    public String to_string() {
+    @Override
+    public String toString() {
         String res = new String();
 
         res = "name: " + this.name + '\n';
@@ -115,18 +116,18 @@ public class Area {
             res+= this.actions.get(i) + ' ';
         }
 
-        res+= "\nworld: " + world.get_name();
+        res+= "\nworld: " + world.getName();
         return res;
     }
 
-    public boolean is_equal (Area area) {
-        boolean are_same = true;
+    public boolean isEqual (Area area) {
+        boolean areSame = true;
 
-        are_same = are_same && this.name.equals(area.name);
-        are_same = are_same && this.world.is_equal(area.world);
-        are_same = are_same && this.entity.is_equal(area.entity);
+        areSame = areSame && this.name.equals(area.name);
+        areSame = areSame && this.world.isEqual(area.world);
+        areSame = areSame && this.entity.is_equal(area.entity);
         
-        return are_same;
+        return areSame;
     }
     public static void main(String[] args) {
         World w = new World("koko", Period.PAST, null);
@@ -134,7 +135,6 @@ public class Area {
         
 
         Area testA = new Area("New World", m, w);
-        System.out.println("DEFAULT : " + testA.toString());
-        System.out.println("OTHER : " + testA.to_string());
+        System.out.println("OTHER : " + testA.toString());
     }
 }
