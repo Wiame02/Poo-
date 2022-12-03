@@ -35,7 +35,7 @@ public class DataVillager {
         villagers.get(3).set_quest(new QuestKillMonster("Pierre du Golem",5,monsters.get(4)));
         villagers.get(3).get_quest().setReward(new Weapon("Massue destructrice", 100, 120));
 
-        villagers.get(4).set_quest(new QuestRecoltItem("Pénurie de nourriture",1,villagers.get(0).get_quest().get_reward()));
+        villagers.get(4).set_quest(new QuestRecoltItem("Pénurie de nourriture",1,villagers.get(0).get_quest().getReward()));
         villagers.get(4).get_quest().setReward(new Armor("Tunique en peau de Mammouth",80,30,Type.CHESTPLATE));
 
 
@@ -107,16 +107,16 @@ public class DataVillager {
         villagers.get(2).set_quest(new QuestKillMonster("Ville en destruction",1,monsters.get(4)));
         villagers.get(2).get_quest().setReward(new Armor("Gilet pareballe",150,85,Type.CHESTPLATE));
             // 3 : Sylvia
-        villagers.get(3).set_quest(new QuestRecoltItem("Matériel à améliorer",1,villagers.get(0).get_quest().get_reward()));
+        villagers.get(3).set_quest(new QuestRecoltItem("Matériel à améliorer",1,villagers.get(0).get_quest().getReward()));
         villagers.get(3).get_quest().setReward(new Weapon("Fusil magique",85,70));
             // 4 : Jules
-        villagers.get(3).set_quest(new QuestRecoltItem("Bléssés en détresse",1,villagers.get(0).get_quest().get_reward()));
+        villagers.get(3).set_quest(new QuestRecoltItem("Bléssés en détresse",1,villagers.get(0).get_quest().getReward()));
         villagers.get(3).get_quest().setReward(new Item("Bon de ravitaillement"));
             // 5 : Juliette
         villagers.get(4).set_quest(new QuestKillMonster("Abréger les soufrances",1,monsters.get(2)));
         villagers.get(4).get_quest().setReward(new Armor("Casque de chantier",20,30,Type.HELMET));
             // 6 : Gaspard
-        villagers.get(5).set_quest(new QuestRecoltItem("Besoin en matériel",1,villagers.get(3).get_quest().get_reward()));
+        villagers.get(5).set_quest(new QuestRecoltItem("Besoin en matériel",1,villagers.get(3).get_quest().getReward()));
         villagers.get(5).get_quest().setReward(new Armor("Chaussures renforcées",60,60,Type.BOOT));
 
         // Création des dialogues et liaison aux villageois
@@ -159,13 +159,13 @@ public class DataVillager {
         villagers.get(1).set_quest(new QuestKillMonster("Bug de drone",1,monsters.get(1)));
         villagers.get(1).get_quest().setReward(new Item("Puce mémoire"));
             // 2 :  Agent 117
-        villagers.get(2).set_quest(new QuestRecoltItem("Analyse des bugs",1,villagers.get(1).get_quest().get_reward()));
+        villagers.get(2).set_quest(new QuestRecoltItem("Analyse des bugs",1,villagers.get(1).get_quest().getReward()));
         villagers.get(2).get_quest().setReward(new Armor("Casque d'agent",50,35,Type.HELMET));
             // 6 : Droide C3PO
         villagers.get(6).set_quest(new QuestKillMonster("Cyborg en mission",1,monsters.get(2)));
         villagers.get(6).get_quest().setReward(new Item("Herbes glaciales"));
             // 3 : Chercheur-cultivateur Olivier
-        villagers.get(3).set_quest(new QuestRecoltItem("Analyse des bugs",1,villagers.get(6).get_quest().get_reward()));
+        villagers.get(3).set_quest(new QuestRecoltItem("Analyse des bugs",1,villagers.get(6).get_quest().getReward()));
         villagers.get(3).get_quest().setReward(new Armor("Tunique en lin OGM",120,72,Type.CHESTPLATE));
             // 4 : Etudiant Sophian
         villagers.get(4).set_quest(new QuestKillMonster("cyborg disparu",1,monsters.get(3)));
@@ -212,7 +212,7 @@ public class DataVillager {
     */
 
     /* QuestRecoltItem
-    villagers.get().set_quest(new QuestRecoltItem("",1,villagers.get().get_quest().get_reward()));
+    villagers.get().set_quest(new QuestRecoltItem("",1,villagers.get().get_quest().getReward()));
     villagers.get().get_quest().set_reward(new );
     */
 }

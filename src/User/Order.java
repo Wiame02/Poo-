@@ -67,7 +67,7 @@ public enum Order {
          * @param e 
          */
         public void useSpecialAbility(Monster e){
-            e.set_attack((int)(e.get_attack()*0.6));
+            e.setAttack((int)(e.get_attack()*0.6));
         }
     };
 }

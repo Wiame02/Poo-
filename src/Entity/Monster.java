@@ -11,7 +11,6 @@ import User.*;
 
 
 public class Monster extends Entity{
-	private Species species;
 	private int attack;
 
 
@@ -23,9 +22,8 @@ public class Monster extends Entity{
      * @param attack
     */
 	public Monster(String name, int hp, Species species, int attack){
-		super(name, hp);
-		this.species = species;
-		this.attack = attack;
+		super(name,hp,species);
+		this.setAttack(attack);
 	}
 	
 	//--------------METHODES-------------
@@ -33,16 +31,15 @@ public class Monster extends Entity{
 	/**
 	 * GETTERS
 	 */
-	
-	public Species get_species(){return this.species;}
+
 	public int get_attack(){return this.attack;}
 	
 	/**
 	 * SETTERS
 	 */
 	
-	public void set_species(Species species){this.species=species;}
-	public void set_attack(int attack){
+	
+	public void setAttack(int attack){
 		if(attack <= 0){
 			 this.attack = 0;
 		} else {
@@ -50,31 +47,12 @@ public class Monster extends Entity{
 		}
 	}
 
-
-    public void print_attack(){
-
+	/**
+	 * Affichage des points d'attaques
+	 */
+    public void printAttack(){
         System.out.println(this.name + " à infligé " + this.attack + "de dégats");
     }
-
-	/**
-	* cette methode sert a diminuer
-	* les points de vie en fonction d'un entier x
-	* @param x un entier
-	*/
-	public void decrease_hp(int x) throws Exception{
-
-        if((this.is_alive())){  // le monstre est-il deja mort ?
-            if(x >= 0){
-                if(this.hp <= x){
-                    this.hp = 0;
-                } else {
-                    this.hp -= x;
-                }
-            } throw new Exception("La valeur de retrait de points de vie ne peut pas être négative");
-
-        } throw new Exception("Le monstre est déjà mort");
-
-	}
 
 	/**
 	 * Cette methode permet de savoir 
@@ -88,9 +66,11 @@ public class Monster extends Entity{
 		return (this == world.getBoss());
 	}
 
-
-	void attack(Player p) throws Exception{
-
+	/**
+	 * Le monstre attaque un joueur et lui fait perdre des points de vies
+	 * @param p le joueur attaqué
+	 */
+	void attack(Player p){
     	try{
             p.decreaseHp(this.attack);
         }
@@ -103,8 +83,7 @@ public class Monster extends Entity{
 	 * renvoie toutes les informations sur un monstre
 	 */
     @Override
-	public String to_string(){
-
-	    return "Nom du monstre : " + this.name + ", points de vie " + this.hp + ", nom d'espèce " + this.species.get_name() + ", dégats de son attaque " + this.attack;
+	public String toString(){
+	    return super.toString() + "\n Nom du monstre : " + this.name + "\n dégats d'attaque " + this.attack;
 	}
 }

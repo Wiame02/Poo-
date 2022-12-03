@@ -66,7 +66,7 @@ public class World {
         String txt = "name: " + this.name;
         txt += "\nperiod: " + era.toString();
         txt += "\nboss: ";
-        txt += (this.boss!=null)?boss.to_string():"null";  
+        txt += (this.boss!=null)?boss.toString():"null";  
         txt += "\nareas: {";
         for (Area a : this.areas) {
             txt +=a.getName();

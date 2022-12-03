@@ -229,7 +229,12 @@ public class Player implements ClassInformation{
      */
     public void interact(Villager v){
         //FIXME
-        v.talk(this.currentQuest,this);
+        try{
+            v.talk(this.currentQuest,this);
+        }
+        catch(Exception e){
+            
+        }
     }
 
     /**
@@ -238,10 +243,10 @@ public class Player implements ClassInformation{
      */
     public void attack(Monster m){
         try{
-            m.decrease_hp(this.weapon.getAttackPoints());
+            m.decreaseHp(this.weapon.getAttackPoints());
         }
         catch(Exception e){
-            System.out.println(m.get_name()+" a esquivé votre attaque");
+            System.out.println(m.getName()+" a esquivé votre attaque");
         }
     }
 

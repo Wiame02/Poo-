@@ -2,6 +2,7 @@ package Entity;
 import Quest.*;
 import User.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  * Cette classe s'intitule Villager,
@@ -9,45 +10,37 @@ import java.util.Scanner;
  * que le joueur aura l'occasion de rencontrer 
  * via differentes quetes.
  * @author Nathan Doussin
+ * @author Katel HIGNARD //Correction : relecture et formatage
  */
  
 public class Villager extends Entity{
 	private Quest quest;
-	private String dialogues;
+	private ArrayList<String> dialogues;
 
     /**
      * Constructeur
-     * @param name
-     * @param hp
+     * @param name le nom du villageois
+     * @param hp les points de vies du villageois
      */
 	public Villager(String name, int hp){
-		super(name,hp);
+		super(name,hp,Species.VILLAGER);
         this.quest = null;
+		this.dialogues = new ArrayList<String>();
 	}
 	
-	//--------------METHODES-------------
-	
-	/**
-	 * GETTERS
-	 */
-	
+/*
+ * GETTERS
+ */
 	public Quest get_quest() {return this.quest;}
-	public String get_dialogues() {return this.dialogues;}
+	public String getDialogueAt(int i) {return this.dialogues.get(i);}
+	public ArrayList<String> get_dialogues() {return this.dialogues;}
 	
-	/**
-	 * SETTERS
-	 */
-
+/*
+ * SETTERS
+ */
 	public void set_quest(Quest quest) {this.quest = quest;}
-	//----------------------------
-
-	 public boolean is_equal(Player p){
-
-    		return (this.quest == p.getCurrentQuest());
-    	}
-
-	public String add_dialogue(){
-		return this.dialogues;
+	public void add_dialogue(String dialogue){
+		this.dialogues.add(dialogue);
 	}
 	
 	/**
@@ -58,7 +51,7 @@ public class Villager extends Entity{
 
 	public void talk(Quest quest, Player p) throws Exception{
 
-		if(is_equal(p)){
+		if(this.quest==p.getCurrentQuest()){	// Les deux quêtes seront égales si les deux références la même quête
 			if(!quest.isAccomplished(p)){
 				//System.out.println(this.dialogues.get(4));
 			}
@@ -118,14 +111,12 @@ public class Villager extends Entity{
 	}
 
 	
-	 /**
-	 * renvoie toutes les informations sur un villageois
-	 */
+	/**
+	* renvoie toutes les informations sur un villageois
+	*/
     @Override
-	public String to_string(){
-		String res;
-	    res = super.to_string() + ", quete proposée " + this.quest.getTitle();
-		return res;
+	public String toString(){
+		return super.toString() + "\n quete :" + this.quest.getTitle();
 	}
 	
 }

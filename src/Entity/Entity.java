@@ -8,65 +8,109 @@ package Entity;
  */
  
 public abstract class Entity{
-	
 	protected String name;
 	protected int hp;
+	private Species species;
 
     /**
      * Constructeur
-     * @param name
-     * @param hp
+     * @param name le nom de l'entité
+     * @param hp les points de vies de départ de l'entité
+	 * @param species l'espèce de l'entité
     */
-	public Entity(String name, int hp){
+	public Entity(String name, int hp, Species species){
 		this.name = name;
-		this.hp = hp;
+		this.setHp(hp);
+		this.species = species;
 	}
 	
-	// --------------METHODES---------------
+/*
+ * GETTERS
+ */
+	public 	Species getSpecies()	{return this.species;}
+	public 	String 	getName()		{return this.name;}
+	public 	double 	getHp()			{return this.hp;}
 	
+/*
+ * SETTERS
+ */
+	public 	void 	setspecies(Species species)	{this.species=species;}
+	public void setName(String name){this.name=name;}
 	/**
-	 * GETTERS
+	 * Modifie les hp de l'entité.
+	 * Si les hp d'entrée sont inférieurs à 0 les hp sont mis à 0
+	 * @param hp
 	 */
-	
-	public String get_name(){return this.name;}
+	public void setHp(int hp){
+		if(hp>0){
+			this.hp = hp;
+		}else{
+			this.hp = 0;
+		}
+	}
 
-	public double get_hp(){return this.hp;}
-	
+/*
+ * Affichages
+ */	
 	/**
-	 * SETTERS
+	 * Affiche le nom de l'entité
 	 */
-	
-	public void set_name(String name){this.name=name;}
-	public void set_hp(int hp){this.hp=hp;}
-
-
-	// ----------AFFICHAGE-------------
-
 	void print_name(){
 		System.out.println("le nom de l'entité est : " + this.name + "\n");
 	}
 
+	/**
+	 * Affiche les points de vies de l'entité
+	 */
 	void print_hp(){
 		System.out.println("le nombre de point(s) de vie de l'entité est : " + this.hp + "\n");
 	}
-	// ---------------------------------------------------------
 	
+
 	/**
-	 * Cette methode permet de savoir si une entite est vivante ou morte (par rapport a son nombre de points de vie)
+	 * Retourne si une entite est vivante ou morte par son nombre de points de vie
 	 * @return true si l'entite est vivante
 	 * @return false si l'entite est morte (hp = 0)
 	 */
-	public boolean is_alive(){
+	public boolean isAlive(){
 		return (hp > 0);
 	}
 
+	/**
+	* cette methode sert a diminuer
+	* les points de vie en fonction d'un entier x
+	* @param x un entier
+	*/
+	public void decreaseHp(int x) throws Exception{
 
+        if((this.isAlive())){
+            if(x >= 0){
+                if(this.hp <= x){
+                    this.hp = 0;
+                } else {
+                    this.hp -= x;
+                }
+            } throw new Exception("La valeur de retrait de points de vie ne peut pas être négative");
+
+        } throw new Exception("L'entité est déjà morte");
+
+	}
+
+	/**
+	 * Test si deux entitées sont égales par leurs noms et espèces
+	 * @param e l'entité à comparée
+	 * @return 	true si égaux 
+	 * 			false sinon
+	 */
 	public boolean is_equal(Entity e){
-		return (this.name == e.name);
+		return (this.name == e.name && this.species==e.species );
 	}
 
-	public String to_string(){
-		return "Nom de l'entité : " + this.name + ", points de vie " + this.hp;
+	/**
+	 * Retourne l'entité sous forme de chaîne de caractères
+	 * @return l'entité sous forme de chaîne de caractères
+	 */
+	public String toString(){
+		return "Nom de l'entité : " + this.name + "\n points de vie " + this.hp + "\n espèce : " + this.species.get_name();
 	}
-
 }		
