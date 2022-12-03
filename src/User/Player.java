@@ -228,6 +228,7 @@ public class Player implements ClassInformation{
      * @param e
      */
     public void interact(Villager v){
+        //FIXME
         v.talk(this.currentQuest,this);
     }
 
