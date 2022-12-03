@@ -3,7 +3,7 @@ import Localization.*;
 import User.*;
 import Entity.*;
 import java.util.ArrayList;
-import java.util.Set;
+import javax.sql.StatementEventListener;
 
 /**
  * Classe qui permet le déroulement et la création du jeu
@@ -21,16 +21,27 @@ public class Game {
     }
 
     /**
+     * Génère un nombre aléatoire entre [0, max[
+     * @param maxExcluded
+     * @return un entier entre [0, max[
+     */
+    public static int generateRandomNumber (int maxExcluded) {
+        double computedDouble = Math.random()*1000;
+        int randomNumber = ((int) computedDouble)%maxExcluded;
+
+        return randomNumber;
+    }
+
+    /**
      * Génère aléatoirement les entitées dans les zones du monde
      * @param world Le monde entré en modification
      */
-    public static void generateAreas(World world, Set<Entity> entities){
-        
-        for (Entity e : entities) {
-            int i = (int) (Math.random()*(world.getAreas().size()-1));  //Un entier entre 0 et le nombre de zones dans le monde-1
+    public static void generateAreas(World world, ArrayList<Entity> entities){
+        for (Entity e : entities) { 
+            int i = generateRandomNumber(world.getAreas().size());  //Un entier entre 0 et le nombre de zones dans le monde-1
 
-            while (world.getAreaAt(i).getEntity()==null) {
-                i = (int) (Math.random()*(world.getAreas().size()-1));
+            while (world.getAreaAt(i).getEntity()!=null) {
+                i = generateRandomNumber(world.getAreas().size());
             }
 
             world.getAreaAt(i).setEntity(e);
@@ -43,14 +54,11 @@ public class Game {
      */
     public static Board generateBoard(){
         Board b = new Board();
-        b.addAllWorlds(DataWorlds.dataWorlds());
+        b.addAllWorlds(DataWorlds.DATA_WORLDS);
 
-        ArrayList<ArrayList<Monster>> monsters = DataMonsters.data_monsters();
-        //FIXME : ArrayList<ArrayList<Villager>> villagers = DataVillager.dataVillagers();
-
-        for (int i=1; i<b.getWorlds().size(); i++) {
-            //generateAreas(b.getWorldAt(i), );
-            //chooseBoss(b.getWorldAt(i), );
+        for (int i=0; i<b.getWorlds().size()-1; i++) {
+            generateAreas(b.getWorldAt(i+1), DataVillager.DATA_ENTITIES.get(i));
+            chooseBoss(b.getWorldAt(i+1), DataMonsters.DATA_MONSTERS.get(i));
         }
         return b;
     }

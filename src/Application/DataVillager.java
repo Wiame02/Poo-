@@ -11,6 +11,8 @@ import java.util.ArrayList;
  */
 
 public class DataVillager {
+    public static  ArrayList<ArrayList<Villager>> DATA_VILLAGERS = dataVillagers(DataMonsters.DATA_MONSTERS.get(0), DataMonsters.DATA_MONSTERS.get(1), DataMonsters.DATA_MONSTERS.get(2));
+    public static  ArrayList<ArrayList<Entity>> DATA_ENTITIES = dataEntities(DATA_VILLAGERS, DataMonsters.DATA_MONSTERS);
 
     public static ArrayList<Villager> createVillagersValkiem(ArrayList<Monster> monsters){
         ArrayList<Villager> villagers = new ArrayList<Villager>();
@@ -98,26 +100,26 @@ public class DataVillager {
         
         // Création des quêtes et liaison aux villageois
             // 0 : Maire Robert
-        villagers.get(0).setQuest(new QuestKillMonster("Pierre du Djin",1,monsters.get(6)));
+        villagers.get(0).setQuest(new QuestKillMonster("Pierre du Djin",1,monsters.get(5)));
         villagers.get(0).getQuest().setReward(new Item("Pierre Ecarlate"));
             // 1 : Ophélie
         villagers.get(1).setQuest(new QuestKillMonster("Invasion",1,monsters.get(0)));
         villagers.get(1).getQuest().setReward(new Item("Trousse de secours"));
             // 2 : Maxime
-        villagers.get(2).setQuest(new QuestKillMonster("Ville en destruction",1,monsters.get(4)));
+        villagers.get(2).setQuest(new QuestKillMonster("Ville en destruction",1,monsters.get(3)));
         villagers.get(2).getQuest().setReward(new Armor("Gilet pareballe",150,85,Type.CHESTPLATE));
             // 3 : Sylvia
         villagers.get(3).setQuest(new QuestRecoltItem("Matériel à améliorer",1,villagers.get(0).getQuest().getReward()));
         villagers.get(3).getQuest().setReward(new Weapon("Fusil magique",85,70));
             // 4 : Jules
-        villagers.get(3).setQuest(new QuestRecoltItem("Bléssés en détresse",1,villagers.get(0).getQuest().getReward()));
-        villagers.get(3).getQuest().setReward(new Item("Bon de ravitaillement"));
+        villagers.get(4).setQuest(new QuestRecoltItem("Bléssés en détresse",1,villagers.get(0).getQuest().getReward()));
+        villagers.get(4).getQuest().setReward(new Item("Bon de ravitaillement"));
             // 5 : Juliette
-        villagers.get(4).setQuest(new QuestKillMonster("Abréger les soufrances",1,monsters.get(2)));
-        villagers.get(4).getQuest().setReward(new Armor("Casque de chantier",20,30,Type.HELMET));
+        villagers.get(5).setQuest(new QuestKillMonster("Abréger les soufrances",1,monsters.get(2)));
+        villagers.get(5).getQuest().setReward(new Armor("Casque de chantier",20,30,Type.HELMET));
             // 6 : Gaspard
-        villagers.get(5).setQuest(new QuestRecoltItem("Besoin en matériel",1,villagers.get(3).getQuest().getReward()));
-        villagers.get(5).getQuest().setReward(new Armor("Chaussures renforcées",60,60,Type.BOOT));
+        villagers.get(6).setQuest(new QuestRecoltItem("Besoin en matériel",1,villagers.get(3).getQuest().getReward()));
+        villagers.get(6).getQuest().setReward(new Armor("Chaussures renforcées",60,60,Type.BOOT));
 
         // Création des dialogues et liaison aux villageois
         // Création des dialogues et liaison aux villageois
@@ -192,6 +194,13 @@ public class DataVillager {
         return villagers;
     }
 
+    /**
+     * Crée les données des villageois par monde
+     * @param monstersValkiem   Les monstres dans Valkiem
+     * @param monstersCimebel   Les monstres dans Cimebel
+     * @param monstersCodix     Les monstres dans Codix
+     * @return Les données des villageois par monde
+     */
     public static ArrayList<ArrayList<Villager>> dataVillagers(ArrayList<Monster> monstersValkiem,ArrayList<Monster>monstersCimebel,ArrayList<Monster>monstersCodix){
         ArrayList<ArrayList<Villager>> villagers = new ArrayList<ArrayList<Villager>>();
 
@@ -202,6 +211,24 @@ public class DataVillager {
         return villagers;
     }
 
+    /**
+     * Fusionne les données villageois et monstres afin de nous donner les informations des entités par monde
+     * @param villagers Les données des villageois par monde
+     * @param monsters  Les données des monstres par monde
+     * @return  Les données des Entités par monde
+     */
+    public static ArrayList<ArrayList<Entity>> dataEntities (ArrayList<ArrayList<Villager>> villagers, ArrayList<ArrayList<Monster>> monsters) {
+        ArrayList<ArrayList<Entity>> entities = new ArrayList<ArrayList<Entity>>();
+
+        for (int i=0; i<villagers.size(); i++) {
+            ArrayList<Entity> tmp = new ArrayList<Entity>();
+            tmp.addAll(villagers.get(i));
+            tmp.addAll(monsters.get(i));
+
+            entities.add(tmp);
+        }
+        return entities;
+    }
     /*
      * Templates
      */
