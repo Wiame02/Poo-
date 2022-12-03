@@ -44,65 +44,49 @@ public class Villager extends Entity{
 	}
 	
 	/**
-	 * Cette methode sera utiliser lors d'une rencontre avec un villageois.on saura alors la reponse du villageoisen fonction de notre quete actuelle
-	 * @param quest cette attribut correspond à la quete que la villageois nous donne lors de son interaction avec le personnage
-	 * @param p cette attribut correspond a un joueur de type Player
+	 * Dialogue du villageois selon l'avancement de sa quête
+	 * @param p joueur qui intéragit avec le villageois
 	 */
 
-	public void talk(Quest quest, Player p){
-		// FIXME
+	public void talk(Player p){
 		if(this.quest==p.getCurrentQuest()){	// Les deux quêtes seront égales si les deux références la même quête
-			if(!quest.isAccomplished(p)){
-				//System.out.println(this.dialogues.get(4));
-			}
-			else {
-				p.getInventory().addItem(quest.getReward());
 
-		        p.setLvl(p.getLvl() + quest.getBonusExp());
-
-				quest.isAccomplished(p);
-
-				// quest du joueur devient null?
-
-				//System.out.println("Bravo pour avoir accomplie cette quete, à notre prochaine rencontre");
-				//System.out.println(this.dialogues.get(5));
-			    
-
-			}
-		}
-		else {
-
-			if(!quest.isAccomplished(p)){
-				//System.out.println("Vous possédé déjà une quete, veuillez la finir et revenez me voir");
-				//System.out.println(this.dialogues.get(3));
-			}
-			else{
-
-				// on demande si le joueur accepte la quete ?
-				Scanner sc = new Scanner(System.in);
-				System.out.println("Voulez vous accepter la quete : " + quest.getTitle() + "(oui ou non)");
-				String rep = sc.nextLine(); // lit la réponse de l'utilisateur
-				System.out.println("Vous avez saisi : " + rep);
-
-				if(rep == "oui"){
-
-					//System.out.println(this.dialogues.get(1));
-
-					p.setCurrentQuest(this.quest); // current_quete du joueur devient la quete du villageois
-
-					p.setCurrentQuest(quest); // current_quete du joueur devient la quete du villageois
-
-					p.setCurrentQuest(quest); // current_quete du joueur devient la quete du villageois
-
-					System.out.println(this.dialogues.get(0) + quest.getTitle());
-
-				}
+			if(quest.isAccomplished(p)){ // La quête du villageois a été accomplie par le joueur
+				System.out.println(this.dialogues.get(4));
 				
-				else {
-					
-					//System.out.println(this.dialogues.get(2));
+				System.out.println("Vous avez obtenu : "+this.quest.getReward().getName()+"\n");
+				p.getInventory().addItem(this.quest.getReward());
+
+				System.out.println("Et : +"+this.quest.getBonusExp()+" lvl");
+				p.setLvl(p.getLvl() + this.quest.getBonusExp());
+			}
+			else { // La quête du villageois est en cours de réalisation
+				System.out.println(this.dialogues.get(3));
+			}
+		}else {
+			if(this.quest.isAccomplished(p)){  // La quête du villageaois a déjà été réalisée dans le passé
+				System.out.println(this.dialogues.get(5));
+			}
+			else{ // La quête n'est pas en cours et n'a pas été faite
+				System.out.println(this.dialogues.get(0));
+
+				Scanner sc = new Scanner(System.in);
+				System.out.println("Voulez vous accepter la quete : " + quest.getTitle() + "\n decline() pour refuser \n accept() pour accepter \n ");
+				String rep = sc.nextLine();
+				while(rep!="accept()" || rep!="decline()"){ // Vérification de la réponse du joueur 
+					System.out.println("Mauvaise commande, veuillez réessayer.");
+					System.out.println("Voulez vous accepter la quete : " + quest.getTitle() + "\n decline() pour refuser \n accept() pour accepter \n ");
+					rep = sc.nextLine();
 				}
 				sc.close();
+
+				if(rep == "accept()"){ // La joueur accepte la quête
+					p.setCurrentQuest(this.quest);
+					System.out.println(this.dialogues.get(0) + quest.getTitle());
+				}
+				else{ // Le joueur refuse la quête
+					System.out.println(this.dialogues.get(2));	
+				}
 			}
 		}
 	}

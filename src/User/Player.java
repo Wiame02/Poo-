@@ -261,7 +261,7 @@ public class Player implements ClassInformation{
      * @param e
      */
     public void interact(Villager v){
-        v.talk(this.currentQuest,this);
+        v.talk(this);
     }
 
     /**
