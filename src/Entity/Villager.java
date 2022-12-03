@@ -56,61 +56,11 @@ public class Villager extends Entity{
 	 * @param p cette attribut correspond a un joueur de type Player
 	 */
 
-<<<<<<< HEAD
-=======
-	
-	//public void talk(Quest quest, Player p){ // quete  proposer par le villageois
-			/* 
-	 	 // Redéfinir la foncition, elle fait un peu trop de chose (a voir avec mo et kateul)
-		if(!quest.isAccomplished(p)){ // est-ce que notre quete actuelle est achevée ? faudrait pouvoir savoir si la current_quest de joueur est fini ou pas
-
-			if(is_equal(p)){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
-				
-				System.out.println("Veuillez finir votre quete actuelle pour recevoir la recompense");
-			}else {
-
-				p.get_current_quest() = quest; // current_quete du joueur devient la quete du villageois
-
-				System.out.println("le titre de la quete est : " + quest.getTitle());
-
-				System.out.println("l'intitulé de la quete est : "); // faudrait print l'intitulé de la quete mais je crois que ce n'est pas encore implementé
-			}
-
-		} else { // notre quete actuelle est finie, is_finished == true
-
-				if(is_equal(p)){ // est-ce que notre quete actuelle correspond à celle que la villageois nous donne ?
-
-		       		p.get_Inventory().addItem(quest.getReward());
-
-		        	p.set_lvl(p.getLvl() + quest.getBonusExp()) ;
-
-			    	System.out.println("Bravo pour avoir accomplie cette quete, à notre prochaine rencontre");
-
-				} else {
-
-					p.get_current_quest() = quest; // current_quete du joueur devient la quete du villageois
-
-					System.out.println("le titre de la quete est : " + quest.getTitle());
-
-					System.out.println("l'intitulé de la quete est : "); // faudrait print l'intitulé de la quete mais je crois que ce n'est pas encore implementé
-				}
-			}
-		}
-	
-	} */
-
->>>>>>> aa87df0e5cbedb064e5d2dc408d109f27f113323
 	public void talk(Quest quest, Player p) throws Exception{
 
 		if(is_equal(p)){
-			
-<<<<<<< HEAD
-			if(!quest.is_accomplished(p)){
-				//System.out.println(this.dialogues.get(4));
-=======
 			if(!quest.isAccomplished(p)){
-				System.out.println(this.dialogues.get(4));
->>>>>>> aa87df0e5cbedb064e5d2dc408d109f27f113323
+				//System.out.println(this.dialogues.get(4));
 			}
 			else {
 				p.getInventory().addItem(quest.getReward());
@@ -145,17 +95,13 @@ public class Villager extends Entity{
 
 					//System.out.println(this.dialogues.get(1));
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-					p.set_current_quest(this.quest); // current_quete du joueur devient la quete du villageois
-=======
-					p.set_current_quest(quest); // current_quete du joueur devient la quete du villageois
-=======
+					p.setCurrentQuest(this.quest); // current_quete du joueur devient la quete du villageois
+
 					p.setCurrentQuest(quest); // current_quete du joueur devient la quete du villageois
->>>>>>> 7b3e6d9269743d7840f52be34e4dc969f61df254
+
+					p.setCurrentQuest(quest); // current_quete du joueur devient la quete du villageois
 
 					System.out.println(this.dialogues.get(0) + quest.getTitle());
->>>>>>> aa87df0e5cbedb064e5d2dc408d109f27f113323
 
 				}
 				
