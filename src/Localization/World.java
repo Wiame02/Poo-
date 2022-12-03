@@ -66,7 +66,7 @@ public class World {
         String txt = "name: " + this.name;
         txt += "\nperiod: " + era.toString();
         txt += "\nboss: ";
-        txt += (this.boss!=null)?boss.to_string():"null";  
+        txt += (this.boss!=null)?boss.toString():"null";  
         txt += "\nareas: {";
         for (Area a : this.areas) {
             txt +=a.getName();
@@ -79,7 +79,7 @@ public class World {
      * @return Deux mondes son identiques
      */
     public boolean isEqual(World w) {
-        return (this.name.equals(w.name) && this.era==w.era && this.boss.is_equal(w.boss));
+        return (this.name.equals(w.name) && this.era==w.era && this.boss.isEqual(w.boss));
     }
 
     public static void main(String[] args) {

@@ -88,7 +88,7 @@ public class Inventory {
     public void addItem(Item e){
         int idItem = findIdItem(e);
         if(idItem>=0){
-            //this.getItemAt(id_item).quantity += e.quantity 
+            this.getItemAt(idItem).setQuantity(this.getItemAt(idItem).getQuantity()+e.getQuantity());
         }else{
             this.items.add(e);
         }
@@ -117,11 +117,10 @@ public class Inventory {
     public boolean useItem(String name){
         int idItem = findIdItemWithName(name);
         if(idItem>=0){
-            /* TODO
-            this.getItemAt(id_item).use();
-            if(this.getItemAt(id_item).getQuantity()==0){
-                this.items.remove(id_item);
-            }*/
+            this.getItemAt(idItem).use();
+            if(this.getItemAt(idItem).getQuantity()==0){
+                this.items.remove(idItem);
+            }
             return true;
         }else{
             return false;

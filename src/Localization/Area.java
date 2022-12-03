@@ -109,7 +109,7 @@ public class Area {
         res = "name: " + this.name + '\n';
 
         res+= "entities: ";
-        res+= (this.entity!=null)?this.entity.to_string():"null";
+        res+= (this.entity!=null)?this.entity.toString():"null";
 
         res+= "\nactions: ";
         for (int i=0; i<this.actions.size(); i++) {
@@ -125,7 +125,7 @@ public class Area {
 
         areSame = areSame && this.name.equals(area.name);
         areSame = areSame && this.world.isEqual(area.world);
-        areSame = areSame && this.entity.is_equal(area.entity);
+        areSame = areSame && this.entity.isEqual(area.entity);
         
         return areSame;
     }

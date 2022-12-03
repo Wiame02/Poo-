@@ -8,7 +8,7 @@ package Entity;
  */
  
 public enum Species{
-	 
+	VILLAGER("Villageois"),
 	SUCCUBUS("Succube"),
 	GRIFFIN("Griffon"),
 	SPHINX("Sphinx"),
