@@ -141,8 +141,6 @@ public class Villager extends Entity{
 				String rep = sc.nextLine(); // lit la réponse de l'utilisateur
 				System.out.println("Vous avez saisi : " + rep);
 
-				
-			
 				if(rep == "oui"){
 
 					System.out.println(this.dialogues.get(1));
@@ -155,7 +153,7 @@ public class Villager extends Entity{
 				else {
 					System.out.println(this.dialogues.get(2));
 				}
-					
+				sc.close();
 			} throw new Exception("Le joueur doit choisir d'accepter ou non la quete (ecrire oui ou non !)"); //exception si le joueur ne marque rien autre chose différent de oui ou non
 			  
 

@@ -1,6 +1,5 @@
 package Quest;
 import Entity.*;
-import Stuff.*;
 import User.Player;
 import Localization.*;
 
