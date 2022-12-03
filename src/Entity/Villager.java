@@ -1,7 +1,6 @@
 package Entity;
 import Quest.*;
 import User.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -13,9 +12,8 @@ import java.util.Scanner;
  */
  
 public class Villager extends Entity{
-	private ArrayList<String> dialogues;
 	private Quest quest;
-
+	private String dialogues;
 
     /**
      * Constructeur
@@ -24,7 +22,6 @@ public class Villager extends Entity{
      */
 	public Villager(String name, int hp){
 		super(name,hp);
-		this.dialogues = new ArrayList<String>();
         this.quest = null;
 	}
 	
@@ -34,16 +31,14 @@ public class Villager extends Entity{
 	 * GETTERS
 	 */
 	
-	public String get_dialogues_at(int i) {return this.dialogues.get(i);}
-	public ArrayList<String> get_dialogues(){return this.dialogues;}
 	public Quest get_quest() {return this.quest;}
+	public String get_dialogues() {return this.dialogues;}
 	
 	/**
 	 * SETTERS
 	 */
 
-	public void set_quest(Quest quest) {this.quest=quest;}
-
+	public void set_quest(Quest quest) {this.quest = quest;}
 	//----------------------------
 
 	 public boolean is_equal(Player p){
@@ -51,6 +46,9 @@ public class Villager extends Entity{
     		return (this.quest == p.get_current_quest());
     	}
 
+	public String add_dialogue(){
+		return this.dialogues;
+	}
 	
 	/**
 	 * Cette methode sera utiliser lors d'une rencontre avec un villageois.on saura alors la reponse du villageoisen fonction de notre quete actuelle
@@ -102,10 +100,10 @@ public class Villager extends Entity{
 
 					p.set_current_quest(this.quest); // current_quete du joueur devient la quete du villageois
 
-					//System.out.println(this.dialogues.get(0) + quest.get_title());
-
 				}
+				
 				else {
+					
 					//System.out.println(this.dialogues.get(2));
 				}
 					
