@@ -3,11 +3,13 @@ import Localization.*;
 import User.*;
 import Entity.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.sql.StatementEventListener;
 
 /**
  * Classe qui permet le déroulement et la création du jeu
  * @author Monique RIMBERT
+ * @author Katel HIGNARD
  */
 
 public class Game {
@@ -64,12 +66,42 @@ public class Game {
     }
 
     /**
+     * Retourne la classe selon un entier d'entrée
+     * @param i un entier entre 1 et 5
+     * @return la classe choisie
+     */
+    private static Order correspondingOrder(int i){
+        if(i==1){return Order.COMPUTER_SCIENTIST;}
+        else if(i==2){return Order.MATHEMATICIAN;}
+        else if(i==3){return Order.PHYSICIST;}
+        else if(i==4){return Order.CHEMIST;}
+        else{return Order.BIOLOGIST;}  
+    }
+
+    /**
      * Création du personnage du joueur
      * @param w Le premier monde
      * @return le personnage du joueur
      */
     public static Player createPlayer(World w){
-        return new Player("Hello", Order.COMPUTER_SCIENTIST, w.getAreaAt(0));
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Comment t'appelles-tu ? ");
+        String pseudo = sc.nextLine();
+
+        System.out.println("Quelle spécialité souhaitez-vous avoir ? \n 1.Informaticien \n 2.Mathématicien \n 3.Physicien \n 4.Chimiste \n 5.Biologiste \n");
+        int choice = Integer.parseInt(sc.nextLine());
+
+        while(choice<1 && choice>5){
+            System.out.println("Erreur : valeur non incluse entre 1 et 5.\n Quelle spécialité souhaitez-vous avoir ? \n 1.Informaticien \n 2.Mathématicien \n 3.Physicien \n 4.Chimiste \n 5.Biologiste \n");
+            choice = Integer.parseInt(sc.nextLine());
+        }
+
+        sc.close();
+
+        Player p = new Player(pseudo, correspondingOrder(choice), w.getAreaAt(0));
+
+        return p;
     }
 
     /**
