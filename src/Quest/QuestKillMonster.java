@@ -44,9 +44,8 @@ public class QuestKillMonster extends Quest{
     }
 
     /**
-     * Vérifie si la quete est réalisée et retourne si elle l'est ou non
+     * Vérifie si la quete est réalisée
      * @param p Le joueur qui soummet sa quête
-     * @return true Si la quete est accomplie, false sinon
      */
     @Override
     public void submit(Player p){
