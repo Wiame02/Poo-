@@ -78,13 +78,13 @@ public class TestReflection {
         Villager v2 = new Villager("TestVillager2", 9);
         Monster m = new Monster("TestMonster", 100, Species.DJIN, 100);
 
-        if (ApplicationReflection.areObjectsFromSameClasses(v1, m)) {
+        if (ApplicationReflection.areObjectsFromSameClass(v1, m)) {
             System.out.println(v1.get_name() + " et " + m.get_name() + " sont de la même classe !");
         } else {
             System.out.println(v1.get_name() + " et " + m.get_name() + " NE sont PAS de la même classe !");
         }
 
-        if (ApplicationReflection.areObjectsFromSameClasses(v1, v2)) {
+        if (ApplicationReflection.areObjectsFromSameClass(v1, v2)) {
             System.out.println(v1.get_name() + " et " + v2.get_name() + " sont de la même classe !");
         } else {
             System.out.println(v1.get_name() + " et " + v2.get_name() + " NE sont PAS de la même classe !");

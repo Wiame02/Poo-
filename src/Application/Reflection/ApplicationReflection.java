@@ -29,12 +29,12 @@ public class ApplicationReflection {
     } 
 
     /**
-     * 
-     * @param objA
+     * Vérifie si deux objets sont de la même classe
+     * @param objA 
      * @param objB
-     * @return
+     * @return Si les deux objets sont de la même classe
      */
-    public static boolean areObjectsFromSameClasses (Object objA, Object objB) {
+    public static boolean areObjectsFromSameClass (Object objA, Object objB) {
         Class classObjA = objA.getClass();
         Class classObjB = objB.getClass();
         
