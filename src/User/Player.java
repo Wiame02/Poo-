@@ -68,21 +68,37 @@ public class Player implements ClassInformation{
 /**
  * SETTERS
 */
-    private void    setUsername(String name)           {this.username=name;}
-    public void     setLvl(int lvl)                    {this.lvl=lvl;}
-    public void     setHp(int hp)                      {this.hp=hp;}
-    public void     setCategory(Order category)        {this.category=category;}
-    private void    setInventory(Inventory i)           {this.inventory=i;}
-    private void    setArmor(Armor[] armor)             {
-        this.armor[0] = armor[0];
-        this.armor[1] = armor[1];
-        this.armor[2] = armor[2];
-        this.armor[3] = armor[3];
+    private void setUsername(String name) {this.username=name;}
+    public void setLvl(int lvl) {
+        if(lvl>=0){
+            this.lvl=lvl;
+        }else{
+            this.lvl=0;
+        }
     }
-    public void     setHelmet(Armor casque)            {this.armor[0]=casque;}
-    public void     setChestplaste(Armor chestplate)   {this.armor[1]=chestplate;}
-    public void     setLegging(Armor legging)          {this.armor[2]=legging;}
-    public void     setBoot(Armor boot)                {this.armor[3]=boot;}
+    public void setHp(int hp){
+        if(hp>=0){
+            this.hp=hp;
+        }else{
+            this.hp = 0;
+        }
+    }
+    public void setCategory(Order category) {this.category=category;}
+    private void setInventory(Inventory i) {this.inventory=i;}
+    private void setArmor(Armor[] armor) {
+        if(armor[0].getType()==Type.HELMET){
+            this.armor[0] = armor[0];
+        }
+        if(armor[1].getType()==Type.CHESTPLATE){
+            this.armor[1] = armor[1];
+        }
+        if(armor[2].getType()==Type.LEGGING){
+            this.armor[2] = armor[2];
+        }
+        if(armor[3].getType()==Type.BOOT){
+            this.armor[3] = armor[3];
+        }
+    }
     public void     setWeapon(Weapon weapon)           {this.weapon=weapon;}
     public void     setCurrentQuest(Quest quest)      {this.currentQuest=quest;}
     public void     setCurrentArea(Area area)         {this.currentArea=area;}
@@ -182,11 +198,12 @@ public class Player implements ClassInformation{
     }
 
     /**
-     * Retourne true si le personnage est vivant sinon false
-     * @return true ou false
+     * Retourne si le personnage est vivant ou non 
+     * @return  true si les points de vie sont strictement supérieurs à 0
+     *          false sinon
      */
     public boolean isAlive(){
-        return (this.hp!=0);
+        return (this.hp>0);
     }
 
 /*
@@ -194,20 +211,32 @@ public class Player implements ClassInformation{
  */
     /**
      * Change l'equipement du personnage par le nouveau selon sa categorie
-     * @param new_armor
+     * @param newArmor
      * @throws Exception si l'armure n'est pas typée
      */
-    public void equipArmor(Armor new_armor) throws Exception{ 
-        if(new_armor.getType() == Type.HELMET){
-            this.armor[0]=new_armor;
-        }else if(new_armor.getType() == Type.CHESTPLATE){
-            this.armor[1]=new_armor;
-        }else if(new_armor.getType() == Type.LEGGING){
-            this.armor[2]=new_armor;
-        }else if(new_armor.getType() == Type.BOOT){
-            this.armor[3]=new_armor;
+    public void equipArmor(Armor newArmor) throws Exception{
+        if(this.inventory.getItems().contains(newArmor)){
+            if(newArmor.getType() == Type.HELMET){
+                this.inventory.addItem(this.armor[0]);
+                this.armor[0]=newArmor;
+                this.inventory.deleteItem(this.armor[0].getName());
+            }else if(newArmor.getType() == Type.CHESTPLATE){
+                this.inventory.addItem(this.armor[1]);
+                this.armor[1]=newArmor;
+                this.inventory.deleteItem(this.armor[1].getName());
+            }else if(newArmor.getType() == Type.LEGGING){
+                this.inventory.addItem(this.armor[2]);
+                this.armor[2]=newArmor;
+                this.inventory.deleteItem(this.armor[2].getName());
+            }else if(newArmor.getType() == Type.BOOT){
+                this.inventory.addItem(this.armor[3]);
+                this.armor[3]=newArmor;
+                this.inventory.deleteItem(this.armor[3].getName());
+            }else{
+                throw new Exception("Armor without type");
+            }
         }else{
-            throw new Exception("Armor without type");
+            throw new Exception("Le joueur n'a pas l'armure dans son inventaire.");
         }
     }
 
@@ -216,8 +245,12 @@ public class Player implements ClassInformation{
      * Change l'arme du personnage par la nouvelle
      * @param newWeapon
      */
-    public void equipWeapon(Weapon newWeapon){
-        this.weapon=newWeapon;
+    public void equipWeapon(Weapon newWeapon) throws Exception{
+        if(this.inventory.getItems().contains(newWeapon)){
+            this.inventory.addItem(this.weapon);
+            this.weapon=newWeapon;
+            this.inventory.deleteItem(this.weapon.getName());
+        }
     }
 
 /*
@@ -228,13 +261,7 @@ public class Player implements ClassInformation{
      * @param e
      */
     public void interact(Villager v){
-        //FIXME
-        try{
-            v.talk(this.currentQuest,this);
-        }
-        catch(Exception e){
-            
-        }
+        v.talk(this.currentQuest,this);
     }
 
     /**
