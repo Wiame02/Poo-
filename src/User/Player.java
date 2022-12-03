@@ -303,25 +303,61 @@ public class Player implements ClassInformation{
      * @param setValue  La valeur qui remplacement l'ancienne.
      * @throws NoSuchFieldException Si le nom du champ donné ne correspond à aucun des champs que la classe contient.
      */
-    public void setField (String fieldName, Object setValue) throws Exception{
+    public void setField (String fieldName, Object setValue) throws NoSuchFieldException, Exception{
         if(fieldName=="username"){
-            this.set_username((String)setValue);
+            if(ApplicationReflection.areObjectsFromSameClass (this.username, setValue)){
+                this.set_username((String)setValue);
+            }else{
+                throw new Exception("Objet d'entrée de mauvais type");
+            }
         }else if(fieldName == "lvl"){
-            this.set_lvl((int)setValue);
+            if(ApplicationReflection.areObjectsFromSameClass (this.lvl, setValue)){
+                this.set_lvl((int)setValue);
+            }else{
+                throw new Exception("Objet d'entrée de mauvais type");
+            }
         }else if(fieldName == "hp"){
-            this.set_hp((int)setValue);
+            if(ApplicationReflection.areObjectsFromSameClass (this.hp, setValue)){
+                this.set_hp((int)setValue);
+            }else{
+                throw new Exception("Objet d'entrée de mauvais type");
+            }
         }else if(fieldName == "category"){
-            this.set_category((Order)setValue);
+            if(ApplicationReflection.areObjectsFromSameClass (this.category, setValue)){
+                this.set_category((Order)setValue);
+            }else{
+                throw new Exception("Objet d'entrée de mauvais type");
+            }
         }else if(fieldName == "inventory"){
-            this.setInventory((Inventory)setValue);
+            if(ApplicationReflection.areObjectsFromSameClass (this.inventory, setValue)){
+                this.setInventory((Inventory)setValue);
+            }else{
+                throw new Exception("Objet d'entrée de mauvais type");
+            }
         }else if(fieldName == "armor"){
-            this.setArmor((Armor[])setValue);
+            if(ApplicationReflection.areObjectsFromSameClass (this.armor, setValue)){
+                 this.setArmor((Armor[])setValue);
+            }else{
+                throw new Exception("Objet d'entrée de mauvais type");
+            }
         }else if(fieldName == "weapon"){
-            this.setWeapon((Weapon)setValue);
+            if(ApplicationReflection.areObjectsFromSameClass (this.weapon, setValue)){
+                this.setWeapon((Weapon)setValue);
+            }else{
+                throw new Exception("Objet d'entrée de mauvais type");
+            }
         }else if(fieldName == "currentQuest"){
-            this.set_current_quest((Quest)setValue);
+            if(ApplicationReflection.areObjectsFromSameClass (this.currentQuest, setValue)){
+                this.set_current_quest((Quest)setValue);
+            }else{
+                throw new Exception("Objet d'entrée de mauvais type");
+            }
         }else if(fieldName == "currentArea"){
-            this.set_current_area((Area)setValue);
+            if(ApplicationReflection.areObjectsFromSameClass (this.currentArea, setValue)){
+                this.set_current_area((Area)setValue);
+            }else{
+                throw new Exception("Objet d'entrée de mauvais type");
+            }
         }else{
             throw new NoSuchFieldException();
         }
