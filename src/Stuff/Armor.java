@@ -21,7 +21,7 @@ public class Armor extends Item {
     public Armor(String name, int durability, int defensePoint, Type type) {
         super(name);
         this.durability = (durability<0)?0:durability;
-        this.defensePoint = (defensePoint<0)?0:(defensePoint>100)?100:defensePoint;
+        this.defensePoint = (defensePoint<0)?0:defensePoint;
         this.type = type;
     }
 

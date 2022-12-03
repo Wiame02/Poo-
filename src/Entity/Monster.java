@@ -68,7 +68,7 @@ public class Monster extends Entity{
 	 */
 	void attack(Player p){
     	try{
-            p.decreaseHp(this.attack);
+            p.decreaseHpWithArmor(this.attack,this);
         }
         catch(Exception e){
             System.out.println(p.getUsername()+" a esquivé l'attaque");
