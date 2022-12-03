@@ -57,7 +57,7 @@ public class QuestKillMonster extends Quest{
         }
 
         if(!world.getAreaAt(i).getEntity().is_alive()){
-            this.isAccomplished=true;
+            this.isAccomplished = true;
         }
     }
 }

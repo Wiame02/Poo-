@@ -74,9 +74,9 @@ public abstract class Quest {
     public String toString(){
         String res = "Titre : "+this.title+"\n Récompense : "+this.reward+"\n Bonus d'exp : "+this.bonusExp+"\n Quête ";
         if(this.isAccomplished){
-            res+="finie \n";
+            res += "finie \n";
         } else {
-            res+="en cours \n";
+            res += "en cours \n";
         }
         return res;
     }

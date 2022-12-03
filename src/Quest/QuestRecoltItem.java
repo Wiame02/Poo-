@@ -51,8 +51,8 @@ public class QuestRecoltItem extends Quest{
         int i = 0;
         Inventory inventory = p.getInventory();
         while(i<=inventory.getItems().size() || !this.isAccomplished){
-            this.isAccomplished=inventory.getItemAt(i).isEqual(this.item);
+            this.isAccomplished = inventory.getItemAt(i).isEqual(this.item);
             i++;
         }
-    };
+    }
 }
