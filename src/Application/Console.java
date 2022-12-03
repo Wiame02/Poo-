@@ -32,7 +32,7 @@ public class Console {
         System.out.println("Bravo " + p.getUsername() + " !");
         try{Thread.sleep(1000);}
         catch(InterruptedException i){
-            //TODO : la fonction sleep  renvoie une exception 
+            System.out.println("Console.gameSuccessEnding(Player) : " + i);
         }
         System.out.println("Vous avez gagné !");
     }
@@ -44,7 +44,7 @@ public class Console {
         System.out.println("Ah, que c'est dommage " + p.getUsername() + " !");
         try{Thread.sleep(1000);}
         catch(InterruptedException i){
-            //TODO
+            System.out.println("Console.gameOverEnding(Player) : " + i);
         }
         System.out.println("Vous êtes mort !");
     }
