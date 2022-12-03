@@ -11,50 +11,71 @@ import User.*;
 
 public abstract class Quest {
     protected String title;
-    protected boolean is_accomplished;
+    protected boolean isAccomplished;
     protected Item reward;
-    protected int bonus_exp;
+    protected int bonusExp;
 
     /**
-     * Constructeur
-     * @param title
-     * @param bonus_exp
+     * Constructeur de la classe Quest
+     * @param title Le titre de la quête 
+     * @param bonusExp La récompense bonus en points d'expérience de la quête
      */
-    public Quest(String title, int bonus_exp) {
+    public Quest(String title, int bonusExp) {
         this.title = title;
-        this.is_accomplished = false;
+        this.isAccomplished = false;
         this.reward = null;
-        this.bonus_exp = bonus_exp;
+        this.bonusExp = bonusExp;
     }
 
-    /*
-     * GETTERS
+    /**
+     * @return Le titre de la quête
      */
-    public String get_title(){return this.title;}
-    public Item get_reward(){return this.reward;}
-    public int get_bonus_exp(){return this.bonus_exp;}
-
-    /*
-     * SETTERS
-     */
-    public void set_title(String title){this.title=title;}
-    public void set_reward(Item reward){this.reward=reward;}
-    public void set_bonus_exp(int exp){this.bonus_exp=exp;}
+    public String getTitle() { return this.title; }
 
     /**
-     * Si la quête est accomplie, change l'attribus is_accomplished en true sinon le laisse a false
+     * @return 
+     */
+    public Item getReward() { return this.reward; }
+
+    /**
+     * @return La récompense bonus en points d'expérience de la quête
+     */
+    public int getBonusExp() { return this.bonusExp; }
+
+    
+    /**
+     * Fixe le titre au nom donné
+     * @param title
+     */
+    public void setTitle(String title){ this.title = title; }
+
+    /**
+     * Fixe la récompense à l'Item donné
+     * @param reward
+     */
+    public void setReward(Item reward){ this.reward = reward; }
+
+    /**
+     * Fixe les points d'expérience bonus au nombre donné
+     * @param exp
+     */
+    public void setBonusExp(int exp){ this.bonusExp = exp; }
+
+    /**
+     * Si la quête est accomplie, change l'attribus isAccomplished en true sinon le laisse a false
+     * @param p Le Joueur qui soummet sa quête 
      */
     public abstract void submit(Player p);
 
     /**
-     * Fonction qui retourne les données d'une Quest sous forme de chaine de caractere
-     * @return
+     * @return Formattage de la classe Quest
      */
-    public String to_string(){
-        String res = "Titre : "+this.title+"\n Récompense : "+this.reward+"\n Bonus d'exp : "+this.bonus_exp+"\n Quête ";
-        if(this.is_accomplished){
+    @Override
+    public String toString(){
+        String res = "Titre : "+this.title+"\n Récompense : "+this.reward+"\n Bonus d'exp : "+this.bonusExp+"\n Quête ";
+        if(this.isAccomplished){
             res+="finie \n";
-        }else{
+        } else {
             res+="en cours \n";
         }
         return res;
@@ -65,8 +86,8 @@ public abstract class Quest {
      * @param p
      * @return true si la quete est accomplie, false sinon
      */
-    public boolean is_accomplished(Player p){
+    public boolean isAccomplished(Player p){
         this.submit(p);
-        return this.is_accomplished;
+        return this.isAccomplished;
     }
 }

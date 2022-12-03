@@ -32,8 +32,8 @@ public class QuestRecoltItem extends Quest{
      * @return
      */
     @Override
-    public String to_string(){
-        return super.to_string()+"\n Item a récolter : "+this.item.getName();
+    public String toString(){
+        return super.toString()+"\n Item a récolter : "+this.item.getName();
     }
 
     /**

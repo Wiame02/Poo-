@@ -34,8 +34,8 @@ public class QuestKillMonster extends Quest{
      * @return
      */
     @Override
-    public String to_string(){
-        return super.to_string()+"\n Monstre a abattre : "+this.monster.get_name();
+    public String toString(){
+        return super.toString()+"\n Monstre a abattre : "+this.monster.get_name();
     }
 
     /**
@@ -51,7 +51,7 @@ public class QuestKillMonster extends Quest{
             i++;
         }
         if(!world.getAreaAt(i).getEntity().is_alive()){
-            this.is_accomplished=true;
+            this.isAccomplished=true;
         }
     };
 }

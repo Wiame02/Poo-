@@ -119,7 +119,7 @@ public class Player implements ClassInformation{
      * Affiche la quete actuelle
      */
     public void display_current_quest(){
-        System.out.println(this.currentQuest.to_string());
+        System.out.println(this.currentQuest.toString());
     }
 
 /*
