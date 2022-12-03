@@ -14,44 +14,52 @@ import Localization.*;
 public class QuestKillMonster extends Quest{
     private Monster monster ;
 
-    public QuestKillMonster(String title, int bonus_exp,Monster m){
-        super(title, bonus_exp);
-        this.monster=m;
+    /**
+     * Contructeur de la classe QuestKillMonster
+     * @param title Le titre de la quête
+     * @param bonusExp Le nombre de points d'expérience bonus que l'on peut avoir
+     * @param m Le monstre qui est à tuer
+     */
+    public QuestKillMonster(String title, int bonusExp, Monster m){
+        super(title, bonusExp);
+        this.monster = m;
     }
 
-    /*
-     * GETTERS
+    /**
+     * @return Le monstre qui est à tuer
      */
-    public Monster get_monster(){return this.monster;}
-
-    /*
-     * SETTERS
+    public Monster getMonster() { return this.monster; }
+    
+    /**
+     * Fixe le monstre qui est à tuer pour achever la quête
+     * @param m
      */
-    public void set_monster(Monster m){this.monster=m;}
+    public void setMonster(Monster m) { this.monster = m; }
 
     /**
-     * Fonction qui retourne les données d'une QuestKillMonster sous forme de chaine de caractere
-     * @return
+     * @return Formattage de la classe QuestKillMonster
      */
     @Override
     public String toString(){
-        return super.toString()+"\n Monstre a abattre : "+this.monster.get_name();
+        return super.toString() + "\nMonstre à abattre : " + this.monster.get_name();
     }
 
     /**
      * Vérifie si la quete est réalisée et retourne si elle l'est ou non
-     * @param p
-     * @return true si la quete est accomplie, false sinon
+     * @param p Le joueur qui soummet sa quête
+     * @return true Si la quete est accomplie, false sinon
      */
     @Override
     public void submit(Player p){
         int i = 0 ;
         World world = p.get_current_area().getWorld();
+
         while(i<=world.getAreas().size() || !world.getAreaAt(i).getEntity().is_equal(this.monster)){
             i++;
         }
+
         if(!world.getAreaAt(i).getEntity().is_alive()){
             this.isAccomplished=true;
         }
-    };
+    }
 }
