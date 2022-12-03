@@ -43,23 +43,25 @@ public class Game {
      */
     public static Board generateBoard(){
         Board b = new Board();
-
         b.addAllWorlds(DataWorlds.dataWorlds());
 
+        ArrayList<ArrayList<Monster>> monsters = DataMonsters.data_monsters();
+        //FIXME : ArrayList<ArrayList<Villager>> villagers = DataVillager.dataVillagers();
+
         for (int i=1; i<b.getWorlds().size(); i++) {
-            //generateAreas(b.getWorldAt(i), .get(i-1));
-            //chooseBoss(b.getWorldAt(i), .get(i-1));
+            //generateAreas(b.getWorldAt(i), );
+            //chooseBoss(b.getWorldAt(i), );
         }
-        return new Board();
+        return b;
     }
 
     /**
      * Création du personnage du joueur
+     * @param w Le premier monde
      * @return le personnage du joueur
      */
-    public static Player createPlayer(){
-        //TODO
-        return new Player(null, null, null);
+    public static Player createPlayer(World w){
+        return new Player("Hello", Order.COMPUTER_SCIENTIST, w.getAreaAt(0));
     }
 
     /**
@@ -76,18 +78,17 @@ public class Game {
 
     /**
      * Permet l'execution d'une entree du joueur
-     * @param area La zone dans lequel se trouve le joueur
      * @param player Le joueur
      */
-    public static void doAnAction(Area area, Player player) {
+    public static void doAnAction(Player player) {
+        ArrayList<String> input = new ArrayList<>();
         try {
-            ArrayList<String> input = Console.readAction();
-            executeFunctionInput(input);
+            input = Console.readAction();
+            //executeFunctionInput(input);
         }
-        catch (ApplicationException e) {
+        catch (Exception e) {
 	        System.out.println("Error in playerDoAction() : " + e);
-	        e.printStackTrace();
-            doAnAction(area, player);
+            doAnAction(player);
         }
     }
 
@@ -110,19 +111,18 @@ public class Game {
      * Déroulement du jeu
      */
     public static void playGame() {
-        Player  player  = createPlayer(); 
         Board   board   = generateBoard();
+        Player  player  = createPlayer(board.getWorldAt(0)); 
 
-        boolean areAllBossesDead  = true;
-        boolean isPlayerAlive     = true;
+        boolean areAllBossesDead = false;
         
         //TODO showAvailableActions(...);
 
         while (!areAllBossesDead && player.isAlive()) {
             //TODO showAvailableActions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
-            //TODO player_do_action(...);
+            doAnAction(player);
 
-            areAllBossesDead = are_all_boss_dead(board);
+            //areAllBossesDead = are_all_boss_dead(board);
         }
 
         if (player.isAlive()) {

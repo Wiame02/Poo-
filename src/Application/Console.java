@@ -69,11 +69,10 @@ public class Console {
      */
     public static ArrayList<String> readAction() throws ApplicationException {
         ArrayList<String> resInput = new ArrayList<String>();
-        Scanner sc = new Scanner(System.in);
-
+        
         System.out.print(">> ");
+        Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
-        sc.close();
 
         if (!input.endsWith(";")){
             throw new ApplicationException("La ligne de code n'est pas terminee par un ';'");
