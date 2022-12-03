@@ -38,8 +38,8 @@ public class Weapon extends Item {
 
 
     @Override
-    public String to_string(){
-      return super.to_string()+"("+this.attack_point+", "+this.durability+")";
+    public String toString(){
+      return super.toString()+"("+this.attack_point+", "+this.durability+")";
     }
 
 }

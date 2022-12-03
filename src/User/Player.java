@@ -95,7 +95,7 @@ public class Player implements ClassInformation{
      */
     public void display_armor(){
         for(Armor a : this.armor){
-            a.to_string();
+            a.toString();
         }
     }
 
@@ -103,7 +103,7 @@ public class Player implements ClassInformation{
      * Affiche l'arme portée
      */
     public void display_weapon(){
-        System.out.print(this.weapon.to_string());
+        System.out.print(this.weapon.toString());
     }
 
     /**

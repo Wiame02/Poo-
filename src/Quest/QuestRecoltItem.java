@@ -33,7 +33,7 @@ public class QuestRecoltItem extends Quest{
      */
     @Override
     public String to_string(){
-        return super.to_string()+"\n Item a récolter : "+this.item.get_name();
+        return super.to_string()+"\n Item a récolter : "+this.item.getName();
     }
 
     /**
@@ -45,7 +45,7 @@ public class QuestRecoltItem extends Quest{
     public void submit(Player p){
         int i = 0;
         Inventory inventory = p.get_Inventory();
-        while(i<=inventory.getItems().size() ||inventory.getItemAt(i).is_equal(this.item)){
+        while(i<=inventory.getItems().size() ||inventory.getItemAt(i).isEqual(this.item)){
             i++;
         }
     };
