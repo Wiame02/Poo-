@@ -101,7 +101,7 @@ public class Game {
         boolean are_dead = true;
         int i = 0;
         while (i<board.getWorlds().size() && are_dead) {
-            are_dead = !board.getWorldAt(i).getBoss().is_alive();
+            are_dead = !board.getWorldAt(i).getBoss().isAlive();
             i++;
         }
         return are_dead;
