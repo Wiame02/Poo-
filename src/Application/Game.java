@@ -92,6 +92,21 @@ public class Game {
     }
 
     /**
+     * Vérifie s'il ne reste aucun boss vivant dans les mondes
+     * @param board
+     * @return true si tous les boss sont morts
+     */
+    public static boolean are_all_boss_dead(Board board) {
+        boolean are_dead = true;
+        int i = 0;
+        while (i<board.getWorlds().size() && are_dead) {
+            are_dead = !board.getWorldAt(i).getBoss().is_alive();
+            i++;
+        }
+        return are_dead;
+    }
+
+    /**
      * Déroulement du jeu
      */
     public static void playGame() {
@@ -103,15 +118,14 @@ public class Game {
         
         //TODO showAvailableActions(...);
 
-        while (!areAllBossesDead && isPlayerAlive) {
+        while (!areAllBossesDead && player.isAlive()) {
             //TODO showAvailableActions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
             //TODO player_do_action(...);
 
-            //TODO areAllBossesDead = are_all_boss_dead();
-            isPlayerAlive = true;
+            areAllBossesDead = are_all_boss_dead(board);
         }
 
-        if (isPlayerAlive) {
+        if (player.isAlive()) {
             Console.gameSuccessEnding(player);
         } else {
             Console.gameOverEnding(player);
