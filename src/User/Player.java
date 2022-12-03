@@ -127,7 +127,7 @@ public class Player implements ClassInformation{
      */
     public void displayPlayerData(){
         System.out.println("Informations de "+this.username+" ---");
-        System.out.println("Niveau de vie : "+this.hp);
+        System.out.println("Points de vie : "+this.hp);
         System.out.println("Niveau d'experience : "+this.lvl);
     }
 
