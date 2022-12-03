@@ -54,5 +54,8 @@ public class QuestRecoltItem extends Quest{
             this.isAccomplished = inventory.getItemAt(i).isEqual(this.item);
             i++;
         }
+        if(this.isAccomplished){
+            inventory.useItem(this.item.getName());
+        }
     }
 }
