@@ -1,8 +1,11 @@
 package Application;
 import Localization.*;
+import Application.Reflection.ApplicationReflection;
 import User.*;
 import Entity.*;
 import java.util.ArrayList;
+import java.util.Objects;
+
 import javax.sql.StatementEventListener;
 
 /**
@@ -77,11 +80,43 @@ public class Game {
      * @param func La fonction entrée avec son parametre sous forme de tableau
      * @throws GameException La fonction entrée soit n'est pas valide soit son paramètre ne l'est pas
      */
-    public static void executeFunctionInput(ArrayList<String> func) {
-        ArrayList<String> doable_actions = Console.get_available_actions();
-        if (func.get(0)=="kill") {
-            //TODO verif param
+    public static void executeFunctionInput(ArrayList<String> func, Player p) {
+        
+
+
+
+
+
+        /*
+                try {
+            System.out.println("executeFunctionInput()");
+            ArrayList<String> args = (ArrayList<String>) func.clone();
+            args.remove(0);
+            for (String a : args) {
+                System.out.println("element : " + a);
+            }
+
+            if (Application.Reflection.ApplicationReflection.getPublicMethodsNames("Application.Console").contains(func.get(0))) {
+                System.out.println("Does the function exist ? : True");
+                Object[] argsTab = {p};
+                Application.Reflection.ApplicationReflection.executeStaticFunction("Application.Console", func.get(0), argsTab);
+            } else {
+                System.out.println("Does the function exist ? : False");
+            }
+            
         }
+        catch (Exception e) {
+            System.out.println("executeFunctionInput() :: " + e);
+        }
+        if (func.get(0).equals("showAvailableActions")) {
+            Console.showAvailableActions(p);
+        }else if (func.get(0).equals("moveLinkedArea")) {
+            try {
+                p.moveToLinkedarea(p.getCurrentArea().getAccessArea("Champs"));
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }*/
     }
 
     /**
@@ -89,10 +124,10 @@ public class Game {
      * @param player Le joueur
      */
     public static void doAnAction(Player player) {
-        ArrayList<String> input = new ArrayList<>();
         try {
-            input = Console.readAction();
-            //executeFunctionInput(input);
+            ArrayList<String> input = Console.readAction();
+            System.out.println("main:doAnAction()");
+            executeFunctionInput(input, player);
         }
         catch (Exception e) {
 	        System.out.println("Error in playerDoAction() : " + e);
@@ -105,9 +140,9 @@ public class Game {
      * @param board
      * @return true si tous les boss sont morts
      */
-    public static boolean are_all_boss_dead(Board board) {
+    public static boolean areAllBossesDead(Board board) {
         boolean are_dead = true;
-        int i = 0;
+        int i = 1;
         while (i<board.getWorlds().size() && are_dead) {
             are_dead = !board.getWorldAt(i).getBoss().isAlive();
             i++;
@@ -120,17 +155,22 @@ public class Game {
      */
     public static void playGame() {
         Board   board   = generateBoard();
-        Player  player  = createPlayer(board.getWorldAt(0)); 
+        Player  player  = createPlayer(board.getWorldAt(1)); 
 
         boolean areAllBossesDead = false;
         
-        //TODO showAvailableActions(...);
+        Console.showAvailableActions(player);
 
         while (!areAllBossesDead && player.isAlive()) {
             //TODO showAvailableActions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
             doAnAction(player);
 
-            //areAllBossesDead = are_all_boss_dead(board);
+            areAllBossesDead = areAllBossesDead(board);
+            if (areAllBossesDead) {
+                System.out.println("BOSS MORTS !");
+            } else {
+                System.out.println("Les boss ne sont pas tous mort !");
+            }
         }
 
         if (player.isAlive()) {

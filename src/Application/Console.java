@@ -1,6 +1,9 @@
 package Application;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Entity.Species;
+
 import java.lang.String;
 import User.*;
 import java.lang.Thread;  
@@ -12,16 +15,18 @@ import java.lang.Thread;
 
 public class Console {
     public static void showAvailableActions(Player p) {
-        System.out.println("getCurrentArea()");
+        System.out.println("\ngetCurrentArea()");
         System.out.println("displayInventory()");
-        System.out.println("move_linked_area()");
+        System.out.println("moveLinkedArea()");
         System.out.println("showAvailableActions()");
-        System.out.println("get_hp()");
+        System.out.println("getHp()");
 
-        if (true) { //XXX
-            System.out.println("interact("+  p.getCurrentArea().getEntity().getName() +")");
-        } else {
-            System.out.println("attack("+ p.getCurrentArea().getEntity().getName() +")");
+        if (p.getCurrentArea().getEntity()!=null) {
+            if (p.getCurrentArea().getEntity().getSpecies()==Species.VILLAGER) {
+                System.out.println("interact("+  p.getCurrentArea().getEntity().getName() +")");
+            } else {
+                System.out.println("attack("+ p.getCurrentArea().getEntity().getName() +")");
+            }
         }
     }
 
@@ -115,7 +120,7 @@ public class Console {
                 }
                 i++;    //Incrémentation !
             }
-            if (!leftParenthesis && !rightParenthesis) { throw new ApplicationException("Parentheses manquantes"); }
+            if (!leftParenthesis || !rightParenthesis) { throw new ApplicationException("Parenthese(s) manquantes"); }
             if (i<input.length()-2) { throw new ApplicationException("Arguments restants non valides après les parenthèses."); }
             return resInput;
         }
