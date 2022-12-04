@@ -21,7 +21,7 @@ public enum Order {
          * @param area
         */
         @SuppressWarnings("unused")
-        public static void useSpecialAbility(World world, Area area){
+        public void useSpecialAbility(World world, Area area){
             int idChange = (int)(Math.random() *((world.getAreas().size() + 1)));
             Entity tmp = world.getAreaAt(idChange).getEntity();
             world.getAreaAt(idChange).setEntity(area.getEntity());
