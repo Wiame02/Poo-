@@ -13,61 +13,78 @@ public enum Order {
 /*
  * Constantes
  */
-    COMPUTER_SCIENTIST(){
+    COMPUTER_SCIENTIST("Informaticien"){
         
         /**
          * L'informaticien peut changer l'entité qui se trouve dans la même zone que lui aléatoirement
          * @param world
          * @param area
         */
-        public void useSpecialAbility(World world, Area area){
+        @SuppressWarnings("unused")
+        public static void useSpecialAbility(World world, Area area){
             int idChange = (int)(Math.random() *((world.getAreas().size() + 1)));
             Entity tmp = world.getAreaAt(idChange).getEntity();
             world.getAreaAt(idChange).setEntity(area.getEntity());
             area.setEntity(tmp);
         }
     },
-    MATHEMATICIAN(){
+    MATHEMATICIAN("Mathematicien"){
 
         /**
          * Le mathematicien peut transformer son armure de telle sorte qu'il encaisse tout les dégats et renvoie une partie des degats au monstre
          * En contrepartie, l'armure aura sa durabilité drastiquement réduite.
          * @param armor
          */
+        @SuppressWarnings("unused")
         public void useSpecialAbility(Armor armor){
             armor.setDurability(3);
-            //TODO : armor.setDefensePoint(150);
+            armor.setDefensePoint(150);
         }
     },
-    PHYSICIST(){
+    PHYSICIST("Physicien"){
 
         /**
          * Le physicien peut se déplacer dans une zone sans contraintes
          * @param p
          * @param destination
          */
+        @SuppressWarnings("unused")
         public void useSpecialAbility(Player p,Area destination){
             p.moveTo(destination);
         }
     },
-    CHEMIST(){
+    CHEMIST("Chimiste"){
 
         /**
          * Le chimiste peut se soigner 
          * @param p
          */
+        @SuppressWarnings("unused")
         public void useSpecialAbility(Player p){
             p.setHp((int)(p.getHp()*1.75));
         }
     },
-    BIOLOGIST(){
+    BIOLOGIST("Biologiste"){
 
         /**
          * Le biologiste peut reduire l'attaque d'un monstre
          * @param e 
          */
+        @SuppressWarnings("unused")
         public void useSpecialAbility(Monster e){
             e.setAttack((int)(e.get_attack()*0.6));
         }
     };
+
+    private String name ;
+
+    /**
+     * Constructeur
+     * @param name le nom de la classe
+     */
+    private Order(String name){
+        this.name= name;
+    }
+
+    public String getName(){return this.name;}
 }

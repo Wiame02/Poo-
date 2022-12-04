@@ -127,7 +127,7 @@ public class Player implements ClassInformation{
      */
     public void displayPlayerData(){
         System.out.println("Informations de "+this.username+" ---");
-        System.out.println("Niveau de vie : "+this.hp);
+        System.out.println("Points de vie : "+this.hp);
         System.out.println("Niveau d'experience : "+this.lvl);
     }
 
@@ -183,17 +183,39 @@ public class Player implements ClassInformation{
      */
     public void decreaseHp(int n) throws Exception{
         if(this.isAlive()){
-            if(n>0){
+            if(n>=0){
                 if(this.hp<=n){
                     this.hp=0;
                 }else{
                     this.hp-=n;
                 }
             }else{
-                throw new Exception("Ne peut pas soustraire une valeur nulle ou négative");
+                throw new Exception("Ne peut pas soustraire une valeur négative");
             }
         }else{ 
             throw new Exception("Ne peut pas soustraire : La vie du joueur est déjà à 0");
+        }
+    }
+
+    /**
+     * Le joueur subit des dégats qui sont en partie absorbés par son armure
+     * @param n les dégats subits
+     * @return
+     */
+    public void decreaseHpWithArmor(int n,Entity e) throws Exception{
+        int damage = n ;
+        for(Armor a : this.armor){
+            damage -= a.getDefensePoint()/100*n/4;
+            if(a.getDefensePoint()>100){
+                try{e.decreaseHp(n*(a.getDefensePoint()-100)/100);}
+                catch(Exception exception){System.out.println(e.getName()+" a esquivé les dégats de retour.");}
+            }
+        }
+        try{
+            this.decreaseHp(damage);
+        }
+        catch(Exception exception){
+            throw exception;
         }
     }
 
