@@ -126,4 +126,17 @@ public class Inventory {
             return false;
         }
     }
+
+    /**
+     * 
+     */
+    @Override
+    public String toString(){
+        String res = "Inventaire :\n";
+        for(Item i :this.items){
+            res+=i.getName()+", quantité : "+i.getQuantity()+"\n";
+        }
+        
+        return res;
+    }
 }
