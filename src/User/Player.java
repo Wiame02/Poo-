@@ -138,6 +138,27 @@ public class Player implements ClassInformation{
         System.out.println(this.currentQuest.toString());
     }
 
+
+    /**
+     * 
+     */
+    @Override
+    public String toString(){
+        String res ="";
+        res+="Pseudo : "+this.username+"\n";
+        res+="lvl : "+this.lvl+"\n";
+        res+="HP : "+this.hp+"\n";
+        res+="Classe : "+this.category.getName()+"\n";
+        res+="Inventaire : "+this.inventory.toString()+"\n";
+        res+="Armure : \n ";
+        res+=this.armor[0].toString()+"\n";
+        res+=this.armor[1].toString()+"\n";
+        res+=this.armor[2].toString()+"\n";
+        res+=this.armor[3].toString()+"\n";
+        res+= "Quete actuelle :"+this.currentQuest.getTitle()+" \n";
+        res+= "Zone actuelle :"+this.currentArea.getName()+"\n";
+        return res;
+    }
 /*
  * Déplacements
  */
