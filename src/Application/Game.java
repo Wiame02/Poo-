@@ -2,7 +2,9 @@ package Application;
 import Localization.*;
 import User.*;
 import Entity.*;
+import Entity.Species;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -89,17 +91,15 @@ public class Game {
         String pseudo = sc.nextLine();
 
         System.out.println("Quelle spécialité souhaitez-vous avoir ? \n 1.Informaticien \n 2.Mathématicien \n 3.Physicien \n 4.Chimiste \n 5.Biologiste \n");
-        int choice = Integer.parseInt(sc.nextLine());
+        String choice = sc.nextLine();
+        String[] validEntry = {"1", "2", "3", "4", "5"};
 
-        while(choice<1 && choice>5){
+        while(!(Arrays.asList(validEntry).contains(choice))){
             System.out.println("Erreur : valeur non incluse entre 1 et 5.\n Quelle spécialité souhaitez-vous avoir ? \n 1.Informaticien \n 2.Mathématicien \n 3.Physicien \n 4.Chimiste \n 5.Biologiste \n");
-            choice = Integer.parseInt(sc.nextLine());
+            choice = sc.nextLine();
         }
-
-        sc.close();
-
-        Player p = new Player(pseudo, correspondingOrder(choice), w.getAreaAt(0));
-
+        Player p = new Player(pseudo, correspondingOrder(Integer.parseInt(choice)), w.getAreaAt(0));
+        System.out.println(p.toString());
         return p;
     }
 
@@ -109,7 +109,42 @@ public class Game {
      * @throws GameException La fonction entrée soit n'est pas valide soit son paramètre ne l'est pas
      */
     public static void executeFunctionInput(ArrayList<String> func, Player p) {
+        if (func.get(0).equals("getCurrentArea")) {
+            System.out.println(p.getCurrentArea() + "\n");
+            
+        } else if (func.get(0).equals("displayInventory")) {
+            System.out.println(p.getInventory().getItems() + "\n");
 
+        } else if (func.get(0).equals("moveLinkedArea")) {
+            ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
+            int a = 0;
+
+            while (!areas.get(a).getName().contains(func.get(func.size()-1))) {
+                a++;
+            }
+            if (a<areas.size()) {
+                p.moveTo(p.getCurrentArea().getAccessAreas().get(a));
+            }
+            System.out.println(p.getCurrentArea() + "\n");
+        } else if (func.get(0).equals("showAvailableActions")) {
+
+        } else if (func.get(0).equals("displayPlayerData")) {
+            p.displayPlayerData();
+
+        } else if (p.getCurrentArea().getEntity().getSpecies().equals(Species.VILLAGER) && func.get(0).equals("interact")) {
+            p.interact((Villager) p.getCurrentArea().getEntity());
+
+        }  else if (!p.getCurrentArea().getEntity().getSpecies().equals(Species.VILLAGER) && func.get(0).equals("attack")) {
+            p.attack((Monster) p.getCurrentArea().getEntity());
+
+        } else if (func.get(0).equals("getAccessArea")) {
+            ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
+
+            for (int i=0; i<areas.size(); i++) {
+                System.out.println(i + " - " + areas.get(i).getName());
+            }
+            System.out.println();
+        }
 
 
 
@@ -154,11 +189,10 @@ public class Game {
     public static void doAnAction(Player player) {
         try {
             ArrayList<String> input = Console.readAction();
-            System.out.println("main:doAnAction()");
             executeFunctionInput(input, player);
         }
         catch (Exception e) {
-	        System.out.println("Error in playerDoAction() : " + e);
+	        System.out.println("Error in doAnAction() : " + e);
             doAnAction(player);
         }
     }
@@ -194,11 +228,12 @@ public class Game {
             doAnAction(player);
 
             areAllBossesDead = areAllBossesDead(board);
-            if (areAllBossesDead) {
+            
+            /*if (areAllBossesDead) {
                 System.out.println("BOSS MORTS !");
             } else {
                 System.out.println("Les boss ne sont pas tous mort !");
-            }
+            }*/
         }
 
         if (player.isAlive()) {
