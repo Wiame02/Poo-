@@ -149,7 +149,7 @@ public class Player implements ClassInformation{
         res+="lvl : "+this.lvl+"\n";
         res+="HP : "+this.hp+"\n";
         res+="Classe : "+this.category.getName()+"\n";
-        res+="Inventaire : "+this.inventory.toString()+"\n";
+        res+=this.inventory.toString()+"\n";
         res+="Armure : \n ";
         res+=this.armor[0].toString()+"\n";
         res+=this.armor[1].toString()+"\n";
