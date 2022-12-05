@@ -90,10 +90,12 @@ public abstract class Entity{
                 } else {
                     this.hp -= x;
                 }
-            } throw new Exception("La valeur de retrait de points de vie ne peut pas être négative");
-
-        } throw new Exception("L'entité est déjà morte");
-
+            }else{
+				throw new Exception("La valeur de retrait de points de vie ne peut pas être négative");
+			}
+        }else{
+			throw new Exception("L'entité est déjà morte");
+		}
 	}
 
 	/**
