@@ -117,17 +117,14 @@ public class Game {
             System.out.println(p.getInventory().getItems() + "\n");
 
         } else if (func.get(0).equals("moveLinkedArea")) {
-            ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
-            int a = 0;
-
-            while (!areas.get(a).getName().contains(func.get(func.size()-1))) {
-                a++;
+            try {
+                int idArea = Integer.parseInt(func.get(1));
+                UserFonction.moveToLinkedArea(p, idArea);
+            } catch (NumberFormatException numFormException) {
+                System.out.println("executeFunctionInput:" + numFormException);
             }
-            if (a<areas.size()) {
-                p.moveTo(p.getCurrentArea().getAccessAreas().get(a));
-            }
-            System.out.println(p.getCurrentArea() + "\n");
         } else if (func.get(0).equals("showAvailableActions")) {
+            Console.showAvailableActions(p);
 
         } else if (func.get(0).equals("displayPlayerData")) {
             p.displayPlayerData();
