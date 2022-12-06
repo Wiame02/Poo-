@@ -111,21 +111,20 @@ public class Game {
      */
     public static void executeFunctionInput(ArrayList<String> func, Player p) {
         if (func.get(0).equals("getCurrentArea")) {
-            System.out.println(p.getCurrentArea() + "\n");
+            UserFonction.getCurrentArea(p);
             
         } else if (func.get(0).equals("displayInventory")) {
-            System.out.println(p.getInventory().getItems() + "\n");
+            UserFonction.displayInventory(p);
 
-        } else if (func.get(0).equals("moveLinkedArea")) {
-            try {
-                int idArea = Integer.parseInt(func.get(1));
-                UserFonction.moveToLinkedArea(p, idArea);
-            } catch (NumberFormatException numFormException) {
-                System.out.println("executeFunctionInput(ArrayList<String>, Player):" + numFormException);
+        } else if (func.get(0).equals("moveTo")) {
+            if (func.size()==2) {
+                UserFonction.moveTo(p, func.get(1));
+            } else {
+                System.out.println("executeFunctionInput:UserFonction:moveTo(String) : A besoin d'un paramètre.");
             }
 
-        } else if (func.get(0).equals("showAvailableActions")) {
-            Console.showAvailableActions(p);
+        } else if (func.get(0).equals("displayActions")) {
+            UserFonction.displayActions(p);
 
         } else if (func.get(0).equals("displayPlayerData")) {
             p.displayPlayerData();
@@ -219,8 +218,8 @@ public class Game {
         System.out.println(player.toString());
 
         boolean areAllBossesDead = false;
-        
-        Console.showAvailableActions(player);
+    
+        UserFonction.displayActions(player);
 
         while (!areAllBossesDead && player.isAlive()) {
             //TODO showAvailableActions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
