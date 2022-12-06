@@ -176,7 +176,7 @@ public class Player implements ClassInformation{
      * @param destination une zone
      * @throws Exception si la zone n'est pas accessible
      */
-    public void moveToLinkedarea(Area destination) throws Exception{
+    public void moveToLinkedArea(Area destination) throws Exception{
         if(this.currentArea.getAccessArea(destination.getName())==null){
             throw new Exception("La zone n'est pas accessible");
         }else{
