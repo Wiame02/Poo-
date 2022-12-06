@@ -1,4 +1,6 @@
 package Quest;
+import java.util.ArrayList;
+
 import Entity.*;
 import User.Player;
 import Localization.*;
@@ -40,7 +42,7 @@ public class QuestKillMonster extends Quest{
      */
     @Override
     public String toString(){
-        return super.toString() + "\nMonstre à abattre : " + this.monster.get_name();
+        return super.toString() + "\n Monstre à abattre : " + this.monster.getName();
     }
 
     /**
@@ -52,12 +54,13 @@ public class QuestKillMonster extends Quest{
         int i = 0 ;
         World world = p.getCurrentArea().getWorld();
 
-        while(i<=world.getAreas().size() || !world.getAreaAt(i).getEntity().is_equal(this.monster)){
+        while(i<world.getAreas().size() && (world.getAreaAt(i).getEntity() == null || !world.getAreaAt(i).getEntity().isEqual(this.monster))){
             i++;
+            System.out.println("QuestKillMonster.submit(Player) : i++; i == " + i);
         }
 
-        if(!world.getAreaAt(i).getEntity().is_alive()){
-            this.isAccomplished = true;
+        if(i<world.getAreas().size() && world.getAreaAt(i).getEntity().isAlive()){
+            super.isAccomplished = true;
         }
     }
 }

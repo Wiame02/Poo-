@@ -1,5 +1,6 @@
 package Application.Reflection;
 import java.lang.reflect.*;
+import java.lang.reflect.Constructor;
 import java.lang.ClassNotFoundException;
 import java.util.ArrayList;
 
@@ -89,10 +90,15 @@ public class ApplicationReflection {
  */
     public static Object executeInstanceMethod (Object obj, String methodName, Object[] argsObjects) throws Exception {
         try {
+            Object res = null;
             Class[] argsClasses = getArgumentClasses(argsObjects);
             Method methodObj = obj.getClass().getMethod(methodName, argsClasses);
 
-            Object res = methodObj.invoke(obj, argsObjects);
+            if (!methodObj.getReturnType().equals(Void.TYPE)) {
+                res = methodObj.invoke(obj, argsObjects);
+            } else {
+                methodObj.invoke(obj, argsObjects);
+            }
 
             return res;
         }
@@ -101,4 +107,25 @@ public class ApplicationReflection {
         }
     }
 
+    public static Object executeStaticFunction (String className, String methodName, Object[] argsObjects) throws Exception {
+        try {
+            Object res = null;
+            Class[] argsClasses = getArgumentClasses(argsObjects);
+            Method function = Class.forName(className).getMethod(methodName, argsClasses);
+
+            if (!function.getReturnType().equals(Void.TYPE)) {
+                System.out.println("C'est une procédure !");
+                res = function.invoke(null, argsObjects);
+            } else {
+                System.out.println("C'est une fonction !");
+                function.invoke(null, argsObjects);
+            }
+
+            return res;
+        }
+        catch (Exception e) {
+            throw new Exception("Application.ApplicationReflection.executeStaticFunction(...): " + e.getMessage());
+        }
+
+    }
 }

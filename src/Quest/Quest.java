@@ -87,7 +87,12 @@ public abstract class Quest {
      * @return true si la quete est accomplie, false sinon
      */
     public boolean isAccomplished(Player p){
-        this.submit(p);
+        /* Si la quête est déjà accomplie il ne faut pas le revérifier.
+         * Si la quete est une QuestRecoltItem, l'objet disparait de l'inventaire au rendu donc validable une seule fois 
+         */
+        if(!this.isAccomplished){ 
+            this.submit(p);
+        }
         return this.isAccomplished;
     }
 }

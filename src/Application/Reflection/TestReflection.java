@@ -62,7 +62,7 @@ public class TestReflection {
     public static void testExecuteInstanceMethod () {
         try {
             Object[] args = {};
-            System.out.println("executeInstanceMethod(testVillager,\"get_name\", {}) >> " + ApplicationReflection.executeInstanceMethod(testVillager,"get_name", args)+ "\n\n");        
+            System.out.println("executeInstanceMethod(testVillager,\"getName\", {}) >> " + ApplicationReflection.executeInstanceMethod(testVillager,"getName", args)+ "\n\n");        
             Object[] argsV2 = {a2};
             System.out.println("Current area before : " + testPlayer.getCurrentArea().toString());
             System.out.println("executeInstanceMethod(testPlayer,\"move_to\", {a2}) >> " + ApplicationReflection.executeInstanceMethod(testPlayer,"move_to", argsV2) + "\n\n");
@@ -79,15 +79,15 @@ public class TestReflection {
         Monster m = new Monster("TestMonster", 100, Species.DJIN, 100);
 
         if (ApplicationReflection.areObjectsFromSameClass(v1, m)) {
-            System.out.println(v1.get_name() + " et " + m.get_name() + " sont de la même classe !");
+            System.out.println(v1.getName() + " et " + m.getName() + " sont de la même classe !");
         } else {
-            System.out.println(v1.get_name() + " et " + m.get_name() + " NE sont PAS de la même classe !");
+            System.out.println(v1.getName() + " et " + m.getName() + " NE sont PAS de la même classe !");
         }
 
         if (ApplicationReflection.areObjectsFromSameClass(v1, v2)) {
-            System.out.println(v1.get_name() + " et " + v2.get_name() + " sont de la même classe !");
+            System.out.println(v1.getName() + " et " + v2.getName() + " sont de la même classe !");
         } else {
-            System.out.println(v1.get_name() + " et " + v2.get_name() + " NE sont PAS de la même classe !");
+            System.out.println(v1.getName() + " et " + v2.getName() + " NE sont PAS de la même classe !");
         }
 
     }

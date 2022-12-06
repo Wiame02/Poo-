@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 public class DataMonsters {
     
+    public static ArrayList<ArrayList<Monster>> DATA_MONSTERS = data_monsters();
+
     public static ArrayList<Monster> createMonstersValkiem(){
         ArrayList<Monster> monsters = new ArrayList<Monster>();
         
@@ -26,8 +28,7 @@ public class DataMonsters {
 
         monsters.add(new Monster("Zombie décomposé",25,Species.ZOMBIE,12));
         monsters.add(new Monster("Zombie",30,Species.ZOMBIE,25));
-        monsters.add(new Monster("Mort-vivant 1",45,Species.UNDEAD,20));
-        monsters.add(new Monster("Mort-vivant 2",20,Species.UNDEAD,3));
+        monsters.add(new Monster("Mort-vivant",45,Species.UNDEAD,20));
         monsters.add(new Monster("Goule",110,Species.GHOUL,30));
         monsters.add(new Monster("Algoule",40,Species.ALGOULE,5));
         monsters.add(new Monster("Djin mytérieux",80,Species.DJIN,45));

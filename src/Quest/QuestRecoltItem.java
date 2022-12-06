@@ -50,9 +50,12 @@ public class QuestRecoltItem extends Quest{
     public void submit(Player p){
         int i = 0;
         Inventory inventory = p.getInventory();
-        while(i<=inventory.getItems().size() || !this.isAccomplished){
+        while(i<inventory.getItems().size() && !this.isAccomplished){
             this.isAccomplished = inventory.getItemAt(i).isEqual(this.item);
             i++;
+        }
+        if(i<inventory.getItems().size()){
+            inventory.useItem(this.item.getName());
         }
     }
 }

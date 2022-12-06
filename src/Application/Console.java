@@ -1,6 +1,9 @@
 package Application;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Entity.Species;
+
 import java.lang.String;
 import User.*;
 import java.lang.Thread;  
@@ -12,16 +15,18 @@ import java.lang.Thread;
 
 public class Console {
     public static void showAvailableActions(Player p) {
-        System.out.println("getCurrentArea()");
+        System.out.println("\ngetCurrentArea()");
         System.out.println("displayInventory()");
-        System.out.println("move_linked_area()");
+        System.out.println("moveLinkedArea()");
         System.out.println("showAvailableActions()");
-        System.out.println("get_hp()");
+        System.out.println("getHp()");
 
-        if (true) { //XXX
-            System.out.println("interact("+  p.getCurrentArea().getEntity().get_name() +")");
-        } else {
-            System.out.println("attack("+ p.getCurrentArea().getEntity().get_name() +")");
+        if (p.getCurrentArea().getEntity()!=null) {
+            if (p.getCurrentArea().getEntity().getSpecies()==Species.VILLAGER) {
+                System.out.println("interact("+  p.getCurrentArea().getEntity().getName() +")");
+            } else {
+                System.out.println("fight("+ p.getCurrentArea().getEntity().getName() +")");
+            }
         }
     }
 
@@ -64,16 +69,15 @@ public class Console {
     }
     
     /** 
-     *  Lit et decrypte l'entrée d'un utilisateur : elle r
+     * Lit et decrypte l'entrée d'un utilisateur
      * @return la fonction et des parametres d'entree sous forme de tableau [nom_fonction, arg1, ..., argn]
      */
     public static ArrayList<String> readAction() throws ApplicationException {
         ArrayList<String> resInput = new ArrayList<String>();
-        Scanner sc = new Scanner(System.in);
-
+        
         System.out.print(">> ");
+        Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
-        sc.close();
 
         if (!input.endsWith(";")){
             throw new ApplicationException("La ligne de code n'est pas terminee par un ';'");
@@ -116,13 +120,13 @@ public class Console {
                 }
                 i++;    //Incrémentation !
             }
-            if (!leftParenthesis && !rightParenthesis) { throw new ApplicationException("Parentheses manquantes"); }
+            if (!leftParenthesis || !rightParenthesis) { throw new ApplicationException("Parenthese(s) manquantes"); }
             if (i<input.length()-2) { throw new ApplicationException("Arguments restants non valides après les parenthèses."); }
             return resInput;
         }
     }
     
-    public static ArrayList<String> get_available_actions(){
+    public static ArrayList<String> getAvailableActions(){
         ArrayList<String> doableActions = null;
         //TODO
         return doableActions;

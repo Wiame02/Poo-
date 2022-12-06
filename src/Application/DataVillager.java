@@ -11,6 +11,8 @@ import java.util.ArrayList;
  */
 
 public class DataVillager {
+    public static  ArrayList<ArrayList<Villager>> DATA_VILLAGERS = dataVillagers(DataMonsters.DATA_MONSTERS.get(0), DataMonsters.DATA_MONSTERS.get(1), DataMonsters.DATA_MONSTERS.get(2));
+    public static  ArrayList<ArrayList<Entity>> DATA_ENTITIES = dataEntities(DATA_VILLAGERS, DataMonsters.DATA_MONSTERS);
 
     public static ArrayList<Villager> createVillagersValkiem(ArrayList<Monster> monsters){
         ArrayList<Villager> villagers = new ArrayList<Villager>();
@@ -23,62 +25,62 @@ public class DataVillager {
         villagers.add(new Villager("Lileo", 100));
         
         // Création des quêtes et liaison aux villageois
-        villagers.get(0).set_quest(new QuestKillMonster("Mammouth nourissant",2,monsters.get(0)));
-        villagers.get(0).get_quest().setReward(new Item("Potagé à la viande"));
+        villagers.get(0).setQuest(new QuestKillMonster("Mammouth nourissant",2,monsters.get(0)));
+        villagers.get(0).getQuest().setReward(new Item("Potagé à la viande"));
 
-        villagers.get(1).set_quest(new QuestKillMonster("Gare au Griffon",2,monsters.get(2)));
-        villagers.get(1).get_quest().setReward(new Armor("Casque du griffon",40,50,Type.HELMET));
+        villagers.get(1).setQuest(new QuestKillMonster("Gare au Griffon",2,monsters.get(2)));
+        villagers.get(1).getQuest().setReward(new Armor("Casque du griffon",40,50,Type.HELMET));
 
-        villagers.get(2).set_quest(new QuestKillMonster("Molosse dérangeant",1,monsters.get(3)));
-        villagers.get(2).get_quest().setReward(new Armor("Cuissarde", 60, 40, Type.BOOT));
+        villagers.get(2).setQuest(new QuestKillMonster("Molosse dérangeant",1,monsters.get(3)));
+        villagers.get(2).getQuest().setReward(new Armor("Cuissarde", 60, 40, Type.BOOT));
 
-        villagers.get(3).set_quest(new QuestKillMonster("Pierre du Golem",5,monsters.get(4)));
-        villagers.get(3).get_quest().setReward(new Weapon("Massue destructrice", 100, 120));
+        villagers.get(3).setQuest(new QuestKillMonster("Pierre du Golem",5,monsters.get(4)));
+        villagers.get(3).getQuest().setReward(new Weapon("Massue destructrice", 100, 120));
 
-        villagers.get(4).set_quest(new QuestRecoltItem("Pénurie de nourriture",1,villagers.get(0).get_quest().get_reward()));
-        villagers.get(4).get_quest().setReward(new Armor("Tunique en peau de Mammouth",80,30,Type.CHESTPLATE));
+        villagers.get(4).setQuest(new QuestRecoltItem("Pénurie de nourriture",1,villagers.get(0).getQuest().getReward()));
+        villagers.get(4).getQuest().setReward(new Armor("Tunique en peau de Mammouth",80,30,Type.CHESTPLATE));
 
 
 
         // Création des dialogues et liaison aux villageois
             // 0 : Chef Bebar
-        villagers.get(0).add_dialogue("Bonjour voyageur.se, si vous souhaitez un potage de mammouth, malheureusement je n'en ai plus. \n Mais ! Vous pourriez me rapporter de la viande de celui-ci !");
-        villagers.get(0).add_dialogue("Merci beaucoup voyageur.se, revenez me voir dès que vous aurez réussi à en chasser un. Et un gros s'il vous plait !");
-        villagers.get(0).add_dialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
-        villagers.get(0).add_dialogue("Revenez me voir quand vous aurez finis ma demande.");
-        villagers.get(0).add_dialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
-        villagers.get(0).add_dialogue("N'hésitez pas à aider mes compatriotes, ils vous le rendront fortement");
+        villagers.get(0).addDialogue("Bonjour voyageur.se, si vous souhaitez un potage de mammouth, malheureusement je n'en ai plus. \n Mais ! Vous pourriez me rapporter de la viande de celui-ci !");
+        villagers.get(0).addDialogue("Merci beaucoup voyageur.se, revenez me voir dès que vous aurez réussi à en chasser un. Et un gros s'il vous plait !");
+        villagers.get(0).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(0).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(0).addDialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
+        villagers.get(0).addDialogue("N'hésitez pas à aider mes compatriotes, ils vous le rendront fortement");
             // 1 : Sally
-        villagers.get(1).add_dialogue("Eh vous là ! Vous voulez pas aller me chercher un griffon ? J'en ai besoin pour fabriquer des armures. Je vous offres un casque en échange.");
-        villagers.get(1).add_dialogue("Ah bien le merci ! Reviens vite.");
-        villagers.get(1).add_dialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
-        villagers.get(1).add_dialogue("Revenez me voir quand vous aurez finis ma demande.");
-        villagers.get(1).add_dialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
-        villagers.get(1).add_dialogue("Quand j'ouvrirais mon armurie j'espère que vous passerez !");
+        villagers.get(1).addDialogue("Eh vous là ! Vous voulez pas aller me chercher un griffon ? J'en ai besoin pour fabriquer des armures. Je vous offres un casque en échange.");
+        villagers.get(1).addDialogue("Ah bien le merci ! Reviens vite.");
+        villagers.get(1).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(1).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(1).addDialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
+        villagers.get(1).addDialogue("Quand j'ouvrirais mon armurie j'espère que vous passerez !");
 
             // 2 : Obé
-        villagers.get(2).add_dialogue("Excusez-moi, vous m'avez l'air fort.e et courageux.se, pourriez-vous éloigner les molosses de mon pré ? Une de mes vaches a déjà été attaquée, je n'ai pas envie d'en perdre plus. *snif*");
-        villagers.get(2).add_dialogue("Vous me soulagez, n'hésitez pas à revenir me voir lorsque vous aurez réussi!");
-        villagers.get(2).add_dialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
-        villagers.get(2).add_dialogue("Revenez me voir quand vous aurez finis ma demande.");
-        villagers.get(2).add_dialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
-        villagers.get(2).add_dialogue("Merci encore pour la dernière fois, grâce à vous je n'ai plus aucun problème.");
+        villagers.get(2).addDialogue("Excusez-moi, vous m'avez l'air fort.e et courageux.se, pourriez-vous éloigner les molosses de mon pré ? Une de mes vaches a déjà été attaquée, je n'ai pas envie d'en perdre plus. *snif*");
+        villagers.get(2).addDialogue("Vous me soulagez, n'hésitez pas à revenir me voir lorsque vous aurez réussi!");
+        villagers.get(2).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(2).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(2).addDialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
+        villagers.get(2).addDialogue("Merci encore pour la dernière fois, grâce à vous je n'ai plus aucun problème.");
         
             // 3 : Oxianne
-        villagers.get(3).add_dialogue("Salut toi ! C'est quoi cette arme ? J'en fais des meilleures moi ! Tiens je sais ce qu'on va faire. Si tu me ramènes la perle d'un golem, je te fais une arme sur mesure ! Alors, ca te va ?");
-        villagers.get(3).add_dialogue("Ouais ! Enfin quelqu'un qui accepte !");
-        villagers.get(3).add_dialogue("Pouah... T'es pas fun ! Reviens si jamais tu changes d'avis !");
-        villagers.get(3).add_dialogue("Revenez me voir quand vous aurez finis ma demande.");
-        villagers.get(3).add_dialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
-        villagers.get(3).add_dialogue("Oh salut ! J'ai pas d'autres marché à faire avec toi. Reviens plus tard, peut-être que j'aurais trouver quelque chose.");
+        villagers.get(3).addDialogue("Salut toi ! C'est quoi cette arme ? J'en fais des meilleures moi ! Tiens je sais ce qu'on va faire. Si tu me ramènes la perle d'un golem, je te fais une arme sur mesure ! Alors, ca te va ?");
+        villagers.get(3).addDialogue("Ouais ! Enfin quelqu'un qui accepte !");
+        villagers.get(3).addDialogue("Pouah... T'es pas fun ! Reviens si jamais tu changes d'avis !");
+        villagers.get(3).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(3).addDialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
+        villagers.get(3).addDialogue("Oh salut ! J'ai pas d'autres marché à faire avec toi. Reviens plus tard, peut-être que j'aurais trouver quelque chose.");
 
             // 4 : Liléo
-        villagers.get(4).add_dialogue("Bonjour, j'aimerais beaucoup que vous me rendiez service. Il manque de la nourriture à l'infirmerie, pourrier-vous nous en rapporter auprè du chef ?");
-        villagers.get(4).add_dialogue("Merci beaucoup, vous êtes d'une grande aide !");
-        villagers.get(4).add_dialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
-        villagers.get(4).add_dialogue("Revenez me voir quand vous aurez finis ma demande.");
-        villagers.get(4).add_dialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
-        villagers.get(4).add_dialogue("Tiens vous voilà, je vous remercies pour la dernière fois. Vous avez été d'une grande aide.");
+        villagers.get(4).addDialogue("Bonjour, j'aimerais beaucoup que vous me rendiez service. Il manque de la nourriture à l'infirmerie, pourrier-vous nous en rapporter auprè du chef ?");
+        villagers.get(4).addDialogue("Merci beaucoup, vous êtes d'une grande aide !");
+        villagers.get(4).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(4).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(4).addDialogue("Merci pour votre service j'apprécie beaucoup votre dévouement, voiçi votre récompense.");
+        villagers.get(4).addDialogue("Tiens vous voilà, je vous remercies pour la dernière fois. Vous avez été d'une grande aide.");
         
 
         return villagers;
@@ -98,43 +100,83 @@ public class DataVillager {
         
         // Création des quêtes et liaison aux villageois
             // 0 : Maire Robert
-        villagers.get(0).set_quest(new QuestKillMonster("Pierre du Djin",1,monsters.get(6)));
-        villagers.get(0).get_quest().setReward(new Item("Pierre Ecarlate"));
+        villagers.get(0).setQuest(new QuestKillMonster("Pierre du Djin",1,monsters.get(5)));
+        villagers.get(0).getQuest().setReward(new Item("Pierre Ecarlate"));
             // 1 : Ophélie
-        villagers.get(1).set_quest(new QuestKillMonster("Invasion",1,monsters.get(0)));
-        villagers.get(1).get_quest().setReward(new Item("Trousse de secours"));
+        villagers.get(1).setQuest(new QuestKillMonster("Invasion",1,monsters.get(0)));
+        villagers.get(1).getQuest().setReward(new Item("Trousse de secours"));
             // 2 : Maxime
-        villagers.get(2).set_quest(new QuestKillMonster("Ville en destruction",1,monsters.get(4)));
-        villagers.get(2).get_quest().setReward(new Armor("Gilet pareballe",150,85,Type.CHESTPLATE));
+        villagers.get(2).setQuest(new QuestKillMonster("Ville en destruction",1,monsters.get(3)));
+        villagers.get(2).getQuest().setReward(new Armor("Gilet pareballe",150,85,Type.CHESTPLATE));
             // 3 : Sylvia
-        villagers.get(3).set_quest(new QuestRecoltItem("Matériel à améliorer",1,villagers.get(0).get_quest().get_reward()));
-        villagers.get(3).get_quest().setReward(new Weapon("Fusil magique",85,70));
+        villagers.get(3).setQuest(new QuestRecoltItem("Matériel à améliorer",1,villagers.get(0).getQuest().getReward()));
+        villagers.get(3).getQuest().setReward(new Weapon("Fusil magique",85,70));
             // 4 : Jules
-        villagers.get(3).set_quest(new QuestRecoltItem("Bléssés en détresse",1,villagers.get(0).get_quest().get_reward()));
-        villagers.get(3).get_quest().setReward(new Item("Bon de ravitaillement"));
+        villagers.get(4).setQuest(new QuestRecoltItem("Bléssés en détresse",1,villagers.get(1).getQuest().getReward()));
+        villagers.get(4).getQuest().setReward(new Item("Bon de ravitaillement"));
             // 5 : Juliette
-        villagers.get(4).set_quest(new QuestKillMonster("Abréger les soufrances",1,monsters.get(2)));
-        villagers.get(4).get_quest().setReward(new Armor("Casque de chantier",20,30,Type.HELMET));
+        villagers.get(5).setQuest(new QuestKillMonster("Abréger les soufrances",1,monsters.get(2)));
+        villagers.get(5).getQuest().setReward(new Armor("Casque de chantier",20,30,Type.HELMET));
             // 6 : Gaspard
-        villagers.get(5).set_quest(new QuestRecoltItem("Besoin en matériel",1,villagers.get(3).get_quest().get_reward()));
-        villagers.get(5).get_quest().setReward(new Armor("Chaussures renforcées",60,60,Type.BOOT));
+        villagers.get(6).setQuest(new QuestRecoltItem("Besoin en matériel",1,villagers.get(3).getQuest().getReward()));
+        villagers.get(6).getQuest().setReward(new Armor("Chaussures renforcées",60,60,Type.BOOT));
 
         // Création des dialogues et liaison aux villageois
-        // Création des dialogues et liaison aux villageois
             // 0
-        villagers.get(0).add_dialogue("");
+        villagers.get(0).addDialogue("Bonjour aventurier.e ! Si jamais tu trouves un Djin j'aimerais beaucoup que tu me le rapportes, nous avons besoins d'informations sur cette entité.");
+        villagers.get(0).addDialogue("Merci bien !");
+        villagers.get(0).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(0).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(0).addDialogue("Olala ! Merci beaucoup !  Tenez vous pouvez récupérer sa perle, je n'en ai pas besoin.");
+        villagers.get(0).addDialogue("Grâce à vous j'ai obtenus de merveilleuses informations sur les Djins !");
+
             // 1
-        villagers.get(1).add_dialogue("");
+        villagers.get(1).addDialogue("Eh, tu vois pas qu'on est débordés! Aide-nous un peu dis donc, va tuer des zombies!");
+        villagers.get(1).addDialogue("Merci ! J'espères te revoir.");
+        villagers.get(1).addDialogue("Ah bah sympa, merci de nous laissez comme ca... Si tu changes d'avis je te récompenserais peut-être.");
+        villagers.get(1).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(1).addDialogue("C'est cool de nous avoir aidé, tiens pour la peine");
+        villagers.get(1).addDialogue("J'en peux plus de ces zombies...");
+
             // 2
-        villagers.get(2).add_dialogue("");
+        villagers.get(2).addDialogue("");
+        villagers.get(2).addDialogue("");
+        villagers.get(2).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(2).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(2).addDialogue("");
+        villagers.get(2).addDialogue("");
+
             // 3
-        villagers.get(3).add_dialogue("");
+        villagers.get(3).addDialogue("");
+        villagers.get(3).addDialogue("");
+        villagers.get(3).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(3).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(3).addDialogue("");
+        villagers.get(3).addDialogue("");
+
             // 4
-        villagers.get(4).add_dialogue("");
+        villagers.get(4).addDialogue("");
+        villagers.get(4).addDialogue("");
+        villagers.get(4).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(4).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(4).addDialogue("");
+        villagers.get(4).addDialogue("");
+
             // 5
-        villagers.get(4).add_dialogue("");
+        villagers.get(5).addDialogue("Excusez-moi... J'ai vue le corps de ma femme décédé errer... Pourrier-vous abréger ses souffrances ? Je sais qu'elle est déjà décédé mais cela me peine beaucoup... *snif*");
+        villagers.get(5).addDialogue("Merci beaucoup.");
+        villagers.get(5).addDialogue("Bien, merci tout de même de m'avoir écouté...");
+        villagers.get(5).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(5).addDialogue("");
+        villagers.get(5).addDialogue("");
+
             // 6
-        villagers.get(4).add_dialogue("");
+        villagers.get(6).addDialogue("");
+        villagers.get(6).addDialogue("");
+        villagers.get(6).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(6).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
+        villagers.get(6).addDialogue("");
+        villagers.get(6).addDialogue("");
 
         return villagers;
     }
@@ -153,45 +195,52 @@ public class DataVillager {
         
         // Création des quêtes et liaison aux villageois
             // 0 : Chef de Brigade Marianne
-        villagers.get(0).set_quest(new QuestKillMonster("A bat le demon",5,monsters.get(4)));
-        villagers.get(0).get_quest().setReward(new Weapon("Lance de Luchi",1000,300));
+        villagers.get(0).setQuest(new QuestKillMonster("A bat le demon",5,monsters.get(4)));
+        villagers.get(0).getQuest().setReward(new Weapon("Lance de Luchi",1000,300));
             // 1 : Agent 007
-        villagers.get(1).set_quest(new QuestKillMonster("Bug de drone",1,monsters.get(1)));
-        villagers.get(1).get_quest().setReward(new Item("Puce mémoire"));
+        villagers.get(1).setQuest(new QuestKillMonster("Bug de drone",1,monsters.get(1)));
+        villagers.get(1).getQuest().setReward(new Item("Puce mémoire"));
             // 2 :  Agent 117
-        villagers.get(2).set_quest(new QuestRecoltItem("Analyse des bugs",1,villagers.get(1).get_quest().get_reward()));
-        villagers.get(2).get_quest().setReward(new Armor("Casque d'agent",50,35,Type.HELMET));
+        villagers.get(2).setQuest(new QuestRecoltItem("Analyse des bugs",1,villagers.get(1).getQuest().getReward()));
+        villagers.get(2).getQuest().setReward(new Armor("Casque d'agent",50,35,Type.HELMET));
             // 6 : Droide C3PO
-        villagers.get(6).set_quest(new QuestKillMonster("Cyborg en mission",1,monsters.get(2)));
-        villagers.get(6).get_quest().setReward(new Item("Herbes glaciales"));
+        villagers.get(6).setQuest(new QuestKillMonster("Cyborg en mission",1,monsters.get(2)));
+        villagers.get(6).getQuest().setReward(new Item("Herbes glaciales"));
             // 3 : Chercheur-cultivateur Olivier
-        villagers.get(3).set_quest(new QuestRecoltItem("Analyse des bugs",1,villagers.get(6).get_quest().get_reward()));
-        villagers.get(3).get_quest().setReward(new Armor("Tunique en lin OGM",120,72,Type.CHESTPLATE));
+        villagers.get(3).setQuest(new QuestRecoltItem("Analyse des bugs",1,villagers.get(6).getQuest().getReward()));
+        villagers.get(3).getQuest().setReward(new Armor("Tunique en lin OGM",120,72,Type.CHESTPLATE));
             // 4 : Etudiant Sophian
-        villagers.get(4).set_quest(new QuestKillMonster("cyborg disparu",1,monsters.get(3)));
-        villagers.get(4).get_quest().setReward(new Armor("Bottes volées",15,60,Type.BOOT));  
+        villagers.get(4).setQuest(new QuestKillMonster("cyborg disparu",1,monsters.get(3)));
+        villagers.get(4).getQuest().setReward(new Armor("Bottes volées",15,60,Type.BOOT));  
             // 5 : Enseignant Didier
-        villagers.get(5).set_quest(new QuestKillMonster("Peau du Dragon",2,monsters.get(5)));
-        villagers.get(5).get_quest().setReward(new Armor("Pantalon innovant",120,95,Type.LEGGING));
+        villagers.get(5).setQuest(new QuestKillMonster("Peau du Dragon",2,monsters.get(5)));
+        villagers.get(5).getQuest().setReward(new Armor("Pantalon innovant",120,95,Type.LEGGING));
 
         // Création des dialogues et liaison aux villageois
             // 0
-        villagers.get(0).add_dialogue("");
+        villagers.get(0).addDialogue("");
             // 1
-        villagers.get(1).add_dialogue("");
+        villagers.get(1).addDialogue("");
             // 2
-        villagers.get(2).add_dialogue("");
+        villagers.get(2).addDialogue("");
             // 3
-        villagers.get(3).add_dialogue("");
+        villagers.get(3).addDialogue("");
             // 4
-        villagers.get(4).add_dialogue("");
+        villagers.get(4).addDialogue("");
             // 5
-        villagers.get(4).add_dialogue("");
+        villagers.get(4).addDialogue("");
             // 6
-        villagers.get(4).add_dialogue("");
+        villagers.get(4).addDialogue("");
         return villagers;
     }
 
+    /**
+     * Crée les données des villageois par monde
+     * @param monstersValkiem   Les monstres dans Valkiem
+     * @param monstersCimebel   Les monstres dans Cimebel
+     * @param monstersCodix     Les monstres dans Codix
+     * @return Les données des villageois par monde
+     */
     public static ArrayList<ArrayList<Villager>> dataVillagers(ArrayList<Monster> monstersValkiem,ArrayList<Monster>monstersCimebel,ArrayList<Monster>monstersCodix){
         ArrayList<ArrayList<Villager>> villagers = new ArrayList<ArrayList<Villager>>();
 
@@ -202,17 +251,35 @@ public class DataVillager {
         return villagers;
     }
 
+    /**
+     * Fusionne les données villageois et monstres afin de nous donner les informations des entités par monde
+     * @param villagers Les données des villageois par monde
+     * @param monsters  Les données des monstres par monde
+     * @return  Les données des Entités par monde
+     */
+    public static ArrayList<ArrayList<Entity>> dataEntities (ArrayList<ArrayList<Villager>> villagers, ArrayList<ArrayList<Monster>> monsters) {
+        ArrayList<ArrayList<Entity>> entities = new ArrayList<ArrayList<Entity>>();
+
+        for (int i=0; i<villagers.size(); i++) {
+            ArrayList<Entity> tmp = new ArrayList<Entity>();
+            tmp.addAll(villagers.get(i));
+            tmp.addAll(monsters.get(i));
+
+            entities.add(tmp);
+        }
+        return entities;
+    }
     /*
      * Templates
      */
 
     /* QuestKillMonster
-    villagers.get().set_quest(new QuestKillMonster("",,monsters.get()));
-    villagers.get().get_quest().set_reward(new Item(""));
+    villagers.get().setQuest(new QuestKillMonster("",,monsters.get()));
+    villagers.get().getQuest().set_reward(new Item(""));
     */
 
     /* QuestRecoltItem
-    villagers.get().set_quest(new QuestRecoltItem("",1,villagers.get().get_quest().get_reward()));
-    villagers.get().get_quest().set_reward(new );
+    villagers.get().setQuest(new QuestRecoltItem("",1,villagers.get().getQuest().getReward()));
+    villagers.get().getQuest().set_reward(new );
     */
 }

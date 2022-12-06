@@ -1,6 +1,5 @@
 package Application;
 import java.util.ArrayList;
-
 import Localization.*;
 
 /**
@@ -9,6 +8,7 @@ import Localization.*;
  */
 
 public class DataWorlds {
+    public static ArrayList<World> DATA_WORLDS = dataWorlds();
 
     /**
      * Crée le monde de l'univers-cité avec ses zones
@@ -276,7 +276,7 @@ public class DataWorlds {
         codix.getAreaAt(12).addAccessibleArea(codix.getAreaAt(11));
         codix.getAreaAt(12).addAccessibleArea(codix.getAreaAt(13));
             // Zone 13
-        codix.getAreaAt(12).addAccessibleArea(codix.getAreaAt(12));
+        codix.getAreaAt(13).addAccessibleArea(codix.getAreaAt(12));
 
         return codix;
     }

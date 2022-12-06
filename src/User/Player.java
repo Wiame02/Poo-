@@ -31,7 +31,7 @@ public class Player implements ClassInformation{
     public Player(String username, Order category, Area firstArea){
         this.username = username;
         this.lvl = 0;
-        this.hp = 750;
+        this.hp = 100;
         this.category = category;
         
         this.inventory = new Inventory();
@@ -68,21 +68,37 @@ public class Player implements ClassInformation{
 /**
  * SETTERS
 */
-    private void    setUsername(String name)           {this.username=name;}
-    public void     setLvl(int lvl)                    {this.lvl=lvl;}
-    public void     setHp(int hp)                      {this.hp=hp;}
-    public void     setCategory(Order category)        {this.category=category;}
-    private void    setInventory(Inventory i)           {this.inventory=i;}
-    private void    setArmor(Armor[] armor)             {
-        this.armor[0] = armor[0];
-        this.armor[1] = armor[1];
-        this.armor[2] = armor[2];
-        this.armor[3] = armor[3];
+    private void setUsername(String name) {this.username=name;}
+    public void setLvl(int lvl) {
+        if(lvl>=0){
+            this.lvl=lvl;
+        }else{
+            this.lvl=0;
+        }
     }
-    public void     setHelmet(Armor casque)            {this.armor[0]=casque;}
-    public void     setChestplaste(Armor chestplate)   {this.armor[1]=chestplate;}
-    public void     setLegging(Armor legging)          {this.armor[2]=legging;}
-    public void     setBoot(Armor boot)                {this.armor[3]=boot;}
+    public void setHp(int hp){
+        if(hp>=0){
+            this.hp=hp;
+        }else{
+            this.hp = 0;
+        }
+    }
+    public void setCategory(Order category) {this.category=category;}
+    private void setInventory(Inventory i) {this.inventory=i;}
+    private void setArmor(Armor[] armor) {
+        if(armor[0].getType()==Type.HELMET){
+            this.armor[0] = armor[0];
+        }
+        if(armor[1].getType()==Type.CHESTPLATE){
+            this.armor[1] = armor[1];
+        }
+        if(armor[2].getType()==Type.LEGGING){
+            this.armor[2] = armor[2];
+        }
+        if(armor[3].getType()==Type.BOOT){
+            this.armor[3] = armor[3];
+        }
+    }
     public void     setWeapon(Weapon weapon)           {this.weapon=weapon;}
     public void     setCurrentQuest(Quest quest)      {this.currentQuest=quest;}
     public void     setCurrentArea(Area area)         {this.currentArea=area;}
@@ -111,7 +127,7 @@ public class Player implements ClassInformation{
      */
     public void displayPlayerData(){
         System.out.println("Informations de "+this.username+" ---");
-        System.out.println("Niveau de vie : "+this.hp);
+        System.out.println("Points de vie : "+this.hp);
         System.out.println("Niveau d'experience : "+this.lvl);
     }
 
@@ -122,6 +138,28 @@ public class Player implements ClassInformation{
         System.out.println(this.currentQuest.toString());
     }
 
+
+    /**
+     * 
+     */
+    @Override
+    public String toString(){
+        String res ="";
+        res+="Pseudo : "+this.username+"\n";
+        res+="lvl : "+this.lvl+"\n";
+        res+="HP : "+this.hp+"\n";
+        res+="Classe : "+this.category.getName()+"\n";
+        res+=this.inventory.toString()+"\n";
+        res+="Armure : \n ";
+        res+=this.armor[0].toString()+"\n";
+        res+=this.armor[1].toString()+"\n";
+        res+=this.armor[2].toString()+"\n";
+        res+=this.armor[3].toString()+"\n";
+        res+= "Quete actuelle :";
+        res+=(this.currentQuest!=null)?this.currentQuest.getTitle():"";
+        res+= "\nZone actuelle :"+this.currentArea.getName()+"\n";
+        return res;
+    }
 /*
  * Déplacements
  */
@@ -138,7 +176,7 @@ public class Player implements ClassInformation{
      * @param destination une zone
      * @throws Exception si la zone n'est pas accessible
      */
-    public void moveToLinkedarea(Area destination) throws Exception{
+    public void moveToLinkedArea(Area destination) throws Exception{
         if(this.currentArea.getAccessArea(destination.getName())==null){
             throw new Exception("La zone n'est pas accessible");
         }else{
@@ -167,14 +205,14 @@ public class Player implements ClassInformation{
      */
     public void decreaseHp(int n) throws Exception{
         if(this.isAlive()){
-            if(n>0){
+            if(n>=0){
                 if(this.hp<=n){
                     this.hp=0;
                 }else{
                     this.hp-=n;
                 }
             }else{
-                throw new Exception("Ne peut pas soustraire une valeur nulle ou négative");
+                throw new Exception("Ne peut pas soustraire une valeur négative");
             }
         }else{ 
             throw new Exception("Ne peut pas soustraire : La vie du joueur est déjà à 0");
@@ -182,11 +220,34 @@ public class Player implements ClassInformation{
     }
 
     /**
-     * Retourne true si le personnage est vivant sinon false
-     * @return true ou false
+     * Le joueur subit des dégats qui sont en partie absorbés par son armure
+     * @param n les dégats subits
+     * @return
+     */
+    public void decreaseHpWithArmor(int n,Entity e) throws Exception{
+        int damage = n ;
+        for(Armor a : this.armor){
+            damage -= a.getDefensePoint()/100*n/4;
+            if(a.getDefensePoint()>100){
+                try{e.decreaseHp(n*(a.getDefensePoint()-100)/100);}
+                catch(Exception exception){System.out.println(e.getName()+" a esquivé les dégats de retour.");}
+            }
+        }
+        try{
+            this.decreaseHp(damage);
+        }
+        catch(Exception exception){
+            throw exception;
+        }
+    }
+
+    /**
+     * Retourne si le personnage est vivant ou non 
+     * @return  true si les points de vie sont strictement supérieurs à 0
+     *          false sinon
      */
     public boolean isAlive(){
-        return (this.hp!=0);
+        return (this.hp>0);
     }
 
 /*
@@ -194,20 +255,32 @@ public class Player implements ClassInformation{
  */
     /**
      * Change l'equipement du personnage par le nouveau selon sa categorie
-     * @param new_armor
+     * @param newArmor
      * @throws Exception si l'armure n'est pas typée
      */
-    public void equipArmor(Armor new_armor) throws Exception{ 
-        if(new_armor.getType() == Type.HELMET){
-            this.armor[0]=new_armor;
-        }else if(new_armor.getType() == Type.CHESTPLATE){
-            this.armor[1]=new_armor;
-        }else if(new_armor.getType() == Type.LEGGING){
-            this.armor[2]=new_armor;
-        }else if(new_armor.getType() == Type.BOOT){
-            this.armor[3]=new_armor;
+    public void equipArmor(Armor newArmor) throws Exception{
+        if(this.inventory.getItems().contains(newArmor)){
+            if(newArmor.getType() == Type.HELMET){
+                this.inventory.addItem(this.armor[0]);
+                this.armor[0]=newArmor;
+                this.inventory.deleteItem(this.armor[0].getName());
+            }else if(newArmor.getType() == Type.CHESTPLATE){
+                this.inventory.addItem(this.armor[1]);
+                this.armor[1]=newArmor;
+                this.inventory.deleteItem(this.armor[1].getName());
+            }else if(newArmor.getType() == Type.LEGGING){
+                this.inventory.addItem(this.armor[2]);
+                this.armor[2]=newArmor;
+                this.inventory.deleteItem(this.armor[2].getName());
+            }else if(newArmor.getType() == Type.BOOT){
+                this.inventory.addItem(this.armor[3]);
+                this.armor[3]=newArmor;
+                this.inventory.deleteItem(this.armor[3].getName());
+            }else{
+                throw new Exception("Armor without type");
+            }
         }else{
-            throw new Exception("Armor without type");
+            throw new Exception("Le joueur n'a pas l'armure dans son inventaire.");
         }
     }
 
@@ -216,8 +289,12 @@ public class Player implements ClassInformation{
      * Change l'arme du personnage par la nouvelle
      * @param newWeapon
      */
-    public void equipWeapon(Weapon newWeapon){
-        this.weapon=newWeapon;
+    public void equipWeapon(Weapon newWeapon) throws Exception{
+        if(this.inventory.getItems().contains(newWeapon)){
+            this.inventory.addItem(this.weapon);
+            this.weapon=newWeapon;
+            this.inventory.deleteItem(this.weapon.getName());
+        }
     }
 
 /*
@@ -228,8 +305,7 @@ public class Player implements ClassInformation{
      * @param e
      */
     public void interact(Villager v){
-        //FIXME
-        v.talk(this.currentQuest,this);
+        v.talk(this);
     }
 
     /**
@@ -238,10 +314,14 @@ public class Player implements ClassInformation{
      */
     public void attack(Monster m){
         try{
-            m.decrease_hp(this.weapon.getAttackPoints());
+            if(this.weapon==null){
+                m.decreaseHp(1);
+            }else{
+                m.decreaseHp(this.weapon.getAttackPoints());
+            }
         }
         catch(Exception e){
-            System.out.println(m.get_name()+" a esquivé votre attaque");
+            System.out.println(m.getName()+" a esquivé votre attaque");
         }
     }
 
