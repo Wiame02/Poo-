@@ -155,8 +155,9 @@ public class Player implements ClassInformation{
         res+=this.armor[1].toString()+"\n";
         res+=this.armor[2].toString()+"\n";
         res+=this.armor[3].toString()+"\n";
-        res+= "Quete actuelle :"+this.currentQuest.getTitle()+" \n";
-        res+= "Zone actuelle :"+this.currentArea.getName()+"\n";
+        res+= "Quete actuelle :";
+        res+=(this.currentQuest!=null)?this.currentQuest.getTitle():"";
+        res+= "\nZone actuelle :"+this.currentArea.getName()+"\n";
         return res;
     }
 /*

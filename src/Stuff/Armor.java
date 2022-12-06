@@ -68,7 +68,7 @@ public class Armor extends Item {
      */
     @Override
     public String toString() {
-        return super.toString() + "(" + this.defensePoint + " ," + this.type + ", " + this.durability + " )";
+        return super.toString() + "(" + this.defensePoint + ", " + this.type + ", " + this.durability + ")";
     }
 
 }
