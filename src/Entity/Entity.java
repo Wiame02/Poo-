@@ -41,30 +41,29 @@ public abstract class Entity{
 	 * Si les hp d'entrée sont inférieurs à 0 les hp sont mis à 0
 	 * @param hp
 	 */
-	public void setHp(int hp){
-		if(hp>0){
-			this.hp = hp;
-		}else{
-			this.hp = 0;
-		}
-	}
+	
+	public String get_name(){return this.name;}
 
-/*
- * Affichages
- */	
+	public double get_hp(){return this.hp;}
+	
 	/**
 	 * Affiche le nom de l'entité
 	 */
-	void printName(){
+	
+	public void set_name(String name){this.name=name;}
+	public void set_hp(int hp){this.hp=hp;}
+
+
+	// ----------AFFICHAGE-------------
+
+	void print_name(){
 		System.out.println("le nom de l'entité est : " + this.name + "\n");
 	}
 
-	/**
-	 * Affiche les points de vies de l'entité
-	 */
-	void printHp(){
+	void print_hp(){
 		System.out.println("le nombre de point(s) de vie de l'entité est : " + this.hp + "\n");
 	}
+	// ---------------------------------------------------------
 	
 
 	/**
@@ -72,7 +71,7 @@ public abstract class Entity{
 	 * @return true si l'entite est vivante
 	 * @return false si l'entite est morte (hp = 0)
 	 */
-	public boolean isAlive(){
+	public boolean is_alive(){
 		return (hp > 0);
 	}
 
@@ -83,29 +82,12 @@ public abstract class Entity{
 	*/
 	public void decreaseHp(int x) throws Exception{
 
-        if((this.isAlive())){
-            if(x >= 0){
-                if(this.hp <= x){
-                    this.hp = 0;
-                } else {
-                    this.hp -= x;
-                }
-            }else{
-				throw new Exception("La valeur de retrait de points de vie ne peut pas être négative");
-			}
-        }else{
-			throw new Exception("L'entité est déjà morte");
-		}
+	public boolean is_equal(Entity e){
+		return (this.name == e.name);
 	}
 
-	/**
-	 * Test si deux entitées sont égales par leurs noms et espèces
-	 * @param e l'entité à comparée
-	 * @return 	true si égaux 
-	 * 			false sinon
-	 */
-	public boolean isEqual(Entity e){
-		return (this.name == e.name && this.species==e.species );
+	public String to_string(){
+		return "Nom de l'entité : " + this.name + ", points de vie " + this.hp;
 	}
 
 	/**
