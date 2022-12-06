@@ -108,6 +108,7 @@ public class UserFonction {
      */
     public static boolean fight(Player p){
         Monster m = (Monster)p.getCurrentArea().getEntity();
+
         if(p.isAlive() && !m.isAlive()){
             return true;
         }else if(!p.isAlive() && m.isAlive()){

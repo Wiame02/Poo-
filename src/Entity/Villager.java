@@ -77,9 +77,6 @@ public class Villager extends Entity{
 		if (p.getCurrentQuest()==null || !this.quest.equals(p.getCurrentQuest())) { // La quête du villageois n'est pas en cours et n'a pas été faite
 			//System.out.println("Villager.talk(Player) : La quête du villageois n'est pas en cours et n'a pas été faite");
 
-
-
-
 			if(this.quest.isAccomplished(p)){  // La quête du villageaois a déjà été réalisée dans le passé
 				//System.out.println("Villager.talk(Player) : La quête du villageaois a déjà été réalisée dans le passé");
 				System.out.println(this.name+": "+this.dialogues.get(5));
@@ -88,17 +85,16 @@ public class Villager extends Entity{
 				System.out.println(this.name+": "+this.dialogues.get(0));
 				
 				Scanner sc = new Scanner(System.in);
-				System.out.println("Voulez vous accepter la quete : " + quest.getTitle() + "\n decline() pour refuser \n accept() pour accepter \n ");
+				System.out.print("Voulez vous accepter la quete : " + quest.getTitle() + "\n decline() pour refuser \n accept() pour accepter \n >> ");
 				String rep = sc.nextLine();
-				while(!rep.equals("accept()") && !rep.equals("decline()")){ // Vérification de la réponse du joueur 
+				while(!rep.equals("accept();") && !rep.equals("decline();")){ // Vérification de la réponse du joueur 
 					System.out.println("Mauvaise commande, veuillez réessayer.");
-					System.out.println("Voulez vous accepter la quete : " + quest.getTitle() + "\n decline() pour refuser \n accept() pour accepter \n ");
+					System.out.print("Voulez vous accepter la quete : " + quest.getTitle() + "\n decline() pour refuser \n accept() pour accepter \n >> ");
 					rep = sc.nextLine();
 				}
-
-				if(rep == "accept()"){ // La joueur accepte la quête
+				if(rep.equals("accept();")){ // La joueur accepte la quête
 					p.setCurrentQuest(this.quest);
-					System.out.println(this.name+": "+this.dialogues.get(0) + quest.getTitle());
+					System.out.println(this.name+": "+this.dialogues.get(1));
 				}
 				else{ // Le joueur refuse la quête
 					System.out.println(this.name+": "+this.dialogues.get(2));	

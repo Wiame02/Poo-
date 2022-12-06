@@ -129,18 +129,20 @@ public class Game {
         } else if (func.get(0).equals("displayDataPlayer")) {
             UserFonction.displayDataPlayer(p);
 
+        } else if (func.get(0).equals("displayAccessibleArea")) {
+            UserFonction.displayAccessibleArea(p);
         } else if (p.getCurrentArea().getEntity().getSpecies().equals(Species.VILLAGER) && func.get(0).equals("interact")) {
             p.interact((Villager) p.getCurrentArea().getEntity());
 
         }  else if (!p.getCurrentArea().getEntity().getSpecies().equals(Species.VILLAGER) && func.get(0).equals("fight")) {
+            if(((Monster)p.getCurrentArea().getEntity()).isBoss(p.getCurrentArea().getWorld())){
+                System.out.println("Ce monstre dégage une aura particulière ! Il s'agit du boss de "+p.getCurrentArea().getWorld().getName());
+            }
             if(UserFonction.fight(p)){
                 System.out.println("Vous avez gagner les combat contre "+p.getCurrentArea().getEntity().getName());
             }
 
-        } else if (func.get(0).equals("displayAccessibleArea")) {
-            UserFonction.displayAccessibleArea(p);
         }
-
 
 
 
@@ -221,6 +223,7 @@ public class Game {
         UserFonction.displayActions(player);
 
         while (!areAllBossesDead && player.isAlive()) {
+            System.out.println("displayActions()");
             //TODO showAvailableActions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
             doAnAction(player);
 
