@@ -75,16 +75,16 @@ public class Villager extends Entity{
 
 	public void talk(Player p){
 		if (p.getCurrentQuest()==null || !this.quest.equals(p.getCurrentQuest())) { // La quête du villageois n'est pas en cours et n'a pas été faite
-			System.out.println("Villager.talk(Player) : La quête du villageois n'est pas en cours et n'a pas été faite");
+			//System.out.println("Villager.talk(Player) : La quête du villageois n'est pas en cours et n'a pas été faite");
 
 
 
 
 			if(this.quest.isAccomplished(p)){  // La quête du villageaois a déjà été réalisée dans le passé
-				System.out.println("Villager.talk(Player) : La quête du villageaois a déjà été réalisée dans le passé");
+				//System.out.println("Villager.talk(Player) : La quête du villageaois a déjà été réalisée dans le passé");
 				System.out.println(this.name+": "+this.dialogues.get(5));
 			} else {
-				System.out.println("Villager.talk(Player) : La quête du villageaois N'a JAMAIS été réalisée !");
+				//System.out.println("Villager.talk(Player) : La quête du villageaois N'a JAMAIS été réalisée !");
 				System.out.println(this.name+": "+this.dialogues.get(0));
 
 				Scanner sc = new Scanner(System.in);

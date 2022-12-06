@@ -56,7 +56,7 @@ public class QuestKillMonster extends Quest{
 
         while(i<world.getAreas().size() && (world.getAreaAt(i).getEntity() == null || !world.getAreaAt(i).getEntity().isEqual(this.monster))){
             i++;
-            System.out.println("QuestKillMonster.submit(Player) : i++; i == " + i);
+            //System.out.println("QuestKillMonster.submit(Player) : i++; i == " + i);
         }
 
         if(i<world.getAreas().size() && world.getAreaAt(i).getEntity().isAlive()){
