@@ -116,12 +116,12 @@ public class Game {
         } else if (func.get(0).equals("displayInventory")) {
             System.out.println(p.getInventory().getItems() + "\n");
 
-        } else if (func.get(0).equals("moveLinkedArea")) {
+        } else if (func.get(0).equals("moveToLinkedArea")) {
             try {
                 int idArea = Integer.parseInt(func.get(1));
                 UserFonction.moveToLinkedArea(p, idArea);
             } catch (NumberFormatException numFormException) {
-                System.out.println("executeFunctionInput(ArrayList<String>, Player):" + numFormException);
+                System.out.println("executeFunctionInput(ArrayList<String>, Player):moveToLinkedArea(int):" + numFormException);
             }
 
         } else if (func.get(0).equals("showAvailableActions")) {
@@ -139,6 +139,7 @@ public class Game {
 
         } else if (func.get(0).equals("getAccessArea")) {
             ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
+            System.out.println("executeFunctionInput(ArrayList<String>, Player) : getAccessArea();");
 
             for (int i=0; i<areas.size(); i++) {
                 System.out.println(i + " - " + areas.get(i).getName());
