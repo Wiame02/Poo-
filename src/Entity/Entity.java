@@ -28,27 +28,17 @@ public abstract class Entity{
 	 * GETTERS
 	 */
 	
-	public String get_name(){return this.name;}
+	public String getName(){return this.name;}
 
-	public double get_hp(){return this.hp;}
+	public double getHp(){return this.hp;}
 	
 	/**
 	 * SETTERS
 	 */
 	
-	public void set_name(String name){this.name=name;}
-	public void set_hp(int hp){this.hp=hp;}
+	public void setName(String name){this.name=name;}
+	public void setHp(int hp){this.hp=hp;}
 
-
-	// ----------AFFICHAGE-------------
-
-	void print_name(){
-		System.out.println("le nom de l'entité est : " + this.name + "\n");
-	}
-
-	void print_hp(){
-		System.out.println("le nombre de point(s) de vie de l'entité est : " + this.hp + "\n");
-	}
 	// ---------------------------------------------------------
 	
 	/**
@@ -56,16 +46,16 @@ public abstract class Entity{
 	 * @return true si l'entite est vivante
 	 * @return false si l'entite est morte (hp = 0)
 	 */
-	public boolean is_alive(){
+	public boolean isAlive(){
 		return (hp > 0);
 	}
 
 
-	public boolean is_equal(Entity e){
+	public boolean isEqual(Entity e){
 		return (this.name == e.name);
 	}
 
-	public String to_string(){
+	public String toString(){
 		return "Nom de l'entité : " + this.name + ", points de vie " + this.hp;
 	}
 
