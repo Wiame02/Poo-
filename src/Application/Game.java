@@ -139,13 +139,8 @@ public class Game {
                 System.out.println("Vous avez gagner les combat contre "+p.getCurrentArea().getEntity().getName());
             }
 
-        } else if (func.get(0).equals("getAccessArea")) {
-            ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
-
-            for (int i=0; i<areas.size(); i++) {
-                System.out.println(i + " - " + areas.get(i).getName());
-            }
-            System.out.println();
+        } else if (func.get(0).equals("displayAccessibleArea")) {
+            UserFonction.displayAccessibleArea(p);
         }
 
 

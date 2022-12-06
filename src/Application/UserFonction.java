@@ -5,13 +5,51 @@ import User.*;
 import Localization.*;
 
 public class UserFonction {
+    /* */
+
     // TODO : getCurrentArea()
     // TODO : displayInventory()
-    // TODO : moveTo()
-    // TODO : displayActions()
-    // TODO : displayDataPlayer()
-    // TODO : displayAccessibleArea()
+
+    public static void displayActions(Player p){
+        System.out.println("ACTIONS -----------------------");
+        System.out.println("displayDataPlayer()");
+        System.out.println("displayInventory()");
+        System.out.println("displayCurrentArea()");
+        System.out.println("moveTo()");
+        
+        Entity e = p.getCurrentArea().getEntity();
+        if(e!=null){
+            if(e.getSpecies()!=Species.VILLAGER){
+                System.out.println("fight("+e.getName()+")");
+            }else{
+                System.out.println("interact("+e.getName()+")");
+            }
+        }
+
+    }
+
+    /**
+     * Affiche les données du joueur
+     * @param p le joueur
+     */
+    public static void displayDataPlayer(Player p){
+        System.out.println(p.getUsername()+" ----- "+p.getCategory().getName()+" \n PV :"+p.getHp()+"\n PA : "+((p.getWeapon()!=null)?p.getWeapon().getAttackPoints():1)+"\n NV : "+p.getLvl() );
+    }
+
+    /**
+     * Affiche les zones accessibles du joueur
+     * @param p le joueur
+     */
+    public static void displayAccessibleArea(Player p){
+        ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
+        System.out.println("ZONES ACCESSIBLES -------------");
+        for (int i=0; i<areas.size(); i++) {
+            System.out.println(i + " - " + areas.get(i).getName());
+        }
+        System.out.println();
+    }
     
+
     /**
      * @see User.Player#moveToLinkedArea(Area)
      * @param p
@@ -19,7 +57,7 @@ public class UserFonction {
      */
     public static void moveToLinkedArea(Player p, int idArea) {
         ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
-
+        
         if (0<=idArea && idArea<areas.size()) {
             p.moveTo(p.getCurrentArea().getAccessAreas().get(idArea));
         }
@@ -74,12 +112,15 @@ public class UserFonction {
     public static void main(String[] args){
         Board   board   = Game.generateBoard();
         Player  player  = Game.createPlayer(board.getWorldAt(1));
-        player.setWeapon(null);
+        displayDataPlayer(player);
+        displayAccessibleArea(player);
+        displayActions(player);
+        /*player.setWeapon(null);
 
         if(fight(player)){
             System.out.println("GAGNER");
         }else{
             System.out.print("PERDU");
-        }
+        }*/
     }
 }

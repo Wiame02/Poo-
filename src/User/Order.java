@@ -13,7 +13,7 @@ public enum Order {
 /*
  * Constantes
  */
-    COMPUTER_SCIENTIST("Informaticien"){
+    COMPUTER_SCIENTIST("Informaticien.ne"){
         
         /**
          * L'informaticien peut changer l'entité qui se trouve dans la même zone que lui aléatoirement
@@ -28,7 +28,7 @@ public enum Order {
             area.setEntity(tmp);
         }
     },
-    MATHEMATICIAN("Mathematicien"){
+    MATHEMATICIAN("Mathematicien.ne"){
 
         /**
          * Le mathematicien peut transformer son armure de telle sorte qu'il encaisse tout les dégats et renvoie une partie des degats au monstre
@@ -41,7 +41,7 @@ public enum Order {
             armor.setDefensePoint(150);
         }
     },
-    PHYSICIST("Physicien"){
+    PHYSICIST("Physicien.ne"){
 
         /**
          * Le physicien peut se déplacer dans une zone sans contraintes
