@@ -25,7 +25,7 @@ public class Console {
             if (p.getCurrentArea().getEntity().getSpecies()==Species.VILLAGER) {
                 System.out.println("interact("+  p.getCurrentArea().getEntity().getName() +")");
             } else {
-                System.out.println("attack("+ p.getCurrentArea().getEntity().getName() +")");
+                System.out.println("fight("+ p.getCurrentArea().getEntity().getName() +")");
             }
         }
     }

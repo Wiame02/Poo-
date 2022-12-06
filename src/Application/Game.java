@@ -134,8 +134,8 @@ public class Game {
             System.out.println("executeFunctionInput(ArrayList<String>, Player) : Player.interact(Villager) : " + p.getCurrentArea().getEntity().toString());
             p.interact((Villager) p.getCurrentArea().getEntity());
 
-        }  else if (!p.getCurrentArea().getEntity().getSpecies().equals(Species.VILLAGER) && func.get(0).equals("attack")) {
-            p.attack((Monster) p.getCurrentArea().getEntity());
+        }  else if (!p.getCurrentArea().getEntity().getSpecies().equals(Species.VILLAGER) && func.get(0).equals("fight")) {
+            UserFonction.fight(p);
 
         } else if (func.get(0).equals("getAccessArea")) {
             ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
