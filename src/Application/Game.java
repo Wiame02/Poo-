@@ -123,7 +123,7 @@ public class Game {
             } catch (NumberFormatException numFormException) {
                 System.out.println("executeFunctionInput(ArrayList<String>, Player):" + numFormException);
             }
-            
+
         } else if (func.get(0).equals("showAvailableActions")) {
             Console.showAvailableActions(p);
 
@@ -131,6 +131,7 @@ public class Game {
             p.displayPlayerData();
 
         } else if (p.getCurrentArea().getEntity().getSpecies().equals(Species.VILLAGER) && func.get(0).equals("interact")) {
+            System.out.println("executeFunctionInput(ArrayList<String>, Player) : Player.interact(Villager) : " + p.getCurrentArea().getEntity().toString());
             p.interact((Villager) p.getCurrentArea().getEntity());
 
         }  else if (!p.getCurrentArea().getEntity().getSpecies().equals(Species.VILLAGER) && func.get(0).equals("fight")) {
