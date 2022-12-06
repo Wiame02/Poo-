@@ -5,6 +5,13 @@ import User.*;
 import Localization.*;
 
 public class UserFonction {
+    // TODO : getCurrentArea()
+    // TODO : displayInventory()
+    // TODO : moveTo()
+    // TODO : displayActions()
+    // TODO : displayDataPlayer()
+    // TODO : displayAccessibleArea()
+    
     /**
      * @see User.Player#moveToLinkedArea(Area)
      * @param p
