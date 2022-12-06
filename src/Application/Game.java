@@ -204,13 +204,13 @@ public class Game {
      * @return true si tous les boss sont morts
      */
     public static boolean areAllBossesDead(Board board) {
-        boolean are_dead = true;
+        boolean areDead = true;
         int i = 1;
-        while (i<board.getWorlds().size() && are_dead) {
-            are_dead = !board.getWorldAt(i).getBoss().isAlive();
+        while (i<board.getWorlds().size() && areDead) {
+            areDead = !board.getWorldAt(i).getBoss().isAlive();
             i++;
         }
-        return are_dead;
+        return areDead;
     }
 
     /**
