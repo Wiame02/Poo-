@@ -66,7 +66,7 @@ public class Monster extends Entity{
 	 * Le monstre attaque un joueur et lui fait perdre des points de vies
 	 * @param p le joueur attaqué
 	 */
-	void attack(Player p){
+	public void attack(Player p){
     	try{
             p.decreaseHpWithArmor(this.attack,this);
         }
