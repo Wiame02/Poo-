@@ -111,7 +111,7 @@ public class Player implements ClassInformation{
      */
     public void displayArmor(){
         for(Armor a : this.armor){
-            a.toString();
+            System.out.println(a.toString());
         }
     }
 

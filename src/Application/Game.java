@@ -110,8 +110,8 @@ public class Game {
      * @throws GameException La fonction entrée soit n'est pas valide soit son paramètre ne l'est pas
      */
     public static void executeFunctionInput(ArrayList<String> func, Player p) {
-        if (func.get(0).equals("getCurrentArea")) {
-            UserFonction.getCurrentArea(p);
+        if (func.get(0).equals("displayCurrentArea")) {
+            UserFonction.displayCurrentArea(p);
             
         } else if (func.get(0).equals("displayInventory")) {
             UserFonction.displayInventory(p);
@@ -126,8 +126,8 @@ public class Game {
         } else if (func.get(0).equals("displayActions")) {
             UserFonction.displayActions(p);
 
-        } else if (func.get(0).equals("displayPlayerData")) {
-            p.displayPlayerData();
+        } else if (func.get(0).equals("displayDataPlayer")) {
+            UserFonction.displayDataPlayer(p);
 
         } else if (p.getCurrentArea().getEntity().getSpecies().equals(Species.VILLAGER) && func.get(0).equals("interact")) {
             System.out.println("executeFunctionInput(ArrayList<String>, Player) : Player.interact(Villager) : " + p.getCurrentArea().getEntity().toString());

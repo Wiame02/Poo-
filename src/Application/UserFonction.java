@@ -16,7 +16,8 @@ public class UserFonction {
         System.out.println("displayDataPlayer()");
         System.out.println("displayInventory()");
         System.out.println("displayCurrentArea()");
-        System.out.println("moveTo()");
+        System.out.println("displayAccessibleArea()");
+        System.out.println("moveTo(idArea)");
         
         Entity e = p.getCurrentArea().getEntity();
         if(e!=null){
@@ -26,7 +27,7 @@ public class UserFonction {
                 System.out.println("interact("+e.getName()+")");
             }
         }
-
+        
     }
 
     /**
@@ -54,7 +55,7 @@ public class UserFonction {
      * @see User.Player#getCurrentArea()
      * @param p
      */
-    public static void getCurrentArea(Player p) {
+    public static void displayCurrentArea(Player p) {
         System.out.println("CURRENT AREA-------------------");
         System.out.println(p.getCurrentArea().toString());
     }
@@ -123,7 +124,7 @@ public class UserFonction {
                         System.out.println(m.getName()+" a perdu : 1 points de vie \n");
                     }
                 }else if(action.get(0).equals("displayDataPlayer")){
-                    p.displayPlayerData();
+                    displayDataPlayer(p);
                     return fight(p);
                 }else if(action.get(0).equals("displayDataMonster")){
                     System.out.println(m.getName() +"----- \n HP : "+m.getHp()+"\n PA : "+m.get_attack()+"\n");
