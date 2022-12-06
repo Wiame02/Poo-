@@ -69,7 +69,7 @@ public class Console {
     }
     
     /** 
-     *  Lit et decrypte l'entrée d'un utilisateur : elle r
+     * Lit et decrypte l'entrée d'un utilisateur
      * @return la fonction et des parametres d'entree sous forme de tableau [nom_fonction, arg1, ..., argn]
      */
     public static ArrayList<String> readAction() throws ApplicationException {
@@ -126,7 +126,7 @@ public class Console {
         }
     }
     
-    public static ArrayList<String> get_available_actions(){
+    public static ArrayList<String> getAvailableActions(){
         ArrayList<String> doableActions = null;
         //TODO
         return doableActions;

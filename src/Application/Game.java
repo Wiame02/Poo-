@@ -87,19 +87,20 @@ public class Game {
     public static Player createPlayer(World w){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Comment t'appelles-tu ? ");
+        System.out.print("Comment t'appelles-tu ? \n>> ");
         String pseudo = sc.nextLine();
+        System.out.println(">>> " + pseudo);
 
-        System.out.println("Quelle spécialité souhaitez-vous avoir ? \n 1.Informaticien \n 2.Mathématicien \n 3.Physicien \n 4.Chimiste \n 5.Biologiste \n");
+        System.out.print("Quelle spécialité souhaitez-vous avoir ? \n 1.Informaticien \n 2.Mathématicien \n 3.Physicien \n 4.Chimiste \n 5.Biologiste \n>> ");
         String choice = sc.nextLine();
         String[] validEntry = {"1", "2", "3", "4", "5"};
 
         while(!(Arrays.asList(validEntry).contains(choice))){
-            System.out.println("Erreur : valeur non incluse entre 1 et 5.\n Quelle spécialité souhaitez-vous avoir ? \n 1.Informaticien \n 2.Mathématicien \n 3.Physicien \n 4.Chimiste \n 5.Biologiste \n");
+            System.out.print("Erreur : valeur non incluse entre 1 et 5.\n Quelle spécialité souhaitez-vous avoir ? \n 1.Informaticien \n 2.Mathématicien \n 3.Physicien \n 4.Chimiste \n 5.Biologiste \n>> ");
             choice = sc.nextLine();
         }
+
         Player p = new Player(pseudo, correspondingOrder(Integer.parseInt(choice)), w.getAreaAt(0));
-        System.out.println(p.toString());
         return p;
     }
 
@@ -218,6 +219,8 @@ public class Game {
     public static void playGame() {
         Board   board   = generateBoard();
         Player  player  = createPlayer(board.getWorldAt(1)); 
+        
+        System.out.println(player.toString());
 
         boolean areAllBossesDead = false;
         
