@@ -117,17 +117,15 @@ public class Game {
             System.out.println(p.getInventory().getItems() + "\n");
 
         } else if (func.get(0).equals("moveLinkedArea")) {
-            ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
-            int a = 0;
-
-            while (!areas.get(a).getName().contains(func.get(func.size()-1))) {
-                a++;
+            try {
+                int idArea = Integer.parseInt(func.get(1));
+                UserFonction.moveToLinkedArea(p, idArea);
+            } catch (NumberFormatException numFormException) {
+                System.out.println("executeFunctionInput(ArrayList<String>, Player):" + numFormException);
             }
-            if (a<areas.size()) {
-                p.moveTo(p.getCurrentArea().getAccessAreas().get(a));
-            }
-            System.out.println(p.getCurrentArea() + "\n");
+            
         } else if (func.get(0).equals("showAvailableActions")) {
+            Console.showAvailableActions(p);
 
         } else if (func.get(0).equals("displayPlayerData")) {
             p.displayPlayerData();
@@ -204,13 +202,13 @@ public class Game {
      * @return true si tous les boss sont morts
      */
     public static boolean areAllBossesDead(Board board) {
-        boolean are_dead = true;
+        boolean areDead = true;
         int i = 1;
-        while (i<board.getWorlds().size() && are_dead) {
-            are_dead = !board.getWorldAt(i).getBoss().isAlive();
+        while (i<board.getWorlds().size() && areDead) {
+            areDead = !board.getWorldAt(i).getBoss().isAlive();
             i++;
         }
-        return are_dead;
+        return areDead;
     }
 
     /**

@@ -1,11 +1,28 @@
 package Application;
+import java.util.ArrayList;
 import Entity.*;
 import User.*;
-import java.util.ArrayList;
 import Localization.*;
 
 public class UserFonction {
+    /**
+     * @see User.Player#moveToLinkedArea(Area)
+     * @param p
+     * @param idArea
+     */
+    public static void moveToLinkedArea(Player p, int idArea) {
+        ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
 
+        if (0<=idArea && idArea<areas.size()) {
+            p.moveTo(p.getCurrentArea().getAccessAreas().get(idArea));
+        }
+        System.out.println(p.getCurrentArea() + "\n");
+    }
+
+    /**
+     * Lance un combat entre le joueur et un monstre
+     * @param p le joueur
+     */
     public static void fight(Player p){
         Monster m = (Monster)p.getCurrentArea().getEntity();
         if(p.isAlive() && !m.isAlive()){
