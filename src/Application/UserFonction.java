@@ -76,6 +76,7 @@ public class UserFonction {
         for (int i=0; i<listItem.getItems().size(); i++) {
             System.out.println("- " + listItem.getItemAt(i).toString());
         }
+        System.out.println();
     }
     
 
