@@ -121,8 +121,9 @@ public class Game {
                 int idArea = Integer.parseInt(func.get(1));
                 UserFonction.moveToLinkedArea(p, idArea);
             } catch (NumberFormatException numFormException) {
-                System.out.println("executeFunctionInput:" + numFormException);
+                System.out.println("executeFunctionInput(ArrayList<String>, Player):" + numFormException);
             }
+            
         } else if (func.get(0).equals("showAvailableActions")) {
             Console.showAvailableActions(p);
 
