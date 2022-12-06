@@ -1,4 +1,6 @@
 package Quest;
+import java.util.ArrayList;
+
 import Entity.*;
 import User.Player;
 import Localization.*;
@@ -51,13 +53,20 @@ public class QuestKillMonster extends Quest{
     public void submit(Player p){
         int i = 0 ;
         World world = p.getCurrentArea().getWorld();
+        ArrayList<Area> areas = world.getAreas();
 
-        while(i<=world.getAreas().size() || !world.getAreaAt(i).getEntity().isEqual(this.monster)){
+        while(i<areas.size() && (areas.get(i).getEntity() == null || !areas.get(i).getEntity().isEqual(this.monster))){
             i++;
+            System.out.println("QuestKillMonster.submit(Player) : i++; i == " + i);
         }
 
-        if(!world.getAreaAt(i).getEntity().isAlive()){
-            this.isAccomplished = true;
+        if(i<areas.size()){
+            System.out.println("QuestKillMonster.submit(Player) : i<areas.size() >> VRAI");
+            if (!areas.get(i).getEntity().isAlive()) {
+                super.isAccomplished = true;
+            }
+        } else {
+            System.out.println("QuestKillMonster.submit(Player) : i<areas.size() >> FAUX");
         }
     }
 }
