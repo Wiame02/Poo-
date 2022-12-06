@@ -86,7 +86,7 @@ public class Villager extends Entity{
 			} else {
 				//System.out.println("Villager.talk(Player) : La quête du villageaois N'a JAMAIS été réalisée !");
 				System.out.println(this.name+": "+this.dialogues.get(0));
-
+				
 				Scanner sc = new Scanner(System.in);
 				System.out.println("Voulez vous accepter la quete : " + quest.getTitle() + "\n decline() pour refuser \n accept() pour accepter \n ");
 				String rep = sc.nextLine();

@@ -1,9 +1,6 @@
 package Application;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import Entity.Species;
-
 import java.lang.String;
 import User.*;
 import java.lang.Thread;  

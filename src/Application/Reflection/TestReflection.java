@@ -1,6 +1,5 @@
 package Application.Reflection;
 import java.util.ArrayList;
-import java.io.ObjectInputStream.GetField;
 import java.lang.Class;
 import java.lang.reflect.Field;
 
