@@ -31,7 +31,7 @@ public class Player implements ClassInformation{
     public Player(String username, Order category, Area firstArea){
         this.username = username;
         this.lvl = 0;
-        this.hp = 750;
+        this.hp = 100;
         this.category = category;
         
         this.inventory = new Inventory();
@@ -314,7 +314,11 @@ public class Player implements ClassInformation{
      */
     public void attack(Monster m){
         try{
-            m.decreaseHp(this.weapon.getAttackPoints());
+            if(this.weapon==null){
+                m.decreaseHp(1);
+            }else{
+                m.decreaseHp(this.weapon.getAttackPoints());
+            }
         }
         catch(Exception e){
             System.out.println(m.getName()+" a esquivé votre attaque");
