@@ -41,29 +41,30 @@ public abstract class Entity{
 	 * Si les hp d'entrée sont inférieurs à 0 les hp sont mis à 0
 	 * @param hp
 	 */
-	
-	public String get_name(){return this.name;}
+	public void setHp(int hp){
+		if(hp>0){
+			this.hp = hp;
+		}else{
+			this.hp = 0;
+		}
+	}
 
-	public double get_hp(){return this.hp;}
-	
+/*
+ * Affichages
+ */	
 	/**
 	 * Affiche le nom de l'entité
 	 */
-	
-	public void set_name(String name){this.name=name;}
-	public void set_hp(int hp){this.hp=hp;}
-
-
-	// ----------AFFICHAGE-------------
-
-	void print_name(){
+	void printName(){
 		System.out.println("le nom de l'entité est : " + this.name + "\n");
 	}
 
-	void print_hp(){
+	/**
+	 * Affiche les points de vies de l'entité
+	 */
+	void printHp(){
 		System.out.println("le nombre de point(s) de vie de l'entité est : " + this.hp + "\n");
 	}
-	// ---------------------------------------------------------
 	
 
 	/**
@@ -71,7 +72,7 @@ public abstract class Entity{
 	 * @return true si l'entite est vivante
 	 * @return false si l'entite est morte (hp = 0)
 	 */
-	public boolean is_alive(){
+	public boolean isAlive(){
 		return (hp > 0);
 	}
 
@@ -82,12 +83,29 @@ public abstract class Entity{
 	*/
 	public void decreaseHp(int x) throws Exception{
 
-	public boolean is_equal(Entity e){
-		return (this.name == e.name);
+        if((this.isAlive())){
+            if(x >= 0){
+                if(this.hp <= x){
+                    this.hp = 0;
+                } else {
+                    this.hp -= x;
+                }
+            }else{
+				throw new Exception("La valeur de retrait de points de vie ne peut pas être négative");
+			}
+        }else{
+			throw new Exception("L'entité est déjà morte");
+		}
 	}
 
-	public String to_string(){
-		return "Nom de l'entité : " + this.name + ", points de vie " + this.hp;
+	/**
+	 * Test si deux entitées sont égales par leurs noms et espèces
+	 * @param e l'entité à comparée
+	 * @return 	true si égaux 
+	 * 			false sinon
+	 */
+	public boolean isEqual(Entity e){
+		return (this.name == e.name && this.species==e.species );
 	}
 
 	/**
@@ -95,6 +113,6 @@ public abstract class Entity{
 	 * @return l'entité sous forme de chaîne de caractères
 	 */
 	public String toString(){
-		return "Nom de l'entité : " + this.name + "\n points de vie " + this.hp + "\n espèce : " + this.species.get_name();
+		return "Nom de l'entité : " + this.name + "\n points de vie " + this.hp + "\n espèce : " + this.species.getName();
 	}
 }		
