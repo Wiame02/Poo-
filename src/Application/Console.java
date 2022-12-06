@@ -14,21 +14,6 @@ import java.lang.Thread;
  */
 
 public class Console {
-    public static void showAvailableActions(Player p) {
-        System.out.println("\ngetCurrentArea()");
-        System.out.println("displayInventory()");
-        System.out.println("moveLinkedArea()");
-        System.out.println("showAvailableActions()");
-        System.out.println("getHp()");
-
-        if (p.getCurrentArea().getEntity()!=null) {
-            if (p.getCurrentArea().getEntity().getSpecies()==Species.VILLAGER) {
-                System.out.println("interact("+  p.getCurrentArea().getEntity().getName() +")");
-            } else {
-                System.out.println("fight("+ p.getCurrentArea().getEntity().getName() +")");
-            }
-        }
-    }
 
     /** Affichage du dialogue de fin du jeu gagné
      * @param p Le joueur

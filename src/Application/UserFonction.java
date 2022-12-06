@@ -1,29 +1,104 @@
 package Application;
+import java.io.ObjectInputFilter.Status;
 import java.util.ArrayList;
 import Entity.*;
 import User.*;
 import Localization.*;
 
 public class UserFonction {
-    // TODO : getCurrentArea()
-    // TODO : displayInventory()
-    // TODO : moveTo()
-    // TODO : displayActions()
-    // TODO : displayDataPlayer()
-    // TODO : displayAccessibleArea()
+
+    /**
+     * Affiche les actions possibles du joueur
+     * @param p le joueur
+     */
+    public static void displayActions(Player p){
+        System.out.println("ACTIONS -----------------------");
+        System.out.println("displayDataPlayer()");
+        System.out.println("displayInventory()");
+        System.out.println("displayCurrentArea()");
+        System.out.println("moveTo()");
+        
+        Entity e = p.getCurrentArea().getEntity();
+        if(e!=null){
+            if(e.getSpecies()!=Species.VILLAGER){
+                System.out.println("fight("+e.getName()+")");
+            }else{
+                System.out.println("interact("+e.getName()+")");
+            }
+        }
+
+    }
+
+    /**
+     * Affiche les données du joueur
+     * @param p le joueur
+     */
+    public static void displayDataPlayer(Player p){
+        System.out.println(p.getUsername()+" ----- "+p.getCategory().getName()+" \n PV :"+p.getHp()+"\n PA : "+((p.getWeapon()!=null)?p.getWeapon().getAttackPoints():1)+"\n NV : "+p.getLvl() );
+    }
+
+    /**
+     * Affiche les zones accessibles du joueur
+     * @param p le joueur
+     */
+    public static void displayAccessibleArea(Player p){
+        ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
+        System.out.println("ZONES ACCESSIBLES -------------");
+        for (int i=0; i<areas.size(); i++) {
+            System.out.println(i + " - " + areas.get(i).getName());
+        }
+        System.out.println();
+    }
+
+    /**
+     * @see User.Player#getCurrentArea()
+     * @param p
+     */
+    public static void getCurrentArea(Player p) {
+        System.out.println("CURRENT AREA-------------------");
+        System.out.println(p.getCurrentArea().toString());
+    }
+
+    /**
+     * @see User.Player#getInventory()
+     * @see User.Player#displayArmor()
+     * @see User.Player#displayWeapon()
+     * @param p
+     */
+    public static void displayInventory(Player p) {
+        System.out.println("ARMOR--------------------------");
+        p.displayArmor();
+        System.out.println("WEAPON-------------------------");
+        p.displayWeapon();
+        System.out.println("INVENTORY----------------------");
+        Inventory listItem = p.getInventory();
+
+        for (int i=0; i<listItem.getItems().size(); i++) {
+            System.out.println("- " + listItem.getItemAt(i).toString());
+        }
+    }
     
+
     /**
      * @see User.Player#moveToLinkedArea(Area)
      * @param p
      * @param idArea
      */
-    public static void moveToLinkedArea(Player p, int idArea) {
-        ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
+    public static void moveTo(Player p, String idAreaString) {
+        try {
+            int idAreaInt = Integer.parseInt(idAreaString);
+            ArrayList<Area> accessibleAreas =  p.getCurrentArea().getAccessAreas();
 
-        if (0<=idArea && idArea<areas.size()) {
-            p.moveTo(p.getCurrentArea().getAccessAreas().get(idArea));
+            if (0<=idAreaInt && idAreaInt<accessibleAreas.size()) {
+                p.moveTo(p.getCurrentArea().getAccessAreas().get(idAreaInt));
+                System.out.println(p.getCurrentArea() + "\n");
+            } else {
+                System.out.println("UserFonction.moveTo(Player, String) : Cette zone n'est pas accessible.\n");
+            }
+
+        } catch (NumberFormatException numFormException) {
+            System.out.println("executeFunctionInput(ArrayList<String>, Player):moveToLinkedArea(int):" + numFormException);
         }
-        System.out.println(p.getCurrentArea() + "\n");
     }
 
     /**
@@ -74,12 +149,15 @@ public class UserFonction {
     public static void main(String[] args){
         Board   board   = Game.generateBoard();
         Player  player  = Game.createPlayer(board.getWorldAt(1));
-        player.setWeapon(null);
+        displayDataPlayer(player);
+        displayAccessibleArea(player);
+        displayActions(player);
+        /*player.setWeapon(null);
 
         if(fight(player)){
             System.out.println("GAGNER");
         }else{
             System.out.print("PERDU");
-        }
+        }*/
     }
-}
+}   

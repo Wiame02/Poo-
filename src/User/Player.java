@@ -119,7 +119,7 @@ public class Player implements ClassInformation{
      * Affiche l'arme portée
      */
     public void displayWeapon(){
-        System.out.print(this.weapon.toString());
+        System.out.println(this.weapon.toString());
     }
 
     /**
