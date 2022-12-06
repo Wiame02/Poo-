@@ -111,17 +111,16 @@ public class Game {
      */
     public static void executeFunctionInput(ArrayList<String> func, Player p) {
         if (func.get(0).equals("getCurrentArea")) {
-            System.out.println(p.getCurrentArea() + "\n");
+            UserFonction.getCurrentArea(p);
             
         } else if (func.get(0).equals("displayInventory")) {
-            System.out.println(p.getInventory().getItems() + "\n");
+            UserFonction.displayInventory(p);
 
-        } else if (func.get(0).equals("moveToLinkedArea")) {
-            try {
-                int idArea = Integer.parseInt(func.get(1));
-                UserFonction.moveToLinkedArea(p, idArea);
-            } catch (NumberFormatException numFormException) {
-                System.out.println("executeFunctionInput(ArrayList<String>, Player):moveToLinkedArea(int):" + numFormException);
+        } else if (func.get(0).equals("moveTo")) {
+            if (func.size()==2) {
+                UserFonction.moveTo(p, func.get(1));
+            } else {
+                System.out.println("executeFunctionInput:UserFonction:moveTo(String) : A besoin d'un paramètre.");
             }
 
         } else if (func.get(0).equals("showAvailableActions")) {

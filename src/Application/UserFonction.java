@@ -1,29 +1,59 @@
 package Application;
+import java.io.ObjectInputFilter.Status;
 import java.util.ArrayList;
 import Entity.*;
 import User.*;
 import Localization.*;
 
 public class UserFonction {
-    // TODO : getCurrentArea()
-    // TODO : displayInventory()
-    // TODO : moveTo()
-    // TODO : displayActions()
-    // TODO : displayDataPlayer()
-    // TODO : displayAccessibleArea()
+    /**
+     * @see User.Player#getCurrentArea()
+     * @param p
+     */
+    public static void getCurrentArea(Player p) {
+        System.out.println("CURRENT AREA-------------------");
+        System.out.println(p.getCurrentArea().toString());
+    }
+
+    /**
+     * @see User.Player#getInventory()
+     * @see User.Player#displayArmor()
+     * @see User.Player#displayWeapon()
+     * @param p
+     */
+    public static void displayInventory(Player p) {
+        System.out.println("ARMOR--------------------------");
+        p.displayArmor();
+        System.out.println("WEAPON-------------------------");
+        p.displayWeapon();
+        System.out.println("INVENTORY----------------------");
+        Inventory listItem = p.getInventory();
+
+        for (int i=0; i<listItem.getItems().size(); i++) {
+            System.out.println("- " + listItem.getItemAt(i).toString());
+        }
+    }
     
     /**
      * @see User.Player#moveToLinkedArea(Area)
      * @param p
      * @param idArea
      */
-    public static void moveToLinkedArea(Player p, int idArea) {
-        ArrayList<Area> areas =  p.getCurrentArea().getAccessAreas();
+    public static void moveTo(Player p, String idAreaString) {
+        try {
+            int idAreaInt = Integer.parseInt(idAreaString);
+            ArrayList<Area> accessibleAreas =  p.getCurrentArea().getAccessAreas();
 
-        if (0<=idArea && idArea<areas.size()) {
-            p.moveTo(p.getCurrentArea().getAccessAreas().get(idArea));
+            if (0<=idAreaInt && idAreaInt<accessibleAreas.size()) {
+                p.moveTo(p.getCurrentArea().getAccessAreas().get(idAreaInt));
+                System.out.println(p.getCurrentArea() + "\n");
+            } else {
+                System.out.println("UserFonction.moveTo(Player, String) : Cette zone n'est pas accessible.\n");
+            }
+
+        } catch (NumberFormatException numFormException) {
+            System.out.println("executeFunctionInput(ArrayList<String>, Player):moveToLinkedArea(int):" + numFormException);
         }
-        System.out.println(p.getCurrentArea() + "\n");
     }
 
     /**
