@@ -209,6 +209,43 @@ public class Game {
         return areDead;
     }
 
+    public static void chooseWorld(Board board,Player p){
+        if(board.getWorldAt(0)==null || !p.getCurrentArea().getWorld().getBoss().isAlive()){
+            System.out.print("Souvaitez vous partir du monde ? (Y/N)\n");
+            Scanner sc = new Scanner(System.in);
+
+            String rep = sc.nextLine();
+            if(!rep.equals("Y") && !rep.equals("N")){
+                System.out.println("Veuillez répondre avec Y ou N. Souhaitez-vous partir du monde ? ");
+                rep = sc.nextLine();
+            }
+            if(rep.equals("Y")){
+                System.out.println("Voici les mondes toujours conrompus : \n");
+                for(World w : board.getWorlds()){
+                    if(w.getBoss()!=null){
+                        System.out.println(w.getName());
+                    }
+                }
+                System.out.print("\n");
+                System.out.println("Dans quel monde souhaitez vous aller ? ");
+                rep = sc.nextLine();
+                while(!rep.equals(board.getWorldAt(1).getName()) && !rep.equals(board.getWorldAt(2).getName()) && !rep.equals(board.getWorldAt(3).getName())){
+                    System.out.println("Veuillez entrez le nom d'un monde tel qu'il est écrit au dessus. Dans quel monde souhaitez vous aller ? ");
+                    rep = sc.nextLine();
+                }
+                
+                if(rep.equals(board.getWorldAt(1).getName())){
+                    p.moveTo(board.getWorldAt(1).getAreaAt(0));
+                }else if(rep.equals(board.getWorldAt(2).getName())){
+                    p.moveTo(board.getWorldAt(2).getAreaAt(0));
+                }else if(rep.equals(board.getWorldAt(3).getName())){
+                    p.moveTo(board.getWorldAt(3).getAreaAt(0));
+                }
+
+            }
+        }
+    }
+
     /**
      * Déroulement du jeu
      */
