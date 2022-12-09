@@ -5,6 +5,7 @@ import java.lang.String;
 import User.*;
 import java.lang.Thread;
 import java.lang.reflect.Array;  
+import Localization.*;
 
 /**
  * Classe qui controle les entrees des utilisateurs et sorties sur console
@@ -37,7 +38,7 @@ public class Console {
         System.out.println("Vous êtes mort !");
     }
 
-    public static void beginGame(Player p) {
+    public static void beginGame(Player p, Board board) {
         try{
             System.out.println("Ah ! Vous voilà " + p.getUsername() + ", je vous attendais.");
             Thread.sleep(1000);
@@ -51,6 +52,28 @@ public class Console {
         catch(InterruptedException i){
             System.out.println("Console.beginGame(Player) : " + i);
         }
+
+
+        // Choix du monde de départ
+        String rep;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\n");
+
+        System.out.println("Dans quel monde souhaitez vous aller ? ");
+        rep = sc.nextLine();
+        while(!rep.equals(board.getWorldAt(1).getName()) && !rep.equals(board.getWorldAt(2).getName()) && !rep.equals(board.getWorldAt(3).getName())){
+            System.out.println("Veuillez entrez le nom d'un monde tel qu'il est écrit au dessus. Dans quel monde souhaitez vous aller ? ");
+            rep = sc.nextLine();
+        }
+        
+        if(rep.equals(board.getWorldAt(1).getName())){
+            p.moveTo(board.getWorldAt(1).getAreaAt(0));
+        }else if(rep.equals(board.getWorldAt(2).getName())){
+            p.moveTo(board.getWorldAt(2).getAreaAt(0));
+        }else if(rep.equals(board.getWorldAt(3).getName())){
+            p.moveTo(board.getWorldAt(3).getAreaAt(0));
+        }
+        System.out.println("Bienvenue dans le monde de "+p.getCurrentArea().getWorld().getName()+"\n\n");
     }
 
     /**
