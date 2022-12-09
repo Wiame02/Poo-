@@ -47,7 +47,7 @@ public class Weapon extends Item {
      * Diminue la durabilité en fontion du nombre de dégat reçu
      * @param nbDamage
      */
-    public void useDamage(int nbDamage) {
+    public void looseDurability(int nbDamage) {
         this.durability -= nbDamage;
     }    
 

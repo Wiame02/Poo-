@@ -22,7 +22,7 @@ public class Console {
         catch(InterruptedException i){
             System.out.println("Console.gameSuccessEnding(Player) : " + i);
         }
-        System.out.println("Vous avez gagné !");
+        System.out.println("Vous avez réussi à combattre le mal !");
     }
 
     /** Affichage du dialogue de fin du jeu avec le joueur mort

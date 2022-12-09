@@ -105,6 +105,21 @@ public class Game {
     }
 
     /**
+     * Vérifie s'il ne reste aucun boss vivant dans les mondes
+     * @param board
+     * @return true si tous les boss sont morts
+     */
+    public static boolean areAllBossesDead(Board board) {
+        boolean areDead = true;
+        int i = 1;
+        while (i<board.getWorlds().size() && areDead) {
+            areDead = !board.getWorldAt(i).getBoss().isAlive();
+            i++;
+        }
+        return areDead;
+    }
+
+    /**
      * Execute la fontion qui a été entrée
      * @param func La fonction entrée avec son parametre sous forme de tableau
      * @param p le joueur
@@ -145,6 +160,9 @@ public class Game {
             if(UserFonction.fight(p)){
                 System.out.println("Vous avez gagner les combat contre "+p.getCurrentArea().getEntity().getName());
             }
+            if(((Monster)p.getCurrentArea().getEntity()).isBoss(p.getCurrentArea().getWorld()) && !areAllBossesDead(b)){
+                chooseWorld(b, p);
+            }
 
         }
     }
@@ -164,20 +182,6 @@ public class Game {
         }
     }
 
-    /**
-     * Vérifie s'il ne reste aucun boss vivant dans les mondes
-     * @param board
-     * @return true si tous les boss sont morts
-     */
-    public static boolean areAllBossesDead(Board board) {
-        boolean areDead = true;
-        int i = 1;
-        while (i<board.getWorlds().size() && areDead) {
-            areDead = !board.getWorldAt(i).getBoss().isAlive();
-            i++;
-        }
-        return areDead;
-    }
 
     public static void chooseWorld(Board board,Player p){
         if(p.getCurrentArea().getWorld().getBoss()==null || !p.getCurrentArea().getWorld().getBoss().isAlive()){
@@ -232,7 +236,6 @@ public class Game {
         UserFonction.displayCurrentArea(player);
 
         while (!areAllBossesDead && player.isAlive()) {
-            chooseWorld(board, player);
             System.out.println("displayActions()");
             doAnAction(player,board);
 

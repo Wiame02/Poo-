@@ -227,10 +227,13 @@ public class Player implements ClassInformation{
     public void decreaseHpWithArmor(int n,Entity e) throws Exception{
         int damage = n ;
         for(Armor a : this.armor){
-            damage -= a.getDefensePoint()/100*n/4;
-            if(a.getDefensePoint()>100){
-                try{e.decreaseHp(n*(a.getDefensePoint()-100)/100);}
-                catch(Exception exception){System.out.println(e.getName()+" a esquivé les dégats de retour.");}
+            if(a!=null){
+                damage -= a.getDefensePoint()/100*n/4;
+                if(a.getDefensePoint()>100){
+                    try{e.decreaseHp(n*(a.getDefensePoint()-100)/100);}
+                    catch(Exception exception){System.out.println(e.getName()+" a esquivé les dégats de retour.");}
+                }
+                a.looseDurability(1);
             }
         }
         try{
@@ -316,6 +319,7 @@ public class Player implements ClassInformation{
         try{
             if(this.weapon==null){
                 m.decreaseHp(1);
+                this.weapon.looseDurability(1);
             }else{
                 m.decreaseHp(this.weapon.getAttackPoints());
             }

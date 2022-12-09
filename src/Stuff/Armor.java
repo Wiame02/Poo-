@@ -64,6 +64,14 @@ public class Armor extends Item {
     }
 
     /**
+     * Diminue la durabilité en fontion du nombre de dégat reçu
+     * @param nbDamage
+     */
+    public void looseDurability(int nbDamage) {
+        this.durability -= nbDamage;
+    }
+
+    /**
      * @return Formatage de de la classe Armor
      */
     @Override
