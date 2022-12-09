@@ -266,12 +266,12 @@ public class DataVillager {
         villagers.get(4).addDialogue("Hors de ma vue !");
 
             // 6
-        villagers.get(4).addDialogue("bip boup bip bip ! Moi... bip... problème... boup");
-        villagers.get(4).addDialogue("");
-        villagers.get(4).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
+        villagers.get(4).addDialogue("bip boup bip bip ! Moi... bip... problème... boup.. Cyborg... a conrompu mon... système...boup... AAAH... vouloir ... controler...moi !");
+        villagers.get(4).addDialogue("biiiip...");
+        villagers.get(4).addDialogue("oerubgnlkrjg");
         villagers.get(4).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
-        villagers.get(4).addDialogue("");
-        villagers.get(4).addDialogue("");
+        villagers.get(4).addDialogue("Oh ! Merci a toi humain ! En détruisant l'autre cyborg, tu m'as permis de regagner le contrôle de mon enveloppe ! Bip !");
+        villagers.get(4).addDialogue("Bip bip... Que puis-je faire pour vous ?");
 
         return villagers;
     }
