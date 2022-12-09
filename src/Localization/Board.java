@@ -18,9 +18,15 @@ public class Board {
     }
 
     /**
-     * GETTERS
+     * @param i indice
+     * @return Le monde placé à cette indice, une 
+     * @throws NullExceptionPointer i<0 et this.worlds>=i
      */
     public World getWorldAt(int i) {return this.worlds.get(i);};
+
+    /**
+     * @return Les mondes contenus sur le plateau
+     */
     public ArrayList<World> getWorlds() {return this.worlds;};
 
     /**

@@ -11,38 +11,53 @@ import Entity.*;
 public class Area {
     private String name;
     private Entity entity;
-    private ArrayList<String> actions;
     private World world;
     private ArrayList<Area> accessibleAreas;
 
     /**
      * Constructeur de Area
      * @param name Chaine de caractere representant le nom de la zone
+     * @param entity L'entité qui réside dans la zone
+     * @param world Le monde auquel appartient la zone 
      */
     public Area(String name, Entity entity, World world) {
         this.name = name;
         this.entity = entity;
-        this.actions = new ArrayList<String>();
         this.world = world;
         this.accessibleAreas = new ArrayList<Area>();
     }
 
+    /**
+     * Constructeur d'un Area
+     * @param name Chaine de caractere representant le nom de la zone
+     * @param world Le monde auquel appartient la zone 
+     */
     public Area(String name, World world) {
         this.name = name;
         this.entity = null;
-        this.actions = new ArrayList<String>();
         this.world = world;
         this.accessibleAreas = new ArrayList<Area>();        
     }
 
 
     /**
-     * GETTERS
+     * @return Le nom de la Zone
      */
     public String getName()            {return this.name;}
+
+    /**
+     * @return L'entité à cette Zone
+     */
     public Entity getEntity()          {return this.entity;}
-    public String getActionAt(int i)   {return this.actions.get(i);}
+
+    /**
+     * @return Le monde auquel appartient la zone
+     */
     public World  getWorld()           {return this.world;}
+
+    /**
+     * @return La liste des zones accessibles par celle-ci
+     */
     public ArrayList<Area> getAccessAreas() {return this.accessibleAreas;}
 
     /**
@@ -61,19 +76,22 @@ public class Area {
     }
 
     /**
-     * SETTERS
+     * Modifie le nom de la zone
+     * @param name
      */
     public void setName(String name)   {this.name = name;}
-    public void setWorld(World world)  {this.world = world;}
-    public void setEntity(Entity ent)  {this.entity = ent;}
 
     /**
-     * Ajoute une action possible dans la zone
-     * @param act Chaine de caractere
+     * Modifie le monde auquel appartient la zone
+     * @param world
      */
-    public void addAction(String act) {
-        this.actions.add(act);
-    }
+    public void setWorld(World world)  {this.world = world;}
+
+    /**
+     * Remplace l'entité qui réside dans cette zone
+     * @param ent
+     */
+    public void setEntity(Entity ent)  {this.entity = ent;}
 
     /**
      * Ajoute une zone accessible à partir de celle-ci 
@@ -85,7 +103,7 @@ public class Area {
     
     /**
     * Ajoute des zones accessibles à partir de celle-ci 
-    * @param area
+    * @param area La liste de toutes les zones accessibles à partir de celle-ci
     */
    public void addAllAccessibleArea(ArrayList<Area> areas) {
        this.accessibleAreas.addAll(areas);
@@ -111,15 +129,15 @@ public class Area {
         res+= "entities: ";
         res+= (this.entity!=null)?this.entity.toString():"null";
 
-        res+= "\nactions: ";
-        for (int i=0; i<this.actions.size(); i++) {
-            res+= this.actions.get(i) + ' ';
-        }
-
         res+= "\nworld: " + world.getName();
         return res;
     }
 
+    /**
+     * Vérifie l'égalité entre deux zones
+     * @param area
+     * @return true Si les deux zones sont les mêmes
+     */
     public boolean isEqual (Area area) {
         boolean areSame = true;
 

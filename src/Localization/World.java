@@ -13,7 +13,6 @@ public class World {
     private ArrayList<Area> areas;
     private Period era;
     private Monster boss;
-    //private ArrayList<Events> events;
 
     /**
      * Constructeur de World
@@ -27,6 +26,12 @@ public class World {
         this.era = era;
         this.boss = boss;
     }
+
+    /**
+     * Constructeur de World
+     * @param name  Le nom de la zone
+     * @param era   La temporalité du monde
+     */
     public World(String name, Period era){
         this.name = name;
         this.areas = new ArrayList<Area>();
@@ -34,21 +39,51 @@ public class World {
         this.boss = null;
     }
 
+    
     /**
-     * GETTERS
+     * @return Le nom du monde
      */
     public String   getName()          {return this.name;}
+
+    /**
+     * @return La zone à l'indice donné
+     * @throws NullExceptionPointer i<0 et this.areas.size()>=i
+     */
     public Area     getAreaAt(int i)  {return this.areas.get(i);}
+
+    /**
+     * @return Toutes les zones sur le monde
+     */
     public ArrayList<Area> getAreas()  {return this.areas;}
+
+    /**
+     * @return La temporalité du monde
+     */
     public Period   getEra()           {return this.era;}
+
+    /**
+     * @return Le boss final du monde
+     */
     public Monster  getBoss()          {return this.boss;}
 
     /**
-     * SETTERS
+     * Modifie le nom du monde
+     * @param name
      */
     public void setName(String name)   {this.name = name;}
+
+    /**
+     * Modifie la temporalité du monde
+     * @param era
+     */
     public void setEra(Period era)     {this.era = era;}
-    public void setBoss(Monster boss)  {this.boss = boss;}
+    
+    /**
+     * Remplace le boss final du monde, il doit être l'un des entités du monde
+     * On part du principe où le boss est l'un des monstres d'une des zones du monde
+     * @param boss
+     */
+    public void setBoss(Monster boss) {this.boss = boss;}
 
     /**
      * Ajouter une zone
@@ -76,7 +111,7 @@ public class World {
     }
 
     /**
-     * @return Deux mondes son identiques
+     * @return Deux mondes sont identiques
      */
     public boolean isEqual(World w) {
         return (this.name.equals(w.name) && this.era==w.era && this.boss.isEqual(w.boss));
