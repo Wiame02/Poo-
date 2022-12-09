@@ -43,7 +43,7 @@ public class Player implements ClassInformation{
         this.armor[2] = new Armor("Pantalon en Lin",50,10,Type.LEGGING);
         this.armor[3] = new Armor("Chaussure de cuir",50,10,Type.BOOT);
 
-        this.weapon = new Weapon("Brindille",20,5);
+        this.weapon = new Weapon("Brindille",20,20000);
         
         this.currentQuest = null;
         this.currentArea = firstArea;
