@@ -11,7 +11,7 @@ import User.*;
 
 public abstract class Quest {
     protected String title;
-    protected boolean isAccomplished, isAccepted;
+    protected boolean isAccepted, isFinished;
     protected Item reward;
     protected int bonusExp;
 
@@ -22,10 +22,11 @@ public abstract class Quest {
      */
     public Quest(String title, int bonusExp) {
         this.title = title;
-        this.isAccomplished = false;
+        //this.isAccomplished = false;
         this.reward = null;
         this.bonusExp = bonusExp;
         this.isAccepted = false;
+        this.isFinished = false;
     }
 
     /**
@@ -47,6 +48,11 @@ public abstract class Quest {
      * @return Si la quête a été ouverte
      */
     public boolean isAccepted() { return this.isAccepted; }
+
+    /**
+     * @return Si la quête a été finie
+     */
+    public boolean isFinished() { return this.isFinished; }
 
     
     /**
@@ -78,6 +84,11 @@ public abstract class Quest {
      */
     public void acceptQuest() { this.isAccepted = true;}
 
+    /**
+     * Ferme une quete
+     */
+    public void finishQuest() { this.isAccepted = true;}
+
 
     /**
      * @return Formattage de la classe Quest
@@ -87,7 +98,7 @@ public abstract class Quest {
     @Override
     public String toString(){
         String res = "Titre : "+this.title+"\n Récompense : "+this.reward+"\n Bonus d'exp : "+this.bonusExp+"\n Quête ";
-        if(this.isAccomplished){
+        if(this.isFinished){
             res += "finie \n";
         } else {
             res += "en cours \n";
@@ -104,9 +115,9 @@ public abstract class Quest {
         /* Si la quête est déjà accomplie il ne faut pas le revérifier.
          * Si la quete est une QuestRecoltItem, l'objet disparait de l'inventaire au rendu donc validable une seule fois 
          */
-        if(!this.isAccomplished){ 
+        if(!this.isFinished){ 
             this.submit(p);
         }
-        return this.isAccomplished;
+        return this.isFinished;
     }
 }
