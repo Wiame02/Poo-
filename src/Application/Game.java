@@ -214,7 +214,7 @@ public class Game {
     }
 
     public static void chooseWorld(Board board,Player p){
-        if(board.getWorldAt(0)==null || !p.getCurrentArea().getWorld().getBoss().isAlive()){
+        if(p.getCurrentArea().getWorld().getBoss()==null || !p.getCurrentArea().getWorld().getBoss().isAlive()){
             System.out.print("Souvaitez vous partir du monde ? (Y/N)\n");
             Scanner sc = new Scanner(System.in);
 
@@ -256,7 +256,7 @@ public class Game {
      */
     public static void playGame() {
         Board   board   = generateBoard();
-        Player  player  = createPlayer(board.getWorldAt(1)); 
+        Player  player  = createPlayer(board.getWorldAt(0)); 
         
         Console.beginGame(player);
 
@@ -265,16 +265,11 @@ public class Game {
         UserFonction.displayActions(player);
 
         while (!areAllBossesDead && player.isAlive()) {
+            chooseWorld(board, player);
             System.out.println("displayActions()");
             doAnAction(player,board);
 
             areAllBossesDead = areAllBossesDead(board);
-            
-            /*if (areAllBossesDead) {
-                System.out.println("BOSS MORTS !");
-            } else {
-                System.out.println("Les boss ne sont pas tous mort !");
-            }*/
         }
 
         if (player.isAlive()) {
