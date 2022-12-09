@@ -72,7 +72,7 @@ public class DataWorlds {
      * @return le monde Valkiem
      */
     public static World createValkiem(){
-        World valkiem = new World("Valkïem", Period.PAST);
+        World valkiem = new World("Valkiem", Period.PAST);
 
         valkiem.addArea(new Area("Foyer",valkiem));
         valkiem.addArea(new Area("Tente 1",valkiem));
@@ -293,5 +293,23 @@ public class DataWorlds {
         worlds.add(createCodix());
 
         return worlds;
+    }
+
+    public static ArrayList<String> firstDialogue() {
+        ArrayList<String> diag = new ArrayList<String>();
+
+        diag.add("Bienvenue à l'Univers-Cité...");
+        diag.add("Un Monde à travers le temps et l'espace-temps.");
+        diag.add("Un Monde où tout logique et illogique.");
+        diag.add("Rien n'est réel et pourtant tout le semble.");
+        diag.add("L'histoire qui va suivre se déroule en 300 ans l'Apocalypse de 2022. L'Homme ne règne plus sur l'Univers, l'Univers domine.");
+        diag.add("Après l'extinction du monde, les humains se sont mis d'accord pour construire un nouveau monde. Plus sain, plus libre et... plus sécurisé ?");
+        diag.add("La paix semble doucement s'installer lorsqu'une vague étrange d'interférences intergalactiques sont détectés dans nos trois mondes !");
+        diag.add("Quels sont les trois mondes ? Ha !");
+        diag.add("Nous avons tout d'abord Valkiem, un monde figé dans le passé.");
+        diag.add("Puis Cimebel, qui suit le cours de l'actualité, enfin ce qu'il se déroulait il y a 300 ans.");
+        diag.add("Et enfin, Codix. Un monde où une ambiance futuristique bat son plein !");
+
+        return diag;
     }
 }
