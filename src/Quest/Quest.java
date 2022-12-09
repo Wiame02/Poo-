@@ -11,7 +11,7 @@ import User.*;
 
 public abstract class Quest {
     protected String title;
-    protected boolean isAccomplished;
+    protected boolean isAccomplished, isAccepted;
     protected Item reward;
     protected int bonusExp;
 
@@ -25,6 +25,7 @@ public abstract class Quest {
         this.isAccomplished = false;
         this.reward = null;
         this.bonusExp = bonusExp;
+        this.isAccepted = false;
     }
 
     /**
@@ -41,6 +42,11 @@ public abstract class Quest {
      * @return La récompense bonus en points d'expérience de la quête
      */
     public int getBonusExp() { return this.bonusExp; }
+
+    /**
+     * @return Si la quête a été ouverte
+     */
+    public boolean isAccepted() { return this.isAccepted; }
 
     
     /**
@@ -68,8 +74,16 @@ public abstract class Quest {
     public abstract void submit(Player p);
 
     /**
+     * Accepte une quete
+     */
+    public void acceptQuest() { this.isAccepted = true;}
+
+
+    /**
      * @return Formattage de la classe Quest
      */
+
+
     @Override
     public String toString(){
         String res = "Titre : "+this.title+"\n Récompense : "+this.reward+"\n Bonus d'exp : "+this.bonusExp+"\n Quête ";

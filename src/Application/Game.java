@@ -261,7 +261,6 @@ public class Game {
 
         while (!areAllBossesDead && player.isAlive()) {
             System.out.println("displayActions()");
-            //TODO showAvailableActions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
             doAnAction(player);
 
             areAllBossesDead = areAllBossesDead(board);
