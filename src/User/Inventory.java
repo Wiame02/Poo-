@@ -69,12 +69,12 @@ public class Inventory {
     private int findIdItem(Item e){
         int id=0;
         int listLength = this.items.size();
-        boolean isFound = this.getItemAt(id).isEqual(e);
-        while(id<=listLength && !isFound){
-            id++;
+        boolean isFound = false;
+        while(id<listLength && !isFound){
             isFound = this.getItemAt(id).isEqual(e);
+            id++;
         }
-        if(id>listLength){
+        if(id>=listLength){
             return -1;
         }else{
             return id;
