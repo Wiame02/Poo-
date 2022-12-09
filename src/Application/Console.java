@@ -56,12 +56,12 @@ public class Console {
         // Choix du monde de départ
         String rep;
         Scanner sc = new Scanner(System.in);
-        System.out.print("\n");
+        System.out.println();
 
-        System.out.println("Dans quel monde souhaitez vous aller ? ");
+        System.out.print("Dans quel monde souhaitez vous aller ? \n>> ");
         rep = sc.nextLine();
         while(!rep.equals(board.getWorldAt(1).getName()) && !rep.equals(board.getWorldAt(2).getName()) && !rep.equals(board.getWorldAt(3).getName())){
-            System.out.println("Veuillez entrez le nom d'un monde tel qu'il est écrit au dessus. Dans quel monde souhaitez vous aller ? ");
+            System.out.print("Veuillez entrez le nom d'un monde tel qu'il est écrit au dessus. Dans quel monde souhaitez vous aller ? \n>> ");
             rep = sc.nextLine();
         }
         
