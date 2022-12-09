@@ -250,20 +250,20 @@ public class DataVillager {
         villagers.get(3).addDialogue("J'ai eu des super résultats grâce à toi ! (One eternity later...) Bref désolé je me suis emporté, et j'ai raconter tout mon processus de recherche... Aller va sinon je vais continuer !");
 
             // 4
-        villagers.get(4).addDialogue("");
-        villagers.get(4).addDialogue("");
+        villagers.get(4).addDialogue("Hé oh, toi ! Il paraît qu'un certain cyborg rode dans les parages. Je n'ai pas envie de le croiser... enfin j'ai peur. Est-ce que tu peux l'achever pour moi ?");
+        villagers.get(4).addDialogue("Merci infiniment ! Je m'en souviendrai !");
         villagers.get(4).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
         villagers.get(4).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
-        villagers.get(4).addDialogue("");
-        villagers.get(4).addDialogue("");
+        villagers.get(4).addDialogue("Oh te revoilà et vainqueur ?! Merci beaucoup, je peux ne plus me faire de soucis maintenant !");
+        villagers.get(4).addDialogue("Grâce à toi, je ressens moins de stress. Et en plus, je vais pouvoir passer mes examens tranquil. Merci encore !");
 
             // 5
-        villagers.get(4).addDialogue("");
-        villagers.get(4).addDialogue("");
+        villagers.get(4).addDialogue("Hop hop hop, vous ! On ne cours pas ici ! Si vous ne voulez pas que je vous dénonce au Conseil vous avez intêret à suivre mes ordres et me trouver cette fichue peau de Dragon !");
+        villagers.get(4).addDialogue("Tu as bien raison d'accepter. Sinon, tu aurais été dans de beaux draps !");
         villagers.get(4).addDialogue("Très bien, n'hésite pas à revenir me voir si tu changes d'avis");
         villagers.get(4).addDialogue("Revenez me voir quand vous aurez finis ma demande.");
-        villagers.get(4).addDialogue("");
-        villagers.get(4).addDialogue("");
+        villagers.get(4).addDialogue("Ah ! Voilà ma fameuse peau de Dragon... je la cherche depuis des années. Allez, filez avant que je ne change d'avis.");
+        villagers.get(4).addDialogue("Hors de ma vue !");
 
             // 6
         villagers.get(4).addDialogue("bip boup bip bip ! Moi... bip... problème... boup");
