@@ -298,7 +298,7 @@ public class DataWorlds {
     public static ArrayList<String> firstDialogue() {
         ArrayList<String> diag = new ArrayList<String>();
 
-        diag.add("Bienvenue à l'Univers-Cité...");
+        diag.add("\nBienvenue à l'Univers-Cité...");
         diag.add("Un Monde à travers le temps et l'espace-temps.");
         diag.add("Un Monde où tout logique est illogique.");
         diag.add("Rien n'est réel et pourtant tout le semble.");
@@ -309,7 +309,8 @@ public class DataWorlds {
         diag.add("Nous avons tout d'abord Valkiem, un monde figé dans le passé.");
         diag.add("Puis Cimebel, qui suit le cours de l'actualité, enfin ce qu'il se déroulait il y a 300 ans.");
         diag.add("Et enfin, Codix. Un monde où une ambiance futuristique bat son plein !");
-
+        diag.add("Vous êtes actuellement à l'Univers-Cité, le centre de tout. Celui qui relie tout et qui lit tout.");
+        diag.add("C'est un centre de décision crucial pour la pérénité de notre Univers et le bien-être de tous les êtres...\n\n");
         return diag;
     }
 }

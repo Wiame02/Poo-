@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.lang.String;
 import User.*;
 import java.lang.Thread;
-import java.lang.reflect.Array;  
 
 /**
  * Classe qui controle les entrees des utilisateurs et sorties sur console
@@ -39,13 +38,13 @@ public class Console {
 
     public static void beginGame(Player p) {
         try{
-            System.out.println("Ah ! Vous voilà " + p.getUsername() + ", je vous attendais.");
+            System.out.println("\n\nAh ! Vous voilà " + p.getUsername() + ", je vous attendais.");
             Thread.sleep(1000);
             
             ArrayList<String> dialog = DataWorlds.firstDialogue();
             for (String txt : dialog) {
                 System.out.println(txt);
-                Thread.sleep((int) 35*txt.length());
+                //Thread.sleep((int) 35*txt.length());
             }        
         }
         catch(InterruptedException i){
@@ -125,11 +124,6 @@ public class Console {
         }
     }
     
-    public static ArrayList<String> getAvailableActions(){
-        ArrayList<String> doableActions = null;
-        //TODO
-        return doableActions;
-    }
 
     public static void main(String[] args) {
         /*
