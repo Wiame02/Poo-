@@ -26,7 +26,18 @@ public class UserFonction {
                 System.out.println("interact("+e.getName()+")");
             }
         }
-        
+        if(!p.getCurrentArea().getWorld().getBoss().isAlive()){
+            System.out.println("changeWorld()");
+        }
+        System.out.print("\n");
+    }
+
+    /**
+     * Permet au joueur de changer de monde
+     * 
+     */
+    public static void changeWorld(Board b,Player p){
+        Game.chooseWorld(b,p);
     }
 
     /**

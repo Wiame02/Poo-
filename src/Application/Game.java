@@ -107,9 +107,11 @@ public class Game {
     /**
      * Execute la fontion qui a été entrée
      * @param func La fonction entrée avec son parametre sous forme de tableau
+     * @param p le joueur
+     * @param b le plateau
      * @throws GameException La fonction entrée soit n'est pas valide soit son paramètre ne l'est pas
      */
-    public static void executeFunctionInput(ArrayList<String> func, Player p) {
+    public static void executeFunctionInput(ArrayList<String> func, Player p, Board b) {
         if (func.get(0).equals("displayCurrentArea")) {
             UserFonction.displayCurrentArea(p);
             
@@ -131,7 +133,9 @@ public class Game {
 
         } else if (func.get(0).equals("displayAccessibleArea")) {
             UserFonction.displayAccessibleArea(p);
-        } else if (p.getCurrentArea().getEntity().getSpecies().equals(Species.VILLAGER) && func.get(0).equals("interact")) {
+        }else if(!p.getCurrentArea().getWorld().getBoss().isAlive() && func.get(0).equals("changeWorld")){ 
+            UserFonction.changeWorld(b, p);
+        }else if (p.getCurrentArea().getEntity().getSpecies().equals(Species.VILLAGER) && func.get(0).equals("interact")) {
             p.interact((Villager) p.getCurrentArea().getEntity());
 
         }  else if (!p.getCurrentArea().getEntity().getSpecies().equals(Species.VILLAGER) && func.get(0).equals("fight")) {
@@ -183,14 +187,14 @@ public class Game {
      * Permet l'execution d'une entree du joueur
      * @param player Le joueur
      */
-    public static void doAnAction(Player player) {
+    public static void doAnAction(Player player, Board board) {
         try {
             ArrayList<String> input = Console.readAction();
-            executeFunctionInput(input, player);
+            executeFunctionInput(input, player,board);
         }
         catch (Exception e) {
 	        System.out.println("Error in doAnAction() : " + e);
-            doAnAction(player);
+            doAnAction(player,board);
         }
     }
 
@@ -220,7 +224,7 @@ public class Game {
                 rep = sc.nextLine();
             }
             if(rep.equals("Y")){
-                System.out.println("Voici les mondes toujours conrompus : \n");
+                System.out.println("Voici les mondes : \n");
                 for(World w : board.getWorlds()){
                     if(w.getBoss()!=null){
                         System.out.println(w.getName());
@@ -241,6 +245,7 @@ public class Game {
                 }else if(rep.equals(board.getWorldAt(3).getName())){
                     p.moveTo(board.getWorldAt(3).getAreaAt(0));
                 }
+                System.out.println("Bienvenue dans le monde de "+p.getCurrentArea().getWorld().getName()+"\n\n");
 
             }
         }
@@ -262,7 +267,7 @@ public class Game {
         while (!areAllBossesDead && player.isAlive()) {
             System.out.println("displayActions()");
             //TODO showAvailableActions(...); Peut-être n'afficher que les actions si le joueur le demande et s'il change de zone.
-            doAnAction(player);
+            doAnAction(player,board);
 
             areAllBossesDead = areAllBossesDead(board);
             
