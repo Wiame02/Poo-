@@ -300,9 +300,9 @@ public class DataWorlds {
 
         diag.add("Bienvenue à l'Univers-Cité...");
         diag.add("Un Monde à travers le temps et l'espace-temps.");
-        diag.add("Un Monde où tout logique et illogique.");
+        diag.add("Un Monde où tout logique est illogique.");
         diag.add("Rien n'est réel et pourtant tout le semble.");
-        diag.add("L'histoire qui va suivre se déroule en 300 ans l'Apocalypse de 2022. L'Homme ne règne plus sur l'Univers, l'Univers domine.");
+        diag.add("L'histoire qui va suivre se déroule 300 ans avant l'Apocalypse de 2022. L'Homme ne règne plus sur l'Univers, l'Univers le domine.");
         diag.add("Après l'extinction du monde, les humains se sont mis d'accord pour construire un nouveau monde. Plus sain, plus libre et... plus sécurisé ?");
         diag.add("La paix semble doucement s'installer lorsqu'une vague étrange d'interférences intergalactiques sont détectés dans nos trois mondes !");
         diag.add("Quels sont les trois mondes ? Ha !");
