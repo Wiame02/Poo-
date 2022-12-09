@@ -216,7 +216,7 @@ public class Game {
         Board   board   = generateBoard();
         Player  player  = createPlayer(board.getWorldAt(1)); 
         
-        System.out.println(player.toString());
+        Console.beginGame(player);
 
         boolean areAllBossesDead = false;
     
