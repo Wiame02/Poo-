@@ -26,7 +26,7 @@ public class UserFonction {
                 System.out.println("interact("+e.getName()+")");
             }
         }
-        if(!p.getCurrentArea().getWorld().getBoss().isAlive()){
+        if(p.getCurrentArea().getWorld().getBoss()!=null && !p.getCurrentArea().getWorld().getBoss().isAlive()){
             System.out.println("changeWorld()");
         }
         System.out.print("\n");

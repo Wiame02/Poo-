@@ -147,40 +147,6 @@ public class Game {
             }
 
         }
-
-
-
-
-        /*
-                try {
-            System.out.println("executeFunctionInput()");
-            ArrayList<String> args = (ArrayList<String>) func.clone();
-            args.remove(0);
-            for (String a : args) {
-                System.out.println("element : " + a);
-            }
-
-            if (Application.Reflection.ApplicationReflection.getPublicMethodsNames("Application.Console").contains(func.get(0))) {
-                System.out.println("Does the function exist ? : True");
-                Object[] argsTab = {p};
-                Application.Reflection.ApplicationReflection.executeStaticFunction("Application.Console", func.get(0), argsTab);
-            } else {
-                System.out.println("Does the function exist ? : False");
-            }
-            
-        }
-        catch (Exception e) {
-            System.out.println("executeFunctionInput() :: " + e);
-        }
-        if (func.get(0).equals("showAvailableActions")) {
-            Console.showAvailableActions(p);
-        }else if (func.get(0).equals("moveLinkedArea")) {
-            try {
-                p.moveToLinkedarea(p.getCurrentArea().getAccessArea("Champs"));
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-        }*/
     }
 
     /**
@@ -224,28 +190,28 @@ public class Game {
                 rep = sc.nextLine();
             }
             if(rep.equals("Y")){
-                System.out.println("Voici les mondes : \n");
-                for(World w : board.getWorlds()){
-                    if(w.getBoss()!=null){
-                        System.out.println(w.getName());
-                    }
+            System.out.println("Voici les mondes : \n");
+            for(World w : board.getWorlds()){
+                if(w.getBoss()!=null){
+                    System.out.println(w.getName());
                 }
-                System.out.print("\n");
-                System.out.println("Dans quel monde souhaitez vous aller ? ");
+            }
+            System.out.print("\n");
+            System.out.println("Dans quel monde souhaitez vous aller ? ");
+            rep = sc.nextLine();
+            while(!rep.equals(board.getWorldAt(1).getName()) && !rep.equals(board.getWorldAt(2).getName()) && !rep.equals(board.getWorldAt(3).getName())){
+                System.out.println("Veuillez entrez le nom d'un monde tel qu'il est écrit au dessus. Dans quel monde souhaitez vous aller ? ");
                 rep = sc.nextLine();
-                while(!rep.equals(board.getWorldAt(1).getName()) && !rep.equals(board.getWorldAt(2).getName()) && !rep.equals(board.getWorldAt(3).getName())){
-                    System.out.println("Veuillez entrez le nom d'un monde tel qu'il est écrit au dessus. Dans quel monde souhaitez vous aller ? ");
-                    rep = sc.nextLine();
-                }
-                
-                if(rep.equals(board.getWorldAt(1).getName())){
-                    p.moveTo(board.getWorldAt(1).getAreaAt(0));
-                }else if(rep.equals(board.getWorldAt(2).getName())){
-                    p.moveTo(board.getWorldAt(2).getAreaAt(0));
-                }else if(rep.equals(board.getWorldAt(3).getName())){
-                    p.moveTo(board.getWorldAt(3).getAreaAt(0));
-                }
-                System.out.println("Bienvenue dans le monde de "+p.getCurrentArea().getWorld().getName()+"\n\n");
+            }
+            
+            if(rep.equals(board.getWorldAt(1).getName())){
+                p.moveTo(board.getWorldAt(1).getAreaAt(0));
+            }else if(rep.equals(board.getWorldAt(2).getName())){
+                p.moveTo(board.getWorldAt(2).getAreaAt(0));
+            }else if(rep.equals(board.getWorldAt(3).getName())){
+                p.moveTo(board.getWorldAt(3).getAreaAt(0));
+            }
+            System.out.println("Bienvenue dans le monde de "+p.getCurrentArea().getWorld().getName()+"\n\n");
 
             }
         }
@@ -258,7 +224,7 @@ public class Game {
         Board   board   = generateBoard();
         Player  player  = createPlayer(board.getWorldAt(0)); 
         
-        Console.beginGame(player);
+        Console.beginGame(player,board);
 
         boolean areAllBossesDead = false;
     
