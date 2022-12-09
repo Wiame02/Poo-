@@ -7,6 +7,8 @@ HIGNARD Katel <br/>
 
 Chargé de TD & TP : GRANVILLIERS Laurent
 
+## Javadoc
+[Index du Javadoc](Javadoc/index.html)<br/>
 ## Comptes-rendus
 
 [Compte-rendu du 10.10.2022](Comptes_rendus/CR1_10102022.md)<br/>
@@ -18,7 +20,9 @@ Chargé de TD & TP : GRANVILLIERS Laurent
 
 ## Livrables
 [Livrable 2 : Proposition de sujet](Livrables/Proposition_de_Sujet.pdf)<br/>
-[Livrable 3 : Rapport de Conception](Livrables/Rapport_de_Conception.pdf)
+[Livrable 3 : Rapport de Conception](Livrables/Rapport_de_Conception.pdf)<br/>
+[Livrable 4 : Code Java](src/)<br/>
+[Livrable 5 : Diapositives](https://docs.google.com/presentation/d/1TgsekfzMO6fwfhBjjqAqHge4oMBjET-BMWAc3H9GAI0/edit?usp=sharing)
 
 ## Annexes
 [Brouillon de l'univers du jeu](Annexes/Histoire.md)<br/>

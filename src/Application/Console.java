@@ -39,13 +39,13 @@ public class Console {
 
     public static void beginGame(Player p, Board board) {
         try{
-            System.out.println("Ah ! Vous voilà " + p.getUsername() + ", je vous attendais.");
+            System.out.println("\n\nAh ! Vous voilà " + p.getUsername() + ", je vous attendais.");
             Thread.sleep(1000);
             
             ArrayList<String> dialog = DataWorlds.firstDialogue();
             for (String txt : dialog) {
                 System.out.println(txt);
-                Thread.sleep((int) 35*txt.length());
+                //Thread.sleep((int) 35*txt.length());
             }        
         }
         catch(InterruptedException i){
@@ -56,12 +56,12 @@ public class Console {
         // Choix du monde de départ
         String rep;
         Scanner sc = new Scanner(System.in);
-        System.out.print("\n");
+        System.out.println();
 
-        System.out.println("Dans quel monde souhaitez vous aller ? ");
+        System.out.print("Dans quel monde souhaitez vous aller ? \n>> ");
         rep = sc.nextLine();
         while(!rep.equals(board.getWorldAt(1).getName()) && !rep.equals(board.getWorldAt(2).getName()) && !rep.equals(board.getWorldAt(3).getName())){
-            System.out.println("Veuillez entrez le nom d'un monde tel qu'il est écrit au dessus. Dans quel monde souhaitez vous aller ? ");
+            System.out.print("Veuillez entrez le nom d'un monde tel qu'il est écrit au dessus. Dans quel monde souhaitez vous aller ? \n>> ");
             rep = sc.nextLine();
         }
         
@@ -147,11 +147,6 @@ public class Console {
         }
     }
     
-    public static ArrayList<String> getAvailableActions(){
-        ArrayList<String> doableActions = null;
-        //TODO
-        return doableActions;
-    }
 
     public static void main(String[] args) {
         /*

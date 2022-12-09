@@ -185,12 +185,12 @@ public class Game {
 
     public static void chooseWorld(Board board,Player p){
         if(p.getCurrentArea().getWorld().getBoss()==null || !p.getCurrentArea().getWorld().getBoss().isAlive()){
-            System.out.print("Souvaitez vous partir du monde ? (Y/N)\n");
+            System.out.print("Souvaitez vous partir du monde ? (Y/N) \n>>");
             Scanner sc = new Scanner(System.in);
 
             String rep = sc.nextLine();
             if(!rep.equals("Y") && !rep.equals("N")){
-                System.out.println("Veuillez répondre avec Y ou N. Souhaitez-vous partir du monde ? ");
+                System.out.println("Veuillez répondre avec Y ou N. Souhaitez-vous partir du monde ?\n>>");
                 rep = sc.nextLine();
             }
             if(rep.equals("Y")){
@@ -200,11 +200,11 @@ public class Game {
                     System.out.println(w.getName());
                 }
             }
-            System.out.print("\n");
-            System.out.println("Dans quel monde souhaitez vous aller ? ");
+            System.out.println();
+            System.out.print("Dans quel monde souhaitez vous aller ? \n >>");
             rep = sc.nextLine();
             while(!rep.equals(board.getWorldAt(1).getName()) && !rep.equals(board.getWorldAt(2).getName()) && !rep.equals(board.getWorldAt(3).getName())){
-                System.out.println("Veuillez entrez le nom d'un monde tel qu'il est écrit au dessus. Dans quel monde souhaitez vous aller ? ");
+                System.out.print("Veuillez entrez le nom d'un monde tel qu'il est écrit au dessus. Dans quel monde souhaitez vous aller ? \n>>");
                 rep = sc.nextLine();
             }
             
@@ -233,6 +233,7 @@ public class Game {
         boolean areAllBossesDead = false;
     
         UserFonction.displayActions(player);
+        UserFonction.displayCurrentArea(player);
 
         while (!areAllBossesDead && player.isAlive()) {
             System.out.println("displayActions()");
