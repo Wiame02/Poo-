@@ -22,7 +22,7 @@ Chargé de TD & TP : GRANVILLIERS Laurent
 [Livrable 2 : Proposition de sujet](Livrables/Proposition_de_Sujet.pdf)<br/>
 [Livrable 3 : Rapport de Conception](Livrables/Rapport_de_Conception.pdf)<br/>
 [Livrable 4 : Code Java](src/)<br/>
-[Livrable 5 : Diapositives](https://docs.google.com/presentation/d/1TgsekfzMO6fwfhBjjqAqHge4oMBjET-BMWAc3H9GAI0/edit?usp=sharing)
+[Livrable 5 : Diapositives](Livrables/soutenance.pdf)
 
 ## Annexes
 [Brouillon de l'univers du jeu](Annexes/Histoire.md)<br/>
